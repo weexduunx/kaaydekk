@@ -1,0 +1,8 @@
+easy_admin:
+    user:
+        display_name: false
+    entities:
+      - App\Entity\Achat
+      - App\Entity\Bien
+      - App\Entity\Client
+      - App\Entity\user
