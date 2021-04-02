@@ -23,7 +23,21 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('@EasyAdmin/page/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error,
+
+            'page_title' => 'Kaay Dëkk Immo Authentification',
+            'csrf_token' => 'authenticate',
+
+            'username_label' => 'email',
+
+            // the label displayed for the password form field (the |trans filter is applied to it)
+            'password_label' => 'mot de passe',
+
+            // the label displayed for the Sign In form button (the |trans filter is applied to it)
+            'sign_in_label' => 'se connecter',
+        ]);
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Entity\Achat;
 use App\Entity\Bien;
 use App\Entity\Client;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -14,6 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+
+    public function configureAssets(): Assets
+    {
+        return Assets::new()
+            // ...
+            ->addHtmlContentToHead('<style>:root { --color-primary: #2B65EC; }</style>');
+    }
     /**
      * @Route("/admin", name="admin")
      */
