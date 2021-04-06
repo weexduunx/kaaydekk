@@ -26,8 +26,7 @@
                         <ul class="collapse first-level base-level-line " >
                             {% for menuSubItem in menuItem.subItems %}
                                 {% block menu_subitem %}
-                                    {% if is_granted(menuSubItem.permission) %}
-                                    <li class="sidebar-item {{ menuSubItem.isMenuSection ? 'header' }} {{  ea.mainMenu.isSelected(menuSubItem) ? 'active' }}">
+                                    <li class="sidebar-item {{ menuSubItem.isMenuSection ? 'nav-small-cap' }} {{  ea.mainMenu.isSelected(menuSubItem) ? 'active' }}">
                                         {{ _self.render_menu_item(menuSubItem) }}
                                     </li>
                                     {% endif %}
