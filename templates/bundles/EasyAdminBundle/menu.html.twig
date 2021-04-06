@@ -4,10 +4,11 @@
         {% if item.icon is not empty %}<i class="menu-icon fa-fw {{ item.icon }}"></i>{% endif %}
         <span class="{{ item.cssClass }}">{{ item.label }}</span>
     {% else %}
-        <a href="{{ item.linkUrl }}" class="sidebar-link {{ item.cssClass |default('') }}" target="{{ item.linkTarget }}" rel="{{ item.linkRel }}" referrerpolicy="origin-when-cross-origin">
+        <a href="{{ item.linkUrl }}" class="sidebar-link {{ item.cssClass }}" target="{{ item.linkTarget }}"
+           rel="{{ item.linkRel }}" >
             {% if item.icon is not empty %}<i class="menu-icon fa-fw {{ item.icon }}"></i>{% endif %}
             <span>{{ item.label|raw }}</span>
-            {% if item.hasSubItems %}<i class="fa fa-fw fa-angle-right treeview-icon"></i>{% endif %}
+            {% if item.hasSubItems %}<i class="fa fa-fw fa-angle-right "></i>{% endif %}
         </a>
     {% endif %}
 {% endmacro %}
@@ -15,21 +16,22 @@
 {% block main_menu_before %}{% endblock %}
 
 <nav class="sidebar-nav">
-<ul class="in" id="sidebarnav">
+<ul class="in" id="sidebarnav" data-widget="tree" data-animation-speed="250">
     {% block main_menu %}
         {% for menuItem in ea.mainMenu.items %}
             {% block menu_item %}
-                <li class="sidebar-item {{ menuItem.isMenuSection ? 'header' }} {{ menuItem.hasSubItems ? 'treeview' }} {{ ea.mainMenu.isSelected(menuItem) ? 'selected' }} {{ ea.mainMenu.isExpanded(menuItem) ? 'active submenu-selected' }}">
+                <li class="sidebar-item {{ menuItem.isMenuSection ? 'header' }} {{ menuItem.hasSubItems ? 'treeview' }}
+                  {{ ea.mainMenu.isSelected(menuItem) ? 'selected' }} {{ ea.mainMenu.isExpanded(menuItem) ? 'selected submenu-selected' }}">
                     {{ _self.render_menu_item(menuItem) }}
 
                     {% if menuItem.hasSubItems %}
-                        <ul class="collapse first-level base-level-line " >
+                        <ul class="treeview-menu first-level base-level-line" >
                             {% for menuSubItem in menuItem.subItems %}
                                 {% block menu_subitem %}
-                                    <li class="sidebar-item {{ menuSubItem.isMenuSection ? 'nav-small-cap' }} {{  ea.mainMenu.isSelected(menuSubItem) ? 'active' }}">
-                                        {{ _self.render_menu_item(menuSubItem) }}
+                                    <li class="sidebar-item{{ menuSubItem.isMenuSection ? 'header' }}
+                                      {{  ea.mainMenu.isSelected(menuSubItem) ? 'active' }}">
+                                        <span >{{ _self.render_menu_item(menuSubItem) }}</span>
                                     </li>
-                                    {% endif %}
                                 {% endblock menu_subitem %}
                             {% endfor %}
                         </ul>
