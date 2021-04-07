@@ -57,12 +57,12 @@ class Bien
     private $status;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @ORM\Column(type="string", length=100)
      */
     private $thumbnail;
 
     /**
-     * @Vich\UploadableField(mapping="bien_thumbnails", fileNameProperty="thumbnail")
+     * @Vich\UploadableField(mapping="thumbnails", fileNameProperty="thumbnail")
      */
     private $thumbnailFile;
 

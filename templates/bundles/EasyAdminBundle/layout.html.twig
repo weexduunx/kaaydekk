@@ -15,30 +15,29 @@
     <title>{% block page_title %}{{ block('content_title')|striptags|raw }}{% endblock %}</title>
 
     {% block head_stylesheets %}
-    <link href="{{  ('/assets/dist/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{  ('/assets/dist/css/style.css') }}" rel="stylesheet">
     {% endblock %}
 
     {% block configured_stylesheets %}
-        {% for css_asset in assets.cssFiles ?? [] %}
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-            <link href="{{ ('/assets/scss/style.scss') }}" rel="stylesheet">
-            <link href="{{ ('/assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">
-            <link href="{{ ('/assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
-            <link href="{{ ('/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
+        {% for css_asset in ea.assets.cssFiles ?? [] %}
+            <link rel="stylesheet" href="{{ asset(css_asset) }}">
         {% endfor %}
+
     {% endblock %}
 
     {% block head_favicon %}
-        <link rel="shortcut icon" href="{{ asset(ea.dashboardFaviconPath) }}">
+        <link rel="shortcut icon" href="{{ ('/assets/images/favicon.png') }}">
     {% endblock %}
 
     {% block head_javascript %}
         <script src="{{ ('bundles/easyadmin/app.js') }}"></script>
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+
     {% endblock head_javascript %}
+
+    {% if 'rtl' == ea.i18n.textDirection %}
+        <link rel="stylesheet" href="{{ ('bundles/easyadmin/app.rtl.css') }}">
+        <link rel="stylesheet" href="{{ ('bundles/easyadmin/app-custom-rtl.css') }}">
+    {% endif %}
 
     {% block configured_head_contents %}
         {% for htmlContent in ea.assets.headContents ?? [] %}
@@ -63,24 +62,22 @@
             {{ include(ea.templatePath('flash_messages')) }}
         {% endblock flash_messages %}
 
-        <div id="main-wrapper" class="mini-sidebar" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-             data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+        <div id="main-wrapper" class="mini-sidebar" data-theme="light" data-layout="vertical" data-navbarbg="skin6"
+             data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
             {% block wrapper %}
                 <header class="topbar" data-navbarbg="skin6">
                     {% block header %}
-                        <nav class="navbar top-navbar navbar-expand-md navbar-light" role="navigation">
+                        <nav class="navbar top-navbar navbar-expand-md navbar-light">
                                 {# LOGO #}
                                 <div data-logobg="skin6" class="navbar-header">
                                     <div id="header-logo" class="navbar-brand">
                                         <b class="logo-icon">
-                                        <img src="{{ ('/assets/images/logo-icon.png') }}" alt="">
+                                        <img src="{{ ('/assets/images/logo-kdi.png') }}" width="180" height="160"  alt="">
                                         </b>
-                                        <span class="logo-text">
-                                       <img src="{{ ('/assets/images/logo-text.png') }}" alt="">
-                                        </span>
                                     </div>
                                 </div>
-                                <div  class="navbar-collapse collapse" >
+                                <div  class="navbar-collapse collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav float-left mr-auto ml-3 pl-1"></ul>
                                 {% block header_custom_menu %}
                                     {% if constant('Symfony\\Component\\Security\\Core\\Authorization\\Voter\\AuthenticatedVoter::IS_IMPERSONATOR') is defined %}
@@ -99,7 +96,7 @@
                                            aria-haspopup="true" aria-expanded="false">
                                             {% if ea.userMenu.isAvatarDisplayed %}
                                                 {% if null == ea.userMenu.avatarUrl %}
-                                                    <i class="fa fa-fw {{ ea.user is not null ? 'fa-user-circle' : 'fa-user-times' }} user-avatar"></i>
+                                                    <i class="fa fa-fw {{ ea.user is not null ? 'fa-user-circle' : 'fa-user-times' }}                                                                        user-avatar"></i>
                                                 {% else %}
                                                     <img class="user-avatar" src="{{ ea.userMenu.avatarUrl }}" />
                                                 {% endif %}
@@ -109,7 +106,11 @@
                                                   {% if ea.userMenu.isNameDisplayed %}
                                                       <span class="user-name">{{ ea.userMenu.name }}</span>
                                                   {% endif %}
-                                                </span> <i class="fa fa-chevron-down"></i></span>
+                                                </span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24                                                      24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"                                                       stroke-linejoin="round" class="feather feather-chevron-down svg-icon">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                                </span>
                                         </a>
                             {% set _user_menu_content %}
                                 {% block user_menu %}
@@ -117,16 +118,21 @@
                                         <div class="dropdown-menu dropdown-menu-right user-dd">
                                             {% for item in ea.userMenu.items %}
                                                 {% if item.isMenuSection %}
-                                                    <div class="popover-content-section user-details {{ ea.userMenu.items|length > 0 ? 'user-has-actions' }}">
+                        <div class="popover-content-section user-details {{ ea.userMenu.items|length > 0 ? 'user-has-actions' }}">
                                                        {{ ea.user is null ? 'user.anonymous'|trans(domain = 'EasyAdminBundle') }}
                                                     </div>
                                                     <hr class="m-0" />
                                                 {% else %}
-                                                    <a class="dropdown-item" href="{{ item.linkUrl }}"  target="{{ item.linkTarget }}" rel="{{ item.linkRel }}"
+                            <a class="dropdown-item" href="{{ item.linkUrl }}"  target="{{ item.linkTarget }}" rel="{{ item.linkRel }}"
                                                        referrerpolicy="origin-when-cross-origin">
+
                                                         <i class="fa fa-power-off"></i>
                                                         <span>{{ item.label }}</span>
                                                     </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <div class="pl-4 p-3">
+                                                        <a href="javascript:void(0)" class="btn btn-sm btn-info">View Profile</a>
+                                                    </div>
                                                 {% endif %}
                                             {% endfor %}
                                         </div>
@@ -143,21 +149,33 @@
             </header>
                 <aside class="left-sidebar" data-sidebarbg="skin6">
                     {% block sidebar %}
-                        <div class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-sidebarbg="skin6">
-                            {% block main_menu_wrapper %}
-                                {{ include(ea.templatePath('main_menu')) }}
-                            {% endblock main_menu_wrapper %}
+                        <div class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-sidebarbg="skin6"
+                             data-ps-id="2a07125e-f222-926a-ad13-e073eb7d968c">
+                            <nav class="sidebar-nav">
+                                {% block main_menu_wrapper %}
+                                    {{ include(ea.templatePath('main_menu')) }}
+                                {% endblock main_menu_wrapper %}
+                            </nav>
+                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                                <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                            </div>
+                            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 771px; right: 3px;">
+                                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 561px;"></div>
+                            </div>
                         </div>
                     {% endblock sidebar %}
                 </aside>
 
                 <div class="page-wrapper" style="display: block;">
+                    <div id="sidebar-resizer-handler" class="resizer-handler resizer-handler-left"></div>
                     {% block content_header_wrapper %}
                         {% set has_help_message = (ea.crud.helpMessage ?? '') is not empty %}
                         <div class="page-breadcrumb">
                             <div class="row">
-                                <div class="col-5">
-                                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">{% block content_title %}{% endblock %}</h3>
+                                <div class="col-7 align-self-center">
+                                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">
+                                        {% block content_title %}{% endblock %}
+                                    </h3>
                                     <div class="d-flex align-items-center">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb m-0 p-0">
@@ -173,10 +191,12 @@
                                         </nav>
                                     </div>
                                 </div>
-                                <div class="col-7">
-                                    {% block page_actions_wrapper %}
-                                        <div class="page-actions">{% block page_actions %}{% endblock %}</div>
-                                    {% endblock %}
+                                <div class="col-5 align-self-center">
+                                    <div class="customize-input float-right">
+                                        {% block page_actions_wrapper %}
+                                            <div class="page-actions">{% block page_actions %}{% endblock %}</div>
+                                        {% endblock %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -185,16 +205,17 @@
                     {% block content %}
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-lg-12">
+                                <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <section id="main" class="content-body">
-                                                {% block main %}{% endblock %}
-                                            </section>
+                                            <div class="table-responsive">
+                                                <section id="main" class="content-body">
+                                                    {% block main %}{% endblock %}
+                                                </section>
+                                            </div>
                                         </div>
-
                                         {% block content_footer_wrapper %}
-                                            {% set content_footer = block('content_footer') is defined ? block('content_footer') : '' %}
+                                      {% set content_footer = block('content_footer') is defined ? block('content_footer') : '' %}
                                             {% if content_footer is not empty %}
                                                 <div class="card-footer">
                                                     {{ content_footer }}
@@ -206,6 +227,7 @@
                             </div>
                         </div>
                     {% endblock content %}
+                    <div id="content-resizer-handler" class="resizer-handler resizer-handler-right"></div>
                 </div>
             {% endblock wrapper %}
         </div>
@@ -216,28 +238,15 @@
     {% block configured_javascripts %}
         {% for js_asset in ea.assets.jsFiles ?? [] %}
             <script src="{{ asset (js_asset) }}"></script>
-            <script src="{{ ('/assets/libs/jquery/dist/jquery.min.js') }}"></script>
-            <script src="{{ ('/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
-            <script src="{{ ('/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-            <script src="{{ ('/assets/dist/js/app-style-switcher.js') }}"></script>
-            <script src="{{ ('/assets/dist/js/feather.min.js') }}"></script>
-            <script src="{{ ('/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
-            <script src="{{ ('/assets/dist/js/sidebarmenu.js') }}"></script>
+
         {% endfor %}
     {% endblock %}
-    <!--Custom JavaScript -->
-    <script src="{{ ('/assets/dist/js/custom.min.js') }}"></script>
+
     {% block configured_body_contents %}
         {% for htmlContent in ea.assets.bodyContents ?? [] %}
             {{ htmlContent|raw }}
         {% endfor %}
 
-        <script src="{{ ('/assets/extra-libs/c3/c3.min.js') }}"></script>
-        <script src="{{ ('/assets/libs/chartist/dist/chartist.min.js') }}"></script>
-        <script src="{{ ('/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
-        <script src="{{ ('/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js') }}"></script>
-        <script src="{{ ('/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js') }}"></script>
-        <script src="{{ ('/assets/dist/js/pages/dashboards/dashboard1.min.js') }}"></script>
     {% endblock %}
     </body>
 {% endblock body %}

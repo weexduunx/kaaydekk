@@ -13,6 +13,7 @@
 
 {# Widgets #}
 
+{# TODO #}
 {% block form_widget_simple -%}
     {% if type is not defined or type not in ['file', 'hidden'] %}
         {%- set attr = attr|merge({class: (attr.class|default(''))|trim}) -%}
@@ -107,6 +108,7 @@
     </div>
 {% endblock form_row %}
 
+{# TODO #}
 {% block collection_row %}
     {% if prototype is defined and not prototype.rendered %}
         {% set row_attr = row_attr|merge({ 'data-prototype': form_row(prototype) }) %}
@@ -138,11 +140,13 @@
 {% block collection_entry_widget %}
     {% set is_complex = form_parent(form).vars.ea_crud_form.ea_field.customOptions.get('entryIsComplex') ?? false %}
 
-    <div class="field-collection-item {{ is_complex ? 'field-collection-item-complex' }}">
-        {{ form_widget(form) }}
+    <div class="field-collection-item-row row no-gutters {{ is_complex ? 'field-collection-item-complex' }}">
+        <div class="col-md-11">
+            {{ form_widget(form) }}
+        </div>
 
         {% if form_parent(form).vars.allow_delete|default(false) %}
-            <button type="button" class="btn btn-link field-collection-delete-button"
+            <button type="button" class="btn btn-danger field-collection-delete-button col-md-1 custom-button"
                     title="{{ 'action.remove_item'|trans({}, 'EasyAdminBundle') }}"
                     onclick="this.closest('.form-group').remove(); return false;">
                 <i class="fas fa-times"></i>
@@ -242,9 +246,11 @@
 
         <div class="ea-vich-file-actions">
             {# the container element is needed to allow customizing the <input type="file" /> #}
-            <div class="btn btn-secondary input-file-container">
-                <i class="fa fa-fw fa-upload"></i> {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
+            <div class="custom-file input-file-container">
                 {{ form_widget(form.file, { 'attr': { 'onchange': file_upload_js }, vich: true}) }}
+                <label class="custom-file-label">
+                    {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
+                </label>
             </div>
 
             {% if form.delete is defined %}
@@ -302,9 +308,11 @@
 
         <div class="ea-vich-image-actions">
             {# the container element is needed to allow customizing the <input type="file" /> #}
-            <div class="btn btn-secondary input-file-container">
-                <i class="fa fa-fw fa-upload"></i> {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
+            <div class="custom-file input-file-container">
                 {{ form_widget(form.file, { 'attr': { 'onchange': file_upload_js }, vich: true}) }}
+                <label class="custom-file-label">
+                    {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
+                </label>
             </div>
 
             {% if form.delete is defined %}
@@ -373,7 +381,8 @@
                 {% if panel_has_header %}
                     <div class="content-panel-header {{ collapsible ? 'collapsible' }} {{ panel_config.help|default(false) is not empty ? 'with-help' }}">
                         {% if collapsible %}
-                            <a href="#content-{{ panel_name }}" data-toggle="collapse" class="content-panel-collapse {{ collapsed ? 'collapsed' }}" aria-expanded="{{ collapsed ? 'false' : 'true' }}" aria-controls="content-{{ panel_name }}">
+                            <a href="#content-{{ panel_name }}" data-toggle="collapse" class="content-panel-collapse {{ collapsed ? 'collapsed' }}"
+                               aria-expanded="{{ collapsed ? 'false' : 'true' }}" aria-controls="content-{{ panel_name }}">
                                 <i class="fas fw fa-chevron-right collapse-icon"></i>
                         {% endif %}
 
@@ -482,7 +491,8 @@
     {{ form_widget(form.ids) }}
     <button type="button" class="btn btn-link deselect-batch-button">{{ 'action.deselect'|trans(_trans_parameters, ea.i18n.translationDomain) }}</button>
     {% for action in batch_actions %}
-        <button type="submit" class="btn {{ action.css_class|default('btn-secondary') }} {% if action.ask_confirm %}ask-confirm-batch-button{% endif -%}" title="{{ action.title|default('') is empty ? '' : action.title|trans(_trans_parameters) }}" name="{{ form.name.vars.full_name }}" value="{{ action.name }}">
+        <button type="submit" class="btn {{ action.css_class|default('btn-secondary') }} {% if action.ask_confirm %}ask-confirm-batch-button{% endif -%}"
+                title="{{ action.title|default('') is empty ? '' : action.title|trans(_trans_parameters) }}" name="{{ form.name.vars.full_name }}" value="{{ action.name }}">
             {%- if action.icon %}<i class="fa fa-fw fa-{{ action.icon }}"></i> {% endif -%}
             {%- if action.label is defined and not action.label is empty -%}
                 {{ action.label|trans(_trans_parameters, ea.i18n.translationDomain) }}

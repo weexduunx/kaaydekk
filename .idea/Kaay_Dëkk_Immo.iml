@@ -113,9 +113,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/vich/uploader-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jms/metadata" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/kevinpapst/adminlte-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/techlab/smartwizard" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="font-awesome" level="application" />
+    <orderEntry type="library" name="smartwizard" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1" level="application" />
   </component>
 </module>

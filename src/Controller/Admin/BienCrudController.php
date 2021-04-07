@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -36,7 +37,6 @@ class BienCrudController extends AbstractCrudController
         return Bien::class;
     }
 
-
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -47,6 +47,7 @@ class BienCrudController extends AbstractCrudController
             ->add(BooleanFilter::new('status'))
             ;
     }
+
 
     public function configureFields(string $pageName): iterable
     {
@@ -59,19 +60,19 @@ class BienCrudController extends AbstractCrudController
             BooleanField::new('status'),
             DateField::new('createdAt'),
             DateField::new('updatedAt'),
-            ImageField::new('thumbnail','image')
-                ->onlyOnIndex()
-                ->setBasePath($this->getParameter("uploads_path")),
-            TextareaField::new('thumbnailFile',"Ajout image")
+            ImageField::new('thumbnailFile','image')
                 ->setFormType(VichImageType::class)
-                ->hideOnIndex()
                 ->hideOnDetail()
-                ->setFormTypeOption('allow_delete',false),
+                ->hideOnIndex()
+                ->hideOnForm(),
+            ImageField::new('thumbnail','Image')
+                ->setBasePath('/images/bien')
+                ->setUploadDir('public/images/bien/'),
         ];
-
     }
     public function configureActions(Actions $actions): Actions
     {
         return $actions->add(Crud::PAGE_INDEX,'detail');
     }
+
 }
