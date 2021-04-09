@@ -66,6 +66,11 @@ class Bien
      */
     private $thumbnailFile;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeDeBien::class, inversedBy="bien")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $typeDeBien;
 
     /**
      * @return mixed
@@ -220,4 +225,15 @@ class Bien
         return $this;
     }
 
+    public function getTypeDeBien(): ?TypeDeBien
+    {
+        return $this->typeDeBien;
+    }
+
+    public function setTypeDeBien(?TypeDeBien $typeDeBien): self
+    {
+        $this->typeDeBien = $typeDeBien;
+
+        return $this;
+    }
 }

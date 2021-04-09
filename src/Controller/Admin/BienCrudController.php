@@ -52,11 +52,14 @@ class BienCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            FormField::addPanel('INFORMATIONS SUR LES BIENS','fa fa-pencil'),
-            TextField::new('label'),
-            MoneyField::new('prix')->setCurrency('XOF'),
+            FormField::addPanel('INFOS BIEN','fa fa-pencil'),
+            TextField::new('label','Nature du Bien'),
+            AssociationField::new('typeDeBien','Type de logement'),
+            MoneyField::new('prix')
+                ->setCurrency('XOF'),
             NumberField::new('superficie'),
-            AssociationField::new('achat'),
+            AssociationField::new('achat','Achat cumulé')
+                ->hideOnIndex(),
             BooleanField::new('status'),
             DateField::new('createdAt'),
             DateField::new('updatedAt'),

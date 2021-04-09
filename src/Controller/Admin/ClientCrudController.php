@@ -3,10 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -36,16 +40,26 @@ class ClientCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            FormField::addPanel('INFORMATIONS DE BASE','fa fa-pencil'),
+            FormField::addPanel('INFORMATIONS DU CANDIDAT','fa fa-pencil'),
             TextField::new('nom'),
             TextField::new('prenom'),
+            DateField::new('date_de_naissance'),
+            TextField::new('lieu_de_naissance'),
+            CountryField::new('nationalite'),
+            TextField::new('profession'),
+            TextField::new('situation_matrimoniale'),
+            TextField::new('email'),
             TextField::new('adresse'),
             TelephoneField::new('tel'),
             TextField::new('numero_cin_ou_passeport'),
+            AssociationField::new('detailsCandidatures'),
             AssociationField::new('achat'),
             BooleanField::new('status'),
             TextEditorField::new('commentaire', 'Commentaire'),
         ];
     }
-
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions->add(Crud::PAGE_INDEX,'detail');
+    }
 }

@@ -62,14 +62,43 @@ class Client
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $createdBy;
+    private $email;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date_de_naissance;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lieu_de_naissance;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nationalite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $profession;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $situation_matrimoniale;
+
+    /**
+     * @ORM\OneToMany(targetEntity=DetailsCandidature::class, mappedBy="client")
+     */
+    private $detailsCandidatures;
 
     public function __construct()
     {
         $this->achat = new ArrayCollection();
+        $this->detailsCandidatures = new ArrayCollection();
     }
-
-
 
     public function getId(): ?int
     {
@@ -194,15 +223,106 @@ class Client
         return $this;
     }
 
-    public function getCreatedBy(): ?string
+    public function getEmail(): ?string
     {
-        return $this->createdBy;
+        return $this->email;
     }
 
-    public function setCreatedBy(string $createdBy): self
+    public function setEmail(string $email): self
     {
-        $this->createdBy = $createdBy;
+        $this->email = $email;
 
         return $this;
     }
+
+    public function getDateDeNaissance(): ?\DateTimeInterface
+    {
+        return $this->date_de_naissance;
+    }
+
+    public function setDateDeNaissance(\DateTimeInterface $date_de_naissance): self
+    {
+        $this->date_de_naissance = $date_de_naissance;
+
+        return $this;
+    }
+
+    public function getLieuDeNaissance(): ?string
+    {
+        return $this->lieu_de_naissance;
+    }
+
+    public function setLieuDeNaissance(string $lieu_de_naissance): self
+    {
+        $this->lieu_de_naissance = $lieu_de_naissance;
+
+        return $this;
+    }
+
+    public function getNationalite(): ?string
+    {
+        return $this->nationalite;
+    }
+
+    public function setNationalite(string $nationalite): self
+    {
+        $this->nationalite = $nationalite;
+
+        return $this;
+    }
+
+    public function getProfession(): ?string
+    {
+        return $this->profession;
+    }
+
+    public function setProfession(string $profession): self
+    {
+        $this->profession = $profession;
+
+        return $this;
+    }
+
+    public function getSituationMatrimoniale(): ?string
+    {
+        return $this->situation_matrimoniale;
+    }
+
+    public function setSituationMatrimoniale(string $situation_matrimoniale): self
+    {
+        $this->situation_matrimoniale = $situation_matrimoniale;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DetailsCandidature[]
+     */
+    public function getDetailsCandidatures(): Collection
+    {
+        return $this->detailsCandidatures;
+    }
+
+    public function addDetailsCandidature(DetailsCandidature $detailsCandidature): self
+    {
+        if (!$this->detailsCandidatures->contains($detailsCandidature)) {
+            $this->detailsCandidatures[] = $detailsCandidature;
+            $detailsCandidature->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetailsCandidature(DetailsCandidature $detailsCandidature): self
+    {
+        if ($this->detailsCandidatures->removeElement($detailsCandidature)) {
+            // set the owning side to null (unless already changed)
+            if ($detailsCandidature->getClient() === $this) {
+                $detailsCandidature->setClient(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

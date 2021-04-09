@@ -96,9 +96,9 @@
                                            aria-haspopup="true" aria-expanded="false">
                                             {% if ea.userMenu.isAvatarDisplayed %}
                                                 {% if null == ea.userMenu.avatarUrl %}
-                                                    <i class="fa fa-fw {{ ea.user is not null ? 'fa-user-circle' : 'fa-user-times' }}                                                                        user-avatar"></i>
+                                                    <i class="fa fa-fw {{ ea.user is not null ? 'fa-user-circle' : 'fa-user-times' }}"></i>
                                                 {% else %}
-                                                    <img class="user-avatar" src="{{ ea.userMenu.avatarUrl }}" />
+                                                    <img class="user-avatar rounded-circle" src="{{ ea.userMenu.avatarUrl }}" alt="" width="50"/>
                                                 {% endif %}
                                             {% endif %}
                                             <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span>
@@ -125,14 +125,9 @@
                                                 {% else %}
                             <a class="dropdown-item" href="{{ item.linkUrl }}"  target="{{ item.linkTarget }}" rel="{{ item.linkRel }}"
                                                        referrerpolicy="origin-when-cross-origin">
-
-                                                        <i class="fa fa-power-off"></i>
+                                                        <i class="fa fa-sign-out"></i>
                                                         <span>{{ item.label }}</span>
                                                     </a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <div class="pl-4 p-3">
-                                                        <a href="javascript:void(0)" class="btn btn-sm btn-info">View Profile</a>
-                                                    </div>
                                                 {% endif %}
                                             {% endfor %}
                                         </div>
