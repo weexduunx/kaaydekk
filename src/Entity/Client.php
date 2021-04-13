@@ -94,10 +94,17 @@ class Client
      */
     private $detailsCandidatures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="clients")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ville;
+
     public function __construct()
     {
         $this->achat = new ArrayCollection();
         $this->detailsCandidatures = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -321,6 +328,18 @@ class Client
                 $detailsCandidature->setClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVille(): ?Ville
+    {
+        return $this->ville;
+    }
+
+    public function setVille(?Ville $ville): self
+    {
+        $this->ville = $ville;
 
         return $this;
     }

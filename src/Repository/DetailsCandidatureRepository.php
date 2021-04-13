@@ -19,6 +19,18 @@ class DetailsCandidatureRepository extends ServiceEntityRepository
         parent::__construct($registry, DetailsCandidature::class);
     }
 
+
+    /**
+     * @return int|mixed|string|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function countAllCandidature()
+    {
+        $queryBuilder = $this->createQueryBuilder('d');
+        $queryBuilder->select('COUNT(d.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
     // /**
     //  * @return DetailsCandidature[] Returns an array of DetailsCandidature objects
     //  */

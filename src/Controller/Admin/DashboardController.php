@@ -7,26 +7,57 @@ use App\Entity\Bien;
 use App\Entity\Client;
 use App\Entity\DetailCandidature;
 use App\Entity\DetailsCandidature;
+use App\Entity\Projet;
+use App\Entity\Site;
 use App\Entity\TypeDeBien;
 use App\Entity\User;
+use App\Entity\Ville;
+use App\Repository\AchatRepository;
+use App\Repository\BienRepository;
+use App\Repository\ClientRepository;
+use App\Repository\DetailsCandidatureRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class DashboardController extends AbstractDashboardController
 {
+    protected $detailsCandidatureRepository;
+    protected $clientRepository;
+    protected $bienRepository;
+
+    public function __construct(
+        DetailsCandidatureRepository $detailsCandidatureRepository,
+        ClientRepository $clientRepository,
+        BienRepository $bienRepository
+    )
+        {
+           $this->detailsCandidatureRepository = $detailsCandidatureRepository;
+            $this->clientRepository = $clientRepository;
+            $this->bienRepository = $bienRepository;
+
+        }
+
     /**
      * @Route("/admin", name="admin")
+     * @Security("is_granted('ROLE_SUPER_USER')")
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function index(): Response
     {
-        return $this->render('bundles/EasyAdminBundle/layout.html.twig');
-       // return parent::index();
+        return $this->render('bundles/EasyAdminBundle/welcome.html.twig',
+            [
+                'countAllClient' =>$this->clientRepository->countAllClient(),
+                'countAllCandidature' =>$this->detailsCandidatureRepository->countAllCandidature(),
+                'countAllBien' =>$this->bienRepository->countAllBien(),
+                'price' =>$this->bienRepository->findAll(),
+            ]);
     }
 
 
@@ -75,6 +106,24 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
                           ->setAction('new'),
                   ]),
+                  MenuItem::subMenu('Gestion des Projets')
+                      ->setSubItems([
+                          MenuItem::linkToCrud('Lister les projets', 'fas fa-list', Projet::class),
+                          MenuItem::linkToCrud('Ajouter un projet','fas fa-plus', Projet::class)
+                              ->setAction('new'),
+                      ]),
+                  MenuItem::subMenu('Gestion des Sites')
+                      ->setSubItems([
+                          MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class),
+                          MenuItem::linkToCrud('Ajouter un site','fas fa-plus', Site::class)
+                              ->setAction('new'),
+                      ]),
+                  MenuItem::subMenu('Gestion des Villes')
+                      ->setSubItems([
+                          MenuItem::linkToCrud('Liste des villes', 'fas fa-list', Ville::class),
+                          MenuItem::linkToCrud('Ajouter un ville','fas fa-plus', Ville::class)
+                              ->setAction('new'),
+                      ]),
 
                   MenuItem::section('PARAMÈTRES','fa fa-cog'),
                   MenuItem::subMenu('Gestion des Utilisateurs', 'fas fa-user')->setSubItems([

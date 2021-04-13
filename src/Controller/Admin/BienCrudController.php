@@ -55,6 +55,7 @@ class BienCrudController extends AbstractCrudController
             FormField::addPanel('INFOS BIEN','fa fa-pencil'),
             TextField::new('label','Nature du Bien'),
             AssociationField::new('typeDeBien','Type de logement'),
+            AssociationField::new('projet'),
             MoneyField::new('prix')
                 ->setCurrency('XOF'),
             NumberField::new('superficie'),

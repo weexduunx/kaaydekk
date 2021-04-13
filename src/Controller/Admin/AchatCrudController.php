@@ -20,7 +20,7 @@ class AchatCrudController extends AbstractCrudController
     {
         return [
             FormField::addPanel('DETAILS DES ACHATS','fa fa-pencil'),
-            TextField::new('label','Nature Achat'),
+            TextField::new('label','Référence Achat'),
             AssociationField::new('bien','Bien Concerné'),
             AssociationField::new('client','Client Concerné'),
         ];

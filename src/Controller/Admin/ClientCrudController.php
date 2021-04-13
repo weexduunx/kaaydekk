@@ -45,6 +45,7 @@ class ClientCrudController extends AbstractCrudController
             TextField::new('prenom'),
             DateField::new('date_de_naissance'),
             TextField::new('lieu_de_naissance'),
+            AssociationField::new('ville'),
             CountryField::new('nationalite'),
             TextField::new('profession'),
             TextField::new('situation_matrimoniale'),

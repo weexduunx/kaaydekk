@@ -19,6 +19,17 @@ class ClientRepository extends ServiceEntityRepository
         parent::__construct($registry, Client::class);
     }
 
+    /**
+     * @return int|mixed|string|null
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function countAllClient()
+    {
+        $queryBuilder = $this->createQueryBuilder('c');
+        $queryBuilder->select('COUNT(c.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
     // /**
     //  * @return Client[] Returns an array of Client objects
     //  */
@@ -47,4 +58,5 @@ class ClientRepository extends ServiceEntityRepository
         ;
     }
     */
+
 }

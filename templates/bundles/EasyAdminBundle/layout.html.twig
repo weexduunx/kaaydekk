@@ -62,7 +62,6 @@
             {{ include(ea.templatePath('flash_messages')) }}
         {% endblock flash_messages %}
 
-
         <div id="main-wrapper" class="mini-sidebar" data-theme="light" data-layout="vertical" data-navbarbg="skin6"
              data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
             {% block wrapper %}
@@ -73,7 +72,7 @@
                                 <div data-logobg="skin6" class="navbar-header">
                                     <div id="header-logo" class="navbar-brand">
                                         <b class="logo-icon">
-                                        <img src="{{ ('/assets/images/logo-kdi.png') }}" width="180" height="160"  alt="">
+                                        <img src="{{ ('/assets/images/logo-kdi.png') }}" width="200" alt="">
                                         </b>
                                     </div>
                                 </div>
@@ -146,11 +145,9 @@
                     {% block sidebar %}
                         <div class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-sidebarbg="skin6"
                              data-ps-id="2a07125e-f222-926a-ad13-e073eb7d968c">
-                            <nav class="sidebar-nav">
                                 {% block main_menu_wrapper %}
                                     {{ include(ea.templatePath('main_menu')) }}
                                 {% endblock main_menu_wrapper %}
-                            </nav>
                             <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
                                 <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
                             </div>

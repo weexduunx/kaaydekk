@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 
 class DetailsCandidatureCrudController extends AbstractCrudController
 {
@@ -22,6 +23,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+           FormField::addPanel('INFOS CANDIDATS','fa fa-pencil'),
             TextField::new('label','Reférence Candidature'),
             AssociationField::new('type_de_logement','Logement souhaité'),
             AssociationField::new('client','Client(e) concerné(e)'),

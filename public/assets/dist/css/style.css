@@ -1773,8 +1773,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #5f76e8;
-  border-color: #5f76e8; }
+  background-color: #00548a;
+  border-color: #00c2ec; }
   .btn-primary:hover {
     color: #fff;
     background-color: #3e59e3;
@@ -7842,7 +7842,7 @@ Designed dropdown
     width: 40px;
     top: -10px; }
     .topbar .dropdown-menu .with-arrow > span {
-      background-color: #fff;
+      background-color: #ecf2f7;
       width: 15px;
       height: 15px;
       top: 3px;
@@ -7935,7 +7935,7 @@ sidebar navigation
             First level
             *****************/ }
       .sidebar-nav #sidebarnav .sidebar-item .sidebar-link {
-        color: #fff;
+        color: #ecf2f7;
         font-size: 16px;
         padding: 12px 30px;
         display: flex;
@@ -7949,7 +7949,7 @@ sidebar navigation
           font-style: normal;
           height: 20px;
           width: 20px;
-          color: #fff;
+          color: #ecf2f7;
           display: inline-block;
           text-align: center;
           margin-right: 8px; }
@@ -7961,15 +7961,15 @@ sidebar navigation
           white-space: nowrap; }
       .sidebar-nav #sidebarnav .sidebar-item.selected > .sidebar-link {
         border-radius: 0px 60px 60px 0px;
-        color: #fff !important;
-        background: linear-gradient(to right, #8971ea, #7f72ea, #7574ea, #6a75e9, #5f76e8);
+        color: #ecf2f7 !important;
+        background: linear-gradient(to right, #00d4fe, #00c2ec, #0078c2, #00548a, #00548a);
         box-shadow: 0px 7px 12px 0px rgba(95, 118, 232, 0.21);
         opacity: 1; }
         .sidebar-nav #sidebarnav .sidebar-item.selected > .sidebar-link .feather-icon,
         .sidebar-nav #sidebarnav .sidebar-item.selected > .sidebar-link i {
-          color: #fff; }
+          color: #ecf2f7; }
         .sidebar-nav #sidebarnav .sidebar-item.selected > .sidebar-link .has-arrow::after {
-          border-color: #fff; }
+          border-color: #ecf2f7; }
       .sidebar-nav #sidebarnav .sidebar-item .first-level {
         padding: 0 0 10px 0; }
         .sidebar-nav #sidebarnav .sidebar-item .first-level .nav-small-cap {
@@ -7987,7 +7987,7 @@ sidebar navigation
             left: 0;
             top: 23px; }
           .sidebar-nav #sidebarnav .sidebar-item .first-level .sidebar-item.active .sidebar-link.active {
-            color: #fff;
+            color: #ecf2f7;
             font-weight: 500; }
         .sidebar-nav #sidebarnav .sidebar-item .first-level .sidebar-item.active + .base-level-line {
           display: block; }
@@ -8003,7 +8003,7 @@ sidebar navigation
       display: flex;
       align-items: center;
       line-height: 30px;
-      color: #fff;
+      color: #ecf2f7;
       opacity: 1;
       margin-bottom: 5px;
       text-transform: uppercase;
@@ -8344,7 +8344,7 @@ strong {
     color: #212529; }
 
 .custom-select {
-  background: url(../../assets/images/custom-select.png) right 1.1rem center no-repeat;
+  background: url(public/assets/images/custom-select.png) right 1.1rem center no-repeat;
   -moz-appearance: none;
   -webkit-appearance: none;
   -o-appearance: none;
