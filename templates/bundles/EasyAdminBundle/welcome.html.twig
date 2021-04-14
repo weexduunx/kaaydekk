@@ -5,6 +5,9 @@
 
 {% block content %}
 <div class="container-fluid">
+    {% block flash_messages %}
+        {{ include(ea.templatePath('flash_messages')) }}
+    {% endblock flash_messages %}
     <div class="card-group">
         <div class="card border-right">
             <div class="card-body">

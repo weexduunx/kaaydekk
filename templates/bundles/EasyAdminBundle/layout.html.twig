@@ -58,10 +58,6 @@
     {% endblock javascript_page_layout %}
 
     {% block wrapper_wrapper %}
-        {% block flash_messages %}
-            {{ include(ea.templatePath('flash_messages')) }}
-        {% endblock flash_messages %}
-
         <div id="main-wrapper" class="mini-sidebar" data-theme="light" data-layout="vertical" data-navbarbg="skin6"
              data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
             {% block wrapper %}
@@ -196,6 +192,9 @@
 
                     {% block content %}
                         <div class="container-fluid">
+                            {% block flash_messages %}
+                                {{ include(ea.templatePath('flash_messages')) }}
+                            {% endblock flash_messages %}
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card">

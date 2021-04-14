@@ -595,6 +595,9 @@
     "symfony/yaml": {
         "version": "v5.2.5"
     },
+    "symfonycasts/verify-email-bundle": {
+        "version": "v1.4.0"
+    },
     "techlab/smartwizard": {
         "version": "v5.1.1"
     },
