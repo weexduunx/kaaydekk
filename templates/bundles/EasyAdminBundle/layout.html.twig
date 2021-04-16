@@ -82,8 +82,16 @@
                                     {% endif %}
                                 <ul class="navbar-nav float-right">
                                     <li class="nav-item d-none d-md-block">
-                                        <a class="nav-link" href="javascript:void(0)">
-                                         {% block listing_search_wrapper %}{% endblock listing_search_wrapper %}
+                                        <a class="nav-link" >
+                                            <form>
+                                                <div class="customize-input">
+                                         {% block listing_search_wrapper %}
+                                             <input class="form-control custom-shadow custom-radius border-0 bg-white"
+                                                    type="search" placeholder="Search" aria-label="Search">
+                                             <i class="form-control-icon fa fa-search"></i>
+                                         {% endblock listing_search_wrapper %}
+                                                </div>
+                                            </form>
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -221,6 +229,10 @@
                     <div id="content-resizer-handler" class="resizer-handler resizer-handler-right"></div>
                 </div>
             {% endblock wrapper %}
+            <footer class="footer text-center text-muted">"
+                All Rights Reserved by NGTS INFORMATIQUE. Designed and Developed by "
+                <a href="http://idy-portfolio.byethost24.com/">Idrissa Ndiouck</a>
+            </footer>
         </div>
     {% endblock wrapper_wrapper %}
 

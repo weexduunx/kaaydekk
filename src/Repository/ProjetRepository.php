@@ -47,4 +47,14 @@ class ProjetRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function countAllProjet()
+    {
+        $queryBuilder = $this->createQueryBuilder('p');
+        $queryBuilder->select('COUNT(p.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 }

@@ -43,6 +43,7 @@ class Client
 
     /**
      * @ORM\OneToMany(targetEntity=Achat::class, mappedBy="client")
+     * @ORM\JoinColumn (onDelete="CASCADE")
      */
     private $achat;
 
@@ -98,15 +99,25 @@ class Client
 
     /**
      * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="clients")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="ville_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $ville;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="string", length=7, nullable=true)
+     */
+    private $color;
 
     public function __construct()
     {
         $this->achat = new ArrayCollection();
         $this->detailsCandidatures = new ArrayCollection();
-
+        $this->createdAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -342,6 +353,30 @@ class Client
     public function setVille(?Ville $ville): self
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
 
         return $this;
     }

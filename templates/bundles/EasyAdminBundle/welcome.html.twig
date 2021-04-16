@@ -2,7 +2,11 @@
 {% extends 'bundles/EasyAdminBundle/layout.html.twig' %}
 
 {% block page_title 'Bienvenue dans Kaay Dëkk' %}
-
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+          integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
+          crossorigin="anonymous">
+{% endblock %}
 {% block content %}
 <div class="container-fluid">
     {% block flash_messages %}
@@ -66,7 +70,7 @@
             <div class="card-body">
                 <div class="d-flex d-lg-flex d-md-block align-items-center">
                     <div>
-                        <h2 class="text-dark mb-1 font-weight-medium">864</h2>
+                        <h2 class="text-dark mb-1 font-weight-medium">{{ (countAllProjet['value']) }}</h2>
                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total des Projets</h6>
                     </div>
                     <div class="ml-auto mt-md-3 mt-lg-0">
@@ -82,7 +86,7 @@
                         <div class="card-body">
                             <h4 class="card-title text-center">Prix des Biens</h4>
                             <div class="table-responsive">
-                                <table class="table table-hover table-primary">
+                                <table class="table">
                                     <thead class="bg-primary text-white">
                                     <tr>
                                        <th scope="col">#</th>
@@ -104,10 +108,96 @@
                         </div>
                     </div>
                 </div>
+                <!-- column -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Statistique des Candidats</h4>
+                            <p class="font-14 mb-2 text-muted">- Prénoms <br>
+                                - Revenus mensuels</p>
+                            <div>
+                                <canvas id="pie" height="150"></canvas>
+                                {{ dump() }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- column -->
 
             </div>
-</div>
-    <pre>
 
-    </pre>
+    <div class="col-md-6 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Les Activités récentes</h4>
+                <div class="mt-4 activity">
+                    <div class="d-flex align-items-start border-left-line pb-3">
+                        <div>
+                            <a href="javascript:void(0)" class="btn btn-info btn-circle mb-2 btn-item">
+                                <i class="fa fa-user-plus"></i>
+                            </a>
+                        </div>
+                        <div class="ml-3 mt-2">
+                            <h5 class="text-dark font-weight-medium mb-2">Nouveaux Clients</h5>
+                            {% for client in clients %}
+                                <p class="font-14 mb-2 text-muted">{{client.nom}}<strong> {{client.prenom}}</strong></p>
+                                <span class="font-weight-light font-14 text-muted">{{ client.createdAt|date("d/m/Y") }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start border-left-line pb-3">
+                        <div>
+                            <a href="javascript:void(0)"
+                               class="btn btn-danger btn-circle mb-2 btn-item">
+                                <i class="fa fa-building"></i>
+                            </a>
+                        </div>
+                        <div class="ml-3 mt-2">
+                            <h5 class="text-dark font-weight-medium mb-2">Nouveau Bien</h5>
+                            <p class="font-14 mb-2 text-muted">Richardson just create support <br>
+                                ticket</p>
+                            <span class="font-weight-light font-14 text-muted">25 Minutes Ago</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start border-left-line">
+                        <div>
+                            <a href="javascript:void(0)" class="btn btn-cyan btn-circle mb-2 btn-item">
+                                <i class="fas fa-map"></i>
+                            </a>
+                        </div>
+                        <div class="ml-3 mt-2">
+                            <h5 class="text-dark font-weight-medium mb-2">Nouveau Site
+                            </h5>
+                            <p class="font-14 mb-2 text-muted">One Pending order from Ryne <br> Doe</p>
+                            <span class="font-weight-light font-14 mb-1 d-block text-muted">2 Hours
+                                                Ago</span>
+                            <a href="javascript:void(0)" class="font-14 border-bottom pb-1 border-info">Load More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+                integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+                crossorigin="anonymous"></script>
+        <script>
+            let biens = document.querySelector("#pie")
+            let pieGraph = new Chart(biens,{
+                type: "pie",
+                data: {
+                    labels:{{ nom|raw }},
+                    datasets: [{
+                        label: "Répartition des catégories",
+                        data: {{ revenu|raw }},
+                        backgroundColor: {{ color|raw }}
+                    }]
+                }
+            })
+        </script>
+    {% endblock %}
 {% endblock %}
+
+

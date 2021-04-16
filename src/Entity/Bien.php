@@ -48,10 +48,7 @@ class Bien
      */
     private $updatedAt;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Achat::class, mappedBy="bien")
-     */
-    private $achat;
+
 
     /**
      * @ORM\Column(type="boolean")
@@ -70,15 +67,26 @@ class Bien
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeDeBien::class, inversedBy="bien")
-     * @ORM\JoinColumn(nullable=false)
+     *  @ORM\JoinColumn(name="type_de_bien_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $typeDeBien;
 
     /**
      * @ORM\ManyToOne(targetEntity=Projet::class, inversedBy="biens")
-     * @ORM\JoinColumn(nullable=false)
+     *  @ORM\JoinColumn(name="projet_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $projet;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Achat::class, inversedBy="biens")
+     * @ORM\JoinColumn(name="achat_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $mode_acquisition;
+
+    /**
+     * @ORM\Column(type="string", length=7, nullable=true)
+     */
+    private $color;
 
     /**
      * @return mixed
@@ -105,7 +113,6 @@ class Bien
 
     public function __construct()
     {
-        $this->achat = new ArrayCollection();
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
     }
@@ -175,35 +182,6 @@ class Bien
         return $this;
     }
 
-    /**
-     * @return Collection|Achat[]
-     */
-    public function getAchat(): Collection
-    {
-        return $this->achat;
-    }
-
-    public function addAchat(Achat $achat): self
-    {
-        if (!$this->achat->contains($achat)) {
-            $this->achat[] = $achat;
-            $achat->setBien($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAchat(Achat $achat): self
-    {
-        if ($this->achat->removeElement($achat)) {
-            // set the owning side to null (unless already changed)
-            if ($achat->getBien() === $this) {
-                $achat->setBien(null);
-            }
-        }
-
-        return $this;
-    }
     public function __toString()
     {
         return $this->label;
@@ -253,6 +231,30 @@ class Bien
     public function setProjet(?Projet $projet): self
     {
         $this->projet = $projet;
+
+        return $this;
+    }
+
+    public function getModeAcquisition(): ?Achat
+    {
+        return $this->mode_acquisition;
+    }
+
+    public function setModeAcquisition(?Achat $mode_acquisition): self
+    {
+        $this->mode_acquisition = $mode_acquisition;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
 
         return $this;
     }

@@ -33,7 +33,7 @@ class Ville
 
     /**
      * @ORM\ManyToOne(targetEntity=Region::class, inversedBy="villes")
-     * @ORM\JoinColumn(nullable=false)
+     *  @ORM\JoinColumn(name="region_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $region;
 

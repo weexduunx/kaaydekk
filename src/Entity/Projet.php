@@ -43,7 +43,7 @@ class Projet
 
     /**
      * @ORM\ManyToOne(targetEntity=Site::class, inversedBy="projets")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="site_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $site;
 

@@ -38,49 +38,49 @@ class DetailsCandidature
 
     /**
      * @ORM\ManyToOne(targetEntity=Details1::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="membre_cooperative_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $membre_cooperative;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details1::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="compte_bancaire_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $compte_bancaire;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details1::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="beneficiaire_appui_ou_subvention_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $beneficiaire_appui_ou_subvention;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details2::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="logement_actuel_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $logement_actuel;
 
     /**
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="client_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $client;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details3::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="situation_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $situation;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details4::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="secteur_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $secteur;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details5::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="type_de_contrat_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $type_de_contrat;
 
@@ -101,7 +101,7 @@ class DetailsCandidature
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeDeBien::class, inversedBy="detailsCandidatures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="type_de_logement_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $type_de_logement;
 
@@ -109,6 +109,16 @@ class DetailsCandidature
      * @ORM\Column(type="string", length=255)
      */
     private $label;
+
+    /**
+     * @ORM\Column(type="string", length=7, nullable=true)
+     */
+    private $color;
+
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private array $nom = [];
 
     public function getId(): ?int
     {
@@ -308,6 +318,30 @@ class DetailsCandidature
     public function setLabel(string $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(?string $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    public function getNom(): ?array
+    {
+        return $this->nom;
+    }
+
+    public function setNom(?array $nom): self
+    {
+        $this->nom = $nom;
 
         return $this;
     }

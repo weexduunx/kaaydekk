@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
@@ -52,15 +53,15 @@ class BienCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            FormField::addPanel('INFOS BIEN','fa fa-pencil'),
+            FormField::addPanel('Informations sur les biens','fa fa-pencil'),
+            ColorField::new('color','Couleur Statistique'),
             TextField::new('label','Nature du Bien'),
             AssociationField::new('typeDeBien','Type de logement'),
             AssociationField::new('projet'),
             MoneyField::new('prix')
                 ->setCurrency('XOF'),
             NumberField::new('superficie'),
-            AssociationField::new('achat','Achat cumulé')
-                ->hideOnIndex(),
+            AssociationField::new('mode_acquisition','Mode acquisition'),
             BooleanField::new('status'),
             DateField::new('createdAt'),
             DateField::new('updatedAt'),

@@ -18,8 +18,10 @@ class BienRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Bien::class);
     }
+
     /**
      * @return int|mixed|string|null
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function countAllBien()

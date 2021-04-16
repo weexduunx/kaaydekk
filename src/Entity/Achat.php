@@ -28,20 +28,20 @@ class Achat
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=Bien::class, inversedBy="achat")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $bien;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="achat")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="client_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $client;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Bien::class, mappedBy="mode_acquisition")
+     */
+    private $biens;
 
     public function __construct()
     {
         $this->clients = new ArrayCollection();
+        $this->biens = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -61,18 +61,6 @@ class Achat
         return $this;
     }
 
-    public function getBien(): ?Bien
-    {
-        return $this->bien;
-    }
-
-    public function setBien(?Bien $bien): self
-    {
-        $this->bien = $bien;
-
-        return $this;
-    }
-
     public function getClient(): ?Client
     {
         return $this->client;
@@ -88,5 +76,35 @@ class Achat
     public function __toString()
     {
         return $this->label;
+    }
+
+    /**
+     * @return Collection|Bien[]
+     */
+    public function getBiens(): Collection
+    {
+        return $this->biens;
+    }
+
+    public function addBien(Bien $bien): self
+    {
+        if (!$this->biens->contains($bien)) {
+            $this->biens[] = $bien;
+            $bien->setModeAcquisition($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBien(Bien $bien): self
+    {
+        if ($this->biens->removeElement($bien)) {
+            // set the owning side to null (unless already changed)
+            if ($bien->getModeAcquisition() === $this) {
+                $bien->setModeAcquisition(null);
+            }
+        }
+
+        return $this;
     }
 }

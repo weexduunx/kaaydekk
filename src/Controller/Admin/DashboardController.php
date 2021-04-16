@@ -16,6 +16,7 @@ use App\Repository\AchatRepository;
 use App\Repository\BienRepository;
 use App\Repository\ClientRepository;
 use App\Repository\DetailsCandidatureRepository;
+use App\Repository\ProjetRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -38,16 +39,19 @@ class DashboardController extends AbstractDashboardController
     protected $detailsCandidatureRepository;
     protected $clientRepository;
     protected $bienRepository;
+    protected $projetRepository;
 
     public function __construct(
         DetailsCandidatureRepository $detailsCandidatureRepository,
         ClientRepository $clientRepository,
-        BienRepository $bienRepository
+        BienRepository $bienRepository,
+        ProjetRepository $projetRepository
     )
         {
            $this->detailsCandidatureRepository = $detailsCandidatureRepository;
             $this->clientRepository = $clientRepository;
             $this->bienRepository = $bienRepository;
+            $this->projetRepository = $projetRepository;
 
         }
 
@@ -59,12 +63,43 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
+        //on va chercher les détails des candidatures clients
+        $candidats = $this->detailsCandidatureRepository->findAll();
+
+        $nom = [];
+        $color = [];
+        $count = [];
+        $revenu = [];
+
+        // J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
+        foreach ($candidats as $candidat){
+            $nom[] = $candidat->getNom();
+            $color[] = $candidat->getColor();
+            $revenu[] = $candidat->getRevenuMensuelle();
+            $count[] = count($candidat->getNom());
+
+            // Je cherche le nombre de client publié par date
+            $clients = $this->clientRepository->countByDate();
+
+
+        }
+
+
+
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig',
             [
                 'countAllClient' =>$this->clientRepository->countAllClient(),
                 'countAllCandidature' =>$this->detailsCandidatureRepository->countAllCandidature(),
                 'countAllBien' =>$this->bienRepository->countAllBien(),
                 'price' =>$this->bienRepository->findAll(),
+                'clients'=>$this->clientRepository->findAll(),
+                'countAllProjet'=>$this->projetRepository->countAllProjet(),
+                'nom' =>json_encode($nom),
+                'color' =>json_encode($color),
+                'count' =>json_encode($count),
+                'revenu'=>json_encode($revenu),
+
+
             ]);
     }
 
@@ -93,10 +128,10 @@ class DashboardController extends AbstractDashboardController
                   MenuItem::section('ACCUEIL','fa fa-home'),
                   MenuItem::linkToDashboard('Tableau de Bord','fa fa-home'),
                   MenuItem::section('GESTION','fa fa-folder'),
-                  MenuItem::subMenu('Gestion des Achats')
+                  MenuItem::subMenu('Critére du logement')
                       ->setSubItems([
-                      MenuItem::linkToCrud('Liste des Achats', 'fas fa-list', Achat::class),
-                      MenuItem::linkToCrud('Ajouter un Achat','fas fa-plus', Achat::class)
+                      MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
+                      MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
                   ])->setPermission('ROLE_ADMIN'),
 

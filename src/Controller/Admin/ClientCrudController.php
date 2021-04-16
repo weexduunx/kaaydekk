@@ -3,12 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
+use App\Repository\ClientRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
@@ -37,10 +39,12 @@ class ClientCrudController extends AbstractCrudController
             ;
     }
 
+
     public function configureFields(string $pageName): iterable
     {
         return [
             FormField::addPanel('INFORMATIONS DU CANDIDAT','fa fa-pencil'),
+            ColorField::new('color'),
             TextField::new('nom'),
             TextField::new('prenom'),
             DateField::new('date_de_naissance'),

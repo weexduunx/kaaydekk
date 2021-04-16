@@ -38,7 +38,7 @@ class Site
 
     /**
      * @ORM\ManyToOne(targetEntity=Ville::class, inversedBy="site")
-     * @ORM\JoinColumn(nullable=false)
+     *  @ORM\JoinColumn(name="ville_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $ville;
 

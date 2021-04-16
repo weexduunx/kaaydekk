@@ -31,6 +31,7 @@ class DetailsCandidatureRepository extends ServiceEntityRepository
 
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
+
     // /**
     //  * @return DetailsCandidature[] Returns an array of DetailsCandidature objects
     //  */

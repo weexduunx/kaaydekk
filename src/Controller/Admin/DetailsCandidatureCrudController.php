@@ -6,7 +6,9 @@ use App\Entity\DetailsCandidature;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -23,8 +25,10 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-           FormField::addPanel('INFOS CANDIDATS','fa fa-pencil'),
+           FormField::addPanel('Détails sur les candidatures','fa fa-pencil'),
+            ColorField::new('color','Couleur Statistique'),
             TextField::new('label','Reférence Candidature'),
+            ArrayField::new('nom','Prénom du candidat'),
             AssociationField::new('type_de_logement','Logement souhaité'),
             AssociationField::new('client','Client(e) concerné(e)'),
             AssociationField::new('membre_cooperative'),

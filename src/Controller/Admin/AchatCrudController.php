@@ -19,9 +19,9 @@ class AchatCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            FormField::addPanel('DETAILS DES ACHATS','fa fa-pencil'),
-            TextField::new('label','Référence Achat'),
-            AssociationField::new('bien','Bien Concerné'),
+            FormField::addPanel('DETAILS DES ACQUISITIONS','fa fa-pencil'),
+            TextField::new('label','Mode Acquisition'),
+            AssociationField::new('biens','Bien Concerné'),
             AssociationField::new('client','Client Concerné'),
         ];
     }

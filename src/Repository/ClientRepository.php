@@ -21,6 +21,7 @@ class ClientRepository extends ServiceEntityRepository
 
     /**
      * @return int|mixed|string|null
+     *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function countAllClient()
@@ -30,7 +31,21 @@ class ClientRepository extends ServiceEntityRepository
 
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
-    // /**
+
+
+    /**
+     * Returns number of "Client" per day
+     *
+     */
+    public function countByDate()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->select('SUBSTRING(c.createdAt, 1, 10) as nom, COUNT(c) as count')
+            ->groupBy('nom');
+
+        return $query->getQuery()->getResult();
+    }
+    /**
     //  * @return Client[] Returns an array of Client objects
     //  */
     /*
