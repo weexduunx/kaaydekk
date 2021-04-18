@@ -3,16 +3,47 @@
 {% block title bien.label%}
 
 {% block body %}
-    <div class="jumbotron bg-light">
-        <div class="row">
-            <div class="col-md-8">
-
+    <div class="jumbotron">
+        <div class="container">
+            {% for message in app.flashes('success') %}
+            <div class="shadow p-3 mb-5  rounded alert alert-success">
+               {{ message}}
             </div>
-            <div class="col-md-4">
-                <h1>{{ bien.label }}</h1>
-                <h2>{{ bien.rooms }} pieces - {{ bien.superficie }} m²</h2>
-                <div class="text-primary" style="font-size: 4rem;font-weight:bold;">{{ bien.formattedPrice }}</div>
-                <a href="#" class="btn btn-primary">Contactez-Nous</a>
+            {% endfor %}
+            {% if not form.vars.valid %}
+                <div class="shadow p-3 mb-5  rounded alert alert-danger">
+                    Veuillez entrer correctement les informations
+                </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-8">
+                    {% if bien.thumbnail %}
+                        <img src="{{ vich_uploader_asset(bien, 'thumbnailFile' ) | imagine_filter('medium')}}"   alt="card-img-top" style="width: 100%;height: auto;">
+                    {% else %}
+                        <img src="{{ '/images/bien/kadi.jpg' | imagine_filter('medium')}}"  alt="">
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <h1>{{ bien.label }}</h1>
+                    <h2>{{ bien.rooms }} pieces - {{ bien.superficie }} m²</h2>
+                    <div class="text-primary" style="font-size: 4rem;font-weight:bold;">{{ bien.formattedPrice }}</div>
+                    <a href="#" class="btn btn-primary">Contactez-Nous</a>
+                    <div id="contactForm" class="mt-4">
+                        {{ form_start(form) }}
+                        <div class="row">
+                            <div class="col">{{ form_row(form.firstname) }}</div>
+                            <div class="col">{{ form_row(form.lastname) }}</div>
+                        <div class="row">
+                            <div class="col">{{ form_row(form.phone) }}</div>
+                            <div class="col">{{ form_row(form.email) }}</div>
+                        </div>
+                        {{ form_rest(form) }}
+                            <div class="form-group">
+                                <button class="btn btn-primary">Envoyer</button>
+                            </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -44,6 +75,11 @@
             </div>
             <div class="col-md-4">
                 <h2>Spécifité</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">possibilité d'acquisition au comptant</li>
+                    <li class="list-group-item">En location Vente</li>
+                    <li class="list-group-item">En Location Simple</li>
+                </ul>
             </div>
         </div>
     </div>

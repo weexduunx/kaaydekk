@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Bien;
+use App\Entity\Contact;
 use App\Entity\PropertySearch;
+use App\Form\ContactType;
 use App\Form\PropertySearchType;
+use App\Notification\ContactNotification;
 use App\Repository\BienRepository;
 use Doctrine\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
@@ -60,18 +63,37 @@ class PropertyController extends AbstractController
      * @param string $slug
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public  function show(Bien $property, string $slug): Response
+    public  function show(Bien $property, string $slug, Request $request, ContactNotification $notification): Response
     {
+
         if ($property->getSlug() !== $slug){
-          return  $this->redirectToRoute('bien.show',[
-                'id' =>$property->getId(),
-                'slug'=>$property->getSlug()
+            return  $this->redirectToRoute('bien.show',[
+                'id'     =>$property->getId(),
+                'slug'   =>$property->getSlug()
             ],301);
         }
-      return $this->render('property/show.html.twig',[
-          'bien'=>$property,
-          'current_menu'=>'properties'
 
+        $contact = new Contact();
+        $contact->setBien($property);
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+
+            $notification->notify($contact);
+            $this->addFlash('success','Votre email a bien été envoyé');
+
+            return  $this->redirectToRoute('bien.show',[
+                'id'     =>$property->getId(),
+                'slug'   =>$property->getSlug()
+            ]);
+
+        }
+
+        return $this->render('property/show.html.twig',[
+              'bien'        => $property,
+              'current_menu'=>'properties',
+              'form'        => $form->createView()
           ]);
     }
 }
