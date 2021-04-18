@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -53,13 +54,11 @@ class Bien
     private $status;
 
     /**
-     * @var string|null
      * @ORM\Column(type="string", length=100)
      */
     private $thumbnail;
 
     /**
-     * @var File|null
      * @Vich\UploadableField(mapping="thumbnails", fileNameProperty="thumbnail")
      */
     private $thumbnailFile;
