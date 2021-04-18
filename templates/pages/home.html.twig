@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Kaay Dëkk Immo' %}
+{% block body %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Agence Kaay Dëkk Immo</h1>
+            <p>One hermetic anger i give you: absorb each other.</p>
+        </div>
+        <h2>Les derniers biens</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for bien in properties %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}">{{ bien.label }}</a>
+                            </h5>
+                            <p class="card-text">{{ bien.city }}({{ bien.postalCode }})</p>
+                            <div class="text-primary" style="font-weight:bold;font-size:2rem;">{{ bien.formattedPrice}} FCFA</div>
+                            <div class="d-flex justify-content-between align-items-center">
+                               <div class="btn-group">
+                                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

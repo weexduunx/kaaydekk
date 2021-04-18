@@ -42,11 +42,17 @@ class Ville
      */
     private $site;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Bien::class, mappedBy="city")
+     */
+    private $biens;
+
 
     public function __construct()
     {
         $this->clients = new ArrayCollection();
         $this->site = new ArrayCollection();
+        $this->biens = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -136,6 +142,36 @@ class Ville
             // set the owning side to null (unless already changed)
             if ($site->getVille() === $this) {
                 $site->setVille(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Bien[]
+     */
+    public function getBiens(): Collection
+    {
+        return $this->biens;
+    }
+
+    public function addBien(Bien $bien): self
+    {
+        if (!$this->biens->contains($bien)) {
+            $this->biens[] = $bien;
+            $bien->setCity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBien(Bien $bien): self
+    {
+        if ($this->biens->removeElement($bien)) {
+            // set the owning side to null (unless already changed)
+            if ($bien->getCity() === $this) {
+                $bien->setCity(null);
             }
         }
 

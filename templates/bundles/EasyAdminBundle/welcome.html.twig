@@ -80,99 +80,82 @@
             </div>
         </div>
     </div>
-            <div class="row">
+     <div class="row">
+                <!-- column -->
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title text-center">Prix des Biens</h4>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="bg-primary text-white">
-                                    <tr>
-                                       <th scope="col">#</th>
-                                        <th scope="col">Nature du Bien</th>
-                                      <th scope="col">Prix</th>
-                                    </tr>
-                                    </thead>
-                                    {% for bien in price %}
-                                    <tbody>
-                                    <tr>
-                                    <th scope="row">{{ bien.id }}</th>
-                                        <td>{{ bien.label }}</td>
-                                     <td>{{ bien.prix }}</td>
-                                    </tr>
-                                    </tbody>
-                                    {% endfor %}
-                                </table>
+                            <h4 class="card-title">Client Par Date</h4>
+                            <p class="font-14 mb-2 text-muted">- Statistique des nombres de clients enregistrés par date <br></p>
+                            <div>
+                                <canvas id="client" height="150"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- column -->
+
+                <!-- column -->
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Statistique des Candidats</h4>
-                            <p class="font-14 mb-2 text-muted">- Prénoms <br>
-                                - Revenus mensuels</p>
+                            <h4 class="card-title">Revenus Mensuels</h4>
+                            <p class="font-14 mb-2 text-muted">- Statistiques des candidats, selon leurs revenus mensuels<br></p>
                             <div>
                                 <canvas id="pie" height="150"></canvas>
-                                {{ dump() }}
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- column -->
-
             </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Les Activités récentes</h4>
+                    <div class="mt-4 activity">
+                        <div class="d-flex align-items-start border-left-line pb-3">
+                            <div>
+                                <a href="javascript:void(0)" class="btn btn-info btn-circle mb-2 btn-item">
+                                    <i class="fa fa-user-plus"></i>
+                                </a>
+                            </div>
+                            <div class="ml-3 mt-2">
+                                <h5 class="text-dark font-weight-medium mb-2">Nouveaux Clients</h5>
 
-    <div class="col-md-6 col-lg-4">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Les Activités récentes</h4>
-                <div class="mt-4 activity">
-                    <div class="d-flex align-items-start border-left-line pb-3">
-                        <div>
-                            <a href="javascript:void(0)" class="btn btn-info btn-circle mb-2 btn-item">
-                                <i class="fa fa-user-plus"></i>
-                            </a>
+                                    <p class="font-14 mb-2 text-muted"><strong></strong></p>
+
+                                    <span class="font-weight-light font-14 text-muted"></span>
+                            </div>
                         </div>
-                        <div class="ml-3 mt-2">
-                            <h5 class="text-dark font-weight-medium mb-2">Nouveaux Clients</h5>
-                            {% for client in clients %}
-                                <p class="font-14 mb-2 text-muted">{{client.nom}}<strong> {{client.prenom}}</strong></p>
-                                <span class="font-weight-light font-14 text-muted">{{ client.createdAt|date("d/m/Y") }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Prix des Biens</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nature du Bien</th>
+                                <th scope="col">Prix</th>
+                            </tr>
+                            </thead>
+                            {% for bien in price %}
+                                <tbody>
+                                <tr>
+                                    <th scope="row">{{ bien.id }}</th>
+                                    <td>{{ bien.label }}</td>
+                                    <td>{{ bien.price }}</td>
+                                </tr>
+                                </tbody>
                             {% endfor %}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-start border-left-line pb-3">
-                        <div>
-                            <a href="javascript:void(0)"
-                               class="btn btn-danger btn-circle mb-2 btn-item">
-                                <i class="fa fa-building"></i>
-                            </a>
-                        </div>
-                        <div class="ml-3 mt-2">
-                            <h5 class="text-dark font-weight-medium mb-2">Nouveau Bien</h5>
-                            <p class="font-14 mb-2 text-muted">Richardson just create support <br>
-                                ticket</p>
-                            <span class="font-weight-light font-14 text-muted">25 Minutes Ago</span>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-start border-left-line">
-                        <div>
-                            <a href="javascript:void(0)" class="btn btn-cyan btn-circle mb-2 btn-item">
-                                <i class="fas fa-map"></i>
-                            </a>
-                        </div>
-                        <div class="ml-3 mt-2">
-                            <h5 class="text-dark font-weight-medium mb-2">Nouveau Site
-                            </h5>
-                            <p class="font-14 mb-2 text-muted">One Pending order from Ryne <br> Doe</p>
-                            <span class="font-weight-light font-14 mb-1 d-block text-muted">2 Hours
-                                                Ago</span>
-                            <a href="javascript:void(0)" class="font-14 border-bottom pb-1 border-info">Load More</a>
-                        </div>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -186,13 +169,27 @@
         <script>
             let biens = document.querySelector("#pie")
             let pieGraph = new Chart(biens,{
-                type: "pie",
+                type: "polarArea",
                 data: {
                     labels:{{ nom|raw }},
                     datasets: [{
-                        label: "Répartition des catégories",
+                        label: "Revenus Mensuel",
                         data: {{ revenu|raw }},
                         backgroundColor: {{ color|raw }}
+                    }]
+                }
+            })
+
+            let clients = document.querySelector("#client")
+            let clientGraph = new Chart(clients, {
+                type: "bar",
+                data: {
+                    labels:{{ dates|raw }},
+                    datasets:[{
+                        label:"Nombre de Clients",
+                        data: {{ clientCount|raw }},
+                        backgroundColor:['rgba(0,212,254)',
+                            'rgba(0,212,254)',]
                     }]
                 }
             })

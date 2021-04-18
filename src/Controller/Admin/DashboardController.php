@@ -81,10 +81,22 @@ class DashboardController extends AbstractDashboardController
             // Je cherche le nombre de client publié par date
             $clients = $this->clientRepository->countByDate();
 
+            $dates = [];
+            $clientsCount = [];
 
+            //J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
+            foreach($clients as $client){
+                $dates[] = $client['date'];
+                $clientsCount[]=$client['count'];
+
+            //je cherche le dernier utilisateur connecté
+                $user = $this->getUser();
+
+                $repository = $this->getDoctrine()->getRepository(User::class);
+                $data_users = $repository->findBy(['email' => $user->getUsername()]);
+
+            }
         }
-
-
 
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig',
             [
@@ -98,7 +110,9 @@ class DashboardController extends AbstractDashboardController
                 'color' =>json_encode($color),
                 'count' =>json_encode($count),
                 'revenu'=>json_encode($revenu),
-
+                'dates'=>json_encode($dates),
+                'clientCount'=>json_encode($clientsCount),
+                'data_users' => $data_users
 
             ]);
     }

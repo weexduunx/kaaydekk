@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title bien.label%}
+
+{% block body %}
+    <div class="jumbotron bg-light">
+        <div class="row">
+            <div class="col-md-8">
+
+            </div>
+            <div class="col-md-4">
+                <h1>{{ bien.label }}</h1>
+                <h2>{{ bien.rooms }} pieces - {{ bien.superficie }} m²</h2>
+                <div class="text-primary" style="font-size: 4rem;font-weight:bold;">{{ bien.formattedPrice }}</div>
+                <a href="#" class="btn btn-primary">Contactez-Nous</a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <p>
+            {{ bien.description|nl2br }}
+        </p>
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Caratéristiques</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <td>Surface habitable</td>
+                        <td>{{ bien.superficie }} m²</td>
+                    </tr>
+                    <tr>
+                        <td>Piéces</td>
+                        <td>{{ bien.rooms }}</td>
+                    </tr>
+                    <tr>
+                        <td>Chambres</td>
+                        <td>{{ bien.bedrooms }}</td>
+                    </tr>
+                    <tr>
+                        <td>Type de bien</td>
+                        <td>{{ bien.typeDeBien }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h2>Spécifité</h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}

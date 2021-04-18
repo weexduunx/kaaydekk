@@ -19,6 +19,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -58,12 +59,17 @@ class BienCrudController extends AbstractCrudController
             TextField::new('label','Nature du Bien'),
             AssociationField::new('typeDeBien','Type de logement'),
             AssociationField::new('projet'),
-            MoneyField::new('prix')
-                ->setCurrency('XOF'),
+            IntegerField::new('price'),
             NumberField::new('superficie'),
             AssociationField::new('mode_acquisition','Mode acquisition'),
             BooleanField::new('status'),
-            DateField::new('createdAt'),
+            AssociationField::new('projet'),
+            IntegerField::new('rooms', 'Piéces'),
+            IntegerField::new('bedrooms', 'Chambres'),
+            AssociationField::new('city', 'Ville'),
+            TextField::new('address','Adresse'),
+            TextField::new('postal_code','Code Postal'),
+            TextareaField::new('description','Description'),
             DateField::new('updatedAt'),
             ImageField::new('thumbnailFile','image')
                 ->setFormType(VichImageType::class)

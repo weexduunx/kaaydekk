@@ -40,8 +40,8 @@ class ClientRepository extends ServiceEntityRepository
     public function countByDate()
     {
         $query = $this->createQueryBuilder('c')
-            ->select('SUBSTRING(c.createdAt, 1, 10) as nom, COUNT(c) as count')
-            ->groupBy('nom');
+            ->select('SUBSTRING(c.createdAt, 1, 10) as date, COUNT(c) as count')
+            ->groupBy('date');
 
         return $query->getQuery()->getResult();
     }

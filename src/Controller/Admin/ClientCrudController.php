@@ -58,7 +58,7 @@ class ClientCrudController extends AbstractCrudController
             TelephoneField::new('tel'),
             TextField::new('numero_cin_ou_passeport'),
             AssociationField::new('detailsCandidatures'),
-            AssociationField::new('achat'),
+            AssociationField::new('achat','Mode Acquisition'),
             BooleanField::new('status'),
             TextEditorField::new('commentaire', 'Commentaire'),
         ];

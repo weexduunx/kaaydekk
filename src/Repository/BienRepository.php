@@ -3,7 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Bien;
+use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -32,6 +35,46 @@ class BienRepository extends ServiceEntityRepository
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 
+
+    /**
+     * @return Query
+     */
+    public  function  findAllVisibleQuery(PropertySearch $search): Query
+    {
+        $query = $this->findVisibleQuery();
+
+        if ($search->getMaxPrice()){
+            $query = $query
+                ->andwhere('b.price <= :maxprice')
+                ->setParameter('maxprice', $search->getMaxPrice());
+        }
+        if ($search->getMinSuperficie()){
+            $query = $query
+                ->andwhere('b.superficie >= :minsuperficie')
+                ->setParameter('minsuperficie', $search->getMinSuperficie());
+        }
+
+        return $query->getQuery();
+    }
+
+    /**
+     * @return Bien[]
+     */
+    public function findLatest(): array
+    {
+        return  $this->findVisibleQuery()
+            ->where('b.sold = false')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    private function findVisibleQuery() : QueryBuilder
+    {
+        return $this->createQueryBuilder('b')
+            ->where('b.sold = false');
+    }
 
 
     /**

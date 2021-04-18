@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title 'Tous nos bien' %}
+{% block body %}
+    <main>
+        <div class="container py-4">
+            <header class="pb-3 mb-4 border-bottom">
+                <a class="d-flex align-items-center text-dark text-decoration-none">
+                    <span class="fs-4">Voir tous nos biens</span>
+                </a>
+            </header>
+            <div class="jumbotron ">
+                <div class="container">
+                    {{ form_start(form)}}
+                    <div class="form-row">
+                        <div class="col">
+                           {{ form_row(form.minSuperficie)}}
+                        </div>
+                        <div class="col">
+                            {{ form_row(form.maxPrice)}}
+                        </div>
+                        <div class="col">
+                           <button class="btn btn-primary">Rechercher</button>
+                        </div>
+                    </div>
+                    {{ form_end(form)}}
+                </div>
+            </div>
+            <div class="p-5 mb-4 bg-light rounded-3">
+
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Nos biens</h1>
+                    <p class="col-md-8 fs-4"></p>
+                    <div class="row">
+                        {% for bien in properties%}
+                            <div class="col-md-4">
+                                {% include 'property/property.html.twig'%}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="navigation">
+                        {{ knp_pagination_render(properties) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
