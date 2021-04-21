@@ -61,6 +61,8 @@ class PropertyController extends AbstractController
      * @Route("/biens/{slug}-{id}", name="bien.show", requirements={"slug": "[a-z0-9\-]*"})
      * @param \App\Entity\Bien $property
      * @param string $slug
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \App\Notification\ContactNotification $notification
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public  function show(Bien $property, string $slug, Request $request, ContactNotification $notification): Response

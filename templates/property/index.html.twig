@@ -1,47 +1,114 @@
 {% extends 'base.html.twig' %}
 {% block title 'Tous nos bien' %}
 {% block body %}
-    <main>
-        <div class="container py-4">
-            <header class="pb-3 mb-4 border-bottom">
-                <a class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-4">Voir tous nos biens</span>
-                </a>
-            </header>
-            <div class="jumbotron ">
-                <div class="container">
-                    {{ form_start(form)}}
-                    <div class="form-row">
-                        <div class="col">
-                           {{ form_row(form.minSuperficie)}}
-                        </div>
-                        <div class="col">
-                            {{ form_row(form.maxPrice)}}
-                        </div>
-                        <div class="col">
-                           <button class="btn btn-primary">Rechercher</button>
-                        </div>
-                    </div>
-                    {{ form_end(form)}}
+    <section class="section mt-4 mb-4 ">
+        <div class="container">
+            <!-- ======= Property Search Section ======= -->
+            <div class="click-closed"></div>
+            <!--/ Form Search Star /-->
+            <div class="box-collapse">
+                <div class="title-box-d">
+                    <h3 class="title-d">Recherche de propriété</h3>
                 </div>
-            </div>
-            <div class="p-5 mb-4 bg-light rounded-3">
-
-                <div class="container-fluid py-5">
-                    <h1 class="display-5 fw-bold">Nos biens</h1>
-                    <p class="col-md-8 fs-4"></p>
-                    <div class="row">
-                        {% for bien in properties%}
-                            <div class="col-md-4">
-                                {% include 'property/property.html.twig'%}
+                <span class="close-box-collapse right-boxed bi bi-x"></span>
+                <div class="box-collapse-wrap form">
+                    <form class="form-a">
+                        {{ form_start(form)}}
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group mt-3">
+                                    <label class="pb-2">Type</label>
+                                    <div class="col">{{ form_row(form.type)}}</div>
+                                </div>
                             </div>
-                        {% endfor %}
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group mt-3">
+                                    <label class="pb-2">Ville</label>
+                                    <div class="col">{{ form_row(form.ville)}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group mt-3">
+                                    <label class="pb-2">Chambre</label>
+                                    <div class="col">{{ form_row(form.chambre)}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group mt-3">
+                                    <label class="pb-2" >Superficie Minimale</label>
+                                    <div class="col">{{ form_row(form.minSuperficie)}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <div class="form-group">
+                                    <label class="pb-2" >Prix Maximal</label>
+                                    <div class="col">{{ form_row(form.maxPrice)}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-b">Rechercher</button>
+                            </div>
+                        </div>
+                        {{ form_end(form)}}
+                    </form>
+                </div>
+            </div>
+            <!-- End Property Search Section -->>
+        </div>
+    </section>
+    <main id="main">
+
+        <!-- ======= Intro Single ======= -->
+        <section class="intro-single">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="title-single-box">
+                            <h1 class="title-single">Nos étonnantes propriétés</h1>
+                            <span class="color-text-a">Grille des biens</span>
+                        </div>
                     </div>
-                    <div class="navigation">
-                        {{ knp_pagination_render(properties) }}
+                    <div class="col-md-12 col-lg-4">
+                        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Accueil</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Grille des biens
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </section><!-- End Intro Single-->
+
+        <!-- ======= Property Grid ======= -->
+        <section class="property-grid grid">
+            <div class="container">
+                <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse"
+                        data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+                    <i class="bi bi-search" style="font-weight: bold"> Rechercher</i>
+                </button>
+                <div class="row">
+                    {% for bien in properties%}
+                    <div class="col-md-4">
+                        {% include 'property/property.html.twig'%}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <nav class="pagination-a">
+                            {{ knp_pagination_render(properties) }}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Property Grid Single-->
+
+    </main><!-- End #main -->
+
 {% endblock %}
+

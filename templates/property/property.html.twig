@@ -1,26 +1,50 @@
-<div class="album py-5 bg-light">
-    <div class="container">
-        <div class="row row-cols-1 mb-4">
-            <div class="col">
-                <div class="card shadow-sm">
-                    {% if bien.thumbnail %}
-                        <img src="{{ vich_uploader_asset(bien, 'thumbnailFile' ) | imagine_filter('thumb')}}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="">
-                  {% else %}
-                      <img src="{{ '/images/bien/kadi.jpg' | imagine_filter('thumb')}}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="">
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="{{ path('bien.show', {slug: bien.slug, id: bien.id}) }}">
-                                {{ bien.label }}
-                            </a>
-                        </h5>
-                        <p class="card-text">{{ bien.superficie }}m² - {{ bien.city }}({{ bien.postalCode }})</p>
-                        <div class="text-primary" style="font-size: 2rem; font-weight: bold;">
-                            {{ bien.formattedPrice }} FCFA
-                        </div>
+
+    <div class="card-box-a card-shadow">
+        <div class="img-box-a">
+            {% if bien.thumbnail %}
+            <img src="{{ vich_uploader_asset(bien, 'thumbnailFile' ) | imagine_filter('medium')}}"
+                 width="600%" height="800" alt="" class="img-a img-fluid">
+            {% endif %}
+        </div>
+        <div class="card-overlay">
+            <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                    <h2 class="card-title-a">
+                        <a href="#">{{ bien.label }}
+                            <br />{{ bien.city }}</a>
+                    </h2>
+                </div>
+                <div class="card-body-a">
+                    <div class="price-box d-flex">
+                        <span class="price-a">Prix | {{ bien.formattedPrice }}Fcfa</span>
                     </div>
+                    <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}" class="link-a">Clique ici pour voir
+                        <span class="bi bi-chevron-right"></span>
+                    </a>
+                </div>
+                <div class="card-footer-a">
+                    <ul class="card-info d-flex justify-content-around">
+                        <li>
+                            <h4 class="card-info-title">Superficie</h4>
+                            <span>{{ bien.superficie }}<sup>2</sup></span>
+                        </li>
+                        <li>
+                            <h4 class="card-info-title">Pièces</h4>
+                            <span>{{ bien.rooms }}</span>
+                        </li>
+                        <li>
+                            <h4 class="card-info-title">Chambre</h4>
+                            <span>{{ bien.bedrooms }}</span>
+                        </li>
+                        <li>
+                            <h4 class="card-info-title">Type de bien</h4>
+                            <span>{{ bien.typeDeBien }}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+
+

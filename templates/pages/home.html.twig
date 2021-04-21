@@ -1,38 +1,222 @@
 {% extends 'base.html.twig' %}
-
 {% block title 'Kaay Dëkk Immo' %}
 {% block body %}
+    <!-- ======= Debut Intro Section0 ======= -->
+    {% include 'pages/section.html.twig'%}
+    <!-- Fin Intro Section0 -->
 
-<div class="album py-5 bg-light">
-    <div class="container">
-        <div class="jumbotron text-center">
-            <h1>Agence Kaay Dëkk Immo</h1>
-            <p>One hermetic anger i give you: absorb each other.</p>
-        </div>
-        <h2>Les derniers biens</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {% for bien in properties %}
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}">{{ bien.label }}</a>
-                            </h5>
-                            <p class="card-text">{{ bien.city }}({{ bien.postalCode }})</p>
-                            <div class="text-primary" style="font-weight:bold;font-size:2rem;">{{ bien.formattedPrice}} FCFA</div>
-                            <div class="d-flex justify-content-between align-items-center">
-                               <div class="btn-group">
-                                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                               </div>
+    <!-- Debut #main -->
+    <main id="main">
+        <!-- ======= Debut Derniers Biens Section ======= -->
+        <section class="section-property section-t8">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title-wrap d-flex justify-content-between">
+                            <div class="title-box">
+                                <h2 class="title-a">Dernières Propriétés</h2>
+                            </div>
+                            <div class="title-link">
+                                <a href="{{ path('property.index') }}">Toutes les propriétés
+                                    <span class="bi bi-chevron-right"></span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
 
+                <div id="property-carousel" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for bien in properties %}
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    {% if bien.thumbnail %}
+                                    <img src="{{ vich_uploader_asset(bien, 'thumbnailFile' ) | imagine_filter('bien')}}" alt="" class="img-a img-fluid">
+                                     {% endif %}
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="#">{{ bien.label }}
+                                                    <br /><span style="font-weight: lighter; height: 1rem;">{{ bien.city }}</span> </a>
+                                            </h2>
+                                        </div>
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">Prix | {{ bien.formattedPrice}} FCFA</span>
+                                            </div>
+                                            <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}" class="link-a">Clique ici pour voir
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Superficie</h4>
+                                                    <span>{{ bien.superficie }}m<sup>2</sup></span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Piéces</h4>
+                                                    <span>{{ bien.rooms }}</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Chambres</h4>
+                                                    <span>{{ bien.bedrooms }}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End carousel item -->
+                        {% else %}
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="property-single.html">157 West
+                                                    <br /> Central Park</a>
+                                            </h2>
+                                        </div>
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">rent | $ 12.000</span>
+                                            </div>
+                                            <a href="property-single.html" class="link-a">Click here to view
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span>340m<sup>2</sup></span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>2</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End carousel item -->
 
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="property-single.html">245 Azabu
+                                                    <br /> Nishi Park let</a>
+                                            </h2>
+                                        </div>
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">rent | $ 12.000</span>
+                                            </div>
+                                            <a href="property-single.html" class="link-a">Click here to view
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span>340m<sup>2</sup></span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>2</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End carousel item -->
+
+                        <div class="carousel-item-b swiper-slide">
+                            <div class="card-box-a card-shadow">
+                                <div class="img-box-a">
+                                    <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+                                </div>
+                                <div class="card-overlay">
+                                    <div class="card-overlay-a-content">
+                                        <div class="card-header-a">
+                                            <h2 class="card-title-a">
+                                                <a href="property-single.html">204 Montal
+                                                    <br /> South Bela Two</a>
+                                            </h2>
+                                        </div>
+                                        <div class="card-body-a">
+                                            <div class="price-box d-flex">
+                                                <span class="price-a">rent | $ 12.000</span>
+                                            </div>
+                                            <a href="property-single.html" class="link-a">Click here to view
+                                                <span class="bi bi-chevron-right"></span>
+                                            </a>
+                                        </div>
+                                        <div class="card-footer-a">
+                                            <ul class="card-info d-flex justify-content-around">
+                                                <li>
+                                                    <h4 class="card-info-title">Area</h4>
+                                                    <span>340m<sup>2</sup></span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Beds</h4>
+                                                    <span>2</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Baths</h4>
+                                                    <span>4</span>
+                                                </li>
+                                                <li>
+                                                    <h4 class="card-info-title">Garages</h4>
+                                                    <span>1</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- Fin carousel item -->
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="propery-carousel-pagination carousel-pagination"></div>
+
+            </div>
+        </section>
+        <!-- Fin Derniers Bien Section -->
+    </main>
+    <!-- Fin #main -->
 {% endblock %}

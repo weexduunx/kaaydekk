@@ -6,6 +6,7 @@ use App\Entity\PropertySearch;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,6 +27,27 @@ class PropertySearchType extends AbstractType
                 'label'=>false,
                 'attr'=>[
                     'placeholder'=>'Superficie minimale'
+                ]
+            ])
+            ->add('type',TextType::class, [
+                'required'=>false,
+                'label'=>false,
+                'attr'=>[
+                    'placeholder'=>'Type'
+                ]
+            ])
+            ->add('ville',TextType::class, [
+                'required'=>false,
+                'label'=>false,
+                'attr'=>[
+                    'placeholder'=>'Ville'
+                ]
+            ])
+            ->add('chambre',TextType::class, [
+                'required'=>false,
+                'label'=>false,
+                'attr'=>[
+                    'placeholder'=>'Chambre'
                 ]
             ])
         ;

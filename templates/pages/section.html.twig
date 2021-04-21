@@ -1,0 +1,85 @@
+<!-- ======= Intro Section ======= -->
+<div class="intro intro-carousel swiper-container position-relative">
+
+    <div class="swiper-wrapper">
+        {% for bien in properties %}
+        <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url({{ vich_uploader_asset(bien, 'thumbnailFile' ) | imagine_filter('medium')}})">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <div style="font-weight:bold;font-size:2rem;"><span>Ajouté récemment</span></div>
+                                    <h1 class="intro-title mb-4 ">{{ bien.label }} <br>
+                                        <span class="color-c">{{ bien.superficie }} m²</span>
+                                    </h1>
+                                    <div style="font-weight:bold;font-size:2rem;">Ville de : {{ bien.city }}</div>
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}">
+                                            <span class="price-a" style="font-weight:normal;font-size:2rem;">Prix | {{ bien.formattedPrice}} FCFA</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url({{ ('assets/images/2.jpg') }})">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <p class="intro-title-top">Doral, Florida
+                                        <br> 78345
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">204 </span> Rino
+                                        <br> Venda Road Five
+                                    </h1>
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url({{ ('assets/images/3.jpg') }})">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <p class="intro-title-top">Doral, Florida
+                                        <br> 78345
+                                    </p>
+                                    <h1 class="intro-title mb-4">
+                                        <span class="color-b">204 </span> Alira
+                                        <br> Roan Road One
+                                    </h1>
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<!-- End Intro Section -->

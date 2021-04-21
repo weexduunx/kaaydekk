@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="jumbotron">
-        <div class="container">
+        <div class="container mt-4">
             {% for message in app.flashes('success') %}
             <div class="shadow p-3 mb-5  rounded alert alert-success">
                {{ message}}
@@ -29,22 +29,23 @@
                     <div class="text-primary" style="font-size: 3rem;font-weight:bold;">{{ bien.formattedPrice }} FCFA</div>
                     <div id="contactForm" class="mt-4">
                         {{ form_start(form) }}
-                        <div class="row">
-                            <div class="col">{{ form_row(form.firstname) }}</div>
-                            <div class="col">{{ form_row(form.lastname) }}</div>
+                        <form class="row">
+                            <div class="col form-control-plaintext">{{ form_row(form.firstname) }}</div>
+                            <div class="col form-control-plaintext">{{ form_row(form.lastname) }}</div>
                         <div class="row">
                             <div class="col">{{ form_row(form.phone) }}</div>
                             <div class="col">{{ form_row(form.email) }}</div>
                         </div>
                         {{ form_rest(form) }}
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <button class="btn btn-primary">Contactez Nous</button>
                             </div>
                         {{ form_end(form) }}
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <div class="container mt-4">
         <p>

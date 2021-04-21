@@ -37,6 +37,7 @@ class BienRepository extends ServiceEntityRepository
 
 
     /**
+     * @param \App\Entity\PropertySearch $search
      * @return Query
      */
     public  function  findAllVisibleQuery(PropertySearch $search): Query
@@ -53,6 +54,21 @@ class BienRepository extends ServiceEntityRepository
                 ->andwhere('b.superficie >= :minsuperficie')
                 ->setParameter('minsuperficie', $search->getMinSuperficie());
         }
+        if ($search->getType()){
+            $query = $query
+                ->andwhere('b.typeDeBien = :type')
+                ->setParameter('type', $search->getType());
+        }
+        if ($search->getVille()){
+            $query = $query
+                ->andwhere('b.city = :ville')
+                ->setParameter('ville', $search->getVille());
+        }
+        if ($search->getChambre()){
+            $query = $query
+                ->andwhere('b.bedrooms = :chambre')
+                ->setParameter('chambre', $search->getChambre());
+        }
 
         return $query->getQuery();
     }
@@ -64,6 +80,7 @@ class BienRepository extends ServiceEntityRepository
     {
         return  $this->findVisibleQuery()
             ->where('b.sold = false')
+            ->orderBy('b.createdAt','DESC')
             ->setMaxResults(4)
             ->getQuery()
             ->getResult()

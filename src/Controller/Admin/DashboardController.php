@@ -82,12 +82,12 @@ class DashboardController extends AbstractDashboardController
             $clients = $this->clientRepository->countByDate();
 
             $dates = [];
-            $clientsCount = [];
+            $compte = [];
 
             //J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
             foreach($clients as $client){
                 $dates[] = $client['date'];
-                $clientsCount[]=$client['count'];
+                $compte[] = $client ['count'];
 
             //je cherche le dernier utilisateur connecté
                 $user = $this->getUser();
@@ -111,7 +111,7 @@ class DashboardController extends AbstractDashboardController
                 'count' =>json_encode($count),
                 'revenu'=>json_encode($revenu),
                 'dates'=>json_encode($dates),
-                'clientCount'=>json_encode($clientsCount),
+                'compte'=>json_encode($compte),
                 'data_users' => $data_users
 
             ]);
