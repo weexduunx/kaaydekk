@@ -1,21 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Ajouter un utilisateur{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+<main id="main">
 
-    <h1>Register</h1>
+        <!-- ======= Intro Single ======= -->
+        <section class="intro-single">
+            <div class="container">
+                {% for flashError in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+                <form  method="post" role="form" class="php-email-form">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-8">
+                            <h3>Ajouter un utilisateur</h3>
+                            {{ form_start(registrationForm) }}
+                            {{ form_row(registrationForm.email) }}
+                            {{ form_row(registrationForm.plainPassword, {label: 'Password'}) }}
+                            {{ form_row(registrationForm.agreeTerms) }}
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                            {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+
+
+    </main>
 {% endblock %}

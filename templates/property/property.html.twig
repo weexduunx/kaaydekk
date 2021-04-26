@@ -1,10 +1,9 @@
-
-    <div class="card-box-a card-shadow">
+ <div class="card-box-a card-shadow">
         <div class="img-box-a">
             {% if bien.thumbnail %}
-            <img src="{{ vich_uploader_asset(bien, 'thumbnailFile' ) | imagine_filter('medium')}}"
-                 width="600%" height="800" alt="" class="img-a img-fluid">
+            <img src="{{ vich_uploader_asset(bien, 'thumbnailFile' ) | imagine_filter('medium')}}" alt="" class="img-a img-fluid">
             {% endif %}
+
         </div>
         <div class="card-overlay">
             <div class="card-overlay-a-content">
@@ -18,7 +17,7 @@
                     <div class="price-box d-flex">
                         <span class="price-a">Prix | {{ bien.formattedPrice }}Fcfa</span>
                     </div>
-                    <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}" class="link-a">Clique ici pour voir
+                    <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}" class="link-a"  id="ville">Clique ici pour voir
                         <span class="bi bi-chevron-right"></span>
                     </a>
                 </div>
@@ -26,7 +25,7 @@
                     <ul class="card-info d-flex justify-content-around">
                         <li>
                             <h4 class="card-info-title">Superficie</h4>
-                            <span>{{ bien.superficie }}<sup>2</sup></span>
+                            <span>{{ bien.superficie }} m<sup>2</sup></span>
                         </li>
                         <li>
                             <h4 class="card-info-title">Pièces</h4>

@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title bien.label%}
-
 {% block body %}
-    <div class="jumbotron">
-        <div class="container mt-4">
+<main id="main">
+    <section class="intro-single">
+       <div class="container">
             {% for message in app.flashes('success') %}
             <div class="shadow p-3 mb-5  rounded alert alert-success">
                {{ message}}
@@ -15,6 +15,29 @@
                     Veuillez entrer correctement les informations
                 </div>
             {% endif %}
+           <div class="row">
+               <div class="col-md-12 col-lg-8">
+                   <div class="title-single-box">
+                       <h1 class="title-single">Plus d'infos sur la propriété</h1>
+                       <span class="color-text-a">Détails de la propriété</span>
+                   </div>
+               </div>
+               <div class="col-md-12 col-lg-4">
+                   <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                       <ol class="breadcrumb">
+                           <li class="breadcrumb-item">
+                               <a href="{{ path('home') }}">Accueil</a>
+                           </li>
+                           <li class="breadcrumb-item">
+                               <a href="{{ path('property.index') }}">Grille des propriétés</a>
+                           </li>
+                           <li class="breadcrumb-item active" aria-current="page">
+                               Détails de la propriété
+                           </li>
+                       </ol>
+                   </nav>
+               </div>
+           </div>
             <div class="row">
                 <div class="col-md-8">
                     {% if bien.thumbnail %}
@@ -22,37 +45,44 @@
                     {% else %}
                         <img src="{{ '/images/bien/kadi.jpg' | imagine_filter('medium')}}"  alt="">
                     {% endif %}
+                    <div class="col-md-12 mt-4">
+                        <h4 class="bi- bi-map"> Position sur la carte</h4>
+                        <div  id="maCarte"> </div>
+                    </div>
                 </div>
+
                 <div class="col-md-4">
                     <h1>{{ bien.label }}</h1>
                     <h2>{{ bien.rooms }} pieces - {{ bien.superficie }} m²</h2>
                     <div class="text-primary" style="font-size: 3rem;font-weight:bold;">{{ bien.formattedPrice }} FCFA</div>
                     <div id="contactForm" class="mt-4">
-                        {{ form_start(form) }}
+                         {{ form_start(form) }}
                         <form class="row">
                             <div class="col form-control-plaintext">{{ form_row(form.firstname) }}</div>
                             <div class="col form-control-plaintext">{{ form_row(form.lastname) }}</div>
-                        <div class="row">
+                          <div class="row">
                             <div class="col">{{ form_row(form.phone) }}</div>
                             <div class="col">{{ form_row(form.email) }}</div>
-                        </div>
-                        {{ form_rest(form) }}
+                          </div>
+                          {{ form_rest(form) }}
                             <div class="form-group mt-4">
                                 <button class="btn btn-primary">Contactez Nous</button>
                             </div>
-                        {{ form_end(form) }}
-                    </form>
-                </div>
-            </div>
+                          {{ form_end(form) }}
+                        </form>
+                    </div>
+              </div>
         </div>
     </div>
-    </div>
-    <div class="container mt-4">
-        <p>
-            {{ bien.description|nl2br }}
-        </p>
-        <div class="row">
-            <div class="col-md-8">
+    </section><!-- End Intro Single-->
+
+    <section class="">
+    <div class="container ">
+            <p>
+                {{ bien.description|nl2br }}
+            </p>
+          <div class="row">
+            <div class="col-md-5">
                 <h2>Caratéristiques</h2>
                 <table class="table table-striped">
                     <tr>
@@ -73,7 +103,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h2>Spécifité</h2>
                 <ul class="list-group">
                     <li class="list-group-item">possibilité d'acquisition au comptant</li>
@@ -81,6 +111,10 @@
                     <li class="list-group-item">En Location Simple</li>
                 </ul>
             </div>
+              </div>
         </div>
-    </div>
+    </section><!-- End Section-->
+
+</main><!-- End #main -->
+
 {% endblock %}

@@ -22,6 +22,8 @@ class VilleCrudController extends AbstractCrudController
             FormField::addPanel('DETAILS SUR LES VILLES','fa fa-pencil'),
             TextField::new('label','Ville de'),
             AssociationField::new('region','Région de'),
+            TextField::new('lat','Latitude'),
+            TextField::new('lon','Longitude')
         ];
     }
 

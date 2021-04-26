@@ -47,6 +47,16 @@ class Ville
      */
     private $biens;
 
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=0)
+     */
+    private $lat;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=0)
+     */
+    private $lon;
+
 
     public function __construct()
     {
@@ -174,6 +184,30 @@ class Ville
                 $bien->setCity(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLat(): ?string
+    {
+        return $this->lat;
+    }
+
+    public function setLat(string $lat): self
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function getLon(): ?string
+    {
+        return $this->lon;
+    }
+
+    public function setLon(string $lon): self
+    {
+        $this->lon = $lon;
 
         return $this;
     }

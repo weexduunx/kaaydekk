@@ -56,17 +56,17 @@ class BienRepository extends ServiceEntityRepository
         }
         if ($search->getType()){
             $query = $query
-                ->andwhere('b.typeDeBien = :type')
+                ->andwhere('b.typeDeBien >= :type')
                 ->setParameter('type', $search->getType());
         }
         if ($search->getVille()){
             $query = $query
-                ->andwhere('b.city = :ville')
+                ->andwhere('b.city >= :ville')
                 ->setParameter('ville', $search->getVille());
         }
         if ($search->getChambre()){
             $query = $query
-                ->andwhere('b.bedrooms = :chambre')
+                ->andwhere('b.bedrooms <= :chambre')
                 ->setParameter('chambre', $search->getChambre());
         }
 

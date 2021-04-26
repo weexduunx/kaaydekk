@@ -20,6 +20,7 @@ class PropertySearch
     private $minSuperficie;
 
     /**
+     *
      * @var string|null
      */
     private $type;
@@ -30,6 +31,7 @@ class PropertySearch
     private $ville;
 
     /**
+     * @Assert\Range(min=1, max="125")
      * @var string|null
      */
     private $chambre;

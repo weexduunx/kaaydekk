@@ -18,7 +18,11 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@ansur/leaflet-pulse-icon": "^0.1.1",
+        "devbridge-autocomplete": "^1.4.11",
         "jquery": "^3.6.0",
+        "leaflet": "^1.7.1",
+        "leaflet-easybutton": "^2.4.0",
         "select2": "*"
     }
 }

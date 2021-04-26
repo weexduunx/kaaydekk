@@ -26,15 +26,18 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+              integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+              crossorigin=""/>
         
         {% block stylesheets %}{% endblock %}
     </head>
 
     <body>
     <!-- ======= Header/Navbar ======= -->
-    <nav class="navbar navbar-default navbar-trans navbar-expand-lg  fixed-top ">
+    <nav class="navbar navbar-default navbar-trans navbar-expand-lg  fixed-top navbar-trans">
                     <div class="container">
-                        <a class="navbar-brand text-brand" href="{{ path('home') }}">Kaay Dëkk<span class="color-b"> Immo</span></a>
                         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                           data-bs-target="#navbarDefault" aria-controls="navbarDefault"
                           aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +45,8 @@
                             <span></span>
                             <span></span>
                         </button>
-                        <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+               <a class="navbar-brand text-brand" href="{{ path('home') }}">Kaay Dëkk<span class="color-b"> Immo</span></a>
+                        <div class="navbar-collapse justify-content-center collapse" id="navbarDefault">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ path('home') }}">Accueil</a>
@@ -223,10 +227,6 @@
     </footer><!-- End  Footer -->
 
     <!-- End  Footer -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -237,10 +237,92 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset ('assets/js/main.js') }}"></script>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+    </script>
+    <script>
+        let villes = {
+        "Dakar":{"lat":14.71550470,"lon":-17.46685552},
+       "Pikine":{"lat":14.75887661,"lon":-17.40394144},
+        "Touba":{"lat":14.87519113,"lon":-15.88520676},
+        "Guédiawaye":{"lat":14.77826986,"lon":-17.39957340},
+        "Thiès":{"lat":14.79105177,"lon":-16.93533769},
+        "Kaolack":{"lat":14.16474444,"lon":-16.07720393},
+        "Mbour":{"lat":14.42289517,"lon":-16.96626826},
+        "Saint-Louis":{"lat":16.03216197,"lon":-16.47872746},
+        "Rufisque":{"lat":14.71570557,"lon":-17.27114361},
+        "Ziguinchor":{"lat":12.56392138,"lon":-16.26233900},
+        "Diourbel":{"lat":14.65961125,"lon":-16.23502509},
+        "Louga":{"lat":15.61443315,"lon":-16.22886719},
+        "Tambacounda":{"lat":13.77281388,"lon":-13.67213631},
+        "Mbacké":{"lat":14.80073160,"lon":-15.90865314},
+        "Kolda":{"lat":12.91090969,"lon":-14.95098697},
+        "Richard-Toll":{"lat":16.45905068,"lon":-15.69482816},
+        "Bargny":{"lat":14.69944138,"lon":-17.23166752},
+        "Tivaouane":{"lat":14.95212311,"lon":-16.81606649},
+        "Joal-Fadiouth":{"lat":14.18224990,"lon":-16.84449493},
+        "Dahra":{"lat":15.35574845,"lon":-15.48196799},
+        "Kaffrine":{"lat":14.10547476,"lon":-15.54199354},
+        "Bignona":{"lat":12.80500109,"lon":-16.23364148},
+        "Fatick":{"lat":14.33906954,"lon":-16.41089201},
+        "Vélingara":{"lat":13.15182615,"lon":-14.10863394},
+        "Bambey":{"lat":14.69629436,"lon":-16.45788433},
+        "Sébikhotane":{"lat":14.74624775,"lon":-17.13815693},
+        "Dagana":{"lat":16.51487265,"lon":-15.50593611},
+        "Sédhiou":{"lat":12.70452441,"lon":-15.55653341},
+        "Nguékhokh":{"lat":14.51804369,"lon":-17.00850163},
+        "Diawara":{"lat":15.01884981,"lon":-12.54480657},
+        "Kédougou":{"lat":12.56695663,"lon":-12.16613595},
+        "Pout":{"lat":14.76752393,"lon":-17.06304124},
+        "Kayar":{"lat":14.91789869,"lon":-17.12028273},
+        "Matam":{"lat":15.65272942,"lon":-13.25629246},
+        "Meckhe":{"lat":15.12190177,"lon":-16.68292140},
+        "Nioro du Rip":{"lat":13.74877248,"lon":-15.77288412},
+        "Ourossogui":{"lat":15.60431306,"lon":-13.32130920},
+        "Kébémer":{"lat":15.36841043,"lon":-16.44584670},
+        "Ndioum":{"lat":16.51355629,"lon":-14.64937806},
+        "Koungheul":{"lat":13.97767287,"lon":-14.80090137},
+        "Guinguinéo":{"lat":14.27022590,"lon":-15.94635493},
+        "Linguère":{"lat":15.39601057,"lon":-15.11100780},
+        "Khombole":{"lat":14.76740826,"lon":-16.68535902},
+        "Bakel":{"lat":14.90252873,"lon":-12.46321694},
+        "Sokone":{"lat":13.87801661,"lon":-16.37255793},
+        "Diamniadio":{"lat":14.73236878,"lon":-17.18351641},
+        "Mboro":{"lat":15.13917679,"lon":-16.88206176},
+        "Thiadiaye":{"lat":14.42225293,"lon":-16.70162210},
+        "Goudomp":{"lat":12.53353777,"lon":-15.94360505},
+        "Podor":{"lat":16.65998562,"lon":-14.96013897},
+        "Gossas":{"lat":14.49214934,"lon":-16.06750130},
+        "Kanel":{"lat":15.48980826,"lon":-13.17631949},
+        "Rosso":{"lat":16.49240543,"lon":-15.81980107},
+        "Ndoffane":{"lat":13.91911319,"lon":-15.92684987},
+        "Gandiaye":{"lat":14.24226389,"lon":-16.27315639},
+        "Bambilor":{"lat":14.79983107,"lon":-17.18496393}
+        }
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+        let map = L.map('maCarte').setView([14.71550470,-17.46685552], 13);
+        L.tileLayer('https://a.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">' +
+                'OpenStreetMap</a> contributors, Imagery © ' +
+                '<a href="https://www.openstreetmap.fr/">OSM France</a>',
+            minZoom: 1,
+            maxZoom: 20,
+        }).addTo(map);
+
+        //Desiner un cercle de 5km de diamétre autour des sites
+        let cercle = L.circle([14.71550470,-17.46685552],{
+            color:'blue',
+            fillColor:'blue',
+            fillOpacity: 0.2,
+            radius: 2500
+        }).addTo(map);
+
+        cercle.bindPopup('ville de Dakar');
+
+       
+    </script>
         <script src="{{ asset ('build/app.js') }}"></script>
     {% block javascripts %}{% endblock %}
     </body>

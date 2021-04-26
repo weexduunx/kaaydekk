@@ -147,7 +147,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
-                  ])->setPermission('ROLE_ADMIN'),
+                  ])->setPermission('ROLE_RESPONSABLE'),
 
                   MenuItem::subMenu('Gestion des Biens')->setSubItems([
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
@@ -156,35 +156,35 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Créer un type de bien', 'fas fa-plus', TypeDeBien::class)
                           ->setAction('new'),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
-                  ])->setPermission('ROLE_ADMIN'),
+                  ])->setPermission('ROLE_RESPONSABLE'),
 
                   MenuItem::subMenu('Gestion des Clients')->setSubItems([
                       MenuItem::linkToCrud('liste des clients', 'fas fa-list', Client::class),
                       MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Client::class)
-                          ->setAction('new'),
+                          ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
                       MenuItem::linkToCrud('Détails canditdatures','fa fa-list',DetailsCandidature::class),
                       MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
-                          ->setAction('new'),
-                  ])->setPermission('ROLE_ADMIN'),
+                          ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
+                  ])->setPermission('ROLE_COMMERCIAL'),
 
                   MenuItem::subMenu('Gestion des Projets')
                       ->setSubItems([
                           MenuItem::linkToCrud('Lister les projets', 'fas fa-list', Projet::class),
                           MenuItem::linkToCrud('Ajouter un projet','fas fa-plus', Projet::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_ADMIN'),
+                      ])->setPermission('ROLE_RESPONSABLE'),
 
                   MenuItem::subMenu('Gestion des Sites')
                       ->setSubItems([
                           MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class),
                           MenuItem::linkToCrud('Ajouter un site','fas fa-plus', Site::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_ADMIN'),
+                      ])->setPermission('ROLE_RESPONSABLE'),
 
                   MenuItem::subMenu('Gestion des Villes')
                       ->setSubItems([
                           MenuItem::linkToCrud('Liste des villes', 'fas fa-list', Ville::class),
-                          MenuItem::linkToCrud('Ajouter un ville','fas fa-plus', Ville::class)
+                          MenuItem::linkToCrud('Ajouter une ville','fas fa-plus', Ville::class)
                               ->setAction('new'),
                       ])->setPermission('ROLE_SUPER_USER'),
 
@@ -192,8 +192,8 @@ class DashboardController extends AbstractDashboardController
                   MenuItem::subMenu('Gestion des Utilisateurs', 'fas fa-user')->setSubItems([
                       MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
                       MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
-                          ->setAction('new')->setPermission('ROLE_SUPER_USER'),
-                  ]),
+                          ->setAction('new'),
+                  ])->setPermission('ROLE_SUPER_USER'),
 
               ];
     }

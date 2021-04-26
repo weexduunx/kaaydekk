@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Ville;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,6 +20,25 @@ class VilleRepository extends ServiceEntityRepository
         parent::__construct($registry, Ville::class);
     }
 
+    /**
+     * @return Ville []
+     */
+    public function lire(): array
+    {
+        return  $this->findVisibleQuery()
+            ->where('v.id = true')
+            ->orderBy('v.label','ASC')
+            ->setMaxResults(54)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    private function findVisibleQuery() : QueryBuilder
+    {
+        return $this->createQueryBuilder('v')
+            ->where('v.id = true');
+    }
     // /**
     //  * @return Ville[] Returns an array of Ville objects
     //  */
