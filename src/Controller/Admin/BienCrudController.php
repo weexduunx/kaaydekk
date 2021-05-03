@@ -5,32 +5,23 @@ namespace App\Controller\Admin;
 use App\Entity\Attachment;
 use App\Entity\Bien;
 use App\Form\AttachmentType;
-use Doctrine\DBAL\Types\ArrayType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Extension\CollectionTypeExtension;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Vich\UploaderBundle\Entity\File;
-use Vich\UploaderBundle\Form\Type\VichFileType;
+
 use Vich\UploaderBundle\Form\Type\VichImageType;
-use Vich\UploaderBundle\VichUploaderBundle;
 
 class BienCrudController extends AbstractCrudController
 {
@@ -53,13 +44,15 @@ class BienCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+
         return [
-            FormField::addPanel('Informations sur les biens','fa fa-pencil'),
+            FormField::addPanel('Infos de base','fa fa-plus')
+            ->setCssClass('col-lg-12 '),
             ColorField::new('color','Couleur Statistique'),
             TextField::new('label','Nature du Bien'),
             AssociationField::new('typeDeBien','Type de logement'),
             AssociationField::new('projet'),
-            IntegerField::new('price'),
+            IntegerField::new('price','Prix (CFA)'),
             NumberField::new('superficie'),
             AssociationField::new('mode_acquisition','Mode acquisition'),
             BooleanField::new('status'),
@@ -79,6 +72,7 @@ class BienCrudController extends AbstractCrudController
             ImageField::new('thumbnail','Image')
                 ->setBasePath('/images/bien')
                 ->setUploadDir('public/images/bien/'),
+
         ];
     }
     public function configureActions(Actions $actions): Actions

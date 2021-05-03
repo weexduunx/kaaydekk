@@ -36,6 +36,40 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
+    /**
+     * @return int|mixed|string|null
+     *
+     */
+    public function findLatestUserNonVerified()
+    {
+        return  $this->findVisibleQuery()
+            ->select('u.email' )
+            ->orderBy('u.email','DESC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    private function findVisibleQuery() : \Doctrine\ORM\QueryBuilder
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.isVerified= 0');
+    }
+
+    public function findLatestUserVerified()
+    {
+        $query = $this->createQueryBuilder('u')
+            ->select('u.email' )
+            ->where('u.isVerified= 1')
+            ->orderBy('u.email','DESC')
+            ->setMaxResults(4);
+
+            return $query->getQuery()->getResult();
+
+    }
+
+
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

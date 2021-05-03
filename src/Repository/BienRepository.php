@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Bien;
 use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -25,7 +26,7 @@ class BienRepository extends ServiceEntityRepository
     /**
      * @return int|mixed|string|null
      *
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function countAllBien()
     {
@@ -94,6 +95,27 @@ class BienRepository extends ServiceEntityRepository
     }
 
 
+    public function calculGroup()
+    {
+        $queryBuilder = $this->createQueryBuilder('b');
+        $queryBuilder->select('SUBSTRING(b.label, 1, 10) as label, SUM(b.price)  as prix_total')
+        ->groupBy('label')
+        ;
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    /**
+     * @return int|mixed|string|null
+     *
+     */
+    public function calculTotal()
+    {
+        $queryBuilder = $this->createQueryBuilder('b');
+        $queryBuilder->select('SUM(b.price)  as prix_global');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
     /**
     //  * @return Bien[] Returns an array of Bien objects
     //  */

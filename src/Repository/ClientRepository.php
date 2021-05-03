@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Client;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -22,7 +24,7 @@ class ClientRepository extends ServiceEntityRepository
     /**
      * @return int|mixed|string|null
      *
-     * @throws \Doctrine\ORM\NonUniqueResultException
+     * @throws NonUniqueResultException
      */
     public function countAllClient()
     {
@@ -44,6 +46,27 @@ class ClientRepository extends ServiceEntityRepository
             ->groupBy('date');
 
         return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @return int|mixed|string|null
+     *
+     */
+    public function findLatestClient()
+    {
+        return  $this->findVisibleQuery()
+            ->select('c.prenom , c.nom, c.tel' )
+            ->orderBy('c.createdAt','DESC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    private function findVisibleQuery() : \Doctrine\ORM\QueryBuilder
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.status = true');
     }
     /**
     //  * @return Client[] Returns an array of Client objects

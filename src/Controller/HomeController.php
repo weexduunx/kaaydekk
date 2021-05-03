@@ -10,6 +10,8 @@ use Twig\Environment;
 class HomeController extends AbstractController
 {
 
+
+
     /**
      * @Route ("/", name="home")
      * @param \App\Repository\BienRepository $repository
@@ -22,5 +24,7 @@ class HomeController extends AbstractController
            'properties'=>$properties
             ]);
     }
+
+
 
 }

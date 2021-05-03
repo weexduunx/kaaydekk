@@ -32,8 +32,9 @@
             {% endif %}
         {% endblock content_header_wrapper %}
 
-        <section id="main">
+
             {% block main %}
+        <section id="main">
                 <div class="content-panel">
                     <div class="content-panel-body without-header {{ not has_page_footer ? 'without-footer' }}">
                         {% block page_content %}{% endblock %}
@@ -45,7 +46,8 @@
                         </section>
                     {% endif %}
                 </div>
-            {% endblock %}            
         </section>
+            {% endblock %}            
+
     </div>
 {% endblock content %}

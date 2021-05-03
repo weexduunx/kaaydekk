@@ -43,9 +43,19 @@
 {% endblock %}
 
 {% block main %}
+    <div class="row">
+    <div class="col-sm-12">
+    <div class="card">
+    <div class="card-body">
     {% block new_form %}
+
         {{ form(new_form) }}
+
     {% endblock new_form %}
+    </div>
+    </div>
+    </div>
+    </div>
 {% endblock %}
 
 {% block body_javascript %}

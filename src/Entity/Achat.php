@@ -38,6 +38,7 @@ class Achat
      */
     private $biens;
 
+
     public function __construct()
     {
         $this->clients = new ArrayCollection();
@@ -107,4 +108,5 @@ class Achat
 
         return $this;
     }
+
 }

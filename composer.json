@@ -4,7 +4,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.0",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/core": "^2.6",
@@ -18,10 +18,13 @@
         "fzaninotto/faker": "^1.9",
         "kevinpapst/adminlte-bundle": "^3.0",
         "knplabs/knp-paginator-bundle": "^5.4",
+        "knpuniversity/oauth2-client-bundle": "^2.8",
+        "league/oauth2-google": "^4.0",
         "lexik/jwt-authentication-bundle": "^2.11",
         "liip/imagine-bundle": "^2.6",
         "nelmio/cors-bundle": "^2.1",
         "phpdocumentor/reflection-docblock": "^5.2",
+        "phpoffice/phpspreadsheet": "^1.17",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.2.*",
         "symfony/console": "5.2.*",
@@ -55,8 +58,7 @@
         "twig/extra-bundle": "^3.3",
         "twig/intl-extra": "^3.3",
         "twig/twig": "^2.12|^3.0",
-        "vich/uploader-bundle": "^1.17",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "vich/uploader-bundle": "^1.17"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",

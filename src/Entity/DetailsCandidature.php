@@ -4,8 +4,6 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\DetailsCandidatureRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -76,7 +74,7 @@ class DetailsCandidature
      * @ORM\ManyToOne(targetEntity=Details4::class, inversedBy="detailsCandidatures")
      * @ORM\JoinColumn(name="secteur_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
-    private $secteur;
+    private  $secteur;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details5::class, inversedBy="detailsCandidatures")
@@ -92,7 +90,7 @@ class DetailsCandidature
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $revenu_mensuelle;
+    private  $revenu_mensuelle;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -113,7 +111,7 @@ class DetailsCandidature
     /**
      * @ORM\Column(type="string", length=7, nullable=true)
      */
-    private $color;
+    private  $color;
 
     /**
      * @ORM\Column(type="array", nullable=true)
@@ -221,11 +219,6 @@ class DetailsCandidature
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->label;
-    }
-
     public function getSituation(): ?Details3
     {
         return $this->situation;
@@ -274,29 +267,38 @@ class DetailsCandidature
         return $this;
     }
 
-    public function getRevenuMensuelle(): ?string
+
+    public function getRevenuMensuelle(): ?int
     {
         return $this->revenu_mensuelle;
     }
 
-    public function setRevenuMensuelle(string $revenu_mensuelle): self
+    public function setRevenuMensuelle(int $revenu_mensuelle): self
     {
         $this->revenu_mensuelle = $revenu_mensuelle;
 
         return $this;
     }
 
-    public function getSalaireMensuelle(): ?string
+    /**
+     * @return mixed
+     */
+    public function getSalaireMensuelle()
     {
         return $this->salaire_mensuelle;
     }
 
-    public function setSalaireMensuelle(string $salaire_mensuelle): self
+    /**
+     * @param mixed $salaire_mensuelle
+     * @return DetailsCandidature
+     */
+    public function setSalaireMensuelle($salaire_mensuelle): DetailsCandidature
     {
         $this->salaire_mensuelle = $salaire_mensuelle;
-
         return $this;
     }
+
+
 
     public function getTypeDeLogement(): ?TypeDeBien
     {
@@ -334,15 +336,26 @@ class DetailsCandidature
         return $this;
     }
 
-    public function getNom(): ?array
+    /**
+     * @return array
+     */
+    public function getNom(): array
     {
         return $this->nom;
     }
 
-    public function setNom(?array $nom): self
+    /**
+     * @param array $nom
+     * @return DetailsCandidature
+     */
+    public function setNom(array $nom): DetailsCandidature
     {
         $this->nom = $nom;
-
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->label;
     }
 }

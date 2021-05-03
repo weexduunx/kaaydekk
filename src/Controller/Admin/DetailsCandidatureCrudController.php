@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -25,27 +26,25 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-           FormField::addPanel('Détails sur les candidatures','fa fa-pencil'),
+            FormField::addPanel('Détails candidatures','fa fa-list'),
             ColorField::new('color','Couleur Statistique'),
             TextField::new('label','Reférence Candidature'),
-            ArrayField::new('nom','Prénom du candidat'),
+            AssociationField::new('client','Nom client(e) concerné(e)'),
+            ArrayField::new('nom','Prénom client(e) concerné(e)'),
             AssociationField::new('type_de_logement','Logement souhaité'),
-            AssociationField::new('client','Client(e) concerné(e)'),
             AssociationField::new('membre_cooperative'),
             TextField::new('nom_de_la_cooperative'),
             AssociationField::new('compte_bancaire'),
             TextField::new('nom_de_la_banque'),
-            NumberField::new('nombre_de_personne_en_charge'),
-            AssociationField::new('beneficiaire_appui_ou_subvention'),
+            IntegerField::new('nombre_de_personne_en_charge','Nbre de personne à charge'),
+            AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
             AssociationField::new('logement_actuel'),
             AssociationField::new('situation'),
             AssociationField::new('secteur'),
-            AssociationField::new('type_de_contrat'),
-            TextField::new('nom_de_la_societe'),
-            MoneyField::new('revenu_mensuelle')
-                ->setCurrency('XOF'),
-            MoneyField::new('salaire_mensuelle')
-                ->setCurrency('XOF'),
+            AssociationField::new('type_de_contrat','Type de contrat'),
+            TextField::new('nom_de_la_societe','Nom de la société'),
+            IntegerField::new('revenu_mensuelle','Revenu Mensuel (CFA)'),
+            IntegerField::new('salaire_mensuelle','Salaire Mensuel (CFA)'),
 
         ];
     }

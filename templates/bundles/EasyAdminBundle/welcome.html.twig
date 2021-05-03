@@ -6,12 +6,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
           integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
           crossorigin="anonymous">
+
 {% endblock %}
 {% block content %}
 <div class="container-fluid">
     {% block flash_messages %}
         {{ include(ea.templatePath('flash_messages')) }}
     {% endblock flash_messages %}
+
+    <div class="col-7 align-self-center">
+        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Bienvenue {{ ea.userMenu.name }}</h3>
+        <div class="d-flex align-items-center">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-0 p-0">
+                    <li class="breadcrumb-item">
+                        <a href="{{'/'}}">Visiter le site web</a>
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="card-group">
         <div class="card border-right">
             <div class="card-body">
@@ -20,12 +35,12 @@
                         <div class="d-inline-flex align-items-center">
                             <h2 class="text-dark mb-1 font-weight-medium">{{ (countAllClient['value']) }}</h2>
                             <span class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">
-                                +{{ (countAllClient ['value'] |format_number(style='percent')) }}</span>
+                                +{{ (countAllClient ['value'] |format_number) }} %</span>
                         </div>
                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total des Clients</h6>
                     </div>
                     <div class="ml-auto mt-md-3 mt-lg-0">
-                        <span class="opacity-7 text-muted"><i class="fa fa-user-plus"></i></span>
+                        <span class="opacity-7 text-muted"><i  data-feather="users"></i></span>
                     </div>
                 </div>
             </div>
@@ -36,14 +51,14 @@
                     <div>
                         <div class="d-inline-flex align-items-center">
                             <h2 class="text-dark mb-1 font-weight-medium">{{ (countAllBien['value']) }}</h2>
-                            {# 1,234% #}
+
                             <span class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none">
-                                {{ (countAllBien ['value'] |format_number(style='percent')) }}</span>
+                                +{{ (countAllBien ['value'] | format_number) }} %</span>
                         </div>
                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total des Biens</h6>
                     </div>
                     <div class="ml-auto mt-md-3 mt-lg-0">
-                        <span class="opacity-7 text-muted "><i class="fa fa-building-o" ></i></span>
+                        <span class="opacity-7 text-muted "><i  data-feather="home" ></i></span>
                     </div>
                 </div>
             </div>
@@ -54,14 +69,13 @@
                     <div>
                         <div class="d-inline-flex align-items-center">
                             <h2 class="text-dark mb-1 font-weight-medium">{{ (countAllCandidature['value']) }}</h2>
-                            {# 1,234% #}
                             <span class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block">
-                                -{{ (countAllCandidature['value'] |format_number(style='percent')) }}</span>
+                                +{{ (countAllCandidature['value'] |format_number) }} %</span>
                         </div>
                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total des Candidatures</h6>
                     </div>
                     <div class="ml-auto mt-md-3 mt-lg-0">
-                        <span class="opacity-7 text-muted"><i class="fa fa-clipboard-list"></i></span>
+                        <span class="opacity-7 text-muted"><i  data-feather="list"></i></span>
                     </div>
                 </div>
             </div>
@@ -71,10 +85,11 @@
                 <div class="d-flex d-lg-flex d-md-block align-items-center">
                     <div>
                         <h2 class="text-dark mb-1 font-weight-medium">{{ (countAllProjet['value']) }}</h2>
+
                         <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total des Projets</h6>
                     </div>
                     <div class="ml-auto mt-md-3 mt-lg-0">
-                        <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
+                        <span class="opacity-7 text-muted"><i data-feather="file-plus"></i></span>
                     </div>
                 </div>
             </div>
@@ -110,30 +125,28 @@
                 <!-- column -->
             </div>
     <div class="row">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-6">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Les Activités récentes</h4>
-                    <div class="mt-4 activity">
-                        <div class="d-flex align-items-start border-left-line pb-3">
-                            <div>
-                                <a href="javascript:void(0)" class="btn btn-info btn-circle mb-2 btn-item">
-                                    <i class="fa fa-user-plus"></i>
-                                </a>
-                            </div>
-                            <div class="ml-3 mt-2">
-                                <h5 class="text-dark font-weight-medium mb-2">Nouveaux Clients</h5>
-
-                                    <p class="font-14 mb-2 text-muted"><strong></strong></p>
-
-                                    <span class="font-weight-light font-14 text-muted"></span>
-                            </div>
-                        </div>
+                    <h4 class="card-title">Propriétés vendues</h4>
+                    <p class="font-14 mb-2 text-muted">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien <br></p>
+                    <div>
+                          <canvas id="price" height="150"></canvas>
+                        <ul class="list-style-none mb-0">
+                            <li>
+                            <i class="fas fa-circle text-primary font-10 mr-2"></i>
+                            <span class="text-muted">Les ventes directes</span>
+                                {% for sommes in somme %}
+                            <span class="text-dark float-right font-weight-medium"
+                                  style="font-weight: bold; font-size: 18px;">{{sommes.prix_global | format_number}}</span>
+                                {% endfor %}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title text-center">Prix des Biens</h4>
@@ -151,11 +164,62 @@
                                 <tr>
                                     <th scope="row">{{ bien.id }}</th>
                                     <td>{{ bien.label }}</td>
-                                    <td>{{ bien.price }}</td>
+                                    <td>{{ bien.price | format_number}} F CFA</td>
                                 </tr>
                                 </tbody>
                             {% endfor %}
                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Les activités récentes</h4>
+                    <div class="mt-4 activity">
+                        <div class="d-flex align-items-start border-left-line pb-3">
+                            <div>
+                                <a href="javascript:void(0)" class="btn btn-success btn-circle mb-2 btn-item">
+                                    <i data-feather="user-plus"></i>
+                                </a>
+                            </div>
+                            <div class="ml-3 mt-2">
+                                <h5 class="text-dark font-weight-medium mb-2">Derniers clients ajoutés !</h5>
+                                {% for client in creation %}
+                                    <p class="font-14 mb-2 text-muted">{{client.prenom}} {{ client.nom }} <br>
+                                        <span class="font-weight-light font-14 text-muted">{{ client.tel }}</span></p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start border-left-line pb-3">
+                            <div>
+                                <a href="javascript:void(0)"
+                                   class="btn btn-danger btn-circle mb-2 btn-item">
+                                    <i data-feather="users"></i>
+                                </a>
+                            </div>
+                            <div class="ml-3 mt-2">
+                                <h5 class="text-dark font-weight-medium mb-2">Les utilisateurs non vérifié !<br>
+                                du système</h5>
+                                {% for utilisateur in users %}
+                                <p class="font-14 mb-2 text-muted">{{ utilisateur.email }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start border-left-line">
+                            <div>
+                                <a href="javascript:void(0)" class="btn btn-cyan btn-circle mb-2 btn-item">
+                                    <i data-feather="users"></i>
+                                </a>
+                            </div>
+                            <div class="ml-3 mt-2">
+                                <h5 class="text-dark font-weight-medium mb-2">Les utilisateurs vérifiés!</h5>
+                                {% for verified in userVerified %}
+                                <p class="font-14 mb-2 text-muted">{{ verified.email }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,6 +230,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
                 integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
                 crossorigin="anonymous"></script>
+
         <script>
             let biens = document.querySelector("#pie")
             let pieGraph = new Chart(biens,{
@@ -174,7 +239,7 @@
                     labels:{{ nom|raw }},
                     datasets: [{
                         label: "Revenus Mensuel",
-                        data: {{ revenu|raw }},
+                        data: {{ revenu|raw }} ,
                         backgroundColor: {{ color|raw }}
                     }]
                 }
@@ -188,6 +253,22 @@
                     datasets:[{
                         label:"Nombre de Clients",
                         data: {{ compte|raw }},
+                        backgroundColor: {{ colorClient|raw }}
+                    }]
+
+                }
+            })
+
+            let prices = document.querySelector("#price")
+            let priceGraph = new Chart(prices, {
+                type: "doughnut",
+                data: {
+                    labels:{{ group|raw }},
+                    datasets:[{
+                        label:"Nombre de Clients",
+                        data: {{ prix_total|raw }},
+                        backgroundColor: {{ colorx|raw }}
+
                     }]
 
                 }
