@@ -255,7 +255,7 @@
             {% endblock wrapper %}
             <footer class="footer text-center text-muted">"
                 All Rights Reserved by NGTS INFORMATIQUE. Designed and Developed by "
-                <a href="http://idy-portfolio.byethost24.com/">Idrissa Ndiouck</a>
+                <span>créée avec &hearts;</span> <a href="http://idy-portfolio.byethost24.com/"> par Idrissa Ndiouck</a>
             </footer>
         </div>
     {% endblock wrapper_wrapper %}
@@ -278,14 +278,11 @@
     <script src="../assets/bs-tags/bootstrap-tagsinput.js"></script>
     <script src="../assets/smart-wizard/js/jquery.smartWizard.js"></script>
 
-
-
     {% block configured_body_contents %}
         {% for htmlContent in ea.assets.bodyContents ?? [] %}
             {{ htmlContent|raw }}
         {% endfor %}
     {% endblock %}
-
 
     </body>
 {% endblock body %}
