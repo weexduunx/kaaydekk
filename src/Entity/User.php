@@ -48,6 +48,11 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
+    /**
      * @return mixed
      */
     public function getPlainPassword()
@@ -88,7 +93,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
@@ -160,6 +165,13 @@ class User implements UserInterface
     public function getIsVerified(): ?bool
     {
         return $this->isVerified;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
 }

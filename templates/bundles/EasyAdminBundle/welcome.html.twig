@@ -192,6 +192,7 @@
                                 {% endfor %}
                             </div>
                         </div>
+                        {% if is_granted('ROLE_SUPER_USER') %}
                         <div class="d-flex align-items-start border-left-line pb-3">
                             <div>
                                 <a href="javascript:void(0)"
@@ -220,6 +221,7 @@
                                 {% endfor %}
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
