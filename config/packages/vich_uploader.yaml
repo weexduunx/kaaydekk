@@ -1,0 +1,12 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        thumbnails:
+            uri_prefix: /images/bien
+            upload_destination: '%kernel.project_dir%/public/images/bien'
+            namer: 'Vich\UploaderBundle\Naming\UniqidNamer'
+            delete_on_remove: true
+            delete_on_update: true
+
+
