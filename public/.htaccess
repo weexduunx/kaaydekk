@@ -1,5 +1,9 @@
 # Based on http://stackoverflow.com/questions/17313023/symfony-2-2-1-url-rewrite-issue
+<<<<<<< HEAD
 # Modified to use index.php as per symfony >= 5.0 installer
+=======
+# Modified to use index.php as per symfony >= 4.0 installer
+>>>>>>> origin/main
 
 # Use the front controller as index file. It serves as fallback solution when
 # every other rewrite/redirect fails (e.g. in an aliased environment without
