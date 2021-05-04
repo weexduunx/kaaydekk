@@ -49,18 +49,18 @@
                <a class="navbar-brand text-brand" href="{{ path('home') }}">Kaay Dëkk<span class="color-b"> Immo</span></a>
                         {% if app.user %}
                             <div>
-                            Salut {{ app.user.username }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+                            Salut! {{ app.user.username }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
                             {# Si l'utilisateur est authentifié #}
                             <a class="btn btn-sm btn-info" href="{{ path('admin') }}">Admin</a>
-                             {% if is_granted('ROLE_SUPER_USER') %}
+                            {% if is_granted('ROLE_SUPER_USER') %}
                                 {# Si l'utilisateur est authentifié et qu'il est super-admin #}
                                 <a class="btn btn-sm btn-warning" href="{{ path('admin') }}">Super Admin</a>
-                                <a class="btn btn-sm btn-primary" href="{{ path('user_new') }}">Créer Utilisateur</a>
-                                </div>
+                             </div>
                             {% endif %}
 
                         {% else %}
                             <div>
+                                <a class="btn btn-sm btn-primary" href="{{ path('user_new') }}">S'inscrire</a>
                                 <a class="btn btn-sm btn-success" href="{{ path('app_login') }}">Se connecter</a>
                             </div>
                         {% endif %}

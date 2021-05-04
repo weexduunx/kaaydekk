@@ -142,6 +142,13 @@ class DashboardController extends AbstractDashboardController
         //le dernier utilisateur créé et vérifié
         $verified = $this->userRepository->findLatestUserVerified();
 
+
+        //récupération de l'utilisateur security>Bundle
+        $user = $this->getUser();
+
+        //vérification des droits.
+        if($user && in_array('ROLE_ADMIN', $user->getRoles())){
+
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig',
             [
 
@@ -166,10 +173,11 @@ class DashboardController extends AbstractDashboardController
                 'data_users' => $data_users,
                 'colorx' =>json_encode($colorStat),
                 'colorClient' =>json_encode($colorClient),
-
             ]);
     }
-
+        //redirection
+        $session->set("message", "Vous n'avez pas le droit d'acceder à la page admin vous avez été redirigé sur cette page");
+    }
 
     public function configureUserMenu(UserInterface $user): UserMenu
     {
@@ -199,7 +207,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
-                  ])->setPermission('ROLE_SUPER_USER'),
+                  ])->setPermission('ROLE_RESPONSABLE'),
 
                   MenuItem::subMenu('Gestion des Biens', 'fa fa-building')->setSubItems([
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
@@ -242,9 +250,9 @@ class DashboardController extends AbstractDashboardController
 
                   MenuItem::subMenu('Paramètres Utilisateur','fa fa-cog')->setSubItems([
                           MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
-                          MenuItem::linkToCrud('Ajouterun utilisateur', 'fas fa-plus', User::class)
-                              ->setAction('new')->setPermission('ROLE_SUPER_USER'),
-                      ])->setPermission('ROLE_RESPONSABLE'),
+                          MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
+                              ->setAction('new'),
+                      ])->setPermission('ROLE_SUPER_USER'),
 
 
               ];

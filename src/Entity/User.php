@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Entity;
@@ -147,7 +148,7 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
-         $this->plainPassword = null;
+        $this->plainPassword = null;
     }
 
     public function isVerified(): bool

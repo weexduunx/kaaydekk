@@ -3,22 +3,22 @@
 {% block title %}Nouveau utilisateur{% endblock %}
 
 {% block body %}
-<main id="main">
-    <!-- ======= Debut Derniers Biens Section ======= -->
-    <section class="section-property section-t8">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="title-wrap d-flex justify-content-between">
-                        <div class="title-box">
-                            <h2 class="title-a">Créer un nouveau utilisateur</h2>
+    <main id="main">
+        <!-- ======= Debut Derniers Biens Section ======= -->
+        <section class="section-property section-t8">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title-wrap d-flex justify-content-between">
+                            <div class="title-box">
+                                <h2 class="title-a">Créer un nouveau utilisateur</h2>
+                            </div>
                         </div>
+                        {{ include('user/_form.html.twig') }}
+                        <div> <a href="{{ path('user_index') }}">Retour</a></div>
                     </div>
-                    {{ include('user/_form.html.twig') }}
-                    <div> <a href="{{ path('user_index') }}">Retour</a></div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 {% endblock %}

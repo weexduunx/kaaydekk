@@ -25,7 +25,7 @@ class UserCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setEntityPermission('ROLE_SUPER_USER');
+        return $crud->setEntityPermission('ROLE_ADMIN');
     }
 
 
@@ -37,7 +37,6 @@ class UserCrudController extends AbstractCrudController
             ArrayField::new('roles')->setPermission('ROLE_SUPER_USER'),
         ];
     }
-
     public function configureActions(Actions $actions): Actions
     {
         return $actions->setPermission(Action::DELETE,'ROLE_SUPER_USER' );
