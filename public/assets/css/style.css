@@ -2155,15 +2155,7 @@ footer .credits {
 #maCarte {
   height: 180px;
 }
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
-body {
-  padding: 0;
-  margin: 0;
-}
 
 #notfound {
   position: relative;

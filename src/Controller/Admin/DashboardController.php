@@ -65,6 +65,7 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         //on va chercher les détails des candidatures clients
         $candidats = $this->detailsCandidatureRepository->findAll();
 
@@ -165,6 +166,7 @@ class DashboardController extends AbstractDashboardController
                 'data_users' => $data_users,
                 'colorx' =>json_encode($colorStat),
                 'colorClient' =>json_encode($colorClient),
+
             ]);
     }
 
@@ -197,7 +199,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
-                  ])->setPermission('ROLE_RESPONSABLE'),
+                  ])->setPermission('ROLE_SUPER_USER'),
 
                   MenuItem::subMenu('Gestion des Biens', 'fa fa-building')->setSubItems([
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
@@ -240,9 +242,9 @@ class DashboardController extends AbstractDashboardController
 
                   MenuItem::subMenu('Paramètres Utilisateur','fa fa-cog')->setSubItems([
                           MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
-                          MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
-                              ->setAction('new'),
-                      ])->setPermission('ROLE_SUPER_USER'),
+                          MenuItem::linkToCrud('Ajouterun utilisateur', 'fas fa-plus', User::class)
+                              ->setAction('new')->setPermission('ROLE_SUPER_USER'),
+                      ])->setPermission('ROLE_RESPONSABLE'),
 
 
               ];

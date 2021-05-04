@@ -77,7 +77,10 @@ class BienCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->add(Crud::PAGE_INDEX,'detail');
+
+
+        return $actions
+            ->add(Crud::PAGE_INDEX,'detail');
     }
 
 }
