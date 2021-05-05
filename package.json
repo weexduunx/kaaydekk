@@ -23,6 +23,7 @@
         "jquery": "^3.6.0",
         "leaflet": "^1.7.1",
         "leaflet-easybutton": "^2.4.0",
+        "pg": "^8.6.0",
         "select2": "*"
     }
 }
