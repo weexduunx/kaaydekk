@@ -108,6 +108,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "compile": [
+            "php bin/console make:migrations:migrate"
         ]
     },
     "conflict": {
