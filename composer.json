@@ -107,9 +107,6 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "compile": [
-            "php bin/console doctrine:schema:drop --force"
-        ]
     },
     "conflict": {
         "symfony/symfony": "*"
