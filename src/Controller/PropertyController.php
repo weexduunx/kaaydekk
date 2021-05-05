@@ -19,11 +19,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class PropertyController extends AbstractController
 {
     /**
-     * @var \App\Repository\BienRepository
+     * @var BienRepository
      */
     private BienRepository $repository;
     /**
-     * @var \Doctrine\Persistence\ObjectManager
+     * @var ObjectManager
      */
     private ObjectManager $em;
 
@@ -36,7 +36,7 @@ class PropertyController extends AbstractController
     /**
      * @Route("/biens", name="property.index")
      * @param PaginatorInterface $paginator
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param Request $request
      * @return Response
      */
     public function index(PaginatorInterface $paginator, Request $request):Response
@@ -61,9 +61,9 @@ class PropertyController extends AbstractController
      * @Route("/biens/{slug}-{id}", name="bien.show", requirements={"slug": "[a-z0-9\-]*"})
      * @param \App\Entity\Bien $property
      * @param string $slug
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \App\Notification\ContactNotification $notification
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @param ContactNotification $notification
+     * @return Response
      */
     public  function show(Bien $property, string $slug, Request $request, ContactNotification $notification): Response
     {
