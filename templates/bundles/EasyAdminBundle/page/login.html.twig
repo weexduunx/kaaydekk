@@ -28,18 +28,19 @@
                 <div class="col-lg-5  col-md-7 bg-white">
                     <div class="p-3">
                         <div class="text-center">
-                            <img src="../assets/images/big/logo-kdi.png" width="100" alt="Kaay dëkk immo">
+                            <img src="../assets/images/big/logo-kdi.png" width="100" alt="wrapkit">
                         </div>
+
                           <h2 class="mt-3 text-center">AUTHENTIFICATION</h2>
-                        <p class="text-center">Entrer votre e-mail et mot de passe pour accéder au tableau de bord.</p>
-                        {% if error|default(false) %}
+                         <p class="text-center">Entrer votre e-mail et mot de passe pour accéder au tableau de bord.</p>
+                         {% if error|default(false) %}
                             <div class="w-100 alert alert-danger">
                                 {{ error.messageKey|trans(error.messageData, 'security') }}
                             </div>
-                        {% endif %}
-                        {% if csrf_token|default(false) %}
+                          {% endif %}
+                          {% if csrf_token|default(false) %}
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        {% endif %}
+                          {% endif %}
 
                         {% if app.user %}
                             <div class="mb-3">
