@@ -15,74 +15,75 @@
     {% set _sign_in_label = sign_in_label is defined ? sign_in_label|trans : 'login_page.sign_in'|trans({}, 'EasyAdminBundle') %}
 
     <div class="main-wrapper">
-    </div>
-    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
-         style="background:url(../assets/images/big/auth-bg.png) no-repeat center center;" >
 
-        <div class="auth-box row">
-            <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(../assets/images/big/kadi.jpg);">
-            </div>
+      <div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
+             style="background:url(../assets/images/big/auth-bg.png) no-repeat center center;" >
 
-            <div class="col-lg-5 col-md-7 bg-white">
-                <div class="p-3">
-                    <div class="text-center">
-                        <img src="../assets/images/big/logo-kdi.png" width="100" alt="Kaay dëkk immo">
-                    </div>
-                    {% if error|default(false) %}
-                        <div class="w-100 alert alert-danger">
-                            {{ error.messageKey|trans(error.messageData, 'security') }}
+            <div class="auth-box row">
+                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(../assets/images/big/kadi.jpg);">
+                </div>
+
+                <div class="col-lg-5 col-md-7 bg-white">
+                    <div class="p-3">
+                        <div class="text-center">
+                            <img src="../assets/images/big/logo-kdi.png" width="100" alt="Kaay dëkk immo">
                         </div>
-                    {% endif %}
-                    <h2 class="mt-3 text-center">AUTHENTIFICATION</h2>
-                    <p class="text-center">Entrer votre e-mail et mot de passe pour accéder au tableau de bord.</p>
-                    <form class="mt-4" method="post">
-                        {% if csrf_token|default(false) %}
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        {% endif %}
-
-                        {% if app.user %}
-                            <div class="mb-3">
-                                Vous êtes connectés en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnectez-vous</a>
+                        {% if error|default(false) %}
+                            <div class="w-100 alert alert-danger">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
                             </div>
                         {% endif %}
-                        <input type="hidden" name="{{ target_path_parameter|default('_target_path') }}" value="{{ target_path|default(ea is defined ? path(ea.dashboardRouteName) : '/') }}" />
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <i class="fa fa-fw fa-user"></i>e-mail
-                                    <label for="username" class="sr-only form-control-label required">{{ _username_label }}</label>
-                                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
-                                           class="form-control" placeholder="" required autofocus>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <i class="fa fa-fw fa-lock"></i>Mot de Passe
-                                    <label for="password" class="sr-only form-control-label required">{{ _password_label }}</label>
-                                    <input type="password" name="password" id="inputPassword"
-                                           class="form-control" placeholder="" required>
-                                </div>
-                            </div>
+                        <h2 class="mt-3 text-center">AUTHENTIFICATION</h2>
+                        <p class="text-center">Entrer votre e-mail et mot de passe pour accéder au tableau de bord.</p>
+                        <form class="mt-4" method="post">
+                            {% if csrf_token|default(false) %}
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                            {% endif %}
 
-                            <div class="col-lg-12 text-center">
-                                <div class="checkbox mb-3">
-                                    <label>
-                                        <input type="checkbox" name="_remember_me">Souviens de moi
-                                    </label>
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    Vous êtes connectés en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnectez-vous</a>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">{{ _sign_in_label }}</button>
+                            {% endif %}
+                            <input type="hidden" name="{{ target_path_parameter|default('_target_path') }}" value="{{ target_path|default(ea is defined ? path(ea.dashboardRouteName) : '/') }}" />
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <i class="fa fa-fw fa-user"></i>e-mail
+                                        <label for="username" class="sr-only form-control-label required">{{ _username_label }}</label>
+                                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                                               class="form-control" placeholder="" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <i class="fa fa-fw fa-lock"></i>Mot de Passe
+                                        <label for="password" class="sr-only form-control-label required">{{ _password_label }}</label>
+                                        <input type="password" name="password" id="inputPassword"
+                                               class="form-control" placeholder="" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 text-center">
+                                    <div class="checkbox mb-3">
+                                        <label>
+                                            <input type="checkbox" name="_remember_me">Souviens de moi
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block">{{ _sign_in_label }}</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                    <script type="text/javascript">
+                        </form>
+                        <script type="text/javascript">
                             const loginForm = document.querySelector('form');
                             loginForm.addEventListener('submit', () => {
                                 loginForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled');
                             }, false);
                         </script>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
     </div>
 {% endblock %}
