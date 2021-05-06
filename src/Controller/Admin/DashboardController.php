@@ -207,7 +207,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
-                  ])->setPermission('ROLE_RESPONSABLE'),
+                  ])->setPermission('ROLE_SUPER_USER'),
 
                   MenuItem::subMenu('Gestion des Biens', 'fa fa-building')->setSubItems([
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
@@ -216,7 +216,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Créer un type de bien', 'fas fa-plus', TypeDeBien::class)
                           ->setAction('new'),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
-                  ])->setPermission('ROLE_RESPONSABLE'),
+                  ])->setPermission('ROLE_SUPER_USER'),
 
                   MenuItem::subMenu('Gestion des Clients', 'fa fa-user-circle-o')->setSubItems([
                       MenuItem::linkToCrud('liste des clients', 'fas fa-list', Client::class),
@@ -225,21 +225,21 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des candidats','fa fa-list',DetailsCandidature::class),
                       MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
                           ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
-                  ])->setPermission('ROLE_COMMERCIAL'),
+                  ])->setPermission('ROLE_ADMIN'),
 
                   MenuItem::subMenu('Gestion des Projets', 'fa fa-project-diagram')
                       ->setSubItems([
                           MenuItem::linkToCrud('Liste des projets', 'fas fa-list', Projet::class),
                           MenuItem::linkToCrud('Ajouter un projet','fas fa-plus', Projet::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_RESPONSABLE'),
+                      ])->setPermission('ROLE_SUPER_USER'),
 
                   MenuItem::subMenu('Gestion des Sites', 'fa fa-area-chart')
                       ->setSubItems([
                           MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class),
                           MenuItem::linkToCrud('Ajouter un site','fas fa-plus', Site::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_RESPONSABLE'),
+                      ])->setPermission('ROLE_SUPER_USER'),
 
                   MenuItem::subMenu('Gestion des Villes', 'fa fa-city')
                       ->setSubItems([
