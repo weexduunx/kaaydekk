@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/db_kadiOfficial</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="@heroku_db" uuid="6f31a575-c34d-4323-9548-2eb12035d92a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://frwahxxknm9kwy6c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	:3306/sm29tr8fh7psunjh</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

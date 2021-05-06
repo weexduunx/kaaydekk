@@ -94,6 +94,7 @@ class Client
 
     /**
      * @ORM\OneToMany(targetEntity=DetailsCandidature::class, mappedBy="client")
+     * @ORM\JoinColumn( onDelete="CASCADE")
      */
     private $detailsCandidatures;
 

@@ -217,7 +217,7 @@ class DashboardController extends AbstractDashboardController
                           ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
                       MenuItem::linkToCrud('Liste des candidats','fa fa-list',DetailsCandidature::class),
                       MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
-                          ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
+                          ->setAction('new'),
                   ])->setPermission('ROLE_COMMERCIAL'),
 
                   MenuItem::subMenu('Gestion des Projets', 'fa fa-project-diagram')
