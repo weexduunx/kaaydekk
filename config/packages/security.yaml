@@ -60,8 +60,7 @@ security:
         - { path: ^/admin, roles: [ ROLE_COMMERCIAL ] }
         - { path: ^/admin, roles: [ IS_AUTHENTICATED_FULLY, ROLE_USER ] }
         - { path: ^/admin, roles: [ROLE_ADMIN] }
-        - { path: ^/user, roles: [ROLE_SUPER_USER] }
-        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY  }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, roles: [IS_AUTHENTICATED_FULLY, ROLE_ADMIN] }
 
 
