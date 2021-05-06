@@ -11,14 +11,14 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="intro-body">
-                                    <div style="font-weight:bold;font-size:2rem;"><span>Ajouté récemment</span></div>
+                                    <div style="font-weight:bold;font-size:2rem;"><span>les plus récents</span></div>
                                     <h1 class="intro-title mb-4 ">{{ bien.label }} <br>
                                         <span class="color-c">{{ bien.superficie }} m²</span>
                                     </h1>
                                     <div style="font-weight:bold;font-size:2rem;">Ville de : {{ bien.city }}</div>
                                     <p class="intro-subtitle intro-price">
                                         <a href="{{ path('bien.show', {id: bien.id, slug: bien.slug}) }}">
-                                            <span class="price-a" style="font-weight:normal;font-size:2rem;">Prix | {{ bien.formattedPrice}} FCFA</span></a>
+                                            <span class="price-a">Prix | {{ bien.formattedPrice}} FCFA</span></a>
                                     </p>
                                 </div>
                             </div>
