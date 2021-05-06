@@ -53,6 +53,7 @@
                             {# Si l'utilisateur est authentifié #}
                             <a class="btn btn-sm btn-info" href="{{ path('admin') }}">Admin</a>
                             {% if is_granted('ROLE_SUPER_USER') %}
+                                <a class="btn btn-sm btn-primary" href="{{ path('user_new') }}">S'inscrire</a>
                                 {# Si l'utilisateur est authentifié et qu'il est super-admin #}
                                 <a class="btn btn-sm btn-warning" href="{{ path('admin') }}">Super Admin</a>
                              </div>
@@ -60,7 +61,6 @@
 
                         {% else %}
                             <div>
-                                <a class="btn btn-sm btn-primary" href="{{ path('user_new') }}">S'inscrire</a>
                                 <a class="btn btn-sm btn-success" href="{{ path('app_login') }}">Se connecter</a>
                             </div>
                         {% endif %}
