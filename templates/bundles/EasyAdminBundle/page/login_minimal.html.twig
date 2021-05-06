@@ -9,19 +9,35 @@
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, noimageindex, notranslate, nocache" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="generator" content="EasyAdmin" />
-
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <title>{{ block('page_title')|striptags|raw }}</title>
 
-    {% block head_stylesheets %}
-        <link rel="stylesheet" href="{{ ('/assets/dist/css/style.css') }}">
-    {% endblock %}
+
+    <link rel="stylesheet" href="{{ ('/assets/dist/css/style.css') }}">
+    {% block head_stylesheets %}{% endblock %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     {% block head_javascript %}
         <script src="{{ asset('bundles/easyadmin/app.js') }}"></script>
     {% endblock head_javascript %}
 </head>
 
-<body id="{% block body_id %}{% endblock %}" class="ea {% block body_class %}{% endblock %}">
+<body>
+
 {% block wrapper_wrapper %}{% endblock wrapper_wrapper %}
+<script src="../assets/libs/jquery/dist/jquery.min.js "></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="../assets/libs/popper.js/dist/umd/popper.min.js "></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js "></script>
+
+<script>
+        $(".preloader ").fadeOut();
+    </script>
 </body>
 </html>
