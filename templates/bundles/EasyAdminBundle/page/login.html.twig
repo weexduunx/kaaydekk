@@ -47,12 +47,12 @@
                                 Vous êtes connectés en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnectez-vous</a>
                             </div>
                         {% endif %}
-                        <input type="hidden" name="{{ target_path_parameter|default('_target_path') }}" value="{{ target_path|default(ea is defined ? path(ea.dashboardRouteName) : '/') }}" />
                         <form class="mt-4" method="post">
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        <input type="hidden" name="{{ target_path_parameter|default('_target_path') }}" value="{{ target_path|default(ea is defined ? path(ea.dashboardRouteName) : '/') }}" />
+                                        <i class="fa fa-envelope" aria-hidden=true"></i>
                                         <label for="uname" class="text-dark">{{ _username_label }}</label>
                                         <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
                                                class="form-control" placeholder="entrer votre email" required autofocus>
