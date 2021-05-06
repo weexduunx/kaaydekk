@@ -4,5 +4,3 @@ swiftmailer:
         password: 416365bc0bd97bb42c16763608eaf114-2a9a428a-e4debf3c
         host: smtp.mailgun.org
         port: 587
-        spool: { type: 'memory' }
-
