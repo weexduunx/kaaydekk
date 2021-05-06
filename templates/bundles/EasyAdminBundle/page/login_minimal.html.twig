@@ -11,9 +11,12 @@
         <meta name="generator" content="EasyAdmin" />
         <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
         <title>{{ block('page_title')|striptags|raw }}</title>
-
-
-
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
         {% block head_stylesheets %}
             <link rel="stylesheet" href="{{ ('/assets/dist/css/style.css') }}">
         {% endblock %}
@@ -25,6 +28,19 @@
 
     <body id="{% block body_id %}{% endblock %}" class="ea {% block body_class %}{% endblock %}">
         {% block wrapper_wrapper %}{% endblock wrapper_wrapper %}
+
+        <script type="text/javascript">
+          const loginForm = document.querySelector('form');
+         loginForm.addEventListener('submit', () => {
+        loginForm.querySelector('button[type="submit"]').setAttribute('disabled', 'disabled');
+       }, false);
+     </script>
+        <script src="../assets/libs/jquery/dist/jquery.min.js "></script>
+        <script src="../assets/libs/popper.js/dist/umd/popper.min.js "></script>
+        <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js "></script>
+        <script>
+        $(".preloader ").fadeOut();
+    </script>
     </body>
 </html>
 
