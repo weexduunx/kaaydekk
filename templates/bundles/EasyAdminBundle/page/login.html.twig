@@ -51,16 +51,14 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <i class="fa fa-envelope" aria-hidden="true">e-mail</i>
-                                        <label for="uname" class="text-dark">{{ _username_label }}</label>
+                                        <label for="uname" class="text-dark fa fa-envelope">{{ _username_label }}</label>
                                         <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
                                                class="form-control" placeholder="entrer votre email" required autofocus>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <i class="fa fa-key" aria-hidden="true">Mot de Passe</i>
-                                        <label for="password" class="sr-only form-control-label required">{{ _password_label }}</label>
+                                        <label for="password" class="text-dark fa fa-key">{{ _password_label }}</label>
                                         <input type="password" name="password" id="inputPassword"
                                                class="form-control" placeholder="entrer votre mot de passe"  required>
                                     </div>
@@ -76,7 +74,7 @@
                                 </div>
                                 <div class="col-lg-12 text-center mt-5">
                                     Avez-vous un compte?
-                                    <a href="#" class="text-danger">S'inscrire</a>
+                                    <a href="{{ path('app_register') }}" class="text-danger">S'inscrire</a>
                             </div>
                             </div>
                         </form>
