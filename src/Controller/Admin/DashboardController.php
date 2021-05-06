@@ -167,8 +167,10 @@ class DashboardController extends AbstractDashboardController
                 'data_users' => $data_users,
                 'colorx' =>json_encode($colorStat),
                 'colorClient' =>json_encode($colorClient),
+
             ]);
-     }
+
+    }
 
     public function configureUserMenu(UserInterface $user): UserMenu
     {
@@ -198,7 +200,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
-                  ])->setPermission('ROLE_RESPONSABLE'),
+                  ])->setPermission('ROLE_SUPER_USER'),
 
                   MenuItem::subMenu('Gestion des Biens', 'fa fa-building')->setSubItems([
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
@@ -207,7 +209,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Créer un type de bien', 'fas fa-plus', TypeDeBien::class)
                           ->setAction('new'),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
-                  ])->setPermission('ROLE_RESPONSABLE'),
+                  ])->setPermission('ROLE_SUPER_USER'),
 
                   MenuItem::subMenu('Gestion des Clients', 'fa fa-user-circle-o')->setSubItems([
                       MenuItem::linkToCrud('liste des clients', 'fas fa-list', Client::class),
