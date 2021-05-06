@@ -51,16 +51,15 @@
                             <div>
                             Salut {{ app.user.email }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
                             {# Si l'utilisateur est authentifié #}
-                            <a class="btn btn-sm btn-info" href="{{ path('admin') }}">Admin</a>
                             {% if is_granted('ROLE_SUPER_USER') %}
                                 {# Si l'utilisateur est authentifié et qu'il est super-admin #}
+                                <a class="btn btn-sm btn-primary" href="{{ path('app_register') }}">Créer un compte</a>
                                 <a class="btn btn-sm btn-warning" href="{{ path('admin') }}">Super Admin</a>
                              </div>
                             {% endif %}
 
                         {% else %}
                             <div>
-                                <a class="btn btn-sm btn-primary" href="{{ path('app_register') }}">S'inscrire</a>
                                 <a class="btn btn-sm btn-success" href="{{ path('app_login') }}">Se connecter</a>
                             </div>
                         {% endif %}
