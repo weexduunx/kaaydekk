@@ -199,6 +199,8 @@
                                     <i data-feather="users"></i>
                                 </a>
                             </div>
+                            {% if app.user %}
+                            {% if is_granted('ROLE_SUPER_USER') %}
                             <div class="ml-3 mt-2">
                                 <h5 class="text-dark font-weight-medium mb-2">Les utilisateurs non vérifié !<br>
                                 du système</h5>
@@ -206,7 +208,11 @@
                                 <p class="font-14 mb-2 text-muted">{{ utilisateur.email }}</p>
                                 {% endfor %}
                             </div>
+                            {% endif %}
+                            {% endif %}
                         </div>
+                        {% if app.user %}
+                        {% if is_granted('ROLE_SUPER_USER') %}
                         <div class="d-flex align-items-start border-left-line">
                             <div>
                                 <a href="javascript:void(0)" class="btn btn-cyan btn-circle mb-2 btn-item">
@@ -220,6 +226,8 @@
                                 {% endfor %}
                             </div>
                         </div>
+                        {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
