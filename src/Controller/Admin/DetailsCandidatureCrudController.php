@@ -27,7 +27,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            FormField::addPanel('Détails candidatures','fa fa-list'),
+            FormField::addPanel('1er Niveau','fa fa-list'),
             ColorField::new('color','Couleur Statistique'),
             TextField::new('label','Reférence Candidature'),
             AssociationField::new('client','Nom client(e) concerné(e)'),
@@ -40,8 +40,10 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             IntegerField::new('nombre_de_personne_en_charge','Nbre de personne à charge'),
             AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
             AssociationField::new('logement_actuel'),
-            AssociationField::new('situation')->setHelp('le candidat doit être apte à ce niveau'),
-            FormField::addPanel('À ce niveau du formulaire si la situation du candidat est définit en "Non-Salarié", mieux vaut ne pas continuer l\'insertion','fa fa-pencil'),
+            AssociationField::new('situation')->setHelp('si le candidat est un salarié, vous pouvez continuer de saisir ses informations. 
+            Par contre si c\'est un non-salarié, veuillez ne pas continuer le reste du formulaire. Nous faisons le maximum pour automatiser cette fonctionnalité.
+            pour information: veuillez le faire manuellement'),
+            FormField::addPanel('2eme Niveau','fa fa-pencil'),
             AssociationField::new('secteur'),
             AssociationField::new('type_de_contrat','Type de contrat'),
             TextField::new('nom_de_la_societe','Nom de la société'),
