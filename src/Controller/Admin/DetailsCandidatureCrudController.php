@@ -31,13 +31,14 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             ColorField::new('color','Couleur Statistique'),
             TextField::new('label','Reférence Candidature'),
             AssociationField::new('client','Nom client(e) concerné(e)'),
-            TextField::new('nom','Prénom client(e) concerné(e)'),
+            ArrayField::new('nom','Prénom client(e) concerné(e)'),
             AssociationField::new('type_de_logement','Logement souhaité'),
             AssociationField::new('membre_cooperative'),
             TextField::new('nom_de_la_cooperative'),
             AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
             AssociationField::new('logement_actuel'),
-            AssociationField::new('situation')->setHelp('si le candidat est un salarié,
+            AssociationField::new('situation')
+                ->setHelp('si le candidat est un salarié,
              vous pouvez continuer de saisir ses informations. Par contre si c\'est un non-salarié,
              le reste du formulaire peut être exempt des données non nécessaire.
              Nous faisons le maximum pour automatiser cette fonctionnalité.

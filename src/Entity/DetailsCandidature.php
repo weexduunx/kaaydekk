@@ -20,7 +20,7 @@ class DetailsCandidature
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $nom_de_la_cooperative;
 
@@ -30,7 +30,7 @@ class DetailsCandidature
     private $nombre_de_personne_en_charge;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $nom_de_la_banque;
 
@@ -83,17 +83,17 @@ class DetailsCandidature
     private $type_de_contrat;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $nom_de_la_societe;
 
     /**
-     * @ORM\Column(type="string", length=255 , nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private  $revenu_mensuelle;
 
     /**
-     * @ORM\Column(type="string", length=255 , nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $salaire_mensuelle;
 
