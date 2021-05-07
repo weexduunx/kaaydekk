@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\DetailsCandidature;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -40,6 +41,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
             AssociationField::new('logement_actuel'),
             AssociationField::new('situation'),
+            FormField::addPanel('À ce niveau du formulaire si la situation du candidat est définit en "Non-Salarié", mieux vaut ne pas continuer l\'insertion','fa fa-list'),
             AssociationField::new('secteur'),
             AssociationField::new('type_de_contrat','Type de contrat'),
             TextField::new('nom_de_la_societe','Nom de la société'),
@@ -50,6 +52,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->add(Crud::PAGE_INDEX,'detail');
+        return $actions->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->disable(Action::DELETE);
     }
 }
