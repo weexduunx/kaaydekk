@@ -8,7 +8,7 @@ class ContactNotification{
 
     private \Swift_Mailer $mailer;
     /**
-     * @var \Twig\Environment
+     * @var Environment
      */
     private Environment $renderer;
 
