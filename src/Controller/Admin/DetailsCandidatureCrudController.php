@@ -59,6 +59,8 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle('index','Détails Candidatures');
+            ->setPageTitle('index','Détails Candidatures')
+            ->setPageTitle('edit','Editer les candidats')
+            ->setHelp('edit','Veuillez noter que si le candidat n\'est pas un salarié, mieux vaut ne pas l\'ajouter!!!');
     }
 }
