@@ -25,7 +25,12 @@ class UserCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud->setEntityPermission('ROLE_ADMIN');
+        return $crud
+            ->setPageTitle('index','Compte utilisateur')
+            ->setPageTitle('detail','utilisateur')
+            ->setPageTitle('edit','Modifier le compte')
+            ->setHelp('edit','cette page contient l\'information de l\'utilisateur')
+            ->setEntityPermission('ROLE_ADMIN');
     }
 
 
@@ -39,8 +44,12 @@ class UserCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->setPermission(Action::DELETE,'ROLE_SUPER_USER' );
+        return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->setPermission(Action::DELETE,'ROLE_SUPER_USER' );
 
     }
+
+
 
 }

@@ -70,6 +70,6 @@ class ClientCrudController extends AbstractCrudController
     {
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
-            ->disable(Action::DELETE);
+            ->setPermission('delete','ROLE_SUPER_USER');
     }
 }
