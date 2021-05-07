@@ -55,4 +55,10 @@ class DetailsCandidatureCrudController extends AbstractCrudController
         return $actions->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->disable(Action::DELETE);
     }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index','Détails Candidatures');
+    }
 }
