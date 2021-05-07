@@ -19,6 +19,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
+use Mailgun\Model\Route\Action;
 use phpDocumentor\Reflection\Type;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
 
@@ -67,6 +68,8 @@ class ClientCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->add(Crud::PAGE_INDEX,'detail');
+        return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->disable(Action::DELETE, Action::NEW);
     }
 }
