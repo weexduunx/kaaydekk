@@ -46,7 +46,7 @@ class UserCrudController extends AbstractCrudController
     {
         return $actions
             ->add(Crud::PAGE_INDEX, Action::DETAIL)
-            ->setPermission(Action::DELETE,'ROLE_SUPER_USER' );
+            ->disable(Action::DELETE);
 
     }
 
