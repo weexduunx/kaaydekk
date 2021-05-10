@@ -66,11 +66,10 @@ class ClientRepository extends ServiceEntityRepository
     private function findVisibleQuery() : \Doctrine\ORM\QueryBuilder
     {
         return $this->createQueryBuilder('c')
-            ->where('c.status = true');
+            ->where('c.status = false');
     }
-    /**
-    //  * @return Client[] Returns an array of Client objects
-    //  */
+  
+
     /*
     public function findByExampleField($value)
     {
