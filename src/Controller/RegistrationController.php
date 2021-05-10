@@ -41,6 +41,10 @@ class RegistrationController extends AbstractController
                 )
             );
 
+             //on active par défaut
+            $user->setIsActive(true);
+            //$user->addRole("ROLE_ADMIN");
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -54,7 +58,7 @@ class RegistrationController extends AbstractController
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
-
+            
             return $this->redirectToRoute('app_login');
         }
 

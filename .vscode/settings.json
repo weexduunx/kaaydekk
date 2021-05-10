@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "frwahxxknm9kwy6c.cbetxkdyhwsb.us-east-1.rds.amazonaws.com\t",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "KADI",
+            "database": "sm29tr8fh7psunjh",
+            "username": "bcp18jws2afg5vle\t",
+            "password": "mfsqgmex468d6k4h"
+        }
+    ]
+}
