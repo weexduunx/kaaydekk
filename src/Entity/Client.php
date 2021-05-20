@@ -48,7 +48,7 @@ class Client
     private $achat;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $commentaire;
 
@@ -205,7 +205,7 @@ class Client
     }
     public function __toString()
     {
-        return $this->nom;
+        return $this->prenom . ' ' . $this->nom;
     }
 
     public function getCommentaire(): ?string

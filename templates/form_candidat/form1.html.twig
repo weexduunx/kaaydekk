@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% block body %}
+    <main id="main">
+        <section class="intro-single">
+            <div class="container">
+                  {% for message in app.flashes('success') %}
+                 <div class="alert alert-success">
+                  {{ message }}
+                 </div>
+                 {% endfor %}
+                <form  method="post" role="form" >
+                    <div class="row">
+                        <div class="col-lg-8">
+                          <h1 class="text-center">FICHE D'INSCRIPTION AU PROJET DE 140 LOGEMENTS SOCIAUX</h1>
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                <h4>Deuxiéme et derniére étape</h4>
+                                   <div class="card-title"><strong>Situation professionnelle</strong></div>
+                                        {{ form_start(form) }}
+
+                                        <!-- column 1 -->
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-3 form-control-sm">{{ form_row(form.membre_cooperative) }}</div>
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.nom_de_la_cooperative)}}</div>
+                                                    <div class="col-3 form-control-sm"> {{ form_row(form.nombre_de_personne_en_charge)}}</div>
+                                                     <div class="col-3 form-control-sm">{{ form_row(form.compte_bancaire) }}</div>
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.nom_de_la_banque) }}</div>
+                                                    <div class="col-3 form-control-sm"> {{ form_row(form.nom_de_la_societe)}}</div>
+                                                </div>
+                                            </div>
+                                        <!-- column 1-->
+                                </div>
+                            </div>
+                            <!-- column 2-->
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6 form-control-sm">{{ form_row(form.revenu_mensuelle) }}</div>
+                                            <div class="col-6 form-control-sm">{{ form_row(form.salaire_mensuelle) }}</div>
+                                           
+                                           
+                                            <div class="col-4 form-control-sm">{{ form_row(form.beneficiaire_appui_ou_subvention) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.logement_actuel) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.situation) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.secteur) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- column 3-->
+                             <div class="card mt-2">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-4 form-control-sm">{{ form_row(form.type_de_contrat) }}</div>
+                                            <div class="col-8 form-control-sm">{{ form_row(form.type_de_logement) }}</div>
+                                            <div class="col-6 form-control-sm">{{ form_row(form.client) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- column 3-->
+                            <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary">Valider l'inscription</button>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                        <div class="col-md-4 mt-lg-2">
+                            <h4 class="alert-info mt ">Informations</h4>
+                                <p></p>
+                                <div class="mt-4">
+                                        <img src="{{asset('assets/images/ngts.png') }}" class="rounded float-right" width="200" height="200" alt="...">
+                                        <img src="{{asset('assets/images/logo-kdi.png') }}" class="rounded float-left" width="200"  alt="...">
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}

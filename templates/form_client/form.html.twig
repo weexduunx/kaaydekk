@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% block body %}
+    <main id="main">
+        <section class="intro-single">
+            <div class="container">
+                <form  method="post" role="form" >
+                    <div class="row">
+                        <div class="col-lg-8">
+                          <h1 class="text-center">FICHE D'INSCRIPTION AU PROJET DE 140 LOGEMENTS SOCIAUX</h1>
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                <h4 class="text-center">Premiére étape</h4>
+                                   <div class="card-title"><strong>Informations personelles</strong></div>
+                                        {{ form_start(form) }}
+                                        <!-- column 1 -->
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.nom)}}</div>
+                                                    <div class="col-6 form-control-sm"> {{ form_row(form.prenom)}}</div>
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.lieu_de_naissance) }}</div>
+                                                    <div class="col-6 form-control-sm"> {{ form_row(form.date_de_naissance)}}</div>
+                                                </div>
+                                            </div>
+                                        <!-- column 1-->
+                                </div>
+                            </div>
+                            <!-- column 2-->
+                            <div class="card mt-4">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-6 form-control-sm">{{ form_row(form.nationalite) }}</div>
+                                            <div class="col-6 form-control-sm">{{ form_row(form.numero_cin_ou_passeport) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.situation_matrimoniale) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.profession) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.ville) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.adresse) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.email) }}</div>
+                                            <div class="col-4 form-control-sm">{{ form_row(form.tel) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- column 3-->
+                             <div class="card mt-2">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-4 form-control-sm">{{ form_row(form.color) }}</div>
+                                            <div class="col-8 form-control-sm">{{ form_row(form.commentaire) }}</div>
+                                            <div class="col-6 form-control-sm">{{ form_row(form.status) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- column 3-->
+                            <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary">Continuer l'inscription ici</button>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                        <div class="col-md-4 mt-lg-2">
+                            <h4 class="alert-info mt ">Informations</h4>
+                                <p></p>
+                                <div class="mt-4">
+                                        <img src="{{asset('assets/images/ngts.png') }}" class="rounded float-right" width="200" height="200" alt="...">
+                                        <img src="{{asset('assets/images/logo-kdi.png') }}" class="rounded float-left" width="200"  alt="...">
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}
