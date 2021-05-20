@@ -34,7 +34,7 @@ class FormCandidatController extends AbstractController
                // maybe set a "flash" success message for the user
                $this->addFlash('success', 'Votre inscription a été enregistrée avec succés');
    
-               return $this->redirectToRoute('form_candidat');
+               return $this->redirectToRoute('merci');
            }
    
         return $this->render('form_candidat/form1.html.twig', 

@@ -38,11 +38,17 @@ class Achat
      */
     private $biens;
 
+    /**
+     * @ORM\OneToMany(targetEntity=DetailsCandidature::class, mappedBy="mode_acquisition")
+     */
+    private $detailsCandidatures;
+
 
     public function __construct()
     {
         $this->clients = new ArrayCollection();
         $this->biens = new ArrayCollection();
+        $this->detailsCandidatures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -103,6 +109,36 @@ class Achat
             // set the owning side to null (unless already changed)
             if ($bien->getModeAcquisition() === $this) {
                 $bien->setModeAcquisition(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DetailsCandidature[]
+     */
+    public function getDetailsCandidatures(): Collection
+    {
+        return $this->detailsCandidatures;
+    }
+
+    public function addDetailsCandidature(DetailsCandidature $detailsCandidature): self
+    {
+        if (!$this->detailsCandidatures->contains($detailsCandidature)) {
+            $this->detailsCandidatures[] = $detailsCandidature;
+            $detailsCandidature->setModeAcquisition($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetailsCandidature(DetailsCandidature $detailsCandidature): self
+    {
+        if ($this->detailsCandidatures->removeElement($detailsCandidature)) {
+            // set the owning side to null (unless already changed)
+            if ($detailsCandidature->getModeAcquisition() === $this) {
+                $detailsCandidature->setModeAcquisition(null);
             }
         }
 

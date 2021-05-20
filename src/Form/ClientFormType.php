@@ -96,7 +96,10 @@ class ClientFormType extends AbstractType
                 ],
 
             ])
-            ->add('ville')
+            ->add('ville', null,[
+            
+                'label'=>'Selectionner votre ville si vous êtes de Sénégal*',
+        ])
 
             ->add('status', CheckboxType::class, [
                 'label'    => 'En cochant cette case, vous activez la prise en charge de votre dossier d\'inscription et acceptez nos conditions?',
@@ -105,7 +108,7 @@ class ClientFormType extends AbstractType
 
             ->add('color', ColorType::class, [
                 'label' => 'Choisissez une couleur',
-                'help' => 'Cliquer s\'il vous plaît sur le champs, pour choisir une couleur de votre choix!!!'
+                'help' => 'Le choix de la couleur est obligatoire. cliquer sur le champs svp et selectionner une couleur!!!'
             ]);
     }
 

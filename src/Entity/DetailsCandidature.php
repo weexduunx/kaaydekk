@@ -118,6 +118,42 @@ class DetailsCandidature
      */
     private array $nom = [];
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Details6::class, inversedBy="detailsCandidatures")
+     */
+    private $qualite;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Details7::class, inversedBy="detailsCandidatures")
+     */
+    private $handicap;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nom_employeur;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $activite_non_salarie;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lieu_activite_non_salarie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Achat::class, inversedBy="detailsCandidatures")
+     */
+    private $mode_acquisition;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -358,4 +394,89 @@ class DetailsCandidature
     {
         return $this->label;
     }
+
+    public function getQualite(): ?Details6
+    {
+        return $this->qualite;
+    }
+
+    public function setQualite(?Details6 $qualite): self
+    {
+        $this->qualite = $qualite;
+
+        return $this;
+    }
+
+    public function getHandicap(): ?Details7
+    {
+        return $this->handicap;
+    }
+
+    public function setHandicap(?Details7 $handicap): self
+    {
+        $this->handicap = $handicap;
+
+        return $this;
+    }
+
+    public function getNomEmployeur(): ?string
+    {
+        return $this->nom_employeur;
+    }
+
+    public function setNomEmployeur(?string $nom_employeur): self
+    {
+        $this->nom_employeur = $nom_employeur;
+
+        return $this;
+    }
+
+    public function getActiviteNonSalarie(): ?string
+    {
+        return $this->activite_non_salarie;
+    }
+
+    public function setActiviteNonSalarie(?string $activite_non_salarie): self
+    {
+        $this->activite_non_salarie = $activite_non_salarie;
+
+        return $this;
+    }
+
+    public function getLieuActiviteNonSalarie(): ?string
+    {
+        return $this->lieu_activite_non_salarie;
+    }
+
+    public function setLieuActiviteNonSalarie(string $lieu_activite_non_salarie): self
+    {
+        $this->lieu_activite_non_salarie = $lieu_activite_non_salarie;
+
+        return $this;
+    }
+
+    public function getModeAcquisition(): ?Achat
+    {
+        return $this->mode_acquisition;
+    }
+
+    public function setModeAcquisition(?Achat $mode_acquisition): self
+    {
+        $this->mode_acquisition = $mode_acquisition;
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
 }
