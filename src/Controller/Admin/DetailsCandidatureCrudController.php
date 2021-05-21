@@ -38,7 +38,15 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             TextField::new('nom_de_la_cooperative'),
             AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
             AssociationField::new('logement_actuel'),
+            AssociationField::new('qualite','Qualité'),
+            AssociationField::new('handicap','Handicape du demandeur ou d\'une personne à sa charge'),
             AssociationField::new('situation'),
+            TextField::new('nom_employeur','Nom de l\'employeur')
+            ->setHelp('à remplir, si le candidat est salarié'),
+            TextField::new('activite_non_salarie','Domaine d\'Activité')
+            ->setHelp('à remplir, si le candidat est non-salarié'),
+            TextField::new('lieu_activite_non_salarie','Lieu d\'Activité')
+            ->setHelp('à remplir, si le candidat est non-salarié'),
             FormField::addPanel('2eme Niveau','fa fa-pencil'),
             AssociationField::new('secteur'),
             AssociationField::new('type_de_contrat','Type de contrat'),
@@ -48,6 +56,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             TextField::new('nom_de_la_societe','Nom de la société'),
             IntegerField::new('revenu_mensuelle','Revenu Mensuel (CFA)'),
             IntegerField::new('salaire_mensuelle','Salaire Mensuel (CFA)'),
+           
 
         ];
     }
@@ -62,6 +71,6 @@ class DetailsCandidatureCrudController extends AbstractCrudController
         return $crud
             ->setPageTitle('index','Détails Candidatures')
             ->setPageTitle('edit','Page d\'édition')
-            ->setHelp('edit','Veuillez noter que si le candidat n\'est pas un salarié, mieux vaut ne pas l\'ajouter!!!');
+            ->setHelp('edit','Veuillez noter que si le candidat n\'est pas un salarié, IL FAUT AJOUTER SON DOMAINE D\'ACTIVITÉ ET LE LIEU D\'ACTIVITÉ');
     }
 }
