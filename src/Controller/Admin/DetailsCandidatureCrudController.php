@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -54,9 +55,11 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             TextField::new('nom_de_la_banque'),
             IntegerField::new('nombre_de_personne_en_charge','Nbre de personne à charge'),
             TextField::new('nom_de_la_societe','Nom de la société'),
-            IntegerField::new('revenu_mensuelle','Revenu Mensuel (CFA)'),
-            IntegerField::new('salaire_mensuelle','Salaire Mensuel (CFA)'),
-           
+            IntegerField::new('revenu_mensuelle','Revenu Mensuel (CFA)')
+            ->setHelp('Veuillez indiquer, le revenu si c\'est un non-salarié'),
+            IntegerField::new('salaire_mensuelle','Salaire Mensuel (CFA)')
+            ->setHelp('Veuillez indiquer, le salaire si c\'est un salarié'),
+            BooleanField::new('status','Statut')->setHelp('Veuillez cocher la case, pour activer l\'statut actuel du client'),
 
         ];
     }
