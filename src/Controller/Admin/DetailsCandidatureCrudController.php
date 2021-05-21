@@ -30,19 +30,15 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             FormField::addPanel('1er Niveau','fa fa-list'),
             ColorField::new('color','Couleur Statistique'),
             TextField::new('label','Reférence Candidature'),
-            AssociationField::new('client','Nom client(e) concerné(e)'),
-            ArrayField::new('nom','Prénom client(e) concerné(e)'),
+            AssociationField::new('client','Nom & Prénom Candidat'),
+            ArrayField::new('nom','Donner lui un Surnom')
+            ->setHelp('pour des raison d\'statistique, le surnom vous aiderez à savoir lequel des candidat à plus de revenu'),
             AssociationField::new('type_de_logement','Logement souhaité'),
             AssociationField::new('membre_cooperative'),
             TextField::new('nom_de_la_cooperative'),
             AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
             AssociationField::new('logement_actuel'),
-            AssociationField::new('situation')
-                ->setHelp('si le candidat est un salarié,
-             vous pouvez continuer de saisir ses informations. Par contre si c\'est un non-salarié,
-             le reste du formulaire peut être exempt des données non nécessaire.
-             Nous faisons le maximum pour automatiser cette fonctionnalité.
-             pour information: veuillez le faire manuellement'),
+            AssociationField::new('situation'),
             FormField::addPanel('2eme Niveau','fa fa-pencil'),
             AssociationField::new('secteur'),
             AssociationField::new('type_de_contrat','Type de contrat'),
