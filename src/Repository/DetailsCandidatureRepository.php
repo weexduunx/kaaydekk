@@ -32,7 +32,33 @@ class DetailsCandidatureRepository extends ServiceEntityRepository
 
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
+   // /**
+    //  * @return Candidat[] Returns an array of Candidat objects
+    //  */
+    
+    public function findByExampleField($label)
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('type_de_logement_id = :1')
+            ->setParameter('val', $label)
+            ->orderBy('m.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
 
+    
+    public function findOneBySomeField($label): ?DetailsCandidature
+    {
+        return $this->createQueryBuilder('d')
+            ->andWhere('type_de_logement_id = :1')
+            ->setParameter('val', $label)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
     // /**
     //  * @return DetailsCandidature[] Returns an array of DetailsCandidature objects
     //  */

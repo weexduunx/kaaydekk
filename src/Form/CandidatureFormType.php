@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
+
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -101,7 +102,7 @@ class CandidatureFormType extends AbstractType
                 'label'=>'Nom de l\'employeur',
             ])
             ->add('activite_non_salarie', TextType::class, [
-                'label'=>'Votre Domaine d\'activité',
+                'label'=>'Votre Domaine d\'activité *',
             ])
             ->add('lieu_activite_non_salarie', TextType::class, [
                 'label'=>'Lieu d\'activité *',
@@ -129,7 +130,7 @@ class CandidatureFormType extends AbstractType
             ])
         
             ->add('client', null,[
-            
+
                     'label'=>'Confirmer votre identité*',
                     'placeholder'=>'cliquer ici',
                     'attr' => ['class' => 'form-select text-muted'],

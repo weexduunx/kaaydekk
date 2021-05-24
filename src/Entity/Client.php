@@ -48,7 +48,7 @@ class Client
     private $achat;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $commentaire;
 
@@ -110,7 +110,7 @@ class Client
     private $createdAt;
 
     /**
-     * @ORM\Column(type="string", length=7, nullable=true)
+     * @ORM\Column(type="string", length=7)
      */
     private $color;
 

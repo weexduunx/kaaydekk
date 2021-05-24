@@ -334,8 +334,6 @@ class DetailsCandidature
         return $this;
     }
 
-
-
     public function getTypeDeLogement(): ?TypeDeBien
     {
         return $this->type_de_logement;
@@ -390,10 +388,6 @@ class DetailsCandidature
         return $this;
     }
 
-    public function __toString()
-    {
-        return $this->label;
-    }
 
     public function getQualite(): ?Details6
     {

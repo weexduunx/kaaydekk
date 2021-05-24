@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\DetailsCandidature;
 use App\Form\CandidatureFormType;
+use App\Repository\DetailsCandidatureRepository;
+use App\utile\MatriculeGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +16,7 @@ class FormCandidatController extends AbstractController
     /**
      * @Route("/form/candidat", name="form_candidat")
      */
-    public function index(Request $request): Response
+    public function index(Request $request, MatriculeGenerator $matriculeGenerator, DetailsCandidatureRepository $detailsCandidatureRepository ): Response
     {
             // 1) je crée le formulaire
             $candidat = new DetailsCandidature();
@@ -24,6 +26,8 @@ class FormCandidatController extends AbstractController
            $form->handleRequest($request);
            if ($form->isSubmitted() && $form->isValid()) {
 
+
+            $candidat->setLabel($matriculeGenerator->generate($candidat));
 
                // 3) sauvegarder le client!
                $entityManager = $this->getDoctrine()->getManager();
@@ -37,8 +41,9 @@ class FormCandidatController extends AbstractController
                return $this->redirectToRoute('merci');
            }
    
-        return $this->render('form_candidat/form1.html.twig', 
-         array('form' =>$form->createView())
-        );
+        return $this->render('form_candidat/form1.html.twig',[
+            'form' =>$form->createView(),
+            'candidats' => $detailsCandidatureRepository->findAll(),
+        ]);
     }
 }

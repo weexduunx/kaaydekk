@@ -17,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Length;
 
 class ClientFormType extends AbstractType
 {
@@ -57,7 +58,10 @@ class ClientFormType extends AbstractType
                 'label'=>'Commentaire',
                 'attr' => ['class' => 'tinymce'],
             ])
-            ->add('tel', TelType::class)
+            ->add('tel', TelType::class, [
+                'required' => true,
+              'constraints' => [new Length(['min' => 9])], 
+            ])
             ->add('email', EmailType::class)
             ->add('date_de_naissance', DateType::class, [
                 'label' => 'Date de Naissance *',
@@ -72,7 +76,9 @@ class ClientFormType extends AbstractType
                 'label' => 'Pays d\'origine *',
                 'help' => 'Cliquer sur le champs, pour choisir votre nationalité !!!',
             ])
-            ->add('profession')
+            ->add('profession', TextType::class, [
+                'label'=>'Profession *'
+            ])
             ->add('situation_matrimoniale', ChoiceType::class,[
                 'choices'  => $sm = [
                     'Célibataire' => 'Célibataire',
@@ -111,6 +117,7 @@ class ClientFormType extends AbstractType
                 'help' => 'Le choix de la couleur est obligatoire. cliquer sur le champs svp et selectionner une couleur!!!'
             ]);
     }
+    
 
     public function configureOptions(OptionsResolver $resolver)
     {
