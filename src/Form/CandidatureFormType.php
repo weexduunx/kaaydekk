@@ -26,14 +26,12 @@ class CandidatureFormType extends AbstractType
                 'attr' => ['class' => 'form-select text-muted'],
                ])
             ->add('nom_de_la_cooperative', TextType::class, [
-                'required'   => true,
+                'required'   => false,
                 'label'=>'Si Oui, donner le nom de la coopérative*',
                 'attr' => [
                     'autofocus' => true,
                 ],
-                'constraints' => [
-                    new Assert\NotBlank(),
-                ],
+               
             ])
             ->add('nombre_de_personne_en_charge', NumberType::class,[
                 'label' => 'Nbre de personne à charge*',
@@ -48,14 +46,12 @@ class CandidatureFormType extends AbstractType
                 
             ])
             ->add('nom_de_la_banque', TextType::class, [
-                'required'   => true,
+                'required'   => false,
                 'label'=>'Si Oui, donner le nom de la banque*',
                 'attr' => [
                     'autofocus' => true,
                 ],
-                'constraints' => [
-                    new Assert\NotBlank(),
-                ],
+             
             ])
             ->add('beneficiaire_appui_ou_subvention',null,[
                 'label'=>'Vous êtes bénéficiaire d\'un appui ou d\'une subvention?',
@@ -67,7 +63,9 @@ class CandidatureFormType extends AbstractType
                 'label'=>'Statut',
                 'placeholder'=>'cliquer ici',
                 'attr' => ['class' => 'form-select text-muted'],
-
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ],
             ])
             ->add('qualite', null,[
                 'label'=>'Qualité',
@@ -100,19 +98,27 @@ class CandidatureFormType extends AbstractType
             ])
             ->add('nom_employeur', TextType::class, [
                 'label'=>'Nom de l\'employeur',
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ],
             ])
             ->add('activite_non_salarie', TextType::class, [
                 'label'=>'Votre Domaine d\'activité *',
+                'required'   => false,
             ])
             ->add('lieu_activite_non_salarie', TextType::class, [
                 'label'=>'Lieu d\'activité *',
+                'required'   => false,
             ])
             ->add('nom_de_la_societe', TextType::class, [
                 'label'=>'Nom de la société*',
+                'required'   => false,
             ])
             ->add('revenu_mensuelle', MoneyType::class, [
                 'label'=>'Revenu Mensuel*',
-                'currency'=>'XOF'
+                'currency'=>'XOF',
+                'required'   => false,
+
             ])
             ->add('salaire_mensuelle', MoneyType::class, [
                 'label'=>'Salaire Mensuel*',
@@ -145,6 +151,9 @@ class CandidatureFormType extends AbstractType
                 'label'    => 'J\'autorise KAAY DËKK IMMO s/c de la NGTS en cas de besoin à partager les données à caractére personnel
                 contenues dans ce formulaire à tous les acteurs de l\'immobilier, les promoteurs et les autres services de l\Etat du Sénégal*',
                 'required' => true,
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ],
             ])
         ;
     }

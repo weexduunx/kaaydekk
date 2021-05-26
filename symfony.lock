@@ -247,6 +247,9 @@
             "config/packages/mailgun.yaml"
         ]
     },
+    "mailjet/mailjet-apiv3-php": {
+        "version": "v1.5.1"
+    },
     "markbaker/complex": {
         "version": "2.0.0"
     },
@@ -276,6 +279,18 @@
     },
     "nikic/php-parser": {
         "version": "v4.10.4"
+    },
+    "nyholm/psr7": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "0cd4d2d0e7f646fda75f9944f747a56e6ed13d4c"
+        },
+        "files": [
+            "config/packages/nyholm_psr7.yaml"
+        ]
     },
     "paragonie/random_compat": {
         "version": "v9.99.100"
@@ -343,6 +358,12 @@
     "ralouphie/getallheaders": {
         "version": "3.0.3"
     },
+    "sendgrid/php-http-client": {
+        "version": "3.14.0"
+    },
+    "sendgrid/sendgrid": {
+        "version": "7.9.2"
+    },
     "sensio/framework-extra-bundle": {
         "version": "5.2",
         "recipe": {
@@ -354,6 +375,9 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
+    },
+    "starkbank/ecdsa": {
+        "version": "0.0.4"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.7"
@@ -632,6 +656,9 @@
     },
     "symfony/proxy-manager-bridge": {
         "version": "v5.2.4"
+    },
+    "symfony/psr-http-message-bridge": {
+        "version": "v2.1.0"
     },
     "symfony/requirements-checker": {
         "version": "2.0",

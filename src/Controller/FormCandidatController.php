@@ -6,6 +6,8 @@ use App\Entity\DetailsCandidature;
 use App\Form\CandidatureFormType;
 use App\Repository\DetailsCandidatureRepository;
 use App\utile\MatriculeGenerator;
+use Mail;
+use \Mailjet\Resources;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +35,8 @@ class FormCandidatController extends AbstractController
                $entityManager = $this->getDoctrine()->getManager();
                $entityManager->persist($candidat);
                $entityManager->flush();
-   
+               $client = $candidat->getClient()->getNom();
+              
                // ... do any other work - like sending them an email, etc
                // maybe set a "flash" success message for the user
                $this->addFlash('success', 'Votre inscription a été enregistrée avec succés');
