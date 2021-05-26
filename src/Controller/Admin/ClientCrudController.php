@@ -61,6 +61,7 @@ class ClientCrudController extends AbstractCrudController
             AssociationField::new('detailsCandidatures','Détails Candidatures')
             ->hideOnForm(),
             AssociationField::new('achat','Mode Acquisition')
+            ->hideOnIndex()
             ->hideOnForm(),
             BooleanField::new('status'),
             TextEditorField::new('commentaire', 'Commentaire'),
