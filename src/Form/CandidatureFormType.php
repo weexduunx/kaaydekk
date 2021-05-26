@@ -140,6 +140,7 @@ class CandidatureFormType extends AbstractType
                     'label'=>'Confirmer votre identité*',
                     'placeholder'=>'cliquer ici',
                     'attr' => ['class' => 'form-select text-muted'],
+                    'help' => 'Veuillez confirmer votre identité, sinon votre inscription risque de ne pas être enregistrée.'
             ])
             ->add('mode_acquisition', null,[
                 'label'=>'Mode d\'acquisition*',

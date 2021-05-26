@@ -36,6 +36,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             ArrayField::new('nom','Donner lui un Surnom')
             ->setHelp('pour des raison d\'statistique, le surnom vous aiderez à savoir lequel des candidat à plus de revenu'),
             AssociationField::new('type_de_logement','Logement souhaité'),
+            AssociationField::new('mode_acquisition'),
             AssociationField::new('membre_cooperative'),
             TextField::new('nom_de_la_cooperative'),
             AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
