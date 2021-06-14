@@ -22,6 +22,7 @@ class ProjetCrudController extends AbstractCrudController
             TextField::new('reference_projet'),
             TextField::new('nom_du_projet'),
             AssociationField::new('site'),
+            AssociationField::new('biens'),
             DateTimeField::new('createdAt'),
             DateTimeField::new('updateAt'),
         ];

@@ -54,10 +54,17 @@ class CandidatureFormType extends AbstractType
              
             ])
             ->add('beneficiaire_appui_ou_subvention',null,[
-                'label'=>'Vous êtes bénéficiaire d\'un appui ou d\'une subvention?',
+                'label'=>'Êtes-vous bénéficiaire d\'un fond d\'appui ou de subvention?',
                 'placeholder'=>'cliquer ici',
                 'attr' => ['class' => 'form-select text-muted'],
 
+            ])
+            ->add('agence', null,[
+                'label'=>'De quelle agence avez-vous entendu ce projet ? *',
+                'placeholder'=>'cliquer ici',
+                'attr' => ['class' => 'form-select text-muted'],
+                'help' => 'Répondez cette question, elle est obligatoire!!!'
+                
             ])
             ->add('logement_actuel', null,[
                 'label'=>'Statut',
@@ -73,7 +80,7 @@ class CandidatureFormType extends AbstractType
                 'attr' => ['class' => 'form-select text-muted'],
             ])
             ->add('handicap', null,[
-                'label'=>'Handicape du demandeur ou d\'une personne à sa charge *',
+                'label'=>'Avez-Vous un Handicap*',
                 'placeholder'=>'cliquer ici',
                 'attr' => ['class' => 'form-select text-muted'],
 
@@ -85,7 +92,7 @@ class CandidatureFormType extends AbstractType
 
             ])
             ->add('secteur', null,[
-                'label'=>'Si vous êtes salarié! Êtes-vous dans quel secteur?*',
+                'label'=>'Vous êtes dans quel secteur?*',
                 'placeholder'=>'cliquer ici',
                 'attr' => ['class' => 'form-select text-muted'],
 
@@ -98,9 +105,7 @@ class CandidatureFormType extends AbstractType
             ])
             ->add('nom_employeur', TextType::class, [
                 'label'=>'Nom de l\'employeur',
-                'constraints' => [
-                    new Assert\NotBlank(),
-                ],
+                'required'   => false,
             ])
             ->add('activite_non_salarie', TextType::class, [
                 'label'=>'Votre Domaine d\'activité *',
@@ -122,7 +127,8 @@ class CandidatureFormType extends AbstractType
             ])
             ->add('salaire_mensuelle', MoneyType::class, [
                 'label'=>'Salaire Mensuel*',
-                'currency'=>'XOF'
+                'currency'=>'XOF',
+                'required'   => false,
             ])
             ->add('color', ColorType::class, [
                 'label' => 'Indiquer une couleur de votre choix, cliquer à l\'intérieur *',
@@ -135,12 +141,10 @@ class CandidatureFormType extends AbstractType
 
             ])
         
-            ->add('client', null,[
+            ->add('prenom_et_nom', TextType::class,[
 
                     'label'=>'Confirmer votre identité*',
-                    'placeholder'=>'cliquer ici',
-                    'attr' => ['class' => 'form-select text-muted'],
-                    'help' => 'Veuillez confirmer votre identité, sinon votre inscription risque de ne pas être enregistrée.'
+                    'help' => 'Veuillez confirmer votre identité, en entrant votre nom et prénom, sinon votre inscription risque de ne pas être enregistrée.'
             ])
             ->add('mode_acquisition', null,[
                 'label'=>'Mode d\'acquisition*',

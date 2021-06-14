@@ -3,16 +3,16 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\TypeDeBienRepository;
+use App\Repository\AgenceRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource(formats={"json"})
- * @ORM\Entity(repositoryClass=TypeDeBienRepository::class)
+ * @ApiResource()
+ * @ORM\Entity(repositoryClass=AgenceRepository::class)
  */
-class TypeDeBien
+class Agence
 {
     /**
      * @ORM\Id
@@ -22,31 +22,28 @@ class TypeDeBien
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $label;
 
-
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity=Client::class, mappedBy="agence")
      */
-    private $prix;
+    private $clients;
 
     /**
-     * @ORM\OneToMany(targetEntity=Bien::class, mappedBy="typeDeBien")
-     * @ORM\JoinColumn( onDelete="CASCADE")
-     */
-    private $bien;
-
-    /**
-     * @ORM\OneToMany(targetEntity=DetailsCandidature::class, mappedBy="type_de_logement")
-     * @ORM\JoinColumn( onDelete="CASCADE")
+     * @ORM\OneToMany(targetEntity=DetailsCandidature::class, mappedBy="agence")
      */
     private $detailsCandidatures;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=DetailsCandidature::class, inversedBy="agences")
+     */
+    private $details;
+
     public function __construct()
     {
-        $this->bien = new ArrayCollection();
+        $this->clients = new ArrayCollection();
         $this->detailsCandidatures = new ArrayCollection();
     }
 
@@ -60,55 +57,42 @@ class TypeDeBien
         return $this->label;
     }
 
-    public function setLabel(string $label): self
+    public function setLabel(?string $label): self
     {
         $this->label = $label;
 
         return $this;
     }
 
-    public function getPrix(): ?string
-    {
-        return $this->prix;
-    }
-
-    public function setPrix(string $prix): self
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
     /**
-     * @return Collection|Bien[]
+     * @return Collection|Client[]
      */
-    public function getBien(): Collection
+    public function getClients(): Collection
     {
-        return $this->bien;
+        return $this->clients;
     }
 
-    public function addBien(Bien $bien): self
+    public function addClient(Client $client): self
     {
-        if (!$this->bien->contains($bien)) {
-            $this->bien[] = $bien;
-            $bien->setTypeDeBien($this);
+        if (!$this->clients->contains($client)) {
+            $this->clients[] = $client;
+            $client->setAgence($this);
         }
 
         return $this;
     }
 
-    public function removeBien(Bien $bien): self
+    public function removeClient(Client $client): self
     {
-        if ($this->bien->removeElement($bien)) {
+        if ($this->clients->removeElement($client)) {
             // set the owning side to null (unless already changed)
-            if ($bien->getTypeDeBien() === $this) {
-                $bien->setTypeDeBien(null);
+            if ($client->getAgence() === $this) {
+                $client->setAgence(null);
             }
         }
 
         return $this;
     }
-
     public function __toString()
     {
         return $this->label;
@@ -126,7 +110,7 @@ class TypeDeBien
     {
         if (!$this->detailsCandidatures->contains($detailsCandidature)) {
             $this->detailsCandidatures[] = $detailsCandidature;
-            $detailsCandidature->setTypeDeLogement($this);
+            $detailsCandidature->setAgence($this);
         }
 
         return $this;
@@ -136,10 +120,22 @@ class TypeDeBien
     {
         if ($this->detailsCandidatures->removeElement($detailsCandidature)) {
             // set the owning side to null (unless already changed)
-            if ($detailsCandidature->getTypeDeLogement() === $this) {
-                $detailsCandidature->setTypeDeLogement(null);
+            if ($detailsCandidature->getAgence() === $this) {
+                $detailsCandidature->setAgence(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDetails(): ?DetailsCandidature
+    {
+        return $this->details;
+    }
+
+    public function setDetails(?DetailsCandidature $details): self
+    {
+        $this->details = $details;
 
         return $this;
     }

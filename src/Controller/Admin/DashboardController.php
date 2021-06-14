@@ -5,19 +5,18 @@ namespace App\Controller\Admin;
 use App\Entity\Achat;
 use App\Entity\Bien;
 use App\Entity\Client;
-use App\Entity\DetailCandidature;
 use App\Entity\DetailsCandidature;
 use App\Entity\Projet;
 use App\Entity\Site;
 use App\Entity\TypeDeBien;
 use App\Entity\User;
 use App\Entity\Ville;
-use App\Repository\AchatRepository;
 use App\Repository\BienRepository;
 use App\Repository\ClientRepository;
 use App\Repository\DetailsCandidatureRepository;
 use App\Repository\ProjetRepository;
 use App\Repository\UserRepository;
+use App\Repository\TypeDeBienRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -40,13 +39,15 @@ class DashboardController extends AbstractDashboardController
     protected $bienRepository;
     protected $projetRepository;
     protected $userRepository;
+    protected $typeDeBienRepository;
 
     public function __construct(
         DetailsCandidatureRepository $detailsCandidatureRepository,
         ClientRepository $clientRepository,
         BienRepository $bienRepository,
         ProjetRepository $projetRepository,
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        TypeDeBienRepository $typeDeBienRepository
     )
         {
            $this->detailsCandidatureRepository = $detailsCandidatureRepository;
@@ -54,6 +55,7 @@ class DashboardController extends AbstractDashboardController
             $this->bienRepository = $bienRepository;
             $this->projetRepository = $projetRepository;
             $this->userRepository = $userRepository;
+            $this->typeDeBienRepository = $typeDeBienRepository;
 
         }
 
@@ -83,6 +85,23 @@ class DashboardController extends AbstractDashboardController
 
         }
 
+         //on va chercher les détails des candidatures clients
+         $candidatx = $this->detailsCandidatureRepository->findAll();
+
+         $prenom = [];
+         $color1 = [];
+         $count1 = [];
+         $salaire = [];
+ 
+         // J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
+         foreach ($candidatx as $salarie){
+             $prenom[] = $salarie->getClient()->getEmail();
+             $color1[] = $salarie->getColor();
+             $salaire[] = $salarie->getSalaireMensuelle();
+             $count1[] = count($salarie->getNom());
+ 
+         }
+
         //couleur des client par date
         $colorClients = $this->clientRepository->findAll();
 
@@ -102,6 +121,8 @@ class DashboardController extends AbstractDashboardController
             $compte[] = $client ['count'];
 
         }
+
+      
 
         //Je cherche les données des couleur de statistique et les démontés
         $colorStats = $this->bienRepository->findAll();
@@ -124,11 +145,15 @@ class DashboardController extends AbstractDashboardController
 
         }
 
+
         //je calcule le prix total des biens vendus
         $somme = $this->bienRepository->calculTotal();
 
+
         // je cherche les deux derniers utilisateurs ajoutés
         $latestClient = $this->clientRepository->findLatestClient();
+
+        //F3 ou F4 par Agence
 
         //je cherche le dernier utilisateur connecté
         $user = $this->getUser();
@@ -152,15 +177,31 @@ class DashboardController extends AbstractDashboardController
                 'price' =>$this->bienRepository->findAll(),
                 'clients'=>$this->clientRepository->findAll(),
                 'countAllProjet'=>$this->projetRepository->countAllProjet(),
+                'logement'=>$this->typeDeBienRepository->findAll(),
+
+
                 'nom' =>json_encode($nom),
                 'color' =>json_encode($color),
                 'count' =>json_encode($count),
                 'revenu'=>json_encode($revenu),
+
+
+                'prenom' =>json_encode($prenom),
+                'color1' =>json_encode($color1),
+                'count1' =>json_encode($count1),
+                'salaire'=>json_encode($salaire),
+
+
+
+
+
                 'dates'=>json_encode($dates),
                 'compte'=>json_encode($compte),
                 'prix_total'=>json_encode($prix_total),
                 'group'=>json_encode($label),
                 'somme' => $somme,
+
+
                 'creation' => $latestClient,
                 'users'=> $users,
                 'userVerified'=>$verified,

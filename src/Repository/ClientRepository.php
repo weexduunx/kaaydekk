@@ -68,7 +68,23 @@ class ClientRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('c')
             ->where('c.status = false');
     }
-  
+    public function countByAgence()
+    {
+        $query = $this->createQueryBuilder('c')
+            ->select('(c.agence) as agence , COUNT(c) as count')
+            ->groupBy('agence');
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function countByAccount()
+    {
+        $qb = $this->createQueryBuilder('c');
+ 
+        $qb ->select($qb->expr()->count('c'));
+ 
+        return (int) $qb->getQuery()->getSingleScalarResult();
+    }
 
     /*
     public function findByExampleField($value)

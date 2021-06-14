@@ -53,14 +53,13 @@
                             {# Si l'utilisateur est authentifié #}
                             {% if is_granted('ROLE_SUPER_USER') %}
                                 {# Si l'utilisateur est authentifié et qu'il est super-admin #}
-                                <a class="btn btn-sm btn-primary" href="{{ path('app_register') }}">Créer un compte</a>
+                                <a class="btn btn-sm btn-primary" href="{{ path('app_register') }}">Ajouter un utilisateur</a>
                                 <a class="btn btn-sm btn-warning" href="{{ path('admin') }}">Tableaux de Bord</a>
                              </div>
                             {% endif %}
 
                         {% else %}
                             <div>
-                                <a class="btn btn-sm btn-success" href="{{ path('app_login') }}">Se connecter</a>
                                 <a class="btn btn-sm btn-primary" href="{{ path('form_client') }}">S'inscrire au programme</a>
 
                             </div>
@@ -76,15 +75,6 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Projet</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos Services</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Habitat</a>
-                                        <a class="dropdown-item" href="#">Transport</a>
-                                        <a class="dropdown-item" href="#">Sécurité</a>
-                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -116,18 +106,11 @@
                         <div class="w-footer-a">
                             <ul class="list-unstyled">
                                 <li class="color-a">
-                                    <span class="color-text-a">Email 1 :</span> kaaydekkimmo@gmail.com
-                                </li>
-                                <li class="color-a">
-                                    <span class="color-text-a">Email 2 :</span> romiefleur@hotmail.com
+                                    <span class="color-text-a">Email :</span> contact@ngts.sn
                                 </li>
                                 <li class="color-a">
                                     <span class="color-text-a">Fixe :</span> +221 33 891 05 87
                                 </li>
-                                <li class="color-a">
-                                    <span class="color-text-a">Mobile :</span> +221 77 442 26 32
-                                </li>
-
                             </ul>
                         </div>
                     </div>
@@ -206,9 +189,6 @@
                             </li>
                             <li class="list-inline-item">
                                 <a href="#">Projet</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Nos services</a>
                             </li>
                         </ul>
                     </nav>

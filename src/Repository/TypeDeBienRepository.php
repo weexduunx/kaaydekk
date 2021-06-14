@@ -19,6 +19,28 @@ class TypeDeBienRepository extends ServiceEntityRepository
         parent::__construct($registry, TypeDeBien::class);
     }
 
+    public function calculGroup()
+    {
+        $queryBuilder = $this->createQueryBuilder('t');
+        $queryBuilder->select('SUBSTRING(t.label, 1, 10) as label, COUNT(t)  as prix_total1')
+        ->groupBy('label')
+        ;
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    /**
+     * @return int|mixed|string|null
+     *
+     */
+    public function calculTotal()
+    {
+        $queryBuilder = $this->createQueryBuilder('t');
+        $queryBuilder->select('SUM(t.prix)  as prix_global1');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
     // /**
     //  * @return TypeDeBien[] Returns an array of TypeDeBien objects
     //  */

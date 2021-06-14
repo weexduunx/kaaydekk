@@ -3,287 +3,294 @@
 
 <!DOCTYPE html>
 <html lang="{{ ea.i18n.htmlLocale }}" dir="{{ ea.i18n.textDirection }}">
-<head>
-    {% block head_metas %}
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, noimageindex, notranslate, nocache" />
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <meta name="generator" content="EasyAdmin" />
-    {% endblock head_metas %}
+	<head>
+		{% block head_metas %}
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, noimageindex, notranslate, nocache"/>
+			<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+			<meta name="generator" content="EasyAdmin"/>
+		{% endblock head_metas %}
 
-    <title>{% block page_title %}{{ block('content_title')|striptags|raw }}{% endblock %}</title>
+		<title>
+			{% block page_title %}
+				{{ block('content_title')|striptags|raw }}
+			{% endblock %}
+		</title>
 
-    {% block head_stylesheets %}
-        <!-- Custom CSS -->
-        <link href="{{ ('assets/bs-tags/bootstrap-tagsinput.css') }}" rel="stylesheet">
-        <link href="{{ ('assets/smart-wizard/css/smart_wizard.css') }}" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-        <link href="{{ ('assets/css/select2.css') }}" rel="stylesheet">
-
-
-
-        <!-- Custom CSS -->
-        <link href="{{ ('assets/dist/css/style.css') }}" rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-    {% endblock %}
-
-    {% block configured_stylesheets %}
-        {% for css_asset in ea.assets.cssFiles ?? [] %}
-            <link rel="stylesheet" href="{{ asset(css_asset) }}">
-        {% endfor %}
-
-    {% endblock %}
-
-    {% block head_favicon %}
-        <link rel="shortcut icon" href="{{ ('/assets/images/favicon.png') }}">
-    {% endblock %}
+		{% block head_stylesheets %}
+			<!-- Custom CSS -->
+			<link href="{{ ('assets/bs-tags/bootstrap-tagsinput.css') }}" rel="stylesheet">
+			<link href="{{ ('assets/smart-wizard/css/smart_wizard.css') }}" rel="stylesheet">
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+			<link
+			href="{{ ('assets/css/select2.css') }}" rel="stylesheet">
 
 
-    {% block head_javascript %}
+			<!-- Custom CSS -->
+			<link href="{{ ('assets/dist/css/style.css') }}" rel="stylesheet">
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			<!--[if lt IE 9]>
+			        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+			        <![endif]-->
 
-        <script src="{{ ('bundles/easyadmin/app.js') }}"></script>
-    {% endblock head_javascript %}
+		{% endblock %}
 
-    {% if 'rtl' == ea.i18n.textDirection %}
-        <link rel="stylesheet" href="{{ ('bundles/easyadmin/app.rtl.css') }}">
-        <link rel="stylesheet" href="{{ ('bundles/easyadmin/app-custom-rtl.css') }}">
-    {% endif %}
+		{% block configured_stylesheets %}
+			{% for css_asset in ea.assets.cssFiles ?? [] %}
+				<link rel="stylesheet" href="{{ asset(css_asset) }}">
+			{% endfor %}
 
-    {% block configured_head_contents %}
-        {% for htmlContent in ea.assets.headContents ?? [] %}
-            {{ htmlContent|raw }}
-        {% endfor %}
-    {% endblock %}
-</head>
+		{% endblock %}
 
-{% block body %}
-    <body id="{% block body_id %}{% endblock %}" class="ea {% block body_class %}{% endblock %}">
+		{% block head_favicon %}
+			<link rel="shortcut icon" href="{{ ('/assets/images/favicon.png') }}">
+		{% endblock %}
 
-    {% block javascript_page_layout %}
 
-        <script>
-            document.body.classList.add(
-                'ea-content-width-' + (localStorage.getItem('ea/content/width') || '{{ ea.crud.contentWidth ?? ea.dashboardContentWidth ?? 'normal' }}'),
-                'ea-sidebar-width-' + (localStorage.getItem('ea/sidebar/width') || '{{ ea.crud.sidebarWidth ?? ea.dashboardSidebarWidth ?? 'normal' }}')
-            );
-        </script>
+		{% block head_javascript %}
 
-    {% endblock javascript_page_layout %}
+			<script src="{{ ('bundles/easyadmin/app.js') }}"></script>
+		{% endblock head_javascript %}
 
-    {% block wrapper_wrapper %}
-        <div id="main-wrapper" class="mini-sidebar" data-theme="light" data-layout="vertical" data-navbarbg="skin6"
-             data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-            {% block wrapper %}
-                <header class="topbar" data-navbarbg="skin6">
-                    {% block header %}
-                        <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                                {# LOGO #}
-                                <div class="navbar-header" data-logobg="skin6" >
-                                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
-                                        <i class="ti-close ti-menu"></i>
-                                    </a>
-                                    <div class="navbar-brand">
-                                        <a href="">
-                                        <b class="logo-icon">
-                                            <img src="{{ ('/assets/images/favicon.png') }}" alt="homepage" class="dark-logo">
-                                        </b>
-                                        <span class="logo-text" style="font-weight: bold; color: #00558b; font-size: 22px;"> Kaay Dëkk Immo
-                                               {#<img src="{{ ('/assets/images/logo-kdi.png') }}" width="200"
-                                                      alt="homepage" class="dark-logo"> #}
-                                        </span>
-                                        </a>
-                                    </div>
-                                    <a class="topbartoggler d-block d-md-none waves-effect waves-light collapsed" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                        <i class="ti-user"></i>
-                                    </a>
-                                </div>
-                                <div  class="navbar-collapse collapse" id="navbarSupportedContent" style>
-                                <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
+		{% if 'rtl' == ea.i18n.textDirection %}
+			<link rel="stylesheet" href="{{ ('bundles/easyadmin/app.rtl.css') }}">
+			<link rel="stylesheet" href="{{ ('bundles/easyadmin/app-custom-rtl.css') }}">
+		{% endif %}
 
-                                </ul>
-                                {% block header_custom_menu %}
-                                    {% if constant('Symfony\\Component\\Security\\Core\\Authorization\\Voter\\AuthenticatedVoter::IS_IMPERSONATOR') is defined %}
-                                        {% set impersonator_permission = 'IS_IMPERSONATOR' %}
-                                    {% else %}
-                                        {% set impersonator_permission = 'ROLE_PREVIOUS_ADMIN' %}
-                                    {% endif %}
-                                <ul class="navbar-nav float-right">
-                                    <li class="nav-item d-none d-md-block">
-                                        <a class="nav-link" ></a>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
-                                           aria-haspopup="true" aria-expanded="false">
-                                            {% if ea.userMenu.isAvatarDisplayed %}
-                                                {% if null == ea.userMenu.avatarUrl %}
-                                                    <i class="fa fa-fw {{ ea.user is not null ? 'fa-user-circle' : 'fa-user-times' }}"></i>
-                                                {% else %}
-                                                    <img class="user-avatar rounded-circle" src="{{ ea.userMenu.avatarUrl }}" alt="" width="50"/>
-                                                {% endif %}
-                                            {% endif %}
-                                            <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span>
-                                                <span class="text-dark">
-                                                  {% if ea.userMenu.isNameDisplayed %}
-                                                      <span class="user-name">{{ ea.userMenu.name }}</span>
-                                                  {% endif %}
-                                                </span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24                                                      24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"                                                       stroke-linejoin="round" class="feather feather-chevron-down svg-icon">
-                                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                                </svg>
-                                                </span>
-                                        </a>
-                            {% set _user_menu_content %}
-                                {% block user_menu %}
-                                    {% if ea.userMenu.items|length > 0 %}
-                                        <div class="dropdown-menu dropdown-menu-right user-dd">
-                                            {% for item in ea.userMenu.items %}
-                                                {% if item.isMenuSection %}
-                        <div class="popover-content-section user-details {{ ea.userMenu.items|length > 0 ? 'user-has-actions' }}">
-                                                       {{ ea.user is null ? 'user.anonymous'|trans(domain = 'EasyAdminBundle') }}
-                                                    </div>
-                                                    <hr class="m-0" />
-                                                {% else %}
-                            <a class="dropdown-item" href="{{ item.linkUrl }}"  target="{{ item.linkTarget }}" rel="{{ item.linkRel }}"
-                                                       referrerpolicy="origin-when-cross-origin">
-                                                        <i class="fa fa-sign-out"></i>
-                                                        <span>{{ item.label }}</span>
-                                                    </a>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                {% endblock user_menu %}
-                            {% endset %}
-                     {{ _user_menu_content }}
-                         </li>
-                     </ul>
-                  </div>
-                {% endblock header_custom_menu %}
-             </nav>
-                {% endblock header %}
-            </header>
+		{% block configured_head_contents %}
+			{% for htmlContent in ea.assets.headContents ?? [] %}
+				{{ htmlContent|raw }}
+			{% endfor %}
+		{% endblock %}
+	</head>
 
-                <aside class="left-sidebar" data-sidebarbg="skin6">
-                    <div  class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-sidebarbg="skin6" data-ps-id="331a301f-eec9-5c91-2c14-0a94a8ae5440" >
-                        <nav class="sidebar-nav">
-                        {% block sidebar %}
-                                {% block main_menu_wrapper %}
-                                    {{ include(ea.templatePath('main_menu')) }}
-                                {% endblock main_menu_wrapper %}
+	{% block body %}
+		<body id="{% block body_id %}{% endblock %}" class="ea {% block body_class %}{% endblock %}">
 
-                        {% endblock sidebar %}
-                        </nav>
-                        <div class="ps-scrollbar-x-rail" style="left: 0; bottom: 0;">
-                            <div class="ps-scrollbar-x" tabindex="0" style="left: 0; width: 0;"></div>
-                        </div>
-                        <div class="ps-scrollbar-y-rail" style="top: 0; height: 771px; right: 3px;">
-                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0; height: 486px;"></div>
-                        </div>
-                    </div>
-                </aside>
+			{% block javascript_page_layout %}
 
-                <div class="page-wrapper" style="display: block;">
-                    <div id="sidebar-resizer-handler" class="resizer-handler resizer-handler-left"></div>
-                    {% block content_header_wrapper %}
-                        {% set has_help_message = (ea.crud.helpMessage ?? '') is not empty %}
-                        <div class="page-breadcrumb">
-                            <div class="row">
+				<script>
+					document.body.classList.add('ea-content-width-' + (
+localStorage.getItem('ea/content/width') || '{{ ea.crud.contentWidth ?? ea.dashboardContentWidth ?? 'normal' }}'
+), 'ea-sidebar-width-' + (
+localStorage.getItem('ea/sidebar/width') || '{{ ea.crud.sidebarWidth ?? ea.dashboardSidebarWidth ?? 'normal' }}'
+));
+				</script>
 
-                                <div class="col-7 align-self-center">
-                                    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">
-                                        {% block content_title %}{% endblock %}
-                                    </h3>
-                                    <div class="d-flex align-items-center">
-                                        <nav aria-label="breadcrumb">
-                                            <ol class="breadcrumb m-0 p-0">
-                                                {% if has_help_message %}
-                                                <li class="breadcrumb-item">
-                                                    <a>
-                                                        <i class="far fa-question-circle" data-toggle="tooltip"
-                                                           title="{{ ea.crud.helpMessage|e('html_attr') }}"></i>
-                                                    </a>
-                                                </li>
-                                                {% endif %}
-                                            </ol>
-                                        </nav>
-                                    </div>
-                                </div>
-                                <div class="col-5 align-self-center">
-                                    <div class="customize-input float-right">
-                                        {% block page_actions_wrapper %}
-                                            <div class="page-actions">{% block page_actions %}{% endblock %}</div>
-                                        {% endblock %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endblock content_header_wrapper %}
+			{% endblock javascript_page_layout %}
 
-                    {% block content %}
-                        <div class="container-fluid">
-                            {% block flash_messages %}
-                                {{ include(ea.templatePath('flash_messages')) }}
-                            {% endblock flash_messages %}
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                       {% block main %}{% endblock %}
-                                        </div>
-                                        {% block content_footer_wrapper %}
-                                      {% set content_footer = block('content_footer') is defined ? block('content_footer') : '' %}
-                                            {% if content_footer is not empty %}
-                                                <div class="card-footer">
-                                                    {{ content_footer }}
-                                                </div>
-                                            {% endif %}
-                                        {% endblock %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endblock content %}
-                    <div id="content-resizer-handler" class="resizer-handler resizer-handler-right"></div>
-                </div>
-            {% endblock wrapper %}
-            <footer class="footer text-center text-muted">"
-                All Rights Reserved by NGTS INFORMATIQUE. Designed and Developed by"
-                 <a class="text-muted" href="http://idy-portfolio.byethost24.com/"> Idrissa Ndiouck</a> <span>créée avec &hearts;</span>
-            </footer>
-        </div>
-    {% endblock wrapper_wrapper %}
+			{% block wrapper_wrapper %}
+				<div id="main-wrapper" class="mini-sidebar" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+					{% block wrapper %}
+						<header class="topbar" data-navbarbg="skin6">
+							{% block header %}
+								<nav
+									class="navbar top-navbar navbar-expand-md navbar-light">
+									{# LOGO #}
+									<div class="navbar-header" data-logobg="skin6">
+										<a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+											<i class="ti-close ti-menu"></i>
+										</a>
+										<div class="navbar-brand">
+											<a href="">
+												<b class="logo-icon">
+													<img src="{{ ('/assets/images/favicon.png') }}" alt="homepage" class="dark-logo">
+												</b>
+												<span class="logo-text" style="font-weight: bold; color: #00558b; font-size: 22px;">
+													Kaay Dëkk Immo
+													{#<img src="{{ ('/assets/images/logo-kdi.png') }}" width="200"
+													                                                      alt="homepage" class="dark-logo"> #}
+												</span>
+											</a>
+										</div>
+										<a class="topbartoggler d-block d-md-none waves-effect waves-light collapsed" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+											<i class="ti-user"></i>
+										</a>
+									</div>
+									<div class="navbar-collapse collapse" id="navbarSupportedContent" style>
+										<ul class="navbar-nav float-left mr-auto ml-3 pl-1"></ul>
+										{% block header_custom_menu %}
+											{% if constant('Symfony\\Component\\Security\\Core\\Authorization\\Voter\\AuthenticatedVoter::IS_IMPERSONATOR') is defined %}
+												{% set impersonator_permission = 'IS_IMPERSONATOR' %}
+											{% else %}
+												{% set impersonator_permission = 'ROLE_PREVIOUS_ADMIN' %}
+											{% endif %}
+											<ul class="navbar-nav float-right">
+												<li class="nav-item d-none d-md-block">
+													<a class="nav-link"></a>
+												</li>
+												<li class="nav-item dropdown">
+													<a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														{% if ea.userMenu.isAvatarDisplayed %}
+															{% if null == ea.userMenu.avatarUrl %}
+																<i class="fa fa-fw {{ ea.user is not null ? 'fa-user-circle' : 'fa-user-times' }}"></i>
+															{% else %}
+																<img class="user-avatar rounded-circle" src="{{ ea.userMenu.avatarUrl }}" alt="" width="50"/>
+															{% endif %}
+														{% endif %}
+														<span class="ml-2 d-none d-lg-inline-block">
+															<span>Hello,</span>
+															<span class="text-dark">
+																{% if ea.userMenu.isNameDisplayed %}
+																	<span class="user-name">{{ ea.userMenu.name }}</span>
+																{% endif %}
+															</span>
+															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24                                                      24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down svg-icon">
+																<polyline points="6 9 12 15 18 9"></polyline>
+															</svg>
+														</span>
+													</a>
+													{% set _user_menu_content %}
+													{% block user_menu %}
+														{% if ea.userMenu.items|length > 0 %}
+															<div class="dropdown-menu dropdown-menu-right user-dd">
+																{% for item in ea.userMenu.items %}
+																	{% if item.isMenuSection %}
+																		<div class="popover-content-section user-details {{ ea.userMenu.items|length > 0 ? 'user-has-actions' }}">
+																			{{ ea.user is null ? 'user.anonymous'|trans(domain = 'EasyAdminBundle') }}
+																		</div>
+																		<hr class="m-0"/>
+																	{% else %}
+																		<a class="dropdown-item" href="{{ item.linkUrl }}" target="{{ item.linkTarget }}" rel="{{ item.linkRel }}" referrerpolicy="origin-when-cross-origin">
+																			<i class="fa fa-sign-out"></i>
+																			<span>{{ item.label }}</span>
+																		</a>
+																	{% endif %}
+																{% endfor %}
+															</div>
+														{% endif %}
+													{% endblock user_menu %}
+													{% endset %}
+													{{ _user_menu_content }}
+												</li>
+											</ul>
+										</div>
+									{% endblock header_custom_menu %}
+								</nav>
+							{% endblock header %}
+						</header>
 
-    {% block body_javascript %}{% endblock body_javascript %}
+						<aside class="left-sidebar" data-sidebarbg="skin6">
+							<div class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-sidebarbg="skin6" data-ps-id="331a301f-eec9-5c91-2c14-0a94a8ae5440">
+								<nav class="sidebar-nav">
+									{% block sidebar %}
+										{% block main_menu_wrapper %}
+											{{ include(ea.templatePath('main_menu')) }}
+										{% endblock main_menu_wrapper %}
 
-    {% block configured_javascripts %}
-        {% for js_asset in ea.assets.jsFiles ?? [] %}
-            <script src="{{ asset (js_asset) }}"></script>
-        {% endfor %}
-    {% endblock %}
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="../assets/js/popper.js"></script>
-    <script src="../assets/js/bootstrap.js"></script>
-    <script src="../assets/js/app-style-switcher.js"></script>
-    <script src="../assets/js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../assets/js/feather.js"></script>
-    <script src="../assets/js/custom.js"></script>
-    <script src="../assets/bs-tags/bootstrap-tagsinput.js"></script>
-    <script src="../assets/smart-wizard/js/jquery.smartWizard.js"></script>
+									{% endblock sidebar %}
+								</nav>
+								<div class="ps-scrollbar-x-rail" style="left: 0; bottom: 0;">
+									<div class="ps-scrollbar-x" tabindex="0" style="left: 0; width: 0;"></div>
+								</div>
+								<div class="ps-scrollbar-y-rail" style="top: 0; height: 771px; right: 3px;">
+									<div class="ps-scrollbar-y" tabindex="0" style="top: 0; height: 486px;"></div>
+								</div>
+							</div>
+						</aside>
 
-    {% block configured_body_contents %}
-        {% for htmlContent in ea.assets.bodyContents ?? [] %}
-            {{ htmlContent|raw }}
-        {% endfor %}
-    {% endblock %}
+						<div class="page-wrapper" style="display: block;">
+							<div id="sidebar-resizer-handler" class="resizer-handler resizer-handler-left"></div>
+							{% block content_header_wrapper %}
+								{% set has_help_message = (ea.crud.helpMessage ?? '') is not empty %}
+								<div class="page-breadcrumb">
+									<div class="row">
 
-    </body>
-{% endblock body %}
+										<div class="col-7 align-self-center">
+											<h3 class="page-title text-truncate text-dark font-weight-medium mb-1">
+												{% block content_title %}{% endblock %}
+											</h3>
+											<div class="d-flex align-items-center">
+												<nav aria-label="breadcrumb">
+													<ol class="breadcrumb m-0 p-0">
+														{% if has_help_message %}
+															<li class="breadcrumb-item">
+																<a>
+																	<i class="far fa-question-circle" data-toggle="tooltip" title="{{ ea.crud.helpMessage|e('html_attr') }}"></i>
+																</a>
+															</li>
+														{% endif %}
+													</ol>
+												</nav>
+											</div>
+										</div>
+										<div class="col-5 align-self-center">
+											<div class="customize-input float-right">
+												{% block page_actions_wrapper %}
+													<div class="page-actions">
+														{% block page_actions %}{% endblock %}
+													</div>
+												{% endblock %}
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endblock content_header_wrapper %}
+
+							{% block content %}
+								<div class="container-fluid">
+									{% block flash_messages %}
+										{{ include(ea.templatePath('flash_messages')) }}
+									{% endblock flash_messages %}
+									<div class="row">
+										<div class="col-12">
+											<div class="card">
+												<div class="card-body">
+													{% block main %}{% endblock %}
+												</div>
+												{% block content_footer_wrapper %}
+													{% set content_footer = block('content_footer') is defined ? block('content_footer') : '' %}
+													{% if content_footer is not empty %}
+														<div class="card-footer">
+															{{ content_footer }}
+														</div>
+													{% endif %}
+												{% endblock %}
+											</div>
+										</div>
+									</div>
+								</div>
+							{% endblock content %}
+							<div id="content-resizer-handler" class="resizer-handler resizer-handler-right"></div>
+						</div>
+					{% endblock wrapper %}
+					<footer class="footer text-center text-muted">"
+						                All Rights Reserved by NGTS INFORMATIQUE. Designed and Developed by"
+						<a class="text-muted" href="http://idy-portfolio.byethost24.com/">
+							Idrissa Ndiouck</a>
+						<span>créée avec &hearts;</span>
+					</footer>
+				</div>
+			{% endblock wrapper_wrapper %}
+
+			{% block body_javascript %}{% endblock body_javascript %}
+
+			{% block configured_javascripts %}
+				{% for js_asset in ea.assets.jsFiles ?? [] %}
+					<script src="{{ asset (js_asset) }}"></script>
+				{% endfor %}
+			{% endblock %}
+			<!-- All Jquery -->
+			<!-- ============================================================== -->
+			<script src="../assets/js/popper.js"></script>
+			<script src="../assets/js/bootstrap.js"></script>
+			<script src="../assets/js/app-style-switcher.js"></script>
+			<script src="../assets/js/perfect-scrollbar.jquery.min.js"></script>
+			<script src="../assets/js/feather.js"></script>
+			<script src="../assets/js/custom.js"></script>
+			<script src="../assets/bs-tags/bootstrap-tagsinput.js"></script>
+			<script src="../assets/smart-wizard/js/jquery.smartWizard.js"></script>
+
+			{% block configured_body_contents %}
+				{% for htmlContent in ea.assets.bodyContents ?? [] %}
+					{{ htmlContent|raw }}
+				{% endfor %}
+			{% endblock %}
+
+		</body>
+	{% endblock body %}
 </html>
+

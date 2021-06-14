@@ -37,7 +37,7 @@ class Client
     private $adresse;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=0)
+     * @ORM\Column(type="decimal", precision=15, scale=0)
      */
     private $numero_cin_ou_passeport;
 
@@ -48,7 +48,7 @@ class Client
     private $achat;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string",nullable=true, length=255)
      */
     private $commentaire;
 
@@ -113,6 +113,11 @@ class Client
      * @ORM\Column(type="string", length=7)
      */
     private $color;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Agence::class, inversedBy="clients")
+     */
+    private $agence;
 
     public function __construct()
     {
@@ -378,6 +383,18 @@ class Client
     public function setColor(?string $color): self
     {
         $this->color = $color;
+
+        return $this;
+    }
+
+    public function getAgence(): ?Agence
+    {
+        return $this->agence;
+    }
+
+    public function setAgence(?Agence $agence): self
+    {
+        $this->agence = $agence;
 
         return $this;
     }

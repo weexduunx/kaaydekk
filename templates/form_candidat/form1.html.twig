@@ -22,12 +22,13 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                 <div class="card-title"><strong>Bon à savoir*</strong></div>  
-                                                    <div class="col-4 form-control-sm">{{ form_row(form.membre_cooperative) }}</div>
-                                                    <div class="col-5 form-control-sm">{{ form_row(form.nom_de_la_cooperative)}}</div>
-                                                    <div class="col-3 form-control-sm"> {{ form_row(form.nombre_de_personne_en_charge)}}</div>
-                                                     <div class="col-4 form-control-sm">{{ form_row(form.compte_bancaire) }}</div>
-                                                    <div class="col-5 form-control-sm">{{ form_row(form.nom_de_la_banque) }}</div>
-                                                    <div class="col-3 form-control-sm">{{ form_row(form.beneficiaire_appui_ou_subvention) }}</div>
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.membre_cooperative) }}</div>
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.nom_de_la_cooperative)}}</div>
+                                                     <div class="col-6 form-control-sm">{{ form_row(form.compte_bancaire) }}</div>
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.nom_de_la_banque) }}</div>
+                                                    <div class="col-6 form-control-sm">{{ form_row(form.beneficiaire_appui_ou_subvention) }}</div>
+                                                    <div class="col-2 form-control-sm"> {{ form_row(form.nombre_de_personne_en_charge)}}</div>
+                                                    <div class="col-4 form-control-sm">{{ form_row(form.agence) }}</div>
                                                      <div class="card-title mt-2 mb-0"><strong>Logement actuel*</strong></div>
                                                      <div class="col-5 form-control-sm">{{ form_row(form.logement_actuel) }}</div>
                                                      <div class="col-3 form-control-sm"> {{ form_row(form.qualite)}}</div>
@@ -46,7 +47,7 @@
                                             <div class="col-4 form-control-sm">{{ form_row(form.situation) }}</div>
                                             <div class="col-4 form-control-sm">{{ form_row(form.secteur) }}</div>
                                             <div class="col-4 form-control-sm">{{ form_row(form.type_de_contrat) }}</div>
-                                            <h6 class="alert-danger"> Remplissez ces informations si vous êtes salarié </h6>
+                                            <h6 class="alert-danger mt-4"> Remplissez ces informations si vous êtes salarié </h6>
                                             <div class="col-4 form-control-sm"> {{ form_row(form.nom_de_la_societe)}}</div>
                                             <div class="col-4 form-control-sm">{{ form_row(form.nom_employeur) }}</div>
                                             <div class="col-4 form-control-sm">{{ form_row(form.salaire_mensuelle) }}</div>
@@ -67,7 +68,7 @@
                                         <div class="card-title"><strong>Critéres du logement que vous souhaitez acquérir*</strong></div>
                                             <div class="col-6 form-control-sm">{{ form_row(form.type_de_logement) }}</div>
                                             <div class="col-6 form-control-sm">{{ form_row(form.mode_acquisition) }}</div>
-                                            <div class="col-6 form-control-sm">{{ form_row(form.client) }}</div>
+                                            <div class="col-6 form-control-sm">{{ form_row(form.prenom_et_nom) }}</div>
                                             <div class="col-4 form-control-sm">{{ form_row(form.color) }}</div>
                                         </div>
                                     </div>
@@ -91,8 +92,6 @@
                             {{ form_end(form) }}
                         </div>
                         <div class="col-md-4 mt-lg-2">
-                            <h4 class="alert-info mt ">Informations</h4>
-                                <p></p>
                                 <div class="mt-4">
                                         <img src="{{asset('assets/images/ngts.png') }}" class="rounded float-right" width="200" height="200" alt="...">
                                         <img src="{{asset('assets/images/logo-kdi.png') }}" class="rounded float-left" width="200"  alt="...">

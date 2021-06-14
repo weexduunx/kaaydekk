@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\DetailsCandidatureRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -152,6 +154,26 @@ class DetailsCandidature
      * @ORM\Column(type="boolean")
      */
     private $status;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Agence::class, inversedBy="detailsCandidatures")
+     */
+    private $agence;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Agence::class, mappedBy="details")
+     */
+    private $agences;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $prenom_et_nom;
+
+    public function __construct()
+    {
+        $this->agences = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -469,6 +491,60 @@ class DetailsCandidature
     public function setStatus(bool $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getAgence(): ?Agence
+    {
+        return $this->agence;
+    }
+
+    public function setAgence(?Agence $agence): self
+    {
+        $this->agence = $agence;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Agence[]
+     */
+    public function getAgences(): Collection
+    {
+        return $this->agences;
+    }
+
+    public function addAgence(Agence $agence): self
+    {
+        if (!$this->agences->contains($agence)) {
+            $this->agences[] = $agence;
+            $agence->setDetails($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAgence(Agence $agence): self
+    {
+        if ($this->agences->removeElement($agence)) {
+            // set the owning side to null (unless already changed)
+            if ($agence->getDetails() === $this) {
+                $agence->setDetails(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPrenomEtNom(): ?string
+    {
+        return $this->prenom_et_nom;
+    }
+
+    public function setPrenomEtNom(string $prenom_et_nom): self
+    {
+        $this->prenom_et_nom = $prenom_et_nom;
 
         return $this;
     }

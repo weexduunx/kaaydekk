@@ -19,6 +19,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
 use phpDocumentor\Reflection\Type;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
@@ -44,8 +45,9 @@ class ClientCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            FormField::addPanel('INFORMATIONS DU CANDIDAT','fa fa-pencil'),
+            FormField::addPanel('INFORMATIONS DU CLIENTS','fa fa-pencil'),
             ColorField::new('color', 'Couleur statistique'),
+            AssociationField::new('agence', 'Agence Immobiliére'),
             TextField::new('nom','Nom'),
             TextField::new('prenom', 'Prenom'),
             DateField::new('date_de_naissance','Date de Naissance'),
@@ -54,7 +56,7 @@ class ClientCrudController extends AbstractCrudController
             CountryField::new('nationalite', 'Nationalité'),
             TextField::new('profession','Profession'),
             TextField::new('situation_matrimoniale','Situation Matrimoniale'),
-            TextField::new('email','Email'),
+            EmailField::new('email','Email'),
             TextField::new('adresse','Adresse'),
             TelephoneField::new('tel', 'N° téléphone'),
             TextField::new('numero_cin_ou_passeport', 'N° CIN ou Passeport'),

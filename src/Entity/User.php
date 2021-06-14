@@ -43,7 +43,7 @@ class User implements UserInterface
      */
     private $password;
 
-    
+
     private $plainPassword;
 
     /**
