@@ -33,6 +33,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             AssociationField::new('agence', 'Agence Immobiliére'),
             TextField::new('label','Reférence Candidature')
             ->hideOnform(),
+            AssociationField::new('client'),
             TextField::new('prenom_et_nom','Nom & Prénom'),
             ArrayField::new('nom','Surnom')
             ->setHelp('pour des raison d\'statistique, le surnom vous aiderez à savoir lequel des candidat à plus de revenu'),
