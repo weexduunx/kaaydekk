@@ -30,7 +30,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
         return [
             FormField::addPanel('1er Niveau','fa fa-list'),
             ColorField::new('color','Couleur Statistique'),
-            AssociationField::new('agence', 'Agence Immobiliére'),
+            AssociationField::new('agence', 'Source ou Agence'),
             TextField::new('label','Reférence Candidature')
             ->hideOnform(),
             AssociationField::new('client'),
