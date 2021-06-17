@@ -3,6 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\DetailsCandidature;
+use App\Service\CsvService;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
+use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
+use EasyCorp\Bundle\EasyAdminBundle\Factory\FilterFactory;
+use Symfony\Component\HttpFoundation\Request;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -19,6 +25,13 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 
 class DetailsCandidatureCrudController extends AbstractCrudController
 {
+    private CsvService $csvService;
+
+    public function __construct(CsvService $csvService)
+    {
+        $this->csvService = $csvService;
+    }
+
     public static function getEntityFqcn(): string
     {
         return DetailsCandidature::class;
@@ -33,7 +46,11 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             AssociationField::new('agence', 'Agence Immobiliére'),
             TextField::new('label','Reférence Candidature')
             ->hideOnform(),
-            TextField::new('prenom_et_nom','Nom & Prénom'),
+            TextField::new('prenom_et_nom','Identité Confirmée')
+            ->hideOnForm()
+            ->hideOnDetail()
+          ,
+            AssociationField::new('client','Prénom et Nom'),
             ArrayField::new('nom','Surnom')
             ->setHelp('pour des raison d\'statistique, le surnom vous aiderez à savoir lequel des candidat à plus de revenu'),
             AssociationField::new('type_de_logement','Logement souhaité'),
@@ -68,8 +85,14 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions): Actions
     {
-        return $actions->add(Crud::PAGE_INDEX, Action::DETAIL)
-            ->setPermission('delete','ROLE_SUPER_USER');
+        $export = Action::new('export', 'Exporter les données')
+        ->setIcon('fa fa-download')
+        ->linkToCrudAction('export')
+        ->setCssClass('btn')
+        ->createAsGlobalAction();
+
+        return $actions->add(Crud::PAGE_INDEX, $export)
+            ->setPermission('delete','ROLE_ADMIN');
     }
 
     public function configureCrud(Crud $crud): Crud
@@ -78,5 +101,21 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             ->setPageTitle('index','Détails Candidatures')
             ->setPageTitle('edit','Page d\'édition')
             ->setHelp('edit','Veuillez noter que si le candidat n\'est pas un salarié, IL FAUT AJOUTER SON DOMAINE D\'ACTIVITÉ ET LE LIEU D\'ACTIVITÉ');
+    }
+    public function export(Request $request)
+    {
+        $context = $request->attributes->get(EA::CONTEXT_REQUEST_ATTRIBUTE);
+        $fields = FieldCollection::new($this->configureFields(Crud::PAGE_INDEX));
+        $filters = $this->get(FilterFactory::class)->create($context->getCrud()->getFiltersConfig(), $fields, $context->getEntity());
+        $candidats = $this->createIndexQueryBuilder($context->getSearch(), $context->getEntity(), $fields, $filters)
+            ->getQuery()
+            ->getResult();
+
+        $data = [];
+        foreach ($candidats as $candidat) {
+            $data[] = $candidat->getExportData();
+        }
+
+        return $this->csvService->export($data, 'Données_des_Candidats_'.date_create()->format('d-m-y').'.xls');
     }
 }

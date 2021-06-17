@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ApiResource(formats={"json"})
  * @ORM\Entity(repositoryClass=ClientRepository::class)
+ *  @ORM\Table(name="`client`")
  */
 class Client
 {
@@ -397,6 +398,24 @@ class Client
         $this->agence = $agence;
 
         return $this;
+    }
+
+    public function getExportData()
+    {
+        return \array_merge([
+            'Client_id' => $this->id,
+            'Nom' => $this->nom,
+            'Prenom' => $this->prenom,
+            'Adresse' => $this->adresse,
+            'CIN_ou_Passeport' => $this->numero_cin_ou_passeport,
+            'Tel' => $this->tel,
+            'Email' => $this->email,
+            'Date' => $this->createdAt->format('d.m.Y H:m'),
+        ],);
+
+        $object = new Client();
+        echo $object->getExportData();
+        echo $object->getExportData;
     }
 
 }

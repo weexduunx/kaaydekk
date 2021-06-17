@@ -3,6 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\TypeDeBien;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -19,11 +22,22 @@ class TypeDeBienCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('label','Type de logement'),
-            IntegerField::new('prix','Prix (CFA)'), 
-            AssociationField::new('detailsCandidatures','Nombre de Candidats')
+            TextField::new('label','Type de Bien'),
+            IntegerField::new('prix','Prix (CFA)'),
+            AssociationField::new('detailsCandidatures','Nombre de Candidats')->hideOnForm()
 
         ];
     }
-    
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions->add(Crud::PAGE_INDEX, Action::DETAIL)
+        ->setPermission('delete','ROLE_SUPER_USER');
+    }
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setPageTitle('index','Type de bien')
+            ->setPageTitle('new','Créer un type de bien')
+            ->setPageTitle('edit','Page d\'édition');
+    }
 }

@@ -4,3 +4,7 @@
 #        - App\Entity\Client
 #        - App\Entity\DetailsCandidature
 #        - App\Entity\
+easy_admin_bundle:
+    resource: 'App\Controller\AdminController'
+    prefix: /admin
+    type: annotation

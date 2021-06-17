@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
-use App\Repository\ClientRepository;
+use App\Service\CsvService;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -16,16 +16,24 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Option\EA;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
-use phpDocumentor\Reflection\Type;
-use Symfony\Component\DomCrawler\Field\TextareaFormField;
+use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
+use EasyCorp\Bundle\EasyAdminBundle\Factory\FilterFactory;
+use Symfony\Component\HttpFoundation\Request;
 
 class ClientCrudController extends AbstractCrudController
 {
+    private CsvService $csvService;
+
+    public function __construct(CsvService $csvService)
+    {
+        $this->csvService = $csvService;
+    }
+
     public static function getEntityFqcn(): string
     {
         return Client::class;
@@ -71,8 +79,33 @@ class ClientCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions): Actions
     {
+        
+        $export = Action::new('export', 'Exporter les données')
+        ->setIcon('fa fa-download')
+        ->linkToCrudAction('export')
+        ->setCssClass('btn')
+        ->createAsGlobalAction();
+
+
         return $actions
-            ->add(Crud::PAGE_INDEX, Action::DETAIL)
-            ->setPermission('delete','ROLE_SUPER_USER');
+            ->add(Crud::PAGE_INDEX, $export)
+            ->setPermission('delete','ROLE_ADMIN');
     }
+    public function export(Request $request)
+    {
+        $context = $request->attributes->get(EA::CONTEXT_REQUEST_ATTRIBUTE);
+        $fields = FieldCollection::new($this->configureFields(Crud::PAGE_INDEX));
+        $filters = $this->get(FilterFactory::class)->create($context->getCrud()->getFiltersConfig(), $fields, $context->getEntity());
+        $clients = $this->createIndexQueryBuilder($context->getSearch(), $context->getEntity(), $fields, $filters)
+            ->getQuery()
+            ->getResult();
+
+        $data = [];
+        foreach ($clients as $client) {
+            $data[] = $client->getExportData();
+        }
+
+        return $this->csvService->export($data, 'Données_des_Clients_'.date_create()->format('d-m-y').'.xls');
+    }
+
 }

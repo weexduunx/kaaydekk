@@ -1,0 +1,19 @@
+{# templates/bundles/EasyAdminBundle/default/list.html.twig #}
+
+{% extends '@!EasyAdmin/default/list.html.twig' %}
+
+{% block new_action %}
+    <div class="button-action">
+        <a class="{{ _action.css_class|default('') }}" href="_action.name })) }}" target="{{ _action.target }}" rel="noopener noreferrer">
+            {% if _action.icon %}<i class="fa fa-fw fa-{{ _action.icon }}"></i>{% endif %}
+            {{ _action.label is defined and not _action.label is empty ? _action.label|trans(_trans_parameters) }}
+        </a>
+
+        {% if easyadmin_action_is_enabled_for_list_view('export', _entity_config.name) %}
+            <a class="{{ _action.css_class|default('') }}" href="'exportExcel' })) }}" target="{{ _action.target }}" rel="noopener noreferrer">
+                <i class="fa fa-file-excel"></i>
+                {{ 'Export Excel'|trans }}
+            </a>
+        {% endif %}
+    </div>
+{% endblock new_action %}

@@ -76,7 +76,7 @@ class DetailsCandidature
      * @ORM\ManyToOne(targetEntity=Details4::class, inversedBy="detailsCandidatures")
      * @ORM\JoinColumn(name="secteur_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
-    private  $secteur;
+    private $secteur;
 
     /**
      * @ORM\ManyToOne(targetEntity=Details5::class, inversedBy="detailsCandidatures")
@@ -92,7 +92,7 @@ class DetailsCandidature
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private  $revenu_mensuelle;
+    private $revenu_mensuelle;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -113,7 +113,7 @@ class DetailsCandidature
     /**
      * @ORM\Column(type="string", length=7, nullable=true)
      */
-    private  $color;
+    private $color;
 
     /**
      * @ORM\Column(type="array", nullable=true)
@@ -549,4 +549,35 @@ class DetailsCandidature
         return $this;
     }
 
+    public function getExportData()
+    {
+        return \array_merge([
+            'Reference_candidature' => $this->label,
+            'Source' => $this->agence,
+            'Prenom_&_Nom' => $this->client,
+            'Type de logement' => $this->type_de_logement,
+            'Mode acquisition' => $this->mode_acquisition,
+            'Membre_cooperative' => $this->membre_cooperative,
+            'Nom de la coopérative' => $this->nom_de_la_cooperative,
+            'Beneficiaire_appui_ou_subvention' => $this->beneficiaire_appui_ou_subvention,
+            'Logement_actuel' => $this->logement_actuel,
+            'Qualité' => $this->qualite,
+            'Handicap' => $this->handicap,
+            'Situation' => $this->situation,
+            'Nom Empoyeur' => $this->nom_employeur,
+            'Domaine d\'activite' => $this->activite_non_salarie,
+            'Lieu d\'activite' => $this->lieu_activite_non_salarie,
+            'Type de Contrat' => $this->type_de_contrat,
+            'Compta bancaire' => $this->compte_bancaire,
+            'Nom de la banque' => $this->nom_de_la_banque,
+            'Personne à charge' => $this->nombre_de_personne_en_charge,
+            'Nom de la société' => $this->nom_de_la_societe,
+            'Revenu Mensuel' => $this->revenu_mensuelle,
+            'Salaire Mensuel' => $this->salaire_mensuelle,
+        ], );
+
+        $object = new Client();
+        echo $object->getExportData();
+        echo $object->getExportData;
+    }
 }

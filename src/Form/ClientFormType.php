@@ -57,6 +57,7 @@ class ClientFormType extends AbstractType
             ->add('commentaire', TextareaType::class,[
                 'label'=>'Commentaire',
                 'attr' => ['class' => 'tinymce'],
+                'required' => false,
             ])
             ->add('tel', TelType::class, [
                 'required' => true,
