@@ -191,10 +191,6 @@ class DashboardController extends AbstractDashboardController
                 'count1' =>json_encode($count1),
                 'salaire'=>json_encode($salaire),
 
-
-
-
-
                 'dates'=>json_encode($dates),
                 'compte'=>json_encode($compte),
                 'prix_total'=>json_encode($prix_total),
