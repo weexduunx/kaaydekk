@@ -595,7 +595,14 @@ class Flex implements PluginInterface, EventSubscriberInterface
         if ($synchronizer->shouldSynchronize()) {
             $lockData = $this->composer->getLocker()->getLockData();
 
-            if ($synchronizer->synchronize($lockData['packages'] ?? []) || $synchronizer->synchronize($lockData['packages-dev'] ?? [])) {
+            $r = new \ReflectionParameter([$synchronizer, 'addPackageJsonLink'], 'phpPackage');
+            if ('string' === $r->getType()->getName()) {
+                // support for smooth upgrades from older flex versions
+                $lockData['packages'] = array_column($lockData['packages'] ?? [], 'name');
+                $lockData['packages-dev'] = array_column($lockData['packages-dev'] ?? [], 'name');
+            }
+
+            if ($synchronizer->synchronize(array_merge($lockData['packages'] ?? [], $lockData['packages-dev'] ?? []))) {
                 $this->io->writeError('<info>Synchronizing package.json with PHP packages</>');
                 $this->io->writeError('<warning>Don\'t forget to run npm install --force or yarn install --force to refresh your JavaScript dependencies!</>');
                 $this->io->writeError('');

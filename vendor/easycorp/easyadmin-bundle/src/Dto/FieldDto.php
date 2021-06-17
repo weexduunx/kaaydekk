@@ -141,12 +141,18 @@ final class FieldDto
         $this->formatValueCallable = $callable;
     }
 
-    public function getLabel(): ?string
+    /**
+     * @return string|false|null
+     */
+    public function getLabel()
     {
         return $this->label;
     }
 
-    public function setLabel(?string $label): void
+    /**
+     * @param string|false|null $label
+     */
+    public function setLabel($label): void
     {
         $this->label = $label;
     }
@@ -292,19 +298,19 @@ final class FieldDto
         $this->assets = $assets;
     }
 
-    public function addWebpackEncoreEntry(string $entryName): void
+    public function addWebpackEncoreAsset(AssetDto $assetDto): void
     {
-        $this->assets->addWebpackEncoreEntry($entryName);
+        $this->assets->addWebpackEncoreAsset($assetDto);
     }
 
-    public function addCssFile(string $cssFilePath): void
+    public function addCssAsset(AssetDto $assetDto): void
     {
-        $this->assets->addCssFile($cssFilePath);
+        $this->assets->addCssAsset($assetDto);
     }
 
-    public function addJsFile(string $jsFilePath): void
+    public function addJsAsset(AssetDto $assetDto): void
     {
-        $this->assets->addJsFile($jsFilePath);
+        $this->assets->addJsAsset($assetDto);
     }
 
     public function addHtmlContentToHead(string $htmlContent): void

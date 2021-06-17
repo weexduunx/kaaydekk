@@ -324,6 +324,7 @@
     <parameter key="doctrine.orm.metadata.yml.class">Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver</parameter>
     <parameter key="doctrine.orm.metadata.php.class">Doctrine\ORM\Mapping\Driver\PHPDriver</parameter>
     <parameter key="doctrine.orm.metadata.staticphp.class">Doctrine\ORM\Mapping\Driver\StaticPHPDriver</parameter>
+    <parameter key="doctrine.orm.metadata.attribute.class">Doctrine\ORM\Mapping\Driver\AttributeDriver</parameter>
     <parameter key="doctrine.orm.proxy_cache_warmer.class">Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer</parameter>
     <parameter key="form.type_guesser.doctrine.class">Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser</parameter>
     <parameter key="doctrine.orm.validator.unique.class">Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator</parameter>
@@ -1450,7 +1451,6 @@
         <argument>cache.serializer</argument>
         <argument>cache.annotations</argument>
         <argument>cache.property_info</argument>
-        <argument>cache.doctrine.orm.default.metadata</argument>
         <argument>cache.doctrine.orm.default.result</argument>
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
@@ -1876,7 +1876,6 @@
         <argument key="cache.serializer" type="service" id="cache.serializer" on-invalid="ignore_uninitialized"/>
         <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
-        <argument key="cache.doctrine.orm.default.metadata" type="service" id="cache.doctrine.orm.default.metadata" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.result" type="service" id="cache.doctrine.orm.default.result" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
@@ -3267,10 +3266,6 @@
         <argument type="service" id="cache.property_info"/>
       </call>
       <call method="addInstance">
-        <argument>cache.doctrine.orm.default.metadata</argument>
-        <argument type="service" id="cache.doctrine.orm.default.metadata"/>
-      </call>
-      <call method="addInstance">
         <argument>cache.doctrine.orm.default.result</argument>
         <argument type="service" id="cache.doctrine.orm.default.result"/>
       </call>
@@ -4015,6 +4010,46 @@
         <argument>128</argument>
       </call>
       <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.exception</argument>
         <argument type="collection">
           <argument type="service_closure" id="swiftmailer.email_sender.listener"/>
@@ -4069,46 +4104,6 @@
           <argument>onLogout</argument>
         </argument>
         <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>knp_pager.before</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
-          <argument>before</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>knp_pager.pagination</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="knp_paginator.subscriber.paginate"/>
-          <argument>pagination</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>knp_pager.before</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="knp_paginator.subscriber.sortable"/>
-          <argument>before</argument>
-        </argument>
-        <argument>1</argument>
-      </call>
-      <call method="addListener">
-        <argument>knp_pager.before</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="knp_paginator.subscriber.filtration"/>
-          <argument>before</argument>
-        </argument>
-        <argument>1</argument>
-      </call>
-      <call method="addListener">
-        <argument>knp_pager.pagination</argument>
-        <argument type="collection">
-          <argument type="service_closure" id="knp_paginator.subscriber.sliding_pagination"/>
-          <argument>pagination</argument>
-        </argument>
-        <argument>1</argument>
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
@@ -4286,18 +4281,14 @@
         <argument>class_exists</argument>
       </call>
     </service>
-    <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\CachedReader">
+    <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\PsrCachedReader">
       <tag name="annotations.cached_reader"/>
       <argument type="service" id="annotations.reader"/>
       <argument type="service">
-        <service class="Symfony\Component\Cache\DoctrineProvider">
-          <argument type="service">
-            <service class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
-          </argument>
-        </service>
+        <service class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
       </argument>
       <argument>true</argument>
-      <property name="cacheProviderBackup" type="service_closure" id="annotations.cache"/>
+      <property name="cacheProviderBackup" type="service_closure" id="annotations.cache_adapter"/>
     </service>
     <service id="annotations.filesystem_cache_adapter" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
       <argument></argument>
@@ -4314,15 +4305,14 @@
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
+    <service id="annotations.cache_adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
+      <argument>/home/ngts/Kaay-Dekk-Immo/var/cache/dev/annotations.php</argument>
+      <argument type="service" id="cache.annotations"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider">
       <tag name="container.hot_path"/>
-      <argument type="service">
-        <service class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
-          <argument>/home/ngts/Kaay-Dekk-Immo/var/cache/dev/annotations.php</argument>
-          <argument type="service" id="cache.annotations"/>
-          <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
-        </service>
-      </argument>
+      <argument type="service" id="annotations.cache_adapter"/>
     </service>
     <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor">
       <argument>3</argument>
@@ -4386,7 +4376,7 @@
       </argument>
     </service>
     <service id="serializer.mapping.class_discriminator_resolver" class="Symfony\Component\Serializer\Mapping\ClassDiscriminatorFromClassMetadata">
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory"/>
     </service>
     <service id="serializer.normalizer.constraint_violation_list" class="Symfony\Component\Serializer\Normalizer\ConstraintViolationListNormalizer">
       <tag name="serializer.normalizer" priority="-915"/>
@@ -4429,7 +4419,7 @@
     </service>
     <service id="serializer.normalizer.object" class="Symfony\Component\Serializer\Normalizer\ObjectNormalizer">
       <tag name="serializer.normalizer" priority="-1000"/>
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory"/>
       <argument type="service" id="serializer.name_converter.metadata_aware"/>
       <argument type="service" id="property_accessor"/>
       <argument type="service" id="property_info" on-invalid="ignore"/>
@@ -4440,7 +4430,7 @@
       </argument>
     </service>
     <service id="serializer.normalizer.property" class="Symfony\Component\Serializer\Normalizer\PropertyNormalizer">
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory"/>
       <argument type="service" id="serializer.name_converter.metadata_aware"/>
       <argument type="service" id="property_info" on-invalid="ignore"/>
       <argument type="service" id="serializer.mapping.class_discriminator_resolver" on-invalid="ignore"/>
@@ -4493,11 +4483,11 @@
     </service>
     <service id="serializer.name_converter.camel_case_to_snake_case" class="Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter"/>
     <service id="serializer.name_converter.metadata_aware" class="Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter">
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory"/>
     </service>
     <service id="property_info.serializer_extractor" class="Symfony\Component\PropertyInfo\Extractor\SerializerExtractor">
       <tag name="property_info.list_extractor" priority="-999"/>
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory"/>
     </service>
     <service id="error_handler.error_renderer.serializer" class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer">
       <argument type="service" id="serializer"/>
@@ -5391,9 +5381,9 @@
     </service>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" public="true">
       <argument type="collection">
-        <argument key="connection_override_options" type="collection"/>
         <argument key="url">%env(resolve:DATABASE_URL)%</argument>
         <argument key="driver">pdo_mysql</argument>
+        <argument key="connection_override_options" type="collection"/>
         <argument key="host">localhost</argument>
         <argument key="port">null</argument>
         <argument key="user">root</argument>
@@ -5588,14 +5578,14 @@
           <argument key="VichUploaderBundle">Vich\UploaderBundle\Entity</argument>
         </argument>
       </call>
-      <call method="setMetadataCacheImpl">
-        <argument type="service" id="doctrine.orm.cache.provider.cache.doctrine.orm.default.metadata"/>
+      <call method="setMetadataCache">
+        <argument type="service" id="cache.doctrine.orm.default.metadata"/>
       </call>
       <call method="setQueryCacheImpl">
-        <argument type="service" id="doctrine.orm.cache.provider.cache.doctrine.orm.default.query"/>
+        <argument type="service" id="cache.doctrine.orm.default.query.compatibility_layer"/>
       </call>
       <call method="setResultCacheImpl">
-        <argument type="service" id="doctrine.orm.cache.provider.cache.doctrine.orm.default.result"/>
+        <argument type="service" id="cache.doctrine.orm.default.result.compatibility_layer"/>
       </call>
       <call method="setMetadataDriverImpl">
         <argument type="service" id=".doctrine.orm.default_metadata_driver"/>
@@ -5635,26 +5625,14 @@
         <argument>/home/ngts/Kaay-Dekk-Immo/vendor/vich/uploader-bundle/src/Entity</argument>
       </argument>
     </service>
-    <service id="cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
-      <tag name="cache.pool"/>
-      <argument type="service" id="cache.doctrine.orm.default.metadata.recorder_inner"/>
-    </service>
-    <service id="doctrine.orm.cache.provider.cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\DoctrineProvider">
-      <argument type="service" id="cache.doctrine.orm.default.metadata"/>
-    </service>
+    <service id="cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.result" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
       <tag name="cache.pool"/>
       <argument type="service" id="cache.doctrine.orm.default.result.recorder_inner"/>
     </service>
-    <service id="doctrine.orm.cache.provider.cache.doctrine.orm.default.result" class="Symfony\Component\Cache\DoctrineProvider">
-      <argument type="service" id="cache.doctrine.orm.default.result"/>
-    </service>
     <service id="cache.doctrine.orm.default.query" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
       <tag name="cache.pool"/>
       <argument type="service" id="cache.doctrine.orm.default.query.recorder_inner"/>
-    </service>
-    <service id="doctrine.orm.cache.provider.cache.doctrine.orm.default.query" class="Symfony\Component\Cache\DoctrineProvider">
-      <argument type="service" id="cache.doctrine.orm.default.query"/>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver">
       <argument type="service" id="service_container"/>
@@ -6346,6 +6324,7 @@
       <argument type="service" id="debug.security.access.decision_manager"/>
       <argument type="service" id="security.firewall.map"/>
       <argument type="service" id="debug.security.firewall" on-invalid="null"/>
+      <argument>false</argument>
     </service>
     <service id="security.authentication.guard_handler" class="Symfony\Component\Security\Guard\GuardAuthenticatorHandler">
       <argument type="service" id="security.token_storage"/>
@@ -7322,6 +7301,9 @@
     <service id="vich_uploader.metadata_driver.xml" class="Vich\UploaderBundle\Metadata\Driver\XmlDriver">
       <argument type="service" id="vich_uploader.metadata.file_locator"/>
     </service>
+    <service id="vich_uploader.metadata_driver.yml" class="Vich\UploaderBundle\Metadata\Driver\YmlDriver">
+      <argument type="service" id="vich_uploader.metadata.file_locator"/>
+    </service>
     <service id="vich_uploader.metadata_driver.yaml" class="Vich\UploaderBundle\Metadata\Driver\YamlDriver">
       <argument type="service" id="vich_uploader.metadata.file_locator"/>
     </service>
@@ -7330,6 +7312,7 @@
         <argument type="service" id="vich_uploader.metadata_driver.xml"/>
         <argument type="service" id="vich_uploader.metadata_driver.annotation"/>
         <argument type="service" id="vich_uploader.metadata_driver.yaml"/>
+        <argument type="service" id="vich_uploader.metadata_driver.yml"/>
       </argument>
     </service>
     <service id="vich_uploader.metadata.cache.file_cache" class="Metadata\Cache\FileCache">
@@ -7573,13 +7556,16 @@
       <argument type="service" id="api_platform.resource_class_resolver"/>
       <argument type="service" id="property_accessor"/>
       <argument type="service" id="serializer.name_converter.metadata_aware" on-invalid="ignore"/>
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory" on-invalid="ignore"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory" on-invalid="ignore"/>
       <argument type="service" id="debug.api_platform.item_data_provider" on-invalid="ignore"/>
       <argument>false</argument>
       <argument>null</argument>
       <argument type="tagged_iterator" tag="api_platform.data_transformer"/>
       <argument type="service" id="api_platform.metadata.resource.metadata_factory.cached" on-invalid="ignore"/>
       <argument type="service" id="api_platform.security.resource_access_checker" on-invalid="ignore"/>
+    </service>
+    <service id="api_platform.serializer.mapping.class_metadata_factory" class="ApiPlatform\Core\Serializer\Mapping\Factory\ClassMetadataFactory">
+      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
     </service>
     <service id="api_platform.operation_path_resolver.router" class="ApiPlatform\Core\Bridge\Symfony\Routing\RouterOperationPathResolver">
       <argument type="service" id="api_platform.router"/>
@@ -7795,7 +7781,7 @@
     </service>
     <service id="api_platform.metadata.property.metadata_factory.serializer" class="ApiPlatform\Core\Metadata\Property\Factory\SerializerPropertyMetadataFactory">
       <argument type="service" id="api_platform.metadata.resource.metadata_factory.cached"/>
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory"/>
       <argument type="service" id="api_platform.doctrine.orm.metadata.property.metadata_factory"/>
       <argument type="service" id="api_platform.resource_class_resolver"/>
     </service>
@@ -8043,7 +8029,7 @@
       <argument type="service" id="api_platform.jsonld.context_builder"/>
       <argument type="service" id="property_accessor"/>
       <argument type="service" id="serializer.name_converter.metadata_aware" on-invalid="ignore"/>
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory" on-invalid="ignore"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory" on-invalid="ignore"/>
       <argument type="collection"/>
       <argument type="tagged_iterator" tag="api_platform.data_transformer"/>
       <argument type="service" id="api_platform.security.resource_access_checker" on-invalid="ignore"/>
@@ -8232,7 +8218,7 @@
       <argument>null</argument>
       <argument>null</argument>
       <argument>false</argument>
-      <argument type="service" id="serializer.mapping.cache_class_metadata_factory"/>
+      <argument type="service" id="api_platform.serializer.mapping.class_metadata_factory"/>
     </service>
     <service id="api_platform.doctrine.orm.query_extension.filter" class="ApiPlatform\Core\Bridge\Doctrine\Orm\Extension\FilterExtension">
       <tag name="api_platform.doctrine.orm.query_extension.collection" priority="-16"/>
@@ -8537,16 +8523,16 @@
       </call>
     </service>
     <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
-      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_subscriber"/>
     </service>
     <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
-      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_subscriber"/>
     </service>
     <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
-      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_subscriber"/>
     </service>
     <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
-      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_subscriber"/>
       <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
       <tag name="container.hot_path"/>
       <argument type="collection">
@@ -10704,6 +10690,14 @@
         <argument key="vich_uploader.listener.upload.thumbnails" type="service_closure" id="vich_uploader.listener.upload.thumbnails"/>
       </argument>
     </service>
+    <service id="cache.doctrine.orm.default.query.compatibility_layer" class="Doctrine\Common\Cache\CacheProvider">
+      <argument type="service" id="cache.doctrine.orm.default.query"/>
+      <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
+    </service>
+    <service id="cache.doctrine.orm.default.result.compatibility_layer" class="Doctrine\Common\Cache\CacheProvider">
+      <argument type="service" id="cache.doctrine.orm.default.result"/>
+      <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
+    </service>
     <service id=".service_locator.Wrm1h4a" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -11567,7 +11561,6 @@
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
-    <service id="cache.doctrine.orm.default.metadata.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
@@ -11734,7 +11727,7 @@
     <service id="Symfony\Component\Serializer\Mapping\ClassDiscriminatorResolverInterface" alias="serializer.mapping.class_discriminator_resolver"/>
     <service id="Symfony\Component\Serializer\Normalizer\ObjectNormalizer" alias="serializer.normalizer.object"/>
     <service id="Symfony\Component\Serializer\Normalizer\PropertyNormalizer" alias="serializer.normalizer.property"/>
-    <service id="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface" alias="serializer.mapping.cache_class_metadata_factory"/>
+    <service id="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface" alias="api_platform.serializer.mapping.class_metadata_factory"/>
     <service id="error_renderer.serializer" alias="error_handler.error_renderer.serializer"/>
     <service id="Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface" alias="property_info"/>
     <service id="Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface" alias="property_info"/>
@@ -11764,9 +11757,9 @@
     <service id="Doctrine\ORM\EntityManagerInterface" alias="doctrine.orm.default_entity_manager"/>
     <service id="doctrine.orm.metadata.annotation_reader" alias="annotations.cached_reader"/>
     <service id="doctrine.orm.entity_manager" alias="doctrine.orm.default_entity_manager" public="true"/>
-    <service id="doctrine.orm.default_metadata_cache" alias="doctrine.orm.cache.provider.cache.doctrine.orm.default.metadata"/>
-    <service id="doctrine.orm.default_result_cache" alias="doctrine.orm.cache.provider.cache.doctrine.orm.default.result"/>
-    <service id="doctrine.orm.default_query_cache" alias="doctrine.orm.cache.provider.cache.doctrine.orm.default.query"/>
+    <service id="doctrine.orm.default_metadata_cache" alias="cache.doctrine.orm.default.metadata"/>
+    <service id="doctrine.orm.default_result_cache" alias="cache.doctrine.orm.default.result.compatibility_layer"/>
+    <service id="doctrine.orm.default_query_cache" alias="cache.doctrine.orm.default.query.compatibility_layer"/>
     <service id="Doctrine\ORM\EntityManagerInterface $defaultEntityManager" alias="doctrine.orm.default_entity_manager"/>
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager"/>
     <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
@@ -11958,7 +11951,7 @@
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
     <service id="controller_resolver" alias="debug.controller_resolver"/>
     <service id="argument_resolver" alias="debug.argument_resolver"/>
-    <service id="serializer.mapping.class_metadata_factory" alias="serializer.mapping.cache_class_metadata_factory"/>
+    <service id="serializer.mapping.class_metadata_factory" alias="api_platform.serializer.mapping.class_metadata_factory"/>
     <service id="twig.error_renderer.html.inner" alias="error_handler.error_renderer.html"/>
     <service id="var_dumper.cli_dumper" alias="var_dumper.contextualized_cli_dumper"/>
     <service id="doctrine.migrations.migrations_factory" alias="doctrine.migrations.container_aware_migrations_factory"/>
@@ -11989,6 +11982,7 @@
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller"/>
     <service id="http_client" alias=".debug.http_client"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
+    <service id="api_platform.serializer.mapping.class_metadata_factory.inner" alias="serializer.mapping.cache_class_metadata_factory"/>
     <service id="api_platform.openapi.normalizer" alias="api_platform.openapi.normalizer.api_gateway"/>
     <service id="api_platform.swagger.normalizer.api_gateway.inner" alias="App\Swagger\SwaggerDecorator"/>
     <service id="api_platform.route_name_resolver" alias="api_platform.route_name_resolver.cached"/>
