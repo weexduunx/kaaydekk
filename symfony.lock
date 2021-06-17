@@ -445,7 +445,11 @@
         "version": "3.0.3"
     },
     "sebastian/type": {
+<<<<<<< HEAD
         "version": "2.3.4"
+=======
+        "version": "2.3.2"
+>>>>>>> e91df131ffb5308a99282a77647a44c78b511bd7
     },
     "sebastian/version": {
         "version": "3.0.2"

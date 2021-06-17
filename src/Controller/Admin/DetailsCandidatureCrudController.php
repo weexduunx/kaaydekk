@@ -43,14 +43,21 @@ class DetailsCandidatureCrudController extends AbstractCrudController
         return [
             FormField::addPanel('1er Niveau','fa fa-list'),
             ColorField::new('color','Couleur Statistique'),
-            AssociationField::new('agence', 'Agence Immobiliére'),
+            AssociationField::new('agence', 'Source ou Agence'),
             TextField::new('label','Reférence Candidature')
             ->hideOnform(),
+<<<<<<< HEAD
             TextField::new('prenom_et_nom','Identité Confirmée')
             ->hideOnForm()
             ->hideOnDetail()
           ,
             AssociationField::new('client','Prénom et Nom'),
+=======
+            AssociationField::new('client', 'Prénom et Nom'),
+            TextField::new('prenom_et_nom','Confirmation Identité')
+            ->hideOnIndex()
+            ->hideOnDetail(),
+>>>>>>> e91df131ffb5308a99282a77647a44c78b511bd7
             ArrayField::new('nom','Surnom')
             ->setHelp('pour des raison d\'statistique, le surnom vous aiderez à savoir lequel des candidat à plus de revenu'),
             AssociationField::new('type_de_logement','Logement souhaité'),

@@ -1,0 +1,129 @@
+<?php //%255B434876ce361fb7917c390daab39f69c4%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+            '_parameterMappings' => [
+                [
+                    'dpid' => [
+                        0,
+                    ],
+                ],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT b0_.id AS id_0, b0_.label AS label_1, b0_.superficie AS superficie_2, b0_.created_at AS created_at_3, b0_.updated_at AS updated_at_4, b0_.status AS status_5, b0_.thumbnail AS thumbnail_6, b0_.color AS color_7, b0_.rooms AS rooms_8, b0_.bedrooms AS bedrooms_9, b0_.floor AS floor_10, b0_.price AS price_11, b0_.address AS address_12, b0_.postal_code AS postal_code_13, b0_.sold AS sold_14, b0_.description AS description_15, b0_.prix AS prix_16, b0_.type_de_bien_id AS type_de_bien_id_17, b0_.projet_id AS projet_id_18, b0_.achat_id AS achat_id_19, b0_.city_id AS city_id_20 FROM bien b0_ WHERE b0_.id IN (?)',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'entity' => 'App\\Entity\\Bien',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'label_1' => 'label',
+                    'superficie_2' => 'superficie',
+                    'created_at_3' => 'createdAt',
+                    'updated_at_4' => 'updatedAt',
+                    'status_5' => 'status',
+                    'thumbnail_6' => 'thumbnail',
+                    'color_7' => 'color',
+                    'rooms_8' => 'rooms',
+                    'bedrooms_9' => 'bedrooms',
+                    'floor_10' => 'floor',
+                    'price_11' => 'price',
+                    'address_12' => 'address',
+                    'postal_code_13' => 'postal_code',
+                    'sold_14' => 'sold',
+                    'description_15' => 'description',
+                    'prix_16' => 'prix',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'type_de_bien_id_17' => 'integer',
+                    'projet_id_18' => 'integer',
+                    'achat_id_19' => 'integer',
+                    'city_id_20' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'entity' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'type_de_bien_id_17' => 'type_de_bien_id',
+                    'projet_id_18' => 'projet_id',
+                    'achat_id_19' => 'achat_id',
+                    'city_id_20' => 'city_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'entity',
+                    'label_1' => 'entity',
+                    'superficie_2' => 'entity',
+                    'created_at_3' => 'entity',
+                    'updated_at_4' => 'entity',
+                    'status_5' => 'entity',
+                    'thumbnail_6' => 'entity',
+                    'color_7' => 'entity',
+                    'rooms_8' => 'entity',
+                    'bedrooms_9' => 'entity',
+                    'floor_10' => 'entity',
+                    'price_11' => 'entity',
+                    'address_12' => 'entity',
+                    'postal_code_13' => 'entity',
+                    'sold_14' => 'entity',
+                    'description_15' => 'entity',
+                    'prix_16' => 'entity',
+                    'type_de_bien_id_17' => 'entity',
+                    'projet_id_18' => 'entity',
+                    'achat_id_19' => 'entity',
+                    'city_id_20' => 'entity',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Bien',
+                    'label_1' => 'App\\Entity\\Bien',
+                    'superficie_2' => 'App\\Entity\\Bien',
+                    'created_at_3' => 'App\\Entity\\Bien',
+                    'updated_at_4' => 'App\\Entity\\Bien',
+                    'status_5' => 'App\\Entity\\Bien',
+                    'thumbnail_6' => 'App\\Entity\\Bien',
+                    'color_7' => 'App\\Entity\\Bien',
+                    'rooms_8' => 'App\\Entity\\Bien',
+                    'bedrooms_9' => 'App\\Entity\\Bien',
+                    'floor_10' => 'App\\Entity\\Bien',
+                    'price_11' => 'App\\Entity\\Bien',
+                    'address_12' => 'App\\Entity\\Bien',
+                    'postal_code_13' => 'App\\Entity\\Bien',
+                    'sold_14' => 'App\\Entity\\Bien',
+                    'description_15' => 'App\\Entity\\Bien',
+                    'prix_16' => 'App\\Entity\\Bien',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];
