@@ -887,14 +887,6 @@
         <argument type="service" id=".service_locator.7Gh9pQb.App\Controller\Admin\VilleCrudController"/>
       </call>
     </service>
-    <service id="App\Controller\AdminController" class="App\Controller\AdminController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <argument type="service" id="translator.data_collector"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.5nX7ca3.App\Controller\AdminController"/>
-      </call>
-    </service>
     <service id="App\Controller\ApiController" class="App\Controller\ApiController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -9399,9 +9391,6 @@
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\VilleCrudController" class="App\Controller\Admin\VilleCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Controller\CrudControllerInterface.0.App\Controller\Admin\VilleCrudController" class="App\Controller\Admin\VilleCrudController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\VilleCrudController" class="App\Controller\Admin\VilleCrudController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -10916,12 +10905,6 @@
         <argument key="session" type="service_closure" id="session" on-invalid="ignore"/>
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
-    </service>
-    <service id=".service_locator.5nX7ca3.App\Controller\AdminController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\AdminController"/>
-      <argument>App\Controller\AdminController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.5nX7ca3" method="withContext"/>
     </service>
     <service id=".service_locator.5nX7ca3.App\Controller\ApiController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ApiController"/>

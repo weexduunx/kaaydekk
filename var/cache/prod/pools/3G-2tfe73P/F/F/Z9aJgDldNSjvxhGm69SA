@@ -1,0 +1,173 @@
+<?php //App__Entity__Projet__CLASSMETADATA__
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+        clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Projet',
+            ],
+            'namespace' => [
+                'App\\Entity',
+            ],
+            'rootEntityName' => [
+                'App\\Entity\\Projet',
+            ],
+            'customRepositoryClassName' => [
+                'App\\Repository\\ProjetRepository',
+            ],
+            'identifier' => [
+                [
+                    'id',
+                ],
+            ],
+            'generatorType' => [
+                4,
+            ],
+            'fieldMappings' => [
+                [
+                    'id' => [
+                        'fieldName' => 'id',
+                        'type' => 'integer',
+                        'scale' => null,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'id' => true,
+                        'columnName' => 'id',
+                    ],
+                    'reference_projet' => [
+                        'fieldName' => 'reference_projet',
+                        'type' => 'string',
+                        'scale' => null,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'columnName' => 'reference_projet',
+                    ],
+                    'nom_du_projet' => [
+                        'fieldName' => 'nom_du_projet',
+                        'type' => 'string',
+                        'scale' => null,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'columnName' => 'nom_du_projet',
+                    ],
+                    'createdAt' => [
+                        'fieldName' => 'createdAt',
+                        'type' => 'datetime',
+                        'scale' => null,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'columnName' => 'created_at',
+                    ],
+                    'updateAt' => [
+                        'fieldName' => 'updateAt',
+                        'type' => 'datetime',
+                        'scale' => null,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'columnName' => 'update_at',
+                    ],
+                ],
+            ],
+            'fieldNames' => [
+                [
+                    'id' => 'id',
+                    'reference_projet' => 'reference_projet',
+                    'nom_du_projet' => 'nom_du_projet',
+                    'created_at' => 'createdAt',
+                    'update_at' => 'updateAt',
+                ],
+            ],
+            'columnNames' => [
+                [
+                    'id' => 'id',
+                    'reference_projet' => 'reference_projet',
+                    'nom_du_projet' => 'nom_du_projet',
+                    'createdAt' => 'created_at',
+                    'updateAt' => 'update_at',
+                ],
+            ],
+            'table' => [
+                [
+                    'name' => 'projet',
+                ],
+            ],
+            'associationMappings' => [
+                [
+                    'site' => [
+                        'fieldName' => 'site',
+                        'joinColumns' => [
+                            [
+                                'name' => 'site_id',
+                                'unique' => false,
+                                'nullable' => true,
+                                'onDelete' => 'CASCADE',
+                                'columnDefinition' => null,
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => 'projets',
+                        'targetEntity' => 'App\\Entity\\Site',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\Projet',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'site_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'site_id' => 'site_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'site_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
+                    'biens' => [
+                        'fieldName' => 'biens',
+                        'mappedBy' => 'projet',
+                        'targetEntity' => 'App\\Entity\\Bien',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 4,
+                        'inversedBy' => null,
+                        'isOwningSide' => false,
+                        'sourceEntity' => 'App\\Entity\\Projet',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                    ],
+                ],
+            ],
+            'idGenerator' => [
+                $o[1],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

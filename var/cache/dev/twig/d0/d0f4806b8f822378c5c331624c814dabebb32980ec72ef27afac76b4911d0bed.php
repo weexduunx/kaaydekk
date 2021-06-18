@@ -31,6 +31,7 @@ class __TwigTemplate_7f185721904502ca9f80fcb02b2919617fbba3a2b26f4140339d6f2a171
             'page_actions' => [$this, 'block_page_actions'],
             'global_actions' => [$this, 'block_global_actions'],
             'content_header' => [$this, 'block_content_header'],
+            'batch_actions' => [$this, 'block_batch_actions'],
             'main' => [$this, 'block_main'],
             'search' => [$this, 'block_search'],
             'search_form' => [$this, 'block_search_form'],
@@ -60,7 +61,7 @@ class __TwigTemplate_7f185721904502ca9f80fcb02b2919617fbba3a2b26f4140339d6f2a171
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/crud/index.html.twig"));
 
         // line 5
-        $context["__internal_4dd30a69db3324cea3a140160fd2f43055ceb1c724e3b49ccb353820595bd5e3"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 5, $this->source); })()), "i18n", [], "any", false, false, false, 5), "translationDomain", [], "any", false, false, false, 5);
+        $context["__internal_a0537c50150802acc948fbaad1339d95bf93c6f57e1325b1aeb6b47638d9378a"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 5, $this->source); })()), "i18n", [], "any", false, false, false, 5), "translationDomain", [], "any", false, false, false, 5);
         // line 8
         $context["has_batch_actions"] = ((false && array_key_exists("batch_form", $context)) && (1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 8, $this->source); })()), "crud", [], "any", false, false, false, 8), "actions", [], "any", false, false, false, 8), "batchActions", [], "any", false, false, false, 8)), 0)));
         // line 4
@@ -128,10 +129,10 @@ class __TwigTemplate_7f185721904502ca9f80fcb02b2919617fbba3a2b26f4140339d6f2a171
         // line 16
         echo "        ";
         echo (((null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 16, $this->source); })()), "crud", [], "any", false, false, false, 16), "customPageTitle", [], "any", false, false, false, 16))) ? ((isset($context["default_title"]) || array_key_exists("default_title", $context) ? $context["default_title"] : (function () { throw new RuntimeError('Variable "default_title" does not exist.', 16, $this->source); })())) : ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 16, $this->source); })()), "crud", [], "any", false, false, false, 16), "customPageTitle", [0 => "index"], "method", false, false, false, 16), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 16, $this->source); })()), "i18n", [], "any", false, false, false, 16), "translationParameters", [], "any", false, false, false, 16),         // line 5
-(isset($context["__internal_4dd30a69db3324cea3a140160fd2f43055ceb1c724e3b49ccb353820595bd5e3"]) || array_key_exists("__internal_4dd30a69db3324cea3a140160fd2f43055ceb1c724e3b49ccb353820595bd5e3", $context) ? $context["__internal_4dd30a69db3324cea3a140160fd2f43055ceb1c724e3b49ccb353820595bd5e3"] : (function () { throw new RuntimeError('Variable "__internal_4dd30a69db3324cea3a140160fd2f43055ceb1c724e3b49ccb353820595bd5e3" does not exist.', 5, $this->source); })()))));
-        $___internal_44ee01673c7e606115a7064cb289549f9907010ff4b03ffa3e8cfe194de8924e_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
+(isset($context["__internal_a0537c50150802acc948fbaad1339d95bf93c6f57e1325b1aeb6b47638d9378a"]) || array_key_exists("__internal_a0537c50150802acc948fbaad1339d95bf93c6f57e1325b1aeb6b47638d9378a", $context) ? $context["__internal_a0537c50150802acc948fbaad1339d95bf93c6f57e1325b1aeb6b47638d9378a"] : (function () { throw new RuntimeError('Variable "__internal_a0537c50150802acc948fbaad1339d95bf93c6f57e1325b1aeb6b47638d9378a" does not exist.', 5, $this->source); })()))));
+        $___internal_84b54cae1dc606003f6c36bd61e479d680152e038c5e7e058c04f389f7dadbd9_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
         // line 14
-        echo twig_spaceless($___internal_44ee01673c7e606115a7064cb289549f9907010ff4b03ffa3e8cfe194de8924e_);
+        echo twig_spaceless($___internal_84b54cae1dc606003f6c36bd61e479d680152e038c5e7e058c04f389f7dadbd9_);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -209,6 +210,51 @@ class __TwigTemplate_7f185721904502ca9f80fcb02b2919617fbba3a2b26f4140339d6f2a171
         $this->displayParentBlock("content_header", $context, $blocks);
         echo "
 
+    
+    ";
+        // line 32
+        $this->displayBlock('batch_actions', $context, $blocks);
+        // line 39
+        echo "    
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 32
+    public function block_batch_actions($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "batch_actions"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "batch_actions"));
+
+        // line 33
+        echo "        ";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 33, $this->source); })()), "crud", [], "any", false, false, false, 33), "actions", [], "any", false, false, false, 33), "batchActions", [], "any", false, false, false, 33));
+        foreach ($context['_seq'] as $context["_key"] => $context["batchAction"]) {
+            // line 34
+            echo "            ";
+            echo twig_include($this->env, $context, twig_get_attribute($this->env, $this->source, $context["batchAction"], "templatePath", [], "any", false, false, false, 34), ["action" => $context["batchAction"]], false);
+            echo "
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['batchAction'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 36
+        echo "
+        ";
+        // line 37
+        echo twig_include($this->env, $context, "@EasyAdmin/crud/includes/_batch_action_modal.html.twig", [], false);
+        echo "
     ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -1046,7 +1092,7 @@ class __TwigTemplate_7f185721904502ca9f80fcb02b2919617fbba3a2b26f4140339d6f2a171
 
     public function getDebugInfo()
     {
-        return array (  1022 => 350,  1019 => 349,  1017 => 348,  1012 => 345,  961 => 296,  959 => 295,  955 => 293,  923 => 263,  921 => 262,  882 => 225,  876 => 223,  874 => 222,  868 => 220,  858 => 219,  845 => 215,  835 => 214,  822 => 208,  812 => 207,  801 => 180,  796 => 177,  787 => 175,  783 => 174,  775 => 168,  772 => 167,  763 => 165,  758 => 164,  756 => 163,  753 => 162,  743 => 161,  733 => 200,  726 => 196,  722 => 195,  719 => 194,  717 => 193,  714 => 192,  704 => 188,  700 => 186,  687 => 185,  682 => 182,  680 => 161,  677 => 160,  668 => 157,  657 => 156,  653 => 155,  650 => 154,  644 => 152,  642 => 151,  637 => 150,  634 => 149,  631 => 148,  628 => 147,  609 => 146,  599 => 145,  585 => 138,  577 => 137,  574 => 136,  567 => 134,  561 => 132,  553 => 129,  548 => 128,  546 => 127,  536 => 126,  533 => 125,  530 => 124,  527 => 123,  524 => 122,  519 => 121,  516 => 120,  514 => 119,  511 => 118,  507 => 116,  505 => 115,  502 => 114,  492 => 113,  482 => 104,  478 => 102,  470 => 98,  468 => 97,  465 => 96,  458 => 95,  452 => 94,  449 => 93,  446 => 92,  443 => 91,  433 => 90,  421 => 80,  413 => 76,  411 => 75,  404 => 73,  399 => 70,  388 => 68,  383 => 67,  380 => 64,  377 => 61,  375 => 60,  365 => 59,  355 => 86,  350 => 83,  348 => 59,  344 => 57,  341 => 56,  331 => 55,  321 => 214,  317 => 212,  313 => 210,  311 => 207,  308 => 206,  306 => 205,  300 => 201,  298 => 145,  293 => 142,  291 => 113,  286 => 111,  282 => 110,  278 => 108,  273 => 105,  271 => 90,  266 => 87,  264 => 55,  260 => 53,  258 => 52,  255 => 51,  252 => 50,  249 => 49,  246 => 48,  243 => 47,  240 => 46,  237 => 45,  234 => 44,  232 => 43,  222 => 42,  208 => 29,  198 => 28,  188 => 25,  179 => 23,  174 => 22,  154 => 21,  144 => 20,  134 => 14,  131 => 5,  129 => 16,  127 => 15,  125 => 14,  115 => 13,  96 => 11,  77 => 10,  67 => 4,  65 => 8,  63 => 5,  50 => 4,);
+        return array (  1068 => 350,  1065 => 349,  1063 => 348,  1058 => 345,  1007 => 296,  1005 => 295,  1001 => 293,  969 => 263,  967 => 262,  928 => 225,  922 => 223,  920 => 222,  914 => 220,  904 => 219,  891 => 215,  881 => 214,  868 => 208,  858 => 207,  847 => 180,  842 => 177,  833 => 175,  829 => 174,  821 => 168,  818 => 167,  809 => 165,  804 => 164,  802 => 163,  799 => 162,  789 => 161,  779 => 200,  772 => 196,  768 => 195,  765 => 194,  763 => 193,  760 => 192,  750 => 188,  746 => 186,  733 => 185,  728 => 182,  726 => 161,  723 => 160,  714 => 157,  703 => 156,  699 => 155,  696 => 154,  690 => 152,  688 => 151,  683 => 150,  680 => 149,  677 => 148,  674 => 147,  655 => 146,  645 => 145,  631 => 138,  623 => 137,  620 => 136,  613 => 134,  607 => 132,  599 => 129,  594 => 128,  592 => 127,  582 => 126,  579 => 125,  576 => 124,  573 => 123,  570 => 122,  565 => 121,  562 => 120,  560 => 119,  557 => 118,  553 => 116,  551 => 115,  548 => 114,  538 => 113,  528 => 104,  524 => 102,  516 => 98,  514 => 97,  511 => 96,  504 => 95,  498 => 94,  495 => 93,  492 => 92,  489 => 91,  479 => 90,  467 => 80,  459 => 76,  457 => 75,  450 => 73,  445 => 70,  434 => 68,  429 => 67,  426 => 64,  423 => 61,  421 => 60,  411 => 59,  401 => 86,  396 => 83,  394 => 59,  390 => 57,  387 => 56,  377 => 55,  367 => 214,  363 => 212,  359 => 210,  357 => 207,  354 => 206,  352 => 205,  346 => 201,  344 => 145,  339 => 142,  337 => 113,  332 => 111,  328 => 110,  324 => 108,  319 => 105,  317 => 90,  312 => 87,  310 => 55,  306 => 53,  304 => 52,  301 => 51,  298 => 50,  295 => 49,  292 => 48,  289 => 47,  286 => 46,  283 => 45,  280 => 44,  278 => 43,  268 => 42,  256 => 37,  253 => 36,  244 => 34,  239 => 33,  229 => 32,  218 => 39,  216 => 32,  209 => 29,  199 => 28,  189 => 25,  180 => 23,  175 => 22,  155 => 21,  145 => 20,  135 => 14,  132 => 5,  130 => 16,  128 => 15,  126 => 14,  116 => 13,  97 => 11,  78 => 10,  68 => 4,  66 => 8,  64 => 5,  51 => 4,);
     }
 
     public function getSourceContext()
@@ -1081,7 +1127,7 @@ class __TwigTemplate_7f185721904502ca9f80fcb02b2919617fbba3a2b26f4140339d6f2a171
 {% block content_header %}
     {{ parent() }}
 
-    {# TODO:
+    
     {% block batch_actions %}
         {% for batchAction in ea.crud.actions.batchActions %}
             {{ include(batchAction.templatePath, { action: batchAction }, with_context = false) }}
@@ -1089,7 +1135,7 @@ class __TwigTemplate_7f185721904502ca9f80fcb02b2919617fbba3a2b26f4140339d6f2a171
 
         {{ include('@EasyAdmin/crud/includes/_batch_action_modal.html.twig', {}, with_context = false) }}
     {% endblock %}
-    #}
+    
 {% endblock content_header %}
 
 {% block main %}

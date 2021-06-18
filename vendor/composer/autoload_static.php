@@ -1475,7 +1475,6 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'ApiPlatform\\Core\\Validator\\EventListener\\ValidateListener' => __DIR__ . '/..' . '/api-platform/core/src/Validator/EventListener/ValidateListener.php',
         'ApiPlatform\\Core\\Validator\\Exception\\ValidationException' => __DIR__ . '/..' . '/api-platform/core/src/Validator/Exception/ValidationException.php',
         'ApiPlatform\\Core\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/api-platform/core/src/Validator/ValidatorInterface.php',
-        'App\\Controller\\AdminController' => __DIR__ . '/../..' . '/src/Controller/AdminController.php',
         'App\\Controller\\Admin\\AchatCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/AchatCrudController.php',
         'App\\Controller\\Admin\\BienCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/BienCrudController.php',
         'App\\Controller\\Admin\\ClientCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/ClientCrudController.php',

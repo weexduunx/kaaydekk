@@ -13,5 +13,6 @@
             "username": "bcp18jws2afg5vle\t",
             "password": "mfsqgmex468d6k4h"
         }
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }

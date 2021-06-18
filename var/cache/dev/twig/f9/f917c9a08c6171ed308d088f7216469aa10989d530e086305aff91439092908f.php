@@ -52,16 +52,15 @@ class __TwigTemplate_9e50917293e9835da26471d71cdee9a01014f358f505eefc1148ca01244
         $this->displayBlock('main_menu_before', $context, $blocks);
         // line 17
         echo "
-<nav class=\"sidebar-nav\">
+
 <ul class=\"in\" id=\"sidebarnav\" data-widget=\"tree\">
     ";
         // line 20
         $this->displayBlock('main_menu', $context, $blocks);
         // line 43
         echo "</ul>
-</nav>
 ";
-        // line 45
+        // line 44
         $this->displayBlock('main_menu_after', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -258,7 +257,7 @@ class __TwigTemplate_9e50917293e9835da26471d71cdee9a01014f358f505eefc1148ca01244
 
     }
 
-    // line 45
+    // line 44
     public function block_main_menu_after($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -370,7 +369,7 @@ class __TwigTemplate_9e50917293e9835da26471d71cdee9a01014f358f505eefc1148ca01244
 
     public function getDebugInfo()
     {
-        return array (  345 => 12,  341 => 11,  336 => 10,  330 => 9,  326 => 8,  317 => 7,  309 => 5,  302 => 4,  299 => 3,  280 => 2,  262 => 45,  249 => 33,  245 => 32,  240 => 31,  230 => 30,  219 => 39,  215 => 37,  201 => 36,  198 => 30,  181 => 29,  178 => 28,  176 => 27,  171 => 25,  165 => 24,  158 => 23,  148 => 22,  138 => 42,  124 => 41,  121 => 22,  103 => 21,  93 => 20,  75 => 16,  65 => 45,  61 => 43,  59 => 20,  54 => 17,  52 => 16,  49 => 15,);
+        return array (  344 => 12,  340 => 11,  335 => 10,  329 => 9,  325 => 8,  316 => 7,  308 => 5,  301 => 4,  298 => 3,  279 => 2,  261 => 44,  248 => 33,  244 => 32,  239 => 31,  229 => 30,  218 => 39,  214 => 37,  200 => 36,  197 => 30,  180 => 29,  177 => 28,  175 => 27,  170 => 25,  164 => 24,  157 => 23,  147 => 22,  137 => 42,  123 => 41,  120 => 22,  102 => 21,  92 => 20,  74 => 16,  64 => 44,  61 => 43,  59 => 20,  54 => 17,  52 => 16,  49 => 15,);
     }
 
     public function getSourceContext()
@@ -392,7 +391,7 @@ class __TwigTemplate_9e50917293e9835da26471d71cdee9a01014f358f505eefc1148ca01244
 
 {% block main_menu_before %}{% endblock %}
 
-<nav class=\"sidebar-nav\">
+
 <ul class=\"in\" id=\"sidebarnav\" data-widget=\"tree\">
     {% block main_menu %}
         {% for menuItem in ea.mainMenu.items %}
@@ -418,7 +417,6 @@ class __TwigTemplate_9e50917293e9835da26471d71cdee9a01014f358f505eefc1148ca01244
         {% endfor %}
     {% endblock main_menu %}
 </ul>
-</nav>
 {% block main_menu_after %}{% endblock %}
 ", "@EasyAdmin/menu.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/menu.html.twig");
     }

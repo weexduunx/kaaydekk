@@ -1,0 +1,77 @@
+<?php //%255B28881ffcfa3f013ca96c3ca54edd0b85%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT p0_.id AS id_0, p0_.reference_projet AS reference_projet_1, p0_.nom_du_projet AS nom_du_projet_2, p0_.created_at AS created_at_3, p0_.update_at AS update_at_4, p0_.site_id AS site_id_5 FROM projet p0_',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'entity' => 'App\\Entity\\Projet',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'reference_projet_1' => 'reference_projet',
+                    'nom_du_projet_2' => 'nom_du_projet',
+                    'created_at_3' => 'createdAt',
+                    'update_at_4' => 'updateAt',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'site_id_5' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'entity' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'site_id_5' => 'site_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'entity',
+                    'reference_projet_1' => 'entity',
+                    'nom_du_projet_2' => 'entity',
+                    'created_at_3' => 'entity',
+                    'update_at_4' => 'entity',
+                    'site_id_5' => 'entity',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Projet',
+                    'reference_projet_1' => 'App\\Entity\\Projet',
+                    'nom_du_projet_2' => 'App\\Entity\\Projet',
+                    'created_at_3' => 'App\\Entity\\Projet',
+                    'update_at_4' => 'App\\Entity\\Projet',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

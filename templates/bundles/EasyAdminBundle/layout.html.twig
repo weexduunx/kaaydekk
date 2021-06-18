@@ -174,7 +174,8 @@ localStorage.getItem('ea/sidebar/width') || '{{ ea.crud.sidebarWidth ?? ea.dashb
 						</header>
 
 						<aside class="left-sidebar" data-sidebarbg="skin6">
-							<div class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-sidebarbg="skin6" data-ps-id="331a301f-eec9-5c91-2c14-0a94a8ae5440">
+							<div class="scroll-sidebar ps-container ps-theme-default ps-active-y" 
+							data-sidebarbg="skin6" data-ps-id="331a301f-eec9-5c91-2c14-0a94a8ae5440">
 								<nav class="sidebar-nav">
 									{% block sidebar %}
 										{% block main_menu_wrapper %}
@@ -209,7 +210,8 @@ localStorage.getItem('ea/sidebar/width') || '{{ ea.crud.sidebarWidth ?? ea.dashb
 														{% if has_help_message %}
 															<li class="breadcrumb-item">
 																<a>
-																	<i class="far fa-question-circle" data-toggle="tooltip" title="{{ ea.crud.helpMessage|e('html_attr') }}"></i>
+																	<i class="far fa-question-circle" data-toggle="tooltip" 
+																	title="{{ ea.crud.helpMessage|e('html_attr') }}"></i>
 																</a>
 															</li>
 														{% endif %}

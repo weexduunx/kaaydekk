@@ -216,73 +216,77 @@ class DashboardController extends AbstractDashboardController
             ->setName($user->getUsername())
             // use this method if you don't want to display the name of the user
             ->displayUserName(true)
-            ->setGravatarEmail($user->getEmail());
+            ->setGravatarEmail($user->getUsername())
+            ->addMenuItems([
+                MenuItem::linkToRoute('Admin', 'fas fa-user', '...', ['...' => '...']),
+                MenuItem::linkToRoute('Paramétres', 'fas fa-user-cog', '...', ['...' => '...']),
+                MenuItem::section(),
+            ]);
     }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
             ->setTitle('Kaay Dëkk Immo')
-             ->setTranslationDomain('/');
+             ->setTranslationDomain('/')
+             ->setTextDirection('ltr')
+             ->renderContentMaximized()
+             ->disableUrlSignatures()
+             ;
     }
 
 
     public function configureMenuItems(): iterable
     {
               return [
+
                   MenuItem::linkToDashboard('Tableau de Bord','fa fa-dashboard'),
 
-                  MenuItem::subMenu('Mode d\'acquisition', 'fa fa-money')
-                      ->setSubItems([
+                
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
-                  ])->setPermission('ROLE_SUPER_USER'),
+                  
 
-                  MenuItem::subMenu('Gestion des Biens', 'fa fa-building')->setSubItems([
+            
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
                       MenuItem::linkToCrud('Ajouter un bien', 'fas fa-plus', Bien::class)
                           ->setAction('new'),
                       MenuItem::linkToCrud('Créer un type de bien', 'fas fa-plus', TypeDeBien::class)
                           ->setAction('new'),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
-                  ])->setPermission('ROLE_SUPER_USER'),
-
-                  MenuItem::subMenu('Gestion des Clients', 'fa fa-user-circle-o')->setSubItems([
+                  
+                
                       MenuItem::linkToCrud('liste des clients', 'fas fa-list', Client::class),
                       MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Client::class)
                           ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
                       MenuItem::linkToCrud('Liste des candidats','fa fa-list',DetailsCandidature::class),
                       MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
                           ->setAction('new'),
-                  ])->setPermission('ROLE_COMMERCIAL'),
+                 
 
-                  MenuItem::subMenu('Gestion des Projets', 'fa fa-project-diagram')
-                      ->setSubItems([
                           MenuItem::linkToCrud('Liste des projets', 'fas fa-list', Projet::class),
                           MenuItem::linkToCrud('Ajouter un projet','fas fa-plus', Projet::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_RESPONSABLE'),
+                     
 
-                  MenuItem::subMenu('Gestion des Sites', 'fa fa-area-chart')
-                      ->setSubItems([
+                 
                           MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class),
                           MenuItem::linkToCrud('Ajouter un site','fas fa-plus', Site::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_RESPONSABLE'),
+                    
 
-                  MenuItem::subMenu('Gestion des Villes', 'fa fa-city')
-                      ->setSubItems([
+                 
                           MenuItem::linkToCrud('Liste des villes', 'fas fa-list', Ville::class),
                           MenuItem::linkToCrud('Ajouter une ville','fas fa-plus', Ville::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_SUPER_USER'),
+                    
 
-                  MenuItem::subMenu('Paramètres Utilisateur','fa fa-cog')->setSubItems([
+                 
                           MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
                           MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
                               ->setAction('new'),
-                      ])->setPermission('ROLE_SUPER_USER'),
+                    
 
 
               ];

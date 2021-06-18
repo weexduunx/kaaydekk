@@ -98,8 +98,7 @@ class DetailsCandidatureCrudController extends AbstractCrudController
         ->setCssClass('btn')
         ->createAsGlobalAction();
 
-        return $actions->add(Crud::PAGE_INDEX, $export)
-            ->setPermission('delete','ROLE_ADMIN');
+        return $actions->add(Crud::PAGE_INDEX, $export);
     }
 
     public function configureCrud(Crud $crud): Crud
@@ -123,6 +122,6 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             $data[] = $candidat->getExportData();
         }
 
-        return $this->csvService->export($data, 'Données_des_Candidats_'.date_create()->format('d-m-y').'.xls');
+        return $this->csvService->export($data, 'Données_des_Candidats_'.date_create()->format('d-m-y').'.csv');
     }
 }

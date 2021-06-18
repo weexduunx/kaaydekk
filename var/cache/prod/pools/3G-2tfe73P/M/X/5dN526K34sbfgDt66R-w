@@ -1,0 +1,74 @@
+<?php //%255B9626fa55054a3e26caff5bb8c4991296%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT v0_.id AS id_0, v0_.label AS label_1, v0_.lat AS lat_2, v0_.lon AS lon_3, v0_.region_id AS region_id_4 FROM ville v0_',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'e' => 'App\\Entity\\Ville',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'label_1' => 'label',
+                    'lat_2' => 'lat',
+                    'lon_3' => 'lon',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'region_id_4' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'e' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'region_id_4' => 'region_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'e',
+                    'label_1' => 'e',
+                    'lat_2' => 'e',
+                    'lon_3' => 'e',
+                    'region_id_4' => 'e',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Ville',
+                    'label_1' => 'App\\Entity\\Ville',
+                    'lat_2' => 'App\\Entity\\Ville',
+                    'lon_3' => 'App\\Entity\\Ville',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

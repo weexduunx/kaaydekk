@@ -1,0 +1,68 @@
+<?php //%255B4db6a32ecd90c5a4b034dc8d851daf75%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\ParserResult' => [
+            '_sqlExecutor' => [
+                $o[1],
+            ],
+            '_resultSetMapping' => [
+                $o[2],
+            ],
+        ],
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            '_sqlStatements' => [
+                1 => 'SELECT a0_.id AS id_0, a0_.label AS label_1, a0_.client_id AS client_id_2 FROM achat a0_',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'entity' => 'App\\Entity\\Achat',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'label_1' => 'label',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'client_id_2' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'entity' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'client_id_2' => 'client_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'entity',
+                    'label_1' => 'entity',
+                    'client_id_2' => 'entity',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Achat',
+                    'label_1' => 'App\\Entity\\Achat',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

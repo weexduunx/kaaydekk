@@ -88,8 +88,7 @@ class ClientCrudController extends AbstractCrudController
 
 
         return $actions
-            ->add(Crud::PAGE_INDEX, $export)
-            ->setPermission('delete','ROLE_ADMIN');
+            ->add(Crud::PAGE_INDEX, $export);
     }
     public function export(Request $request)
     {
@@ -105,7 +104,7 @@ class ClientCrudController extends AbstractCrudController
             $data[] = $client->getExportData();
         }
 
-        return $this->csvService->export($data, 'Données_des_Clients_'.date_create()->format('d-m-y').'.xls');
+        return $this->csvService->export($data, 'Données_des_Clients_'.date_create()->format('d-m-y').'.csv');
     }
 
 }

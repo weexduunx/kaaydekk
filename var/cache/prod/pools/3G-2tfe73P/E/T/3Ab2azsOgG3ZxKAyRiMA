@@ -1,0 +1,150 @@
+<?php //App__Entity__Agence__CLASSMETADATA__
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+        clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Agence',
+            ],
+            'namespace' => [
+                'App\\Entity',
+            ],
+            'rootEntityName' => [
+                'App\\Entity\\Agence',
+            ],
+            'customRepositoryClassName' => [
+                'App\\Repository\\AgenceRepository',
+            ],
+            'identifier' => [
+                [
+                    'id',
+                ],
+            ],
+            'generatorType' => [
+                4,
+            ],
+            'fieldMappings' => [
+                [
+                    'id' => [
+                        'fieldName' => 'id',
+                        'type' => 'integer',
+                        'scale' => null,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'id' => true,
+                        'columnName' => 'id',
+                    ],
+                    'label' => [
+                        'fieldName' => 'label',
+                        'type' => 'string',
+                        'scale' => null,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => null,
+                        'columnName' => 'label',
+                    ],
+                ],
+            ],
+            'fieldNames' => [
+                [
+                    'id' => 'id',
+                    'label' => 'label',
+                ],
+            ],
+            'columnNames' => [
+                [
+                    'id' => 'id',
+                    'label' => 'label',
+                ],
+            ],
+            'table' => [
+                [
+                    'name' => 'agence',
+                ],
+            ],
+            'associationMappings' => [
+                [
+                    'clients' => [
+                        'fieldName' => 'clients',
+                        'mappedBy' => 'agence',
+                        'targetEntity' => 'App\\Entity\\Client',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 4,
+                        'inversedBy' => null,
+                        'isOwningSide' => false,
+                        'sourceEntity' => 'App\\Entity\\Agence',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                    ],
+                    'detailsCandidatures' => [
+                        'fieldName' => 'detailsCandidatures',
+                        'mappedBy' => 'agence',
+                        'targetEntity' => 'App\\Entity\\DetailsCandidature',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 4,
+                        'inversedBy' => null,
+                        'isOwningSide' => false,
+                        'sourceEntity' => 'App\\Entity\\Agence',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                    ],
+                    'details' => [
+                        'fieldName' => 'details',
+                        'joinColumns' => [
+                            [
+                                'name' => 'details_id',
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => 'agences',
+                        'targetEntity' => 'App\\Entity\\DetailsCandidature',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\Agence',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'details_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'details_id' => 'details_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'details_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
+                ],
+            ],
+            'idGenerator' => [
+                $o[1],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

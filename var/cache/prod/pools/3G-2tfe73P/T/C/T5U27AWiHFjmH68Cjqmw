@@ -1,0 +1,195 @@
+<?php //App__Entity__Ville__CLASSMETADATA__
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+        clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Ville',
+            ],
+            'namespace' => [
+                'App\\Entity',
+            ],
+            'rootEntityName' => [
+                'App\\Entity\\Ville',
+            ],
+            'customRepositoryClassName' => [
+                'App\\Repository\\VilleRepository',
+            ],
+            'identifier' => [
+                [
+                    'id',
+                ],
+            ],
+            'generatorType' => [
+                4,
+            ],
+            'fieldMappings' => [
+                [
+                    'id' => [
+                        'fieldName' => 'id',
+                        'type' => 'integer',
+                        'scale' => null,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'id' => true,
+                        'columnName' => 'id',
+                    ],
+                    'label' => [
+                        'fieldName' => 'label',
+                        'type' => 'string',
+                        'scale' => null,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => null,
+                        'columnName' => 'label',
+                    ],
+                    'lat' => [
+                        'fieldName' => 'lat',
+                        'type' => 'decimal',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 10,
+                        'columnName' => 'lat',
+                    ],
+                    'lon' => [
+                        'fieldName' => 'lon',
+                        'type' => 'decimal',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 10,
+                        'columnName' => 'lon',
+                    ],
+                ],
+            ],
+            'fieldNames' => [
+                [
+                    'id' => 'id',
+                    'label' => 'label',
+                    'lat' => 'lat',
+                    'lon' => 'lon',
+                ],
+            ],
+            'columnNames' => [
+                [
+                    'id' => 'id',
+                    'label' => 'label',
+                    'lat' => 'lat',
+                    'lon' => 'lon',
+                ],
+            ],
+            'table' => [
+                [
+                    'name' => 'ville',
+                ],
+            ],
+            'associationMappings' => [
+                [
+                    'clients' => [
+                        'fieldName' => 'clients',
+                        'mappedBy' => 'ville',
+                        'targetEntity' => 'App\\Entity\\Client',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 4,
+                        'inversedBy' => null,
+                        'isOwningSide' => false,
+                        'sourceEntity' => 'App\\Entity\\Ville',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                    ],
+                    'region' => [
+                        'fieldName' => 'region',
+                        'joinColumns' => [
+                            [
+                                'name' => 'region_id',
+                                'unique' => false,
+                                'nullable' => true,
+                                'onDelete' => 'CASCADE',
+                                'columnDefinition' => null,
+                                'referencedColumnName' => 'id',
+                            ],
+                        ],
+                        'cascade' => [],
+                        'inversedBy' => 'villes',
+                        'targetEntity' => 'App\\Entity\\Region',
+                        'fetch' => 2,
+                        'type' => 2,
+                        'mappedBy' => null,
+                        'isOwningSide' => true,
+                        'sourceEntity' => 'App\\Entity\\Ville',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                        'sourceToTargetKeyColumns' => [
+                            'region_id' => 'id',
+                        ],
+                        'joinColumnFieldNames' => [
+                            'region_id' => 'region_id',
+                        ],
+                        'targetToSourceKeyColumns' => [
+                            'id' => 'region_id',
+                        ],
+                        'orphanRemoval' => false,
+                    ],
+                    'site' => [
+                        'fieldName' => 'site',
+                        'mappedBy' => 'ville',
+                        'targetEntity' => 'App\\Entity\\Site',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 4,
+                        'inversedBy' => null,
+                        'isOwningSide' => false,
+                        'sourceEntity' => 'App\\Entity\\Ville',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                    ],
+                    'biens' => [
+                        'fieldName' => 'biens',
+                        'mappedBy' => 'city',
+                        'targetEntity' => 'App\\Entity\\Bien',
+                        'cascade' => [],
+                        'orphanRemoval' => false,
+                        'fetch' => 2,
+                        'type' => 4,
+                        'inversedBy' => null,
+                        'isOwningSide' => false,
+                        'sourceEntity' => 'App\\Entity\\Ville',
+                        'isCascadeRemove' => false,
+                        'isCascadePersist' => false,
+                        'isCascadeRefresh' => false,
+                        'isCascadeMerge' => false,
+                        'isCascadeDetach' => false,
+                    ],
+                ],
+            ],
+            'idGenerator' => [
+                $o[1],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

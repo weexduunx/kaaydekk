@@ -231,10 +231,10 @@ final class Versions
   'vich/uploader-bundle' => '1.18.0@c5250c8d6a072960250ce5130e68a5693b3b48dd',
   'webmozart/assert' => '1.10.0@6964c76c7804814a842473e0c8fd15bab0f18e25',
   'willdurand/negotiation' => '3.0.0@04e14f38d4edfcc974114a07d2777d90c98f3d9c',
-  'symfony/polyfill-ctype' => '*@3457bb411b7d81ba8fcc01c30d5e28c5d6ea6885',
-  'symfony/polyfill-iconv' => '*@3457bb411b7d81ba8fcc01c30d5e28c5d6ea6885',
-  'symfony/polyfill-php72' => '*@3457bb411b7d81ba8fcc01c30d5e28c5d6ea6885',
-  '__root__' => 'dev-main@3457bb411b7d81ba8fcc01c30d5e28c5d6ea6885',
+  'symfony/polyfill-ctype' => '*@97d817a30db1f8f341e3f113073055aec7b98f80',
+  'symfony/polyfill-iconv' => '*@97d817a30db1f8f341e3f113073055aec7b98f80',
+  'symfony/polyfill-php72' => '*@97d817a30db1f8f341e3f113073055aec7b98f80',
+  '__root__' => 'dev-main@97d817a30db1f8f341e3f113073055aec7b98f80',
 );
 
     private function __construct()

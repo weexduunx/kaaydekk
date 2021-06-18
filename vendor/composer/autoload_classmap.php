@@ -501,7 +501,6 @@ return array(
     'ApiPlatform\\Core\\Validator\\EventListener\\ValidateListener' => $vendorDir . '/api-platform/core/src/Validator/EventListener/ValidateListener.php',
     'ApiPlatform\\Core\\Validator\\Exception\\ValidationException' => $vendorDir . '/api-platform/core/src/Validator/Exception/ValidationException.php',
     'ApiPlatform\\Core\\Validator\\ValidatorInterface' => $vendorDir . '/api-platform/core/src/Validator/ValidatorInterface.php',
-    'App\\Controller\\AdminController' => $baseDir . '/src/Controller/AdminController.php',
     'App\\Controller\\Admin\\AchatCrudController' => $baseDir . '/src/Controller/Admin/AchatCrudController.php',
     'App\\Controller\\Admin\\BienCrudController' => $baseDir . '/src/Controller/Admin/BienCrudController.php',
     'App\\Controller\\Admin\\ClientCrudController' => $baseDir . '/src/Controller/Admin/ClientCrudController.php',

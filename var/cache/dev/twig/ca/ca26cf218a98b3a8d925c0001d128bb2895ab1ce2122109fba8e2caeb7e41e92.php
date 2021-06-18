@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* @EasyAdmin/welcome.html.twig */
+/* bundles/EasyAdminBundle/welcome.html.twig */
 class __TwigTemplate_b7f9d838018b3078e8967323756c58715daffcdc5c95628d4ae8cc7293ca16f0 extends Template
 {
     private $source;
@@ -43,12 +43,12 @@ class __TwigTemplate_b7f9d838018b3078e8967323756c58715daffcdc5c95628d4ae8cc7293c
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/welcome.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "bundles/EasyAdminBundle/welcome.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/welcome.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "bundles/EasyAdminBundle/welcome.html.twig"));
 
-        $this->parent = $this->loadTemplate("bundles/EasyAdminBundle/layout.html.twig", "@EasyAdmin/welcome.html.twig", 2);
+        $this->parent = $this->loadTemplate("bundles/EasyAdminBundle/layout.html.twig", "bundles/EasyAdminBundle/welcome.html.twig", 2);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -519,27 +519,28 @@ class __TwigTemplate_b7f9d838018b3078e8967323756c58715daffcdc5c95628d4ae8cc7293c
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 264
-        echo "\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
+        echo "\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" 
+\t\tintegrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
 
 \t\t<script>
-\t\t\tlet biens = document.querySelector(\"#pie\")
+let biens = document.querySelector(\"#pie\")
 let pieGraph = new Chart(biens, {
 type: \"polarArea\",
 data: {
 labels: ";
-        // line 271
-        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 271, $this->source); })());
+        // line 272
+        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 272, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Revenu Mensuel\",
 data: ";
-        // line 275
-        echo (isset($context["revenu"]) || array_key_exists("revenu", $context) ? $context["revenu"] : (function () { throw new RuntimeError('Variable "revenu" does not exist.', 275, $this->source); })());
+        // line 276
+        echo (isset($context["revenu"]) || array_key_exists("revenu", $context) ? $context["revenu"] : (function () { throw new RuntimeError('Variable "revenu" does not exist.', 276, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 276
-        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 276, $this->source); })());
+        // line 277
+        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 277, $this->source); })());
         echo "
 }
 ]
@@ -550,19 +551,19 @@ let pieGraph1 = new Chart(bienx, {
 type: \"polarArea\",
 data: {
 labels: ";
-        // line 285
-        echo (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 285, $this->source); })());
+        // line 286
+        echo (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 286, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Salaire Mensuel\",
 data: ";
-        // line 289
-        echo (isset($context["salaire"]) || array_key_exists("salaire", $context) ? $context["salaire"] : (function () { throw new RuntimeError('Variable "salaire" does not exist.', 289, $this->source); })());
+        // line 290
+        echo (isset($context["salaire"]) || array_key_exists("salaire", $context) ? $context["salaire"] : (function () { throw new RuntimeError('Variable "salaire" does not exist.', 290, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 290
-        echo (isset($context["color1"]) || array_key_exists("color1", $context) ? $context["color1"] : (function () { throw new RuntimeError('Variable "color1" does not exist.', 290, $this->source); })());
+        // line 291
+        echo (isset($context["color1"]) || array_key_exists("color1", $context) ? $context["color1"] : (function () { throw new RuntimeError('Variable "color1" does not exist.', 291, $this->source); })());
         echo "
 }
 ]
@@ -575,19 +576,19 @@ let clientGraph = new Chart(clients, {
 type: \"bar\",
 data: {
 labels: ";
-        // line 301
-        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 301, $this->source); })());
+        // line 302
+        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 302, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Nombre de Clients\",
 data: ";
-        // line 305
-        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 305, $this->source); })());
+        // line 306
+        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 306, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 306
-        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 306, $this->source); })());
+        // line 307
+        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 307, $this->source); })());
         echo "
 }
 ]
@@ -601,19 +602,19 @@ let priceGraph = new Chart(prices, {
 type: \"doughnut\",
 data: {
 labels: ";
-        // line 318
-        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 318, $this->source); })());
+        // line 319
+        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 319, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Nombre de Clients\",
 data: ";
-        // line 322
-        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 322, $this->source); })());
+        // line 323
+        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 323, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 323
-        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 323, $this->source); })());
+        // line 324
+        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 324, $this->source); })());
         echo "
 
 }
@@ -633,7 +634,7 @@ backgroundColor: ";
 
     public function getTemplateName()
     {
-        return "@EasyAdmin/welcome.html.twig";
+        return "bundles/EasyAdminBundle/welcome.html.twig";
     }
 
     public function isTraitable()
@@ -643,7 +644,7 @@ backgroundColor: ";
 
     public function getDebugInfo()
     {
-        return array (  616 => 323,  612 => 322,  605 => 318,  590 => 306,  586 => 305,  579 => 301,  565 => 290,  561 => 289,  554 => 285,  542 => 276,  538 => 275,  531 => 271,  522 => 264,  512 => 263,  499 => 12,  489 => 11,  479 => 263,  470 => 256,  459 => 251,  455 => 250,  451 => 249,  447 => 247,  443 => 246,  392 => 197,  383 => 195,  379 => 194,  363 => 180,  356 => 175,  351 => 172,  342 => 170,  338 => 169,  326 => 159,  317 => 157,  313 => 156,  302 => 147,  300 => 146,  296 => 144,  287 => 141,  282 => 139,  277 => 138,  273 => 137,  258 => 124,  256 => 123,  224 => 94,  204 => 77,  199 => 75,  178 => 57,  172 => 54,  151 => 36,  146 => 34,  131 => 22,  123 => 17,  118 => 14,  116 => 11,  113 => 10,  103 => 9,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
+        return array (  617 => 324,  613 => 323,  606 => 319,  591 => 307,  587 => 306,  580 => 302,  566 => 291,  562 => 290,  555 => 286,  543 => 277,  539 => 276,  532 => 272,  522 => 264,  512 => 263,  499 => 12,  489 => 11,  479 => 263,  470 => 256,  459 => 251,  455 => 250,  451 => 249,  447 => 247,  443 => 246,  392 => 197,  383 => 195,  379 => 194,  363 => 180,  356 => 175,  351 => 172,  342 => 170,  338 => 169,  326 => 159,  317 => 157,  313 => 156,  302 => 147,  300 => 146,  296 => 144,  287 => 141,  282 => 139,  277 => 138,  273 => 137,  258 => 124,  256 => 123,  224 => 94,  204 => 77,  199 => 75,  178 => 57,  172 => 54,  151 => 36,  146 => 34,  131 => 22,  123 => 17,  118 => 14,  116 => 11,  113 => 10,  103 => 9,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
     }
 
     public function getSourceContext()
@@ -911,10 +912,11 @@ backgroundColor: ";
 \t\t</div>
 \t</div>
 \t{% block javascripts %}
-\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
+\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" 
+\t\tintegrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
 
 \t\t<script>
-\t\t\tlet biens = document.querySelector(\"#pie\")
+let biens = document.querySelector(\"#pie\")
 let pieGraph = new Chart(biens, {
 type: \"polarArea\",
 data: {
@@ -981,6 +983,6 @@ backgroundColor: {{ colorx|raw }}
 \t{% endblock %}
 {% endblock %}
 
-", "@EasyAdmin/welcome.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/welcome.html.twig");
+", "bundles/EasyAdminBundle/welcome.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/welcome.html.twig");
     }
 }
