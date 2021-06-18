@@ -48,7 +48,7 @@ class BienCrudController extends AbstractCrudController
         return [
             FormField::addPanel('Infos de base','fa fa-plus')
             ->setCssClass('col-lg-12 '),
-            ColorField::new('color','Couleur Statistique'),
+            ColorField::new('color','Couleur Statistique') ->hideOnIndex(),
             TextField::new('label','Nature du Bien'),
             AssociationField::new('typeDeBien','Type de logement'),
             AssociationField::new('projet'),
@@ -61,9 +61,9 @@ class BienCrudController extends AbstractCrudController
             IntegerField::new('bedrooms', 'Chambres'),
             AssociationField::new('city', 'Ville'),
             TextField::new('address','Adresse'),
-            TextField::new('postal_code','Code Postal'),
-            TextareaField::new('description','Description'),
-            DateField::new('updatedAt'),
+            TextField::new('postal_code','Code Postal') ->hideOnIndex(),
+            TextareaField::new('description','Description') ->hideOnIndex(),
+            DateField::new('updatedAt') ->hideOnIndex(),
             ImageField::new('thumbnailFile','image')
                 ->setFormType(VichImageType::class)
                 ->hideOnDetail()

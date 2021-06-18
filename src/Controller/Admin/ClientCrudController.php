@@ -54,8 +54,10 @@ class ClientCrudController extends AbstractCrudController
     {
         return [
             FormField::addPanel('INFORMATIONS DU CLIENTS','fa fa-pencil'),
-            ColorField::new('color', 'Couleur statistique'),
-            AssociationField::new('agence', 'Agence Immobiliére'),
+            ColorField::new('color', 'Couleur statistique')
+            ->hideOnIndex(),
+            AssociationField::new('agence', 'Agence Immobiliére')
+            ->hideOnIndex(),
             TextField::new('nom','Nom'),
             TextField::new('prenom', 'Prenom'),
             DateField::new('date_de_naissance','Date de Naissance'),
@@ -63,18 +65,22 @@ class ClientCrudController extends AbstractCrudController
             AssociationField::new('ville'),
             CountryField::new('nationalite', 'Nationalité'),
             TextField::new('profession','Profession'),
-            TextField::new('situation_matrimoniale','Situation Matrimoniale'),
+            TextField::new('situation_matrimoniale','Situation Matrimoniale')
+            ->hideOnIndex(),
             EmailField::new('email','Email'),
             TextField::new('adresse','Adresse'),
             TelephoneField::new('tel', 'N° téléphone'),
-            TextField::new('numero_cin_ou_passeport', 'N° CIN ou Passeport'),
+            TextField::new('numero_cin_ou_passeport', 'N° CIN ou Passeport')
+            ->hideOnDetail(),
             AssociationField::new('detailsCandidatures','Détails Candidatures')
-            ->hideOnForm(),
+            ->hideOnForm()
+            ->hideOnIndex(),
             AssociationField::new('achat','Mode Acquisition')
             ->hideOnIndex()
             ->hideOnForm(),
             BooleanField::new('status'),
-            TextEditorField::new('commentaire', 'Commentaire'),
+            TextEditorField::new('commentaire', 'Commentaire')
+            ->hideOnIndex(),
         ];
     }
     public function configureActions(Actions $actions): Actions
@@ -88,6 +94,7 @@ class ClientCrudController extends AbstractCrudController
 
 
         return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->add(Crud::PAGE_INDEX, $export);
     }
     public function export(Request $request)

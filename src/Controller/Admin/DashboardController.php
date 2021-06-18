@@ -242,13 +242,13 @@ class DashboardController extends AbstractDashboardController
 
                   MenuItem::linkToDashboard('Tableau de Bord','fa fa-dashboard'),
 
-                
+                  MenuItem::section('Gestion Mode Achat','fa fa-money'),
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
                   
 
-            
+                      MenuItem::section('Gestion des Biens','fa fa-building'),
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
                       MenuItem::linkToCrud('Ajouter un bien', 'fas fa-plus', Bien::class)
                           ->setAction('new'),
@@ -256,7 +256,7 @@ class DashboardController extends AbstractDashboardController
                           ->setAction('new'),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
                   
-                
+                      MenuItem::section('Gestion Client et Candidat','fa fa-user-plus'),
                       MenuItem::linkToCrud('liste des clients', 'fas fa-list', Client::class),
                       MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Client::class)
                           ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
@@ -264,25 +264,25 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
                           ->setAction('new'),
                  
-
+                          MenuItem::section('Gestion Projet','fa fa-folder'),
                           MenuItem::linkToCrud('Liste des projets', 'fas fa-list', Projet::class),
                           MenuItem::linkToCrud('Ajouter un projet','fas fa-plus', Projet::class)
                               ->setAction('new'),
                      
 
-                 
+                              MenuItem::section('Gestion Site','fa fa-map'),
                           MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class),
                           MenuItem::linkToCrud('Ajouter un site','fas fa-plus', Site::class)
                               ->setAction('new'),
                     
 
-                 
+                              MenuItem::section('Gestion Ville','fa fa-city'),
                           MenuItem::linkToCrud('Liste des villes', 'fas fa-list', Ville::class),
                           MenuItem::linkToCrud('Ajouter une ville','fas fa-plus', Ville::class)
                               ->setAction('new'),
                     
 
-                 
+                              MenuItem::section('Gestion Utilisateur','fa fa-user'),
                           MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
                           MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
                               ->setAction('new'),

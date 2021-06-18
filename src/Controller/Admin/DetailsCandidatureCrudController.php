@@ -42,49 +42,42 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     {
         return [
             FormField::addPanel('1er Niveau','fa fa-list'),
-            ColorField::new('color','Couleur Statistique'),
+            ColorField::new('color','Couleur Statistique')->hideOnDetail(),
             AssociationField::new('agence', 'Source ou Agence'),
             TextField::new('label','Reférence Candidature')
             ->hideOnform(),
 
             TextField::new('prenom_et_nom','Identité Confirmée')
             ->hideOnForm()
-            ->hideOnDetail()
-          ,
-            AssociationField::new('client','Prénom et Nom'),
-
-            AssociationField::new('client', 'Prénom et Nom'),
-            TextField::new('prenom_et_nom','Confirmation Identité')
-            ->hideOnIndex()
             ->hideOnDetail(),
-
-            ArrayField::new('nom','Surnom')
+            AssociationField::new('client','Prénom et Nom'),
+            ArrayField::new('nom','Surnom')->hideOnIndex()
             ->setHelp('pour des raison d\'statistique, le surnom vous aiderez à savoir lequel des candidat à plus de revenu'),
             AssociationField::new('type_de_logement','Logement souhaité'),
             AssociationField::new('mode_acquisition'),
-            AssociationField::new('membre_cooperative'),
-            TextField::new('nom_de_la_cooperative'),
-            AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention '),
-            AssociationField::new('logement_actuel'),
-            AssociationField::new('qualite','Qualité'),
-            AssociationField::new('handicap','Handicape du demandeur ou d\'une personne à sa charge'),
-            AssociationField::new('situation'),
-            TextField::new('nom_employeur','Nom de l\'employeur')
+            AssociationField::new('membre_cooperative')->hideOnIndex(),
+            TextField::new('nom_de_la_cooperative')->hideOnIndex(),
+            AssociationField::new('beneficiaire_appui_ou_subvention','Bénéficiaire d\'un appui ou d\'une subvention ')->hideOnIndex(),
+            AssociationField::new('logement_actuel')->hideOnIndex(),
+            AssociationField::new('qualite','Qualité')->hideOnIndex(),
+            AssociationField::new('handicap','Handicape du demandeur ou d\'une personne à sa charge')->hideOnIndex(),
+            AssociationField::new('situation')->hideOnIndex(),
+            TextField::new('nom_employeur','Nom de l\'employeur')->hideOnIndex()
             ->setHelp('à remplir, si le candidat est salarié'),
-            TextField::new('activite_non_salarie','Domaine d\'Activité')
+            TextField::new('activite_non_salarie','Domaine d\'Activité')->hideOnIndex()
             ->setHelp('à remplir, si le candidat est non-salarié'),
-            TextField::new('lieu_activite_non_salarie','Lieu d\'Activité')
+            TextField::new('lieu_activite_non_salarie','Lieu d\'Activité')->hideOnIndex()
             ->setHelp('à remplir, si le candidat est non-salarié'),
             FormField::addPanel('2eme Niveau','fa fa-pencil'),
-            AssociationField::new('secteur'),
-            AssociationField::new('type_de_contrat','Type de contrat'),
-            AssociationField::new('compte_bancaire'),
-            TextField::new('nom_de_la_banque'),
-            IntegerField::new('nombre_de_personne_en_charge','Nbre de personne à charge'),
-            TextField::new('nom_de_la_societe','Nom de la société'),
-            IntegerField::new('revenu_mensuelle','Revenu Mensuel (CFA)')
+            AssociationField::new('secteur')->hideOnIndex(),
+            AssociationField::new('type_de_contrat','Type de contrat')->hideOnIndex(),
+            AssociationField::new('compte_bancaire')->hideOnIndex(),
+            TextField::new('nom_de_la_banque')->hideOnIndex(),
+            IntegerField::new('nombre_de_personne_en_charge','Nbre de personne à charge')->hideOnIndex(),
+            TextField::new('nom_de_la_societe','Nom de la société')->hideOnIndex(),
+            IntegerField::new('revenu_mensuelle','Revenu Mensuel (CFA)')->hideOnIndex()
             ->setHelp('Veuillez indiquer, le revenu si c\'est un non-salarié'),
-            IntegerField::new('salaire_mensuelle','Salaire Mensuel (CFA)')
+            IntegerField::new('salaire_mensuelle','Salaire Mensuel (CFA)')->hideOnIndex()
             ->setHelp('Veuillez indiquer, le salaire si c\'est un salarié'),
             BooleanField::new('status','Statut')->setHelp('Veuillez cocher la case, pour activer l\'statut actuel du client'),
 
@@ -98,7 +91,8 @@ class DetailsCandidatureCrudController extends AbstractCrudController
         ->setCssClass('btn')
         ->createAsGlobalAction();
 
-        return $actions->add(Crud::PAGE_INDEX, $export);
+        return $actions->add(Crud::PAGE_INDEX, $export)
+                       ->add(Crud::PAGE_INDEX, Action::DETAIL);
     }
 
     public function configureCrud(Crud $crud): Crud

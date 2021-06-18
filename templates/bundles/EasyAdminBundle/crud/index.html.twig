@@ -4,9 +4,6 @@
 {% extends ea.templatePath('layout') %}
 {% trans_default_domain ea.i18n.translationDomain %}
 
-{# TODO: change this when reenabling batch actions #}
-{% set has_batch_actions = false and batch_form is defined and ea.crud.actions.batchActions|length > 0 %}
-
 {% block body_id entities|length > 0 ? 'ea-index-' ~ entities|first.name : '' %}
 {% block body_class 'index' ~ (entities|length > 0 ? ' index-' ~ entities|first.name : '') %}
 
@@ -17,27 +14,25 @@
     {%- endapply -%}
 {% endblock %}
 
+{% set has_batch_actions = batch_actions|length > 0 %}
 {% block page_actions %}
     {% block global_actions %}
-        {% for action in global_actions %}
-            {{ include(action.templatePath, { action: action }, with_context = false) }}
-        {% endfor %}
+        <div class="global-actions">
+            {% for action in global_actions %}
+                {{ include(action.templatePath, { action: action }, with_context = false) }}
+            {% endfor %}
+        </div>
     {% endblock global_actions %}
-{% endblock page_actions %}
-
-{% block content_header %}
-    {{ parent() }}
-
-    
     {% block batch_actions %}
-        {% for batchAction in ea.crud.actions.batchActions %}
-            {{ include(batchAction.templatePath, { action: batchAction }, with_context = false) }}
-        {% endfor %}
-
-        {{ include('@EasyAdmin/crud/includes/_batch_action_modal.html.twig', {}, with_context = false) }}
+        {% if has_batch_actions %}
+            <div class="batch-actions" style="display: none">
+                {% for action in batch_actions %}
+                    {{ include(action.templatePath, { action: action }, with_context = false) }}
+                {% endfor %}
+            </div>
+        {% endif %}
     {% endblock %}
-    
-{% endblock content_header %}
+{% endblock page_actions %}
 
 {% block main %}
     {# sort can be multiple; let's consider the sorting field the first one #}
@@ -51,9 +46,9 @@
 
     {% if has_datagrid_tools %}
         <div class="datagrid-header-tools">
-            <div class="datagrid-search">
-                {% block search %}
-                    {% if has_search %}
+            {% block search %}
+                {% if has_search %}
+                    <div class="datagrid-search">
                         <div class="form-action form-action-search">
                             <form method="get">
                                 {% block search_form %}
@@ -70,7 +65,7 @@
 
                                     <div class="form-group">
                                         <div class="form-widget">
-                                            <input class="form-control" type="search" name="query" value="{{ app.request.get('query') ?? '' }}" placeholder="{{ 'action.search'|trans(ea.i18n.translationParameters, 'EasyAdminBundle') }}">
+                                            <input class="form-control" type="search" name="query" value="{{ app.request.get('query') ?? '' }}" placeholder="{{ 'action.search'|trans(ea.i18n.translationParameters, 'EasyAdminBundle') }}" spellcheck="false" autocorrect="false">
 
                                             {% if app.request.get('query') %}
                                                 <a href="{{ ea_url().unset('query') }}" class="action-search-reset">
@@ -82,16 +77,16 @@
                                 {% endblock %}
                             </form>
                         </div>
-                    {% endif %}
-                {% endblock search %}
-            </div>
+                    </div>
+                {% endif %}
+            {% endblock search %}
 
             <div class="datagrid-filters">
                 {% block filters %}
-                    {% if filters|length > 0 %}
+                    {% if has_filters %}
                         {% set applied_filters = ea.request.query.all['filters']|default([])|keys %}
                         <div class="btn-group action-filters">
-                            <a href="{{ ea_url().setAction('renderFilters').includeReferrer() }}" class="btn btn-secondary btn-labeled btn-labeled-right action-filters-button {{ applied_filters ? 'action-filters-applied' }}" data-modal="#modal-filters">
+                            <a href="#" data-href="{{ ea_url().setAction('renderFilters').includeReferrer() }}" class="btn btn-secondary btn-labeled btn-labeled-right action-filters-button disabled {{ applied_filters ? 'action-filters-applied' }}" data-modal="#modal-filters">
                                 <i class="fa fa-filter fa-fw"></i> {{ 'filter.title'|trans(ea.i18n.translationParameters, 'EasyAdminBundle') }}{% if applied_filters %} <span class="text-primary">({{ applied_filters|length }})</span>{% endif %}
                             </a>
                             {% if applied_filters %}
@@ -107,8 +102,8 @@
     {% endif %}
 
     <div class="content-panel">
-        <div class="content-panel-body with-rounded-top with-min-h-250 without-padding table-responsive {{ not has_footer ? 'without-footer' }}">
-            <table class="table datagrid with-rounded-top  {{ not has_footer ? 'with-rounded-bottom' }}">
+        <div class="content-panel-body with-rounded-top with-min-h-250 without-padding {{ not has_footer ? 'without-footer' }}">
+            <table class="table datagrid with-rounded-top {{ not has_footer ? 'with-rounded-bottom' }}">
                 <thead>
                 {% block table_head %}
                     <tr>
@@ -165,17 +160,19 @@
                                                 {{ include(action.templatePath, { action: action, entity: entity, isIncludedInDropdown: ea.crud.showEntityActionsAsDropdown }, with_context = false) }}
                                             {% endfor %}
                                         {% else %}
-                                            <div class="dropdown dropdown-actions">
-                                                <a class="dropdown-toggle btn btn-secondary btn-sm" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fa fa-fw fa-ellipsis-h"></i>
-                                                </a>
+                                            {% if entity.actions.count > 0 %}
+                                                <div class="dropdown dropdown-actions">
+                                                    <a class="dropdown-toggle btn btn-secondary btn-sm" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fa fa-fw fa-ellipsis-h"></i>
+                                                    </a>
 
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    {% for action in entity.actions %}
-                                                        {{ include(action.templatePath, { action: action, isIncludedInDropdown: ea.crud.showEntityActionsAsDropdown }, with_context = false) }}
-                                                    {% endfor %}
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        {% for action in entity.actions %}
+                                                            {{ include(action.templatePath, { action: action, isIncludedInDropdown: ea.crud.showEntityActionsAsDropdown }, with_context = false) }}
+                                                        {% endfor %}
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            {% endif %}
                                         {% endif %}
                                     </td>
                                 {% endblock entity_actions %}
@@ -203,7 +200,7 @@
         </div>
 
         {% if entities|length > 0 %}
-            <div class="content-panel-footer table-responsive without-padding without-border">
+            <div class="content-panel-footer without-padding without-border">
                 {% block paginator %}
                     {{ include(ea.templatePath('crud/paginator')) }}
                 {% endblock paginator %}
@@ -214,142 +211,12 @@
     {% block delete_form %}
         {{ include('@EasyAdmin/crud/includes/_delete_form.html.twig', with_context = false) }}
     {% endblock delete_form %}
-{% endblock main %}
 
-{% block body_javascript %}
-    {{ parent() }}
-
-    {% if filters|length > 0 %}
+    {% if has_filters %}
         {{ include('@EasyAdmin/crud/includes/_filters_modal.html.twig') }}
     {% endif %}
 
-    <script type="text/javascript">
-        $(function() {
-            const customSwitches = document.querySelectorAll('td.field-boolean .custom-control.custom-switch input[type="checkbox"]');
-            for (i = 0; i < customSwitches.length; i++) {
-                customSwitches[i].addEventListener('change', function () {
-                    const customSwitch = this;
-                    const newValue = this.checked;
-                    const oldValue = !newValue;
-
-                    const toggleUrl = this.getAttribute('data-toggle-url') + "&newValue=" + newValue.toString();
-                    let toggleRequest = $.ajax({ type: "GET", url: toggleUrl, data: {} });
-
-                    toggleRequest.done(function(result) {});
-
-                    toggleRequest.fail(function() {
-                        // in case of error, restore the original value and disable the toggle
-                        customSwitch.checked = oldValue;
-                        customSwitch.disabled = true;
-                        customSwitch.closest('.custom-switch').classList.add('disabled');
-                    });
-                });
-            }
-
-            $('.action-delete').on('click', function(e) {
-                e.preventDefault();
-                const formAction = $(this).attr('formaction');
-
-                $('#modal-delete').modal({ backdrop: true, keyboard: true })
-                    .off('click', '#modal-delete-button')
-                    .on('click', '#modal-delete-button', function () {
-                        let deleteForm = $('#delete-form');
-                        deleteForm.attr('action', formAction);
-                        deleteForm.submit();
-                    });
-            });
-
-            {% if filters|length > 0 %}
-            // HTML5 specifies that a <script> tag inserted with innerHTML should not execute
-            // https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML#Security_considerations
-            // That's why we can't use just 'innerHTML'. See https://stackoverflow.com/a/47614491/2804294
-            let setInnerHTML = function(element, htmlContent) {
-                element.innerHTML = htmlContent;
-                Array.from(element.querySelectorAll('script')).forEach(oldScript => {
-                    const newScript = document.createElement('script');
-                    Array.from(oldScript.attributes)
-                        .forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-                    oldScript.parentNode.replaceChild(newScript, oldScript);
-                });
-            };
-
-            document.querySelector('.action-filters-button').addEventListener('click', function(event) {
-                let filterButton = event.currentTarget;
-                let filterModal = document.querySelector(filterButton.dataset.modal);
-                let filterModalBody = filterModal.querySelector('.modal-body');
-
-                $(filterModal).modal({ backdrop: true, keyboard: true });
-                filterModalBody.innerHTML = '<div class="fa-3x px-3 py-3 text-muted text-center"><i class="fas fa-circle-notch fa-spin"></i></div>';
-
-                $.get(filterButton.getAttribute('href'), function (response) {
-                    setInnerHTML(filterModalBody, response);
-                });
-
-                event.preventDefault();
-                event.stopPropagation();
-            });
-            {% endif %}
-
-
-            {% if has_batch_actions %}
-            const titleContent = $('.content-header-title > .title').html();
-            $(document).on('click', '.deselect-batch-button', function () {
-                $(this).closest('.content').find(':checkbox.form-batch-checkbox-all').prop('checked', false).trigger('change');
-            });
-            $(document).on('change', '.form-batch-checkbox-all', function () {
-                $(this).closest('.content').find(':checkbox.form-batch-checkbox').prop('checked', $(this).prop('checked')).trigger('change');
-            });
-            $(document).on('change', '.form-batch-checkbox', function () {
-                const $content = $(this).closest('.content');
-                let $input = $content.find(':hidden#batch_form_ids');
-                let ids = $input.val() ? $input.val().split(',') : [];
-                const id = $(this).val();
-
-                if ($(this).prop('checked')) {
-                    if (-1 === ids.indexOf(id)) {
-                        ids.push(id);
-                    }
-                } else {
-                    ids = ids.filter(function(value) { return value !== id });
-                    $content.find(':checkbox.form-batch-checkbox-all').prop('checked', false);
-                }
-
-                if (0 === ids.length) {
-                    $content.find('.global-actions').show();
-                    $content.find('.batch-actions').hide();
-                    $content.find('table').removeClass('table-batch');
-                } else {
-                    $content.find('.batch-actions').show();
-                    $content.find('.global-actions').hide();
-                    $content.find('table').addClass('table-batch');
-                }
-
-                $input.val(ids.join(','));
-                $content.find('.content-header-title > .title').html(0 === ids.length ? titleContent : '');
-            });
-
-            $('button[name="batch_form[name]"].ask-confirm-batch-button').on('click', function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-                let $button = $(this);
-
-                $('#modal-batch-action').modal({ backdrop : true, keyboard : true })
-                    .off('click', '#modal-batch-action-button')
-                    .on('click', '#modal-batch-action-button', function () {
-                        $button.unbind('click');
-                        $button.trigger('click');
-                    });
-            });
-            {% endif %}
-        });
-    </script>
-
-    {% if app.request.get('query') is not empty %}
-        <script type="text/javascript">
-            const search_query = "{{ ea.search.query|default('')|e('js') }}";
-            // the original query is prepended to allow matching exact phrases in addition to single words
-            $('#main').find('table tbody td:not(.actions)').highlight($.merge([search_query], search_query.split(' ')));
-        </script>
+    {% if has_batch_actions %}
+        {{ include('@EasyAdmin/crud/includes/_batch_action_modal.html.twig', {}, with_context = false) }}
     {% endif %}
-{% endblock %}
+{% endblock main %}

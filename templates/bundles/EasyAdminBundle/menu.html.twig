@@ -15,7 +15,7 @@
 
 {% block main_menu_before %}{% endblock %}
 
-
+<nav class="sidebar-nav">
 <ul class="in" id="sidebarnav" data-widget="tree">
     {% block main_menu %}
         {% for menuItem in ea.mainMenu.items %}
@@ -41,4 +41,5 @@
         {% endfor %}
     {% endblock main_menu %}
 </ul>
+</nav>
 {% block main_menu_after %}{% endblock %}

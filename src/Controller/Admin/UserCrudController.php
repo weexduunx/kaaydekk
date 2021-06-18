@@ -37,6 +37,9 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            TextField::new('name'),
+            TextField::new('firstname'),
+
             TextField::new('email'),
             TextField::new('password')->hideOnIndex()->hideOnDetail()->setPermission('ROLE_SUPER_USER'),
             ArrayField::new('roles')->setPermission('ROLE_SUPER_USER'),

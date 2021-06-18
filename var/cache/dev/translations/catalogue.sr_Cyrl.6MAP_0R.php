@@ -154,6 +154,8 @@ $catalogue = new MessageCatalogue('sr_Cyrl', array (
     'Account is locked.' => 'Налог је закључан.',
     'Too many failed login attempts, please try again later.' => 'Превише неуспешних покушаја пријављивања, молим покушајте поново касније.',
     'Invalid or expired login link.' => 'Линк за пријављивање је истекао или је неисправан.',
+    'Too many failed login attempts, please try again in %minutes% minute.' => 'Превише неуспешних покушаја пријављивања, молим покушајте поново за %minutes% минут.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'Превише неуспешних покушаја пријављивања, молим покушајте поново за %minutes% минута.',
   ),
 ));
 

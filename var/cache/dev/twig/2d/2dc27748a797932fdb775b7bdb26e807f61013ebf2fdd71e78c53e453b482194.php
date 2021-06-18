@@ -27,7 +27,6 @@ class __TwigTemplate_20f6284e358156c2af62ac9c000677b3b4a2450f404d2589728564259fe
         $this->parent = false;
 
         $this->blocks = [
-            'javascript_filter_modal' => [$this, 'block_javascript_filter_modal'],
         ];
     }
 
@@ -73,59 +72,12 @@ class __TwigTemplate_20f6284e358156c2af62ac9c000677b3b4a2450f404d2589728564259fe
         </div>
     </div>
 </div>
-
 ";
-        // line 23
-        $this->displayBlock('javascript_filter_modal', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-    }
-
-    public function block_javascript_filter_modal($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript_filter_modal"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascript_filter_modal"));
-
-        // line 24
-        echo "    <script>
-        const filterModal = document.querySelector('#modal-filters');
-
-        const removeFilter = function(field) {
-            field.closest('form').querySelectorAll('input[name^=\"filters['+field.dataset.filterProperty+']\"]').forEach(hidden => {
-                hidden.remove();
-            });
-            field.remove();
-        }
-
-        document.querySelector('#modal-clear-button').addEventListener('click', function() {
-            filterModal.querySelectorAll('.filter-field').forEach(filterField => {
-                removeFilter(filterField);
-            });
-
-            filterModal.querySelector('form').submit();
-        });
-
-        document.querySelector('#modal-apply-button').addEventListener('click', function() {
-            filterModal.querySelectorAll('.filter-checkbox:not(:checked)').forEach(notAppliedFilter => {
-                removeFilter(notAppliedFilter.closest('.filter-field'));
-            });
-            filterModal.querySelector('form').submit();
-        });
-    </script>
-";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
     }
 
@@ -141,7 +93,7 @@ class __TwigTemplate_20f6284e358156c2af62ac9c000677b3b4a2450f404d2589728564259fe
 
     public function getDebugInfo()
     {
-        return array (  98 => 24,  79 => 23,  72 => 18,  70 => 17,  63 => 12,  57 => 9,  51 => 6,  44 => 1,);
+        return array (  71 => 18,  69 => 17,  62 => 12,  56 => 9,  50 => 6,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -167,34 +119,6 @@ class __TwigTemplate_20f6284e358156c2af62ac9c000677b3b4a2450f404d2589728564259fe
         </div>
     </div>
 </div>
-
-{% block javascript_filter_modal %}
-    <script>
-        const filterModal = document.querySelector('#modal-filters');
-
-        const removeFilter = function(field) {
-            field.closest('form').querySelectorAll('input[name^=\"filters['+field.dataset.filterProperty+']\"]').forEach(hidden => {
-                hidden.remove();
-            });
-            field.remove();
-        }
-
-        document.querySelector('#modal-clear-button').addEventListener('click', function() {
-            filterModal.querySelectorAll('.filter-field').forEach(filterField => {
-                removeFilter(filterField);
-            });
-
-            filterModal.querySelector('form').submit();
-        });
-
-        document.querySelector('#modal-apply-button').addEventListener('click', function() {
-            filterModal.querySelectorAll('.filter-checkbox:not(:checked)').forEach(notAppliedFilter => {
-                removeFilter(notAppliedFilter.closest('.filter-field'));
-            });
-            filterModal.querySelector('form').submit();
-        });
-    </script>
-{% endblock javascript_filter_modal %}
 ", "@EasyAdmin/crud/includes/_filters_modal.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/crud/includes/_filters_modal.html.twig");
     }
 }

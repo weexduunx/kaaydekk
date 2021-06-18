@@ -13,7 +13,6 @@
 
 {# Widgets #}
 
-{# TODO #}
 {% block form_widget_simple -%}
     {% if type is not defined or type not in ['file', 'hidden'] %}
         {%- set attr = attr|merge({class: (attr.class|default(''))|trim}) -%}
@@ -45,8 +44,8 @@
         {{- parent() -}}
 
         <script>
-            document.querySelector('#{{ id }}').addEventListener('change', function() {
-                const fileName = this.value.replace('C:\\fakepath\\', '');
+            document.querySelector('#{{ id }}').addEventListener('change', (event) => {
+                const fileName = event.currentTarget.value.replace('C:\\fakepath\\', '');
                 const customInputFileLabel = document.querySelector('#{{ id }} ~ .custom-file-label');
                 customInputFileLabel.classList.add('selected');
                 customInputFileLabel.innerHTML = fileName;
@@ -108,7 +107,6 @@
     </div>
 {% endblock form_row %}
 
-{# TODO #}
 {% block collection_row %}
     {% if prototype is defined and not prototype.rendered %}
         {% set row_attr = row_attr|merge({ 'data-prototype': form_row(prototype) }) %}
@@ -140,13 +138,11 @@
 {% block collection_entry_widget %}
     {% set is_complex = form_parent(form).vars.ea_crud_form.ea_field.customOptions.get('entryIsComplex') ?? false %}
 
-    <div class="field-collection-item-row row no-gutters {{ is_complex ? 'field-collection-item-complex' }}">
-        <div class="col-md-11">
-            {{ form_widget(form) }}
-        </div>
+    <div class="field-collection-item {{ is_complex ? 'field-collection-item-complex' }}">
+        {{ form_widget(form) }}
 
         {% if form_parent(form).vars.allow_delete|default(false) %}
-            <button type="button" class="btn btn-danger field-collection-delete-button col-md-1 custom-button"
+            <button type="button" class="btn btn-link field-collection-delete-button"
                     title="{{ 'action.remove_item'|trans({}, 'EasyAdminBundle') }}"
                     onclick="this.closest('.form-group').remove(); return false;">
                 <i class="fas fa-times"></i>
@@ -164,7 +160,9 @@
 {# Labels #}
 
 {% block form_label -%}
-    {% if label is not same as(false) -%}
+    {% if label is same as(false) -%}
+        <label>{# the empty <label> is needed to not break the form design #}</label>
+    {%- else -%}
         {%- if compound is defined and compound -%}
             {%- set element = 'legend' -%}
             {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' col-form-label')|trim}) -%}
@@ -231,7 +229,7 @@
                 'png': 'fa-file-image-o',
                 'zip': 'fa-file-archive-o'
             } %}
-            <a class="ea-vich-file-name" href="{{ asset(download_uri) }}">
+            <a class="ea-vich-file-name" href="{{ asset_helper is same as(true) ? asset(download_uri) : download_uri }}">
                 <i class="fa fa-fw {{ extension_icons[file_extension] ?? 'fa-file-o' }}"></i>
                 {{ download_title }}
             </a>
@@ -246,11 +244,9 @@
 
         <div class="ea-vich-file-actions">
             {# the container element is needed to allow customizing the <input type="file" /> #}
-            <div class="custom-file input-file-container">
+            <div class="btn btn-secondary input-file-container">
+                <i class="fa fa-fw fa-upload"></i> {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
                 {{ form_widget(form.file, { 'attr': { 'onchange': file_upload_js }, vich: true}) }}
-                <label class="custom-file-label">
-                    {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
-                </label>
             </div>
 
             {% if form.delete is defined %}
@@ -273,9 +269,9 @@
             {% if download_uri|default('') is empty %}
                 <div class="ea-lightbox-thumbnail">
                     {% if formTypeOptions.imagine_pattern is defined and formTypeOptions.imagine_pattern is not empty %}
-                        <img style="cursor: initial" src="{{ asset(image_uri)|ea_apply_filter_if_exists('imagine_filter', formTypeOptions.imagine_pattern) }}">
+                        <img style="cursor: initial" src="{{ (asset_helper is same as(true) ? asset(image_uri) : image_uri)|ea_apply_filter_if_exists('imagine_filter', formTypeOptions.imagine_pattern) }}">
                     {% else %}
-                        <img style="cursor: initial" src="{{ asset(image_uri) }}">
+                        <img style="cursor: initial" src="{{ asset_helper is same as(true) ? asset(image_uri) : image_uri }}">
                     {% endif %}
                 </div>
             {% else %}
@@ -283,17 +279,17 @@
 
                 <a href="#" class="ea-lightbox-thumbnail" data-featherlight="#{{ _lightbox_id }}" data-featherlight-close-on-click="anywhere">
                     {% if formTypeOptions.imagine_pattern is defined and formTypeOptions.imagine_pattern is not empty %}
-                        <img src="{{ asset(download_uri)|ea_apply_filter_if_exists('imagine_filter', formTypeOptions.imagine_pattern) }}">
+                        <img src="{{ (asset_helper is same as(true) ? asset(download_uri) : download_uri)|ea_apply_filter_if_exists('imagine_filter', formTypeOptions.imagine_pattern) }}">
                     {% else %}
-                        <img src="{{ asset(download_uri) }}">
+                        <img src="{{ asset_helper is same as(true) ? asset(download_uri) : download_uri }}">
                     {% endif %}
                 </a>
 
                 <div id="{{ _lightbox_id }}" class="ea-lightbox">
                     {% if formTypeOptions.imagine_pattern is defined and formTypeOptions.imagine_pattern is not empty %}
-                        <img src="{{ asset(download_uri)|ea_apply_filter_if_exists('imagine_filter', formTypeOptions.imagine_pattern) }}">
+                        <img src="{{ (asset_helper is same as(true) ? asset(download_uri) : download_uri)|ea_apply_filter_if_exists('imagine_filter', formTypeOptions.imagine_pattern) }}">
                     {% else %}
-                        <img src="{{ asset(download_uri) }}">
+                        <img src="{{ asset_helper is same as(true) ? asset(download_uri) : download_uri }}">
                     {% endif %}
                 </div>
             {% endif %}
@@ -308,11 +304,9 @@
 
         <div class="ea-vich-image-actions">
             {# the container element is needed to allow customizing the <input type="file" /> #}
-            <div class="custom-file input-file-container">
+            <div class="btn btn-secondary input-file-container">
+                <i class="fa fa-fw fa-upload"></i> {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
                 {{ form_widget(form.file, { 'attr': { 'onchange': file_upload_js }, vich: true}) }}
-                <label class="custom-file-label">
-                    {{ 'action.choose_file'|trans({}, 'EasyAdminBundle') }}
-                </label>
             </div>
 
             {% if form.delete is defined %}
@@ -381,8 +375,7 @@
                 {% if panel_has_header %}
                     <div class="content-panel-header {{ collapsible ? 'collapsible' }} {{ panel_config.help|default(false) is not empty ? 'with-help' }}">
                         {% if collapsible %}
-                            <a href="#content-{{ panel_name }}" data-toggle="collapse" class="content-panel-collapse {{ collapsed ? 'collapsed' }}"
-                               aria-expanded="{{ collapsed ? 'false' : 'true' }}" aria-controls="content-{{ panel_name }}">
+                            <a href="#content-{{ panel_name }}" data-toggle="collapse" class="content-panel-collapse {{ collapsed ? 'collapsed' }}" aria-expanded="{{ collapsed ? 'false' : 'true' }}" aria-controls="content-{{ panel_name }}">
                                 <i class="fas fw fa-chevron-right collapse-icon"></i>
                         {% endif %}
 
@@ -484,23 +477,6 @@
     </div>
 {% endblock ea_section_row %}
 
-{# EasyAdminBatch form type #}
-{% block ea_batch_widget %}
-    {% set _trans_parameters = { '%entity_name%':  ea.entity.name|trans(domain = ea.i18n.translationDomain), '%entity_label%': ea.entity.label|trans(domain = ea.i18n.translationDomain) } %}
-
-    {{ form_widget(form.ids) }}
-    <button type="button" class="btn btn-link deselect-batch-button">{{ 'action.deselect'|trans(_trans_parameters, ea.i18n.translationDomain) }}</button>
-    {% for action in batch_actions %}
-        <button type="submit" class="btn {{ action.css_class|default('btn-secondary') }} {% if action.ask_confirm %}ask-confirm-batch-button{% endif -%}"
-                title="{{ action.title|default('') is empty ? '' : action.title|trans(_trans_parameters) }}" name="{{ form.name.vars.full_name }}" value="{{ action.name }}">
-            {%- if action.icon %}<i class="fa fa-fw fa-{{ action.icon }}"></i> {% endif -%}
-            {%- if action.label is defined and not action.label is empty -%}
-                {{ action.label|trans(_trans_parameters, ea.i18n.translationDomain) }}
-            {%- endif -%}
-        </button>
-    {% endfor %}
-{% endblock ea_batch_widget %}
-
 {# EasyAdminFilters form type #}
 {% block ea_filters_widget %}
     {% set applied_filters = ea.request.query.get('filters')|default([])|keys %}
@@ -522,8 +498,8 @@
     {% endfor %}
 
     <script>
-        document.querySelectorAll('.filter-checkbox').forEach(filterCheckbox => {
-            filterCheckbox.addEventListener('change', function () {
+        document.querySelectorAll('.filter-checkbox').forEach((filterCheckbox) => {
+            filterCheckbox.addEventListener('change', () => {
                 const filterToggleLink = filterCheckbox.nextElementSibling;
                 const filterExpandedAttribute = filterCheckbox.nextElementSibling.getAttribute('aria-expanded');
 
@@ -533,16 +509,14 @@
             });
         });
 
-        // we can't use -> "document.querySelector('form#filters').addEventListener('change', ...);"
-        // because it doesn't work with Select2 elements changes
         // TODO: when using the native datepicker, 'change' isn't fired (either in plain JavaScript
         // or jQuery) unless you input the entire date + time information
-        $(document).on('change', 'form#{{ form.vars.id }}', function (event) {
+        document.querySelector('form#{{ form.vars.id }}').addEventListener('change', (event) => {
             if (event.target.classList.contains('filter-checkbox')) {
                 return;
             }
 
-            let filterCheckbox = event.target.closest('.filter-field').querySelector('.filter-checkbox');
+            const filterCheckbox = event.target.closest('.filter-field').querySelector('.filter-checkbox');
             if (!filterCheckbox.checked) {
                 filterCheckbox.checked = true;
             }
@@ -560,7 +534,7 @@
             {{ form_row(form.value2) }}
         </div>
         <script>
-            document.querySelector('#{{ form.comparison.vars.id }}').addEventListener('change', function(event) {
+            document.querySelector('#{{ form.comparison.vars.id }}').addEventListener('change', (event) => {
                 const input = document.querySelector('#wrapper_{{ form.value2.vars.id }}');
                 input.style.display = event.currentTarget.value === 'between' ? '' : 'none';
             });

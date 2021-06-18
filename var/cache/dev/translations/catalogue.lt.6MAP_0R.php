@@ -154,6 +154,8 @@ $catalogue = new MessageCatalogue('lt', array (
     'Account is locked.' => 'Paskyra yra užblokuota.',
     'Too many failed login attempts, please try again later.' => 'Per daug nepavykusių prisijungimo bandymų, pabandykite dar kartą vėliau.',
     'Invalid or expired login link.' => 'Netinkama arba pasibaigusio galiojimo laiko prisijungimo nuoroda.',
+    'Too many failed login attempts, please try again in %minutes% minute.' => 'Per daug nepavykusių prisijungimo bandymų, pabandykite dar kartą po %minutes% minutės.',
+    'Too many failed login attempts, please try again in %minutes% minutes.' => 'Per daug nepavykusių prisijungimo bandymų, pabandykite dar kartą po %minutes% minutės.|Per daug nepavykusių prisijungimo bandymų, pabandykite dar kartą po %minutes% minučių.|Per daug nepavykusių prisijungimo bandymų, pabandykite dar kartą po %minutes% minučių.',
   ),
   'EasyAdminBundle' => 
   array (

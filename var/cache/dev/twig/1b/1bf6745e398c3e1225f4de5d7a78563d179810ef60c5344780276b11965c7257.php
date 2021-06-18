@@ -86,7 +86,7 @@ class __TwigTemplate_4ef1c0003c5d4b3d75ef08e7f6278ef75b4008bb8aa34696a64f5e938f9
             // line 20
             if ((null === $context["page"])) {
                 // line 21
-                echo "                        <span class=\"page-link\">&#x22EF;</span>
+                echo "                        <span class=\"page-link\">&hellip;</span>
                     ";
             } else {
                 // line 23
@@ -169,7 +169,7 @@ class __TwigTemplate_4ef1c0003c5d4b3d75ef08e7f6278ef75b4008bb8aa34696a64f5e938f9
             {% for page in paginator.pageRange %}
                 <li class=\"page-item {{ page == paginator.currentPage ? 'active' }} {{ page is null ? 'disabled' }}\">
                     {% if page is null %}
-                        <span class=\"page-link\">&#x22EF;</span>
+                        <span class=\"page-link\">&hellip;</span>
                     {% else %}
                         <a class=\"page-link\" href=\"{{ paginator.generateUrlForPage(page) }}\">{{ page }}</a>
                     {% endif %}
