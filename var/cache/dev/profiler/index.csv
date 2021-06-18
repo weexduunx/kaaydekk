@@ -77,3 +77,7 @@ cf35ee,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControlle
 850452,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=new&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=22&referrer=https%3A%2F%2F127.0.0.1%3A8000%2Fadmin%3FcrudAction%3Dindex%26crudControllerFqcn%3DApp%255CController%255CAdmin%255CUserCrudController%26menuIndex%3D22%26submenuIndex%3D-1&submenuIndex=-1,1624037787,,200
 6d8c21,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=new&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=25&submenuIndex=-1,1624037811,,200
 818c31,127.0.0.1,GET,https://127.0.0.1:8000/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CUserCrudController&menuIndex=24&submenuIndex=-1,1624037819,,200
+a322ec,127.0.0.1,GET,https://127.0.0.1:8000/admin,1624038190,,302
+39abe8,127.0.0.1,GET,https://127.0.0.1:8000/login,1624038191,,200
+e24274,127.0.0.1,POST,https://127.0.0.1:8000/login,1624038195,,302
+81a26a,127.0.0.1,GET,https://127.0.0.1:8000/admin,1624038195,,200
