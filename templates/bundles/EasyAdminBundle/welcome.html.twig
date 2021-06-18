@@ -122,7 +122,7 @@
 			</div>
 			<!-- column -->
 			{% if app.user %}
-				<div class="col-md-6 col-lg-3">
+				<div class="col-md-6 col-lg-3 ">
 					<div class="card">
 						<div class="card-body">
 							<h4 class="card-title">Les activités récentes</h4>
@@ -133,7 +133,7 @@
 											<i data-feather="user-plus"></i>
 										</a>
 									</div>
-									<div class="ml-3 mt-2">
+									<div class="ml-3 mt-2 table-responsive">
 										<h5 class="text-dark font-weight-medium mb-2">Les clients non-actifs !</h5>
 										{% for client in creation %}
 											<p class="font-14 mb-2 text-muted">{{client.prenom}}
@@ -151,7 +151,7 @@
 												<i data-feather="users"></i>
 											</a>
 										</div>
-										<div class="ml-3 mt-2">
+										<div class="ml-3 mt-2 table-responsive">
 											<h5 class="text-dark font-weight-medium mb-2">Les utilisateurs non vérifié !<br>
 												du système</h5>
 											{% for utilisateur in users %}
@@ -165,7 +165,7 @@
 												<i data-feather="users"></i>
 											</a>
 										</div>
-										<div class="ml-3 mt-2">
+										<div class="ml-3 mt-2 table-responsive">
 											<h5 class="text-dark font-weight-medium mb-2">Les utilisateurs vérifiés!</h5>
 											{% for verified in userVerified %}
 												<p class="font-14 mb-2 text-muted">{{ verified.email }}</p>
@@ -180,20 +180,20 @@
 			{% endif %}
 			<!-- column -->
 			<!-- column -->
-			<div class="col-lg-3">
+			<div class="col-lg-3 table-responsive">
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title">Propriétés vendues</h4>
 						<p class="font-14 mb-2 text-muted">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
 							<br></p>
-						<div>
+						<div >
 							<canvas id="price" height="150"></canvas>
 							<ul class="list-style-none mb-0">
 								<li>
 									<i class="fas fa-circle text-primary font-10 mr-2"></i>
 									<span class="text-muted">Les ventes directes</span>
 									{% for sommes in somme %}
-										<span class="text-dark float-right font-weight-medium" style="font-weight: bold; font-size: 18px;">{{sommes.prix_global | format_number}}</span>
+										<span class="responsive text-dark float-right font-weight-medium" style="font-weight: bold; font-size: 18px;">{{sommes.prix_global | format_number}}</span>
 									{% endfor %}
 								</li>
 							</ul>

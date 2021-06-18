@@ -85,7 +85,6 @@ class ClientCrudController extends AbstractCrudController
     }
     public function configureActions(Actions $actions): Actions
     {
-        
         $export = Action::new('export', 'Exporter les données')
         ->setIcon('fa fa-download')
         ->linkToCrudAction('export')

@@ -256,7 +256,7 @@ class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a56
         // line 124
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 124, $this->source); })()), "user", [], "any", false, false, false, 124)) {
             // line 125
-            echo "\t\t\t\t<div class=\"col-md-6 col-lg-3\">
+            echo "\t\t\t\t<div class=\"col-md-6 col-lg-3 \">
 \t\t\t\t\t<div class=\"card\">
 \t\t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t\t<h4 class=\"card-title\">Les activités récentes</h4>
@@ -267,7 +267,7 @@ class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a56
 \t\t\t\t\t\t\t\t\t\t\t<i data-feather=\"user-plus\"></i>
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2\">
+\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les clients non-actifs !</h5>
 \t\t\t\t\t\t\t\t\t\t";
             // line 138
@@ -306,7 +306,7 @@ class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a56
 \t\t\t\t\t\t\t\t\t\t\t\t<i data-feather=\"users\"></i>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs non vérifié !<br>
 \t\t\t\t\t\t\t\t\t\t\t\tdu système</h5>
 \t\t\t\t\t\t\t\t\t\t\t";
@@ -332,7 +332,7 @@ class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a56
 \t\t\t\t\t\t\t\t\t\t\t\t<i data-feather=\"users\"></i>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs vérifiés!</h5>
 \t\t\t\t\t\t\t\t\t\t\t";
                 // line 170
@@ -363,13 +363,13 @@ class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a56
         // line 181
         echo "\t\t\t<!-- column -->
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-3\">
+\t\t\t<div class=\"col-lg-3 table-responsive\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
 \t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
 \t\t\t\t\t\t\t<br></p>
-\t\t\t\t\t\t<div>
+\t\t\t\t\t\t<div >
 \t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
 \t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
 \t\t\t\t\t\t\t\t<li>
@@ -381,7 +381,7 @@ class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a56
         $context['_seq'] = twig_ensure_traversable((isset($context["somme"]) || array_key_exists("somme", $context) ? $context["somme"] : (function () { throw new RuntimeError('Variable "somme" does not exist.', 195, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["sommes"]) {
             // line 196
-            echo "\t\t\t\t\t\t\t\t\t\t<span class=\"text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">";
+            echo "\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">";
             echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["sommes"], "prix_global", [], "any", false, false, false, 196)), "html", null, true);
             echo "</span>
 \t\t\t\t\t\t\t\t\t";
@@ -774,7 +774,7 @@ backgroundColor: ";
 \t\t\t</div>
 \t\t\t<!-- column -->
 \t\t\t{% if app.user %}
-\t\t\t\t<div class=\"col-md-6 col-lg-3\">
+\t\t\t\t<div class=\"col-md-6 col-lg-3 \">
 \t\t\t\t\t<div class=\"card\">
 \t\t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t\t<h4 class=\"card-title\">Les activités récentes</h4>
@@ -785,7 +785,7 @@ backgroundColor: ";
 \t\t\t\t\t\t\t\t\t\t\t<i data-feather=\"user-plus\"></i>
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2\">
+\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les clients non-actifs !</h5>
 \t\t\t\t\t\t\t\t\t\t{% for client in creation %}
 \t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">{{client.prenom}}
@@ -803,7 +803,7 @@ backgroundColor: ";
 \t\t\t\t\t\t\t\t\t\t\t\t<i data-feather=\"users\"></i>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs non vérifié !<br>
 \t\t\t\t\t\t\t\t\t\t\t\tdu système</h5>
 \t\t\t\t\t\t\t\t\t\t\t{% for utilisateur in users %}
@@ -817,7 +817,7 @@ backgroundColor: ";
 \t\t\t\t\t\t\t\t\t\t\t\t<i data-feather=\"users\"></i>
 \t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2\">
+\t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs vérifiés!</h5>
 \t\t\t\t\t\t\t\t\t\t\t{% for verified in userVerified %}
 \t\t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">{{ verified.email }}</p>
@@ -832,20 +832,20 @@ backgroundColor: ";
 \t\t\t{% endif %}
 \t\t\t<!-- column -->
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-3\">
+\t\t\t<div class=\"col-lg-3 table-responsive\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
 \t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
 \t\t\t\t\t\t\t<br></p>
-\t\t\t\t\t\t<div>
+\t\t\t\t\t\t<div >
 \t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
 \t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
 \t\t\t\t\t\t\t\t<li>
 \t\t\t\t\t\t\t\t\t<i class=\"fas fa-circle text-primary font-10 mr-2\"></i>
 \t\t\t\t\t\t\t\t\t<span class=\"text-muted\">Les ventes directes</span>
 \t\t\t\t\t\t\t\t\t{% for sommes in somme %}
-\t\t\t\t\t\t\t\t\t\t<span class=\"text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">{{sommes.prix_global | format_number}}</span>
+\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">{{sommes.prix_global | format_number}}</span>
 \t\t\t\t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t</ul>

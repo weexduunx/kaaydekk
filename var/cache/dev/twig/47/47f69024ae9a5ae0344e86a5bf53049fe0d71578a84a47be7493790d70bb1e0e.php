@@ -53,7 +53,7 @@ class __TwigTemplate_72a6c76bc724e8dc0e1c6f8a251b18120b85439d0cb5d04829fb89e2b69
         // line 17
         echo "
 <nav class=\"sidebar-nav\">
-<ul class=\"in\" id=\"sidebarnav\" data-widget=\"tree\">
+<ul class=\"in\" id=\"sidebarnav\" data-widget=\"treeview\">
     ";
         // line 20
         $this->displayBlock('main_menu', $context, $blocks);
@@ -393,7 +393,7 @@ class __TwigTemplate_72a6c76bc724e8dc0e1c6f8a251b18120b85439d0cb5d04829fb89e2b69
 {% block main_menu_before %}{% endblock %}
 
 <nav class=\"sidebar-nav\">
-<ul class=\"in\" id=\"sidebarnav\" data-widget=\"tree\">
+<ul class=\"in\" id=\"sidebarnav\" data-widget=\"treeview\">
     {% block main_menu %}
         {% for menuItem in ea.mainMenu.items %}
             {% block menu_item %}

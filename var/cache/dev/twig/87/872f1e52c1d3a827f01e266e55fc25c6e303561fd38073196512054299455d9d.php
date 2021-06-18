@@ -69,7 +69,7 @@ class __TwigTemplate_3323c2973ef35e4062614bd10d8d90b7c7f3beabcf4c23c5e34301d7081
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/layout.html.twig"));
 
         // line 2
-        $context["__internal_d086a2059ad702fafc9354d5ce815f14d9451fce8b129258ec3e12ebb56ef0ed"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 2, $this->source); })()), "i18n", [], "any", false, false, false, 2), "translationDomain", [], "any", false, false, false, 2);
+        $context["__internal_574420d0734d4f0a849a14577f1003133c4aea3c261876846983875da3f4ce97"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 2, $this->source); })()), "i18n", [], "any", false, false, false, 2), "translationDomain", [], "any", false, false, false, 2);
         // line 3
         echo "
 <!DOCTYPE html>
@@ -1000,8 +1000,8 @@ localStorage.getItem('ea/sidebar/width') || '";
         // line 239
         echo "\t\t\t\t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"col-12\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"card\">
-\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"card \">
+\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"card-body \">
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
         // line 243
         $this->displayBlock('main', $context, $blocks);
@@ -1443,8 +1443,8 @@ localStorage.getItem('ea/sidebar/width') || '{{ ea.crud.sidebarWidth ?? ea.dashb
 \t\t\t\t\t\t\t\t\t{% endblock flash_messages %}
 \t\t\t\t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"col-12\">
-\t\t\t\t\t\t\t\t\t\t\t<div class=\"card\">
-\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t\t\t\t\t\t<div class=\"card \">
+\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"card-body \">
 \t\t\t\t\t\t\t\t\t\t\t\t\t{% block main %}{% endblock %}
 \t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t\t{% block content_footer_wrapper %}

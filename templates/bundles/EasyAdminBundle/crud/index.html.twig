@@ -103,7 +103,7 @@
 
     <div class="content-panel">
         <div class="content-panel-body with-rounded-top with-min-h-250 without-padding {{ not has_footer ? 'without-footer' }}">
-            <table class="table datagrid with-rounded-top {{ not has_footer ? 'with-rounded-bottom' }}">
+            <table class="table-responsive datagrid with-rounded-top {{ not has_footer ? 'with-rounded-bottom' }}">
                 <thead>
                 {% block table_head %}
                     <tr>
@@ -200,7 +200,7 @@
         </div>
 
         {% if entities|length > 0 %}
-            <div class="content-panel-footer without-padding without-border">
+            <div class="table-responsive content-panel-footer without-padding without-border ">
                 {% block paginator %}
                     {{ include(ea.templatePath('crud/paginator')) }}
                 {% endblock paginator %}
