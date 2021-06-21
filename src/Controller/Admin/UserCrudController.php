@@ -30,7 +30,7 @@ class UserCrudController extends AbstractCrudController
             ->setPageTitle('detail','utilisateur')
             ->setPageTitle('edit','Modifier le compte')
             ->setHelp('edit','cette page contient l\'information de l\'utilisateur')
-            ->setEntityPermission('ROLE_ADMIN');
+            ->setEntityPermission('ROLE_SUPER_USER');
     }
 
 

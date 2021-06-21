@@ -287,7 +287,7 @@ class DashboardController extends AbstractDashboardController
                           MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
                               ->setAction('new'),
                     
-
+  
 
               ];
     }

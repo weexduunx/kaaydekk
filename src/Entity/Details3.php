@@ -29,9 +29,15 @@ class Details3
      */
     private $detailsCandidatures;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Details4::class, mappedBy="details3")
+     */
+    private $secteur;
+
     public function __construct()
     {
         $this->detailsCandidatures = new ArrayCollection();
+        $this->secteur = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -83,5 +89,35 @@ class Details3
     public function __toString()
     {
         return $this->label;
+    }
+
+    /**
+     * @return Collection|Details4[]
+     */
+    public function getSecteur(): Collection
+    {
+        return $this->secteur;
+    }
+
+    public function addSecteur(Details4 $secteur): self
+    {
+        if (!$this->secteur->contains($secteur)) {
+            $this->secteur[] = $secteur;
+            $secteur->setDetails3($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSecteur(Details4 $secteur): self
+    {
+        if ($this->secteur->removeElement($secteur)) {
+            // set the owning side to null (unless already changed)
+            if ($secteur->getDetails3() === $this) {
+                $secteur->setDetails3(null);
+            }
+        }
+
+        return $this;
     }
 }

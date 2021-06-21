@@ -66,10 +66,10 @@ class Details3 extends \App\Entity\Details3 implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'detailsCandidatures'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'secteur'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'detailsCandidatures'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Details3' . "\0" . 'secteur'];
     }
 
     /**
@@ -255,6 +255,39 @@ class Details3 extends \App\Entity\Details3 implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSecteur(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSecteur', []);
+
+        return parent::getSecteur();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addSecteur(\App\Entity\Details4 $secteur): \App\Entity\Details3
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addSecteur', [$secteur]);
+
+        return parent::addSecteur($secteur);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeSecteur(\App\Entity\Details4 $secteur): \App\Entity\Details3
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeSecteur', [$secteur]);
+
+        return parent::removeSecteur($secteur);
     }
 
 }
