@@ -48,7 +48,6 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             ->hideOnform(),
 
             TextField::new('prenom_et_nom','Identité Confirmée')
-            ->hideOnForm()
             ->hideOnDetail(),
             AssociationField::new('client','Prénom et Nom'),
             ArrayField::new('nom','Surnom')->hideOnIndex()
