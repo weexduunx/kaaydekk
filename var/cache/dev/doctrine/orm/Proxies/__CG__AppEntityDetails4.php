@@ -66,10 +66,10 @@ class Details4 extends \App\Entity\Details4 implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'details3'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'details3'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures'];
     }
 
     /**
@@ -255,28 +255,6 @@ class Details4 extends \App\Entity\Details4 implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getDetails3(): ?\App\Entity\Details3
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDetails3', []);
-
-        return parent::getDetails3();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setDetails3(?\App\Entity\Details3 $details3): \App\Entity\Details4
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDetails3', [$details3]);
-
-        return parent::setDetails3($details3);
     }
 
 }

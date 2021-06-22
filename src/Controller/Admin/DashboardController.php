@@ -246,7 +246,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
                       MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
                           ->setAction('new'),
-                  
+
 
                       MenuItem::section('Gestion des Biens','fa fa-building'),
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
@@ -255,7 +255,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Créer un type de bien', 'fas fa-plus', TypeDeBien::class)
                           ->setAction('new'),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
-                  
+
                       MenuItem::section('Gestion Client et Candidat','fa fa-user-plus'),
                       MenuItem::linkToCrud('liste des clients', 'fas fa-list', Client::class),
                       MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Client::class)
@@ -263,12 +263,12 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::linkToCrud('Liste des candidats','fa fa-list',DetailsCandidature::class),
                       MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
                           ->setAction('new'),
-                 
+
                           MenuItem::section('Gestion Projet','fa fa-folder'),
                           MenuItem::linkToCrud('Liste des projets', 'fas fa-list', Projet::class),
                           MenuItem::linkToCrud('Ajouter un projet','fas fa-plus', Projet::class)
                               ->setAction('new'),
-                     
+                    
 
                               MenuItem::section('Gestion Site','fa fa-map'),
                           MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class),
@@ -287,8 +287,6 @@ class DashboardController extends AbstractDashboardController
                           MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
                               ->setAction('new'),
                     
-  
-
               ];
     }
 

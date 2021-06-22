@@ -29,10 +29,6 @@ class Details4
      */
     private $detailsCandidatures;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Details3::class, inversedBy="secteur")
-     */
-    private $details3;
 
     public function __construct()
     {
@@ -88,17 +84,5 @@ class Details4
     public function __toString()
     {
         return $this->label;
-    }
-
-    public function getDetails3(): ?Details3
-    {
-        return $this->details3;
-    }
-
-    public function setDetails3(?Details3 $details3): self
-    {
-        $this->details3 = $details3;
-
-        return $this;
     }
 }
