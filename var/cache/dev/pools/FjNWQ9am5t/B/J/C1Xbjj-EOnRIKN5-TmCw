@@ -26,6 +26,11 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'initializable' => [
                 false,
             ],
+            'schema' => [
+                [
+                    'pattern' => '^([a-zA-Z]+)$',
+                ],
+            ],
         ],
         'Symfony\\Component\\PropertyInfo\\Type' => [
             'builtinType' => [

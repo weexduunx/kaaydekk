@@ -24,6 +24,10 @@ class Client
     private $id;
 
     /**
+     *  @Assert\Regex(
+     *     pattern     = "/^[a-z]+$/i",
+     *     htmlPattern = "[a-zA-Z]+"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $nom;
@@ -39,6 +43,12 @@ class Client
     private $adresse;
 
     /**
+     *  @Assert\Length(
+     *      min = 9,
+     *      max = 13,
+     *      minMessage = "Votre n° de passeport doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Votre n° d'identification nationale doit comporter au moins {{ limit }} caractères"
+     * )
      * @ORM\Column(type="decimal", precision=15, scale=0)
      */
     private $numero_cin_ou_passeport;
@@ -65,12 +75,6 @@ class Client
     private $status;
 
     /**
-     *  @Assert\Count(
-     *      min = 1,
-     *      max = 5,
-     *      minMessage = "You must specify at least one email",
-     *      maxMessage = "You cannot specify more than {{ limit }} emails"
-     * )
      * @ORM\Column(type="string", length=255)
      */
     private $email;

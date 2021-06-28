@@ -24,11 +24,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Core\Exception\UserNotFoundException as SecurityUserNotFoundException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\ChainUserProvider;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
+use Symfony\Component\Security\Guard\AuthenticatorInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -39,7 +41,7 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
  * @author Nicolas Cabot <n.cabot@lexik.fr>
  * @author Robin Chalas <robin.chalas@gmail.com>
  */
-class JWTTokenAuthenticator extends AbstractGuardAuthenticator
+class JWTTokenAuthenticator implements AuthenticatorInterface
 {
     /**
      * @var JWTTokenManagerInterface
@@ -270,15 +272,29 @@ class JWTTokenAuthenticator extends AbstractGuardAuthenticator
                         return $provider->loadUserByUsernameAndPayload($identity, $payload);
                     }
 
+                    if (method_exists($provider, 'loadUserByIdentifier')) {
+                        return $provider->loadUserByIdentifier($identity);
+                    }
+
                     return $provider->loadUserByUsername($identity);
-                } catch (UsernameNotFoundException $e) {
+                } catch (SecurityUserNotFoundException | UsernameNotFoundException $e) {
                     // try next one
                 }
             }
 
-            $ex = new UsernameNotFoundException(sprintf('There is no user with name "%s".', $identity));
-            $ex->setUsername($identity);
+            if (class_exists(SecurityUserNotFoundException::class)) {
+                $ex = new SecurityUserNotFoundException(sprintf('There is no user with name "%s".', $identity));
+                $ex->setUserIdentifier($identity);
+            } else {
+                $ex = new UsernameNotFoundException(sprintf('There is no user with name "%s".', $identity));
+                $ex->setUsername($identity);
+            }
+
             throw $ex;
+        }
+
+        if (method_exists($userProvider, 'loadUserByIdentifier')) {
+            return $userProvider->loadUserByIdentifier($identity);
         }
 
         return $userProvider->loadUserByUsername($identity);

@@ -29,7 +29,7 @@ class CandidatureFormType extends AbstractType
                 'required'   => false,
                 'label'=>'Si Oui, donner le nom de la coopérative*',
                 'attr' => [
-                    'autofocus' => true,
+                    'autofocus' => false,
                 ],
                
             ])
@@ -49,7 +49,7 @@ class CandidatureFormType extends AbstractType
                 'required'   => false,
                 'label'=>'Si Oui, donner le nom de la banque*',
                 'attr' => [
-                    'autofocus' => true,
+                'autofocus' => false,
                 ],
              
             ])
@@ -132,18 +132,20 @@ class CandidatureFormType extends AbstractType
             ])
             ->add('color', ColorType::class, [
                 'label' => 'Indiquer une couleur de votre choix, cliquer à l\'intérieur *',
+                'required'   => true,
         
             ])
             ->add('type_de_logement', null,[
                 'label'=>'Type de Logement*',
                 'placeholder'=>'cliquer ici',
                 'attr' => ['class' => 'form-select text-muted'],
+                'required'   => true,
 
             ])
         
             ->add('prenom_et_nom', TextType::class,[
-
-                    'label'=>'Confirmer votre identité*',
+                    
+                    'label'=>'Confirmer votre Nom et Prénom*',
                     'help' => 'Veuillez confirmer votre identité, en entrant votre nom et prénom, sinon votre inscription risque de ne pas être enregistrée.'
             ])
             ->add('mode_acquisition', null,[

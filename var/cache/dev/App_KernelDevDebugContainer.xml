@@ -33,6 +33,7 @@
       <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
       <parameter key="KnpUOAuth2ClientBundle">KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
+      <parameter key="MisdPhoneNumberBundle">Misd\PhoneNumberBundle\MisdPhoneNumberBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -130,6 +131,10 @@
       <parameter key="MakerBundle" type="collection">
         <parameter key="path">/home/ngts/Kaay-Dekk-Immo/vendor/symfony/maker-bundle/src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
+      </parameter>
+      <parameter key="MisdPhoneNumberBundle" type="collection">
+        <parameter key="path">/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src</parameter>
+        <parameter key="namespace">Misd\PhoneNumberBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -248,6 +253,7 @@
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>@AdminLTE/layout/form-theme.html.twig</parameter>
       <parameter>bootstrap_4_layout.html.twig</parameter>
+      <parameter>@MisdPhoneNumber/Form/phone_number_bootstrap_4.html.twig</parameter>
       <parameter>@LiipImagine/Form/form_div_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">/home/ngts/Kaay-Dekk-Immo/templates</parameter>
@@ -687,6 +693,10 @@
       <parameter key="default">swiftmailer.mailer.default</parameter>
     </parameter>
     <parameter key="swiftmailer.default_mailer">default</parameter>
+    <parameter key="misd_phone_number.serializer.default_region">ZZ</parameter>
+    <parameter key="misd_phone_number.serializer.format">0</parameter>
+    <parameter key="misd_phone_number.validator.default_region">ZZ</parameter>
+    <parameter key="misd_phone_number.validator.format">1</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -1604,6 +1614,7 @@
         <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type</argument>
         <argument>Vich\UploaderBundle\Form\Type</argument>
         <argument>Liip\ImagineBundle\Form\Type</argument>
+        <argument>Misd\PhoneNumberBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
         <argument>App\Form\CandidatureFormType</argument>
@@ -1623,6 +1634,7 @@
         <argument>Vich\UploaderBundle\Form\Type\VichFileType</argument>
         <argument>Vich\UploaderBundle\Form\Type\VichImageType</argument>
         <argument>Liip\ImagineBundle\Form\Type\ImageType</argument>
+        <argument>Misd\PhoneNumberBundle\Form\Type\PhoneNumberType</argument>
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension</argument>
@@ -1988,7 +2000,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.Jucp2Vs"/>
+      <argument type="service" id=".service_locator.vw6z1nS"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -2360,7 +2372,7 @@
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory">
-      <argument type="service" id=".service_locator.anofQPJ"/>
+      <argument type="service" id=".service_locator.CIbgwXc"/>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
       <tag name="validator.constraint_validator" alias="validator.expression"/>
@@ -2466,6 +2478,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.bs.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/form/Resources/translations/validators.bs.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/security-core/Resources/translations/security.bs.xlf</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.bs.xlf</argument>
           </argument>
           <argument key="ca" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.ca.xlf</argument>
@@ -2482,6 +2495,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/vich/uploader-bundle/translations/messages.cs.yaml</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.cs.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.cs.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.cy.xlf</argument>
@@ -2503,6 +2517,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.de.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.de.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.de.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.el.xlf</argument>
@@ -2520,6 +2535,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.en.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.en.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.en.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
@@ -2530,6 +2546,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.es.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.es.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.es.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.et.xlf</argument>
@@ -2557,6 +2574,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fi.php</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/vich/uploader-bundle/translations/messages.fi.yaml</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.fi.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.fr.xlf</argument>
@@ -2567,6 +2585,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.fr.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.fr.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.fr.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.fr.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/translations/KnpPaginatorBundle.fr.yaml</argument>
           </argument>
           <argument key="gl" type="collection">
@@ -2586,6 +2605,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/form/Resources/translations/validators.hr.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/security-core/Resources/translations/security.hr.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.hr.php</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.hr.xlf</argument>
           </argument>
           <argument key="hu" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.hu.xlf</argument>
@@ -2615,6 +2635,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.it.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.it.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.it.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.ja.xlf</argument>
@@ -2660,6 +2681,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.nl.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle+intl-icu.nl.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.nl.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.nn.xlf</argument>
@@ -2682,6 +2704,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.pl.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.pl.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.pl.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.pt.xlf</argument>
@@ -2716,6 +2739,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.ru.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.ru.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ru.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.sk.xlf</argument>
@@ -2744,6 +2768,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.sr_Latn.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/form/Resources/translations/validators.sr_Latn.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/security-core/Resources/translations/security.sr_Latn.xlf</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.sr_Latn.xlf</argument>
           </argument>
           <argument key="sv" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.sv.xlf</argument>
@@ -2752,6 +2777,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.sv.php</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.sv.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.sv.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.sv.xlf</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.th.xlf</argument>
@@ -2772,6 +2798,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations/AdminLTEBundle.tr.xliff</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.tr.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.tr.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.uk.xlf</argument>
@@ -2781,6 +2808,7 @@
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/vich/uploader-bundle/translations/messages.uk.yaml</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.uk.xlf</argument>
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.uk.xliff</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.uk.xlf</argument>
           </argument>
           <argument key="uz" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/validator/Resources/translations/validators.uz.xlf</argument>
@@ -2815,12 +2843,52 @@
           </argument>
           <argument key="sr" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.sr.xlf</argument>
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.sr.xlf</argument>
           </argument>
           <argument key="ky" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ky.xliff</argument>
           </argument>
           <argument key="sw" type="collection">
             <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.sw.xliff</argument>
+          </argument>
+          <argument key="bs_Cyrl" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.bs_Cyrl.xlf</argument>
+          </argument>
+          <argument key="dk" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.dk.xlf</argument>
+          </argument>
+          <argument key="en_AU" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_AU.xlf</argument>
+          </argument>
+          <argument key="en_CA" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_CA.xlf</argument>
+          </argument>
+          <argument key="en_GB" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_GB.xlf</argument>
+          </argument>
+          <argument key="en_IE" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_IE.xlf</argument>
+          </argument>
+          <argument key="en_NZ" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_NZ.xlf</argument>
+          </argument>
+          <argument key="en_PH" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_PH.xlf</argument>
+          </argument>
+          <argument key="en_SG" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_SG.xlf</argument>
+          </argument>
+          <argument key="en_US" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_US.xlf</argument>
+          </argument>
+          <argument key="en_ZA" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.en_ZA.xlf</argument>
+          </argument>
+          <argument key="es_419" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.es_419.xlf</argument>
+          </argument>
+          <argument key="se" type="collection">
+            <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations/validators.se.xlf</argument>
           </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
@@ -2832,6 +2900,7 @@
           <argument>/home/ngts/Kaay-Dekk-Immo/vendor/kevinpapst/adminlte-bundle/Resources/translations</argument>
           <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfonycasts/verify-email-bundle/src/Resources/translations</argument>
           <argument>/home/ngts/Kaay-Dekk-Immo/vendor/knplabs/knp-paginator-bundle/translations</argument>
+          <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/translations</argument>
           <argument>/home/ngts/Kaay-Dekk-Immo/translations</argument>
           <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/framework-bundle/translations</argument>
           <argument>/home/ngts/Kaay-Dekk-Immo/vendor/sensio/framework-extra-bundle/src/translations</argument>
@@ -2863,6 +2932,7 @@
             <argument>vendor/kevinpapst/adminlte-bundle/Resources/translations</argument>
             <argument>vendor/symfonycasts/verify-email-bundle/src/Resources/translations</argument>
             <argument>vendor/knplabs/knp-paginator-bundle/translations</argument>
+            <argument>vendor/odolbeau/phone-number-bundle/src/Resources/translations</argument>
             <argument>translations</argument>
             <argument>vendor/symfony/framework-bundle/translations</argument>
             <argument>vendor/sensio/framework-extra-bundle/src/translations</argument>
@@ -4331,6 +4401,7 @@
       <tag name="container.private" package="symfony/framework-bundle" version="5.2"/>
       <argument type="collection">
         <argument type="service" id="serializer.denormalizer.unwrapping"/>
+        <argument type="service" id="Misd\PhoneNumberBundle\Serializer\Normalizer\PhoneNumberNormalizer"/>
         <argument type="service" id="api_platform.openapi.normalizer.api_gateway"/>
         <argument type="service" id="api_platform.swagger.normalizer.api_gateway"/>
         <argument type="service" id="api_platform.hydra.normalizer.constraint_violation_list"/>
@@ -4720,6 +4791,9 @@
       <call method="addExtension">
         <argument type="service" id="webpack_encore.twig_stimulus_extension"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="Misd\PhoneNumberBundle\Twig\Extension\PhoneNumberHelperExtension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -4890,6 +4964,14 @@
       <call method="addPath">
         <argument>/home/ngts/Kaay-Dekk-Immo/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
         <argument>!Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/views</argument>
+        <argument>MisdPhoneNumber</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/ngts/Kaay-Dekk-Immo/vendor/odolbeau/phone-number-bundle/src/Resources/views</argument>
+        <argument>!MisdPhoneNumber</argument>
       </call>
       <call method="addPath">
         <argument>/home/ngts/Kaay-Dekk-Immo/templates</argument>
@@ -8435,6 +8517,12 @@
       <argument type="service" id="lexik_jwt_authentication.extractor.chain_extractor"/>
       <argument type="service" id=".1_TokenStorage~ViHVvpY"/>
     </service>
+    <service id="lexik_jwt_authentication.security.jwt_authenticator" class="Lexik\Bundle\JWTAuthenticationBundle\Security\Authenticator\JWTAuthenticator" abstract="true">
+      <argument type="service" id="lexik_jwt_authentication.jwt_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="lexik_jwt_authentication.extractor.chain_extractor"/>
+      <argument></argument>
+    </service>
     <service id="lexik_jwt_authentication.extractor.chain_extractor" class="Lexik\Bundle\JWTAuthenticationBundle\TokenExtractor\ChainTokenExtractor">
       <argument type="collection">
         <argument type="service" id="lexik_jwt_authentication.extractor.authorization_header_extractor"/>
@@ -9350,6 +9438,46 @@
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration">
       <tag name="maker.command"/>
       <argument>/home/ngts/Kaay-Dekk-Immo</argument>
+    </service>
+    <service id="libphonenumber\PhoneNumberUtil" class="libphonenumber\PhoneNumberUtil">
+      <factory class="libphonenumber\PhoneNumberUtil" method="getInstance"/>
+    </service>
+    <service id="libphonenumber\geocoding\PhoneNumberOfflineGeocoder" class="libphonenumber\geocoding\PhoneNumberOfflineGeocoder">
+      <factory class="libphonenumber\geocoding\PhoneNumberOfflineGeocoder" method="getInstance"/>
+    </service>
+    <service id="libphonenumber\ShortNumberInfo" class="libphonenumber\ShortNumberInfo">
+      <factory class="libphonenumber\ShortNumberInfo" method="getInstance"/>
+    </service>
+    <service id="libphonenumber\PhoneNumberToCarrierMapper" class="libphonenumber\PhoneNumberToCarrierMapper">
+      <factory class="libphonenumber\PhoneNumberToCarrierMapper" method="getInstance"/>
+    </service>
+    <service id="libphonenumber\PhoneNumberToTimeZonesMapper" class="libphonenumber\PhoneNumberToTimeZonesMapper">
+      <factory class="libphonenumber\PhoneNumberToTimeZonesMapper" method="getInstance"/>
+    </service>
+    <service id="Misd\PhoneNumberBundle\Templating\Helper\PhoneNumberHelper" class="Misd\PhoneNumberBundle\Templating\Helper\PhoneNumberHelper">
+      <argument type="service" id="libphonenumber\PhoneNumberUtil"/>
+    </service>
+    <service id="Misd\PhoneNumberBundle\Twig\Extension\PhoneNumberHelperExtension" class="Misd\PhoneNumberBundle\Twig\Extension\PhoneNumberHelperExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="Misd\PhoneNumberBundle\Templating\Helper\PhoneNumberHelper"/>
+    </service>
+    <service id="Misd\PhoneNumberBundle\Form\Type\PhoneNumberType" class="Misd\PhoneNumberBundle\Form\Type\PhoneNumberType">
+      <tag name="form.type" alias="phone_number"/>
+    </service>
+    <service id="Misd\PhoneNumberBundle\Serializer\Normalizer\PhoneNumberNormalizer" class="Misd\PhoneNumberBundle\Serializer\Normalizer\PhoneNumberNormalizer">
+      <tag name="serializer.normalizer"/>
+      <argument type="service" id="libphonenumber\PhoneNumberUtil"/>
+      <argument>ZZ</argument>
+      <argument>0</argument>
+    </service>
+    <service id="Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumberValidator" class="Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumberValidator">
+      <tag name="validator.constraint_validator"/>
+      <argument type="service" id="libphonenumber\PhoneNumberUtil"/>
+      <argument>ZZ</argument>
+      <argument>1</argument>
+      <call method="setPropertyAccessor">
+        <argument type="service" id="property_accessor" on-invalid="ignore"/>
+      </call>
     </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AchatCrudController" class="App\Controller\Admin\AchatCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AchatCrudController" class="App\Controller\Admin\AchatCrudController" autowire="true" abstract="true"/>
@@ -10418,9 +10546,10 @@
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
       </argument>
     </service>
-    <service id=".service_locator.anofQPJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CIbgwXc" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumberValidator" type="service_closure" id="Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumberValidator"/>
         <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator" type="service_closure" id="doctrine.orm.validator.unique"/>
         <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" type="service_closure" id="security.validator.user_password"/>
         <argument key="Symfony\Component\Validator\Constraints\EmailValidator" type="service_closure" id="validator.email"/>
@@ -10492,7 +10621,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.Jucp2Vs" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.vw6z1nS" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CandidatureFormType" type="service_closure" id="App\Form\CandidatureFormType"/>
@@ -10505,6 +10634,7 @@
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FiltersFormType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FiltersFormType"/>
         <argument key="Liip\ImagineBundle\Form\Type\ImageType" type="service_closure" id="liip_imagine.form.type.image"/>
+        <argument key="Misd\PhoneNumberBundle\Form\Type\PhoneNumberType" type="service_closure" id="Misd\PhoneNumberBundle\Form\Type\PhoneNumberType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ColorType" type="service_closure" id="form.type.color"/>
@@ -11911,7 +12041,7 @@
     <service id=".service_locator.bnaLdkn" alias="api_platform.serializer_locator"/>
     <service id=".service_locator.Xbsa8iG" alias="api_platform.filter_locator"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~qO_LdKc"/>
-    <service id=".service_locator.wKF4yn1" alias=".service_locator.anofQPJ"/>
+    <service id=".service_locator.fLLVOvn" alias=".service_locator.CIbgwXc"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="api_platform.metadata.property.metadata_factory.property_info.inner" alias="api_platform.metadata.property.metadata_factory.xml"/>
     <service id="api_platform.metadata.resource.metadata_factory.annotation.inner" alias="api_platform.metadata.resource.metadata_factory.xml"/>

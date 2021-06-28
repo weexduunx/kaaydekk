@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '98740dd0e6cc0556905a0fe082539c8628a7d601',
+        'reference' => '845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '98740dd0e6cc0556905a0fe082539c8628a7d601',
+            'reference' => '845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
             'dev_requirement' => false,
         ),
         'api-platform/core' => array(
@@ -101,12 +101,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '2.13.x-dev',
-            'version' => '2.13.9999999.9999999-dev',
+            'pretty_version' => '2.13.2',
+            'version' => '2.13.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
-            'reference' => 'f1453c5c1bedc1d60baa6849fdce9b442c79811a',
+            'reference' => '8dd39d2ead4409ce652fd4f02621060f009ea5e4',
             'dev_requirement' => false,
         ),
         'doctrine/deprecations' => array(
@@ -182,12 +182,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/migrations' => array(
-            'pretty_version' => '3.1.3',
-            'version' => '3.1.3.0',
+            'pretty_version' => '3.1.4',
+            'version' => '3.1.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/migrations',
             'aliases' => array(),
-            'reference' => '8d0c58655cf9d76462d00ec5dd099737e513e86d',
+            'reference' => '207210c57f6c15835e8d6228075cd235bd061efc',
             'dev_requirement' => false,
         ),
         'doctrine/orm' => array(
@@ -273,6 +273,24 @@
             'reference' => '5ffe7db6c80f441f150fc88008d64e64af66634b',
             'dev_requirement' => false,
         ),
+        'giggsey/libphonenumber-for-php' => array(
+            'pretty_version' => '8.12.26',
+            'version' => '8.12.26.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../giggsey/libphonenumber-for-php',
+            'aliases' => array(),
+            'reference' => '0c5804c09087e841d7594c3d7f72003f703abf69',
+            'dev_requirement' => false,
+        ),
+        'giggsey/locale' => array(
+            'pretty_version' => '1.9',
+            'version' => '1.9.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../giggsey/locale',
+            'aliases' => array(),
+            'reference' => 'b07f1eace8072ccc61445ad8fbd493ff9d783043',
+            'dev_requirement' => false,
+        ),
         'guzzlehttp/guzzle' => array(
             'pretty_version' => '7.3.0',
             'version' => '7.3.0.0',
@@ -328,12 +346,12 @@
             'dev_requirement' => false,
         ),
         'knplabs/knp-components' => array(
-            'pretty_version' => 'v3.0.2',
-            'version' => '3.0.2.0',
+            'pretty_version' => 'v3.1.0',
+            'version' => '3.1.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../knplabs/knp-components',
             'aliases' => array(),
-            'reference' => '7db2eb032591ded5809455af8a4dfdfda079041c',
+            'reference' => 'f06a6ebea71a91c8cd34213f9417004062133627',
             'dev_requirement' => false,
         ),
         'knplabs/knp-paginator-bundle' => array(
@@ -400,12 +418,12 @@
             'dev_requirement' => false,
         ),
         'lexik/jwt-authentication-bundle' => array(
-            'pretty_version' => 'v2.11.3',
-            'version' => '2.11.3.0',
+            'pretty_version' => 'v2.12.1',
+            'version' => '2.12.1.0',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../lexik/jwt-authentication-bundle',
             'aliases' => array(),
-            'reference' => '9358649d03ba41e1c98effa0a6e39c0317cceeec',
+            'reference' => '76f74a12fd53cece7d1ee60fa0134d71eb1c8b78',
             'dev_requirement' => false,
         ),
         'liip/imagine-bundle' => array(
@@ -461,6 +479,12 @@
             'aliases' => array(),
             'reference' => '174395a901b5ba0925f1d790fa91bab531074b61',
             'dev_requirement' => false,
+        ),
+        'misd/phone-number-bundle' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => 'v3.4.1',
+            ),
         ),
         'monolog/monolog' => array(
             'pretty_version' => '2.2.0',
@@ -539,6 +563,15 @@
             'replaced' => array(
                 0 => '^2.1',
             ),
+        ),
+        'odolbeau/phone-number-bundle' => array(
+            'pretty_version' => 'v3.4.1',
+            'version' => '3.4.1.0',
+            'type' => 'symfony-bundle',
+            'install_path' => __DIR__ . '/../odolbeau/phone-number-bundle',
+            'aliases' => array(),
+            'reference' => '8db439fa58d12a569ef0c97bf8bd8a08ab691e78',
+            'dev_requirement' => false,
         ),
         'paragonie/random_compat' => array(
             'pretty_version' => 'v9.99.100',
@@ -739,12 +772,12 @@
             'dev_requirement' => false,
         ),
         'phpunit/phpunit' => array(
-            'pretty_version' => '9.5.5',
-            'version' => '9.5.5.0',
+            'pretty_version' => '9.5.6',
+            'version' => '9.5.6.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
-            'reference' => '89ff45ea9d70e35522fb6654a2ebc221158de276',
+            'reference' => 'fb9b8333f14e3dce976a60ef6a7e05c7c7ed8bfb',
             'dev_requirement' => false,
         ),
         'psr/cache' => array(
@@ -1394,12 +1427,12 @@
             'dev_requirement' => false,
         ),
         'symfony/maker-bundle' => array(
-            'pretty_version' => 'v1.31.1',
-            'version' => '1.31.1.0',
+            'pretty_version' => 'v1.32.0',
+            'version' => '1.32.0.0',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/maker-bundle',
             'aliases' => array(),
-            'reference' => '4f57a44cef0b4555043160b8bf223fcde8a7a59a',
+            'reference' => '702558c5fc5a27796eedad12a82bb27be76247dc',
             'dev_requirement' => false,
         ),
         'symfony/mime' => array(
@@ -1847,12 +1880,12 @@
             'dev_requirement' => false,
         ),
         'symfony/webpack-encore-bundle' => array(
-            'pretty_version' => 'v1.11.2',
-            'version' => '1.11.2.0',
+            'pretty_version' => 'v1.12.0',
+            'version' => '1.12.0.0',
             'type' => 'symfony-bundle',
             'install_path' => __DIR__ . '/../symfony/webpack-encore-bundle',
             'aliases' => array(),
-            'reference' => 'f282fb17ffa4839ba491eb7e3f5ffdd40c86f969',
+            'reference' => '9943a59f8551b7a8181e19a2b4efa60e5907c667',
             'dev_requirement' => false,
         ),
         'symfony/yaml' => array(

@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* bundles/EasyAdminBundle/welcome.html.twig */
+/* @EasyAdmin/welcome.html.twig */
 class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a561393b extends Template
 {
     private $source;
@@ -43,12 +43,12 @@ class __TwigTemplate_4c8505f786890b48cc24fedabaf3a772449db8edd85e908695c096c3a56
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "bundles/EasyAdminBundle/welcome.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/welcome.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "bundles/EasyAdminBundle/welcome.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/welcome.html.twig"));
 
-        $this->parent = $this->loadTemplate("bundles/EasyAdminBundle/layout.html.twig", "bundles/EasyAdminBundle/welcome.html.twig", 2);
+        $this->parent = $this->loadTemplate("bundles/EasyAdminBundle/layout.html.twig", "@EasyAdmin/welcome.html.twig", 2);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -634,7 +634,7 @@ backgroundColor: ";
 
     public function getTemplateName()
     {
-        return "bundles/EasyAdminBundle/welcome.html.twig";
+        return "@EasyAdmin/welcome.html.twig";
     }
 
     public function isTraitable()
@@ -983,6 +983,6 @@ backgroundColor: {{ colorx|raw }}
 \t{% endblock %}
 {% endblock %}
 
-", "bundles/EasyAdminBundle/welcome.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/welcome.html.twig");
+", "@EasyAdmin/welcome.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/welcome.html.twig");
     }
 }

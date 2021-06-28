@@ -8,6 +8,8 @@ use Lexik\Bundle\JWTAuthenticationBundle\Event\JWTCreatedEvent;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\JWTDecodedEvent;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\JWTEncodedEvent;
 use Lexik\Bundle\JWTAuthenticationBundle\Events;
+use Lexik\Bundle\JWTAuthenticationBundle\Exception\InvalidTokenException;
+use Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTDecodeFailureException;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -55,7 +57,7 @@ class JWTManager implements JWTManagerInterface, JWTTokenManagerInterface
     /**
      * @return string The JWT token
      */
-    public function create(UserInterface $user)
+    public function create(UserInterface $user): string
     {
         $payload = ['roles' => $user->getRoles()];
         $this->addUserIdentityToPayload($user, $payload);
@@ -66,7 +68,7 @@ class JWTManager implements JWTManagerInterface, JWTTokenManagerInterface
     /**
      * @return string The JWT token
      */
-    public function createFromPayload(UserInterface $user, array $payload)
+    public function createFromPayload(UserInterface $user, array $payload): string
     {
         $payload = array_merge(['roles' => $user->getRoles()], $payload);
         $this->addUserIdentityToPayload($user, $payload);
@@ -77,7 +79,7 @@ class JWTManager implements JWTManagerInterface, JWTTokenManagerInterface
     /**
      * @return string The JWT token
      */
-    private function generateJwtStringAndDispatchEvents(UserInterface $user, array $payload)
+    private function generateJwtStringAndDispatchEvents(UserInterface $user, array $payload): string
     {
         $jwtCreatedEvent = new JWTCreatedEvent($payload, $user);
         $this->dispatcher->dispatch($jwtCreatedEvent, Events::JWT_CREATED);
@@ -97,6 +99,7 @@ class JWTManager implements JWTManagerInterface, JWTTokenManagerInterface
 
     /**
      * {@inheritdoc}
+     * @throws JWTDecodeFailureException
      */
     public function decode(TokenInterface $token)
     {
@@ -109,6 +112,23 @@ class JWTManager implements JWTManagerInterface, JWTTokenManagerInterface
 
         if (!$event->isValid()) {
             return false;
+        }
+
+        return $event->getPayload();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function parse(string $jwtToken): array
+    {
+        $payload = $this->jwtEncoder->decode($jwtToken);
+
+        $event = new JWTDecodedEvent($payload);
+        $this->dispatcher->dispatch($event, Events::JWT_DECODED);
+
+        if (!$event->isValid()) {
+            throw new JWTDecodeFailureException(JWTDecodeFailureException::INVALID_TOKEN, 'The token was marked as invalid by an event listener after successful decoding.');
         }
 
         return $event->getPayload();
@@ -129,7 +149,7 @@ class JWTManager implements JWTManagerInterface, JWTTokenManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function getUserIdentityField()
+    public function getUserIdentityField(): string
     {
         return $this->userIdentityField;
     }
@@ -137,15 +157,15 @@ class JWTManager implements JWTManagerInterface, JWTTokenManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function setUserIdentityField($userIdentityField)
+    public function setUserIdentityField($field)
     {
-        $this->userIdentityField = $userIdentityField;
+        $this->userIdentityField = $field;
     }
 
     /**
      * @return string
      */
-    public function getUserIdClaim()
+    public function getUserIdClaim(): ?string
     {
         return $this->userIdClaim;
     }

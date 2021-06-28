@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\DetailsCandidatureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -166,6 +167,12 @@ class DetailsCandidature
     private $agences;
 
     /**
+     * 
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Votre nom et prénom ne peut pas contenir de chiffre"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $prenom_et_nom;

@@ -97,6 +97,10 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'l' => 
+        array (
+            'libphonenumber\\' => 15,
+        ),
         'Z' => 
         array (
             'ZipStream\\' => 10,
@@ -228,6 +232,7 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         array (
             'MyCLabs\\Enum\\' => 13,
             'Monolog\\' => 8,
+            'Misd\\PhoneNumberBundle\\' => 23,
             'Metadata\\' => 9,
             'Matrix\\' => 7,
             'Mailgun\\' => 8,
@@ -266,6 +271,7 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'Giggsey\\Locale\\' => 15,
         ),
         'F' => 
         array (
@@ -318,6 +324,10 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'libphonenumber\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src',
         ),
         'ZipStream\\' => 
         array (
@@ -752,6 +762,10 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Misd\\PhoneNumberBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src',
+        ),
         'Metadata\\' => 
         array (
             0 => __DIR__ . '/..' . '/jms/metadata/src',
@@ -845,6 +859,10 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Giggsey\\Locale\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/giggsey/locale/src',
         ),
         'Fig\\Link\\' => 
         array (
@@ -2183,6 +2201,7 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'Doctrine\\Migrations\\Exception\\IrreversibleMigration' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/Exception/IrreversibleMigration.php',
         'Doctrine\\Migrations\\Exception\\MetadataStorageError' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/Exception/MetadataStorageError.php',
         'Doctrine\\Migrations\\Exception\\MigrationClassNotFound' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/Exception/MigrationClassNotFound.php',
+        'Doctrine\\Migrations\\Exception\\MigrationConfigurationConflict' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/Exception/MigrationConfigurationConflict.php',
         'Doctrine\\Migrations\\Exception\\MigrationException' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/Exception/MigrationException.php',
         'Doctrine\\Migrations\\Exception\\MigrationNotAvailable' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/Exception/MigrationNotAvailable.php',
         'Doctrine\\Migrations\\Exception\\MigrationNotExecuted' => __DIR__ . '/..' . '/doctrine/migrations/lib/Doctrine/Migrations/Exception/MigrationNotExecuted.php',
@@ -3487,6 +3506,7 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'Fig\\Link\\LinkTrait' => __DIR__ . '/..' . '/fig/link-util/src/LinkTrait.php',
         'Fig\\Link\\Relations' => __DIR__ . '/..' . '/fig/link-util/src/Relations.php',
         'Fig\\Link\\TemplatedHrefTrait' => __DIR__ . '/..' . '/fig/link-util/src/TemplatedHrefTrait.php',
+        'Giggsey\\Locale\\Locale' => __DIR__ . '/..' . '/giggsey/locale/src/Locale.php',
         'GuzzleHttp\\BodySummarizer' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/BodySummarizer.php',
         'GuzzleHttp\\BodySummarizerInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/BodySummarizerInterface.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
@@ -4445,6 +4465,7 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'Lexik\\Bundle\\JWTAuthenticationBundle\\DependencyInjection\\Compiler\\WireGenerateTokenCommandPass' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/DependencyInjection/Compiler/WireGenerateTokenCommandPass.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/DependencyInjection/Configuration.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\DependencyInjection\\LexikJWTAuthenticationExtension' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/DependencyInjection/LexikJWTAuthenticationExtension.php',
+        'Lexik\\Bundle\\JWTAuthenticationBundle\\DependencyInjection\\Security\\Factory\\JWTAuthenticatorFactory' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/DependencyInjection/Security/Factory/JWTAuthenticatorFactory.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\DependencyInjection\\Security\\Factory\\JWTFactory' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/DependencyInjection/Security/Factory/JWTFactory.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\DependencyInjection\\Security\\Factory\\JWTUserFactory' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/DependencyInjection/Security/Factory/JWTUserFactory.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\Encoder\\DefaultEncoder' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Encoder/DefaultEncoder.php',
@@ -4478,6 +4499,7 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\Authentication\\Token\\JWTUserToken' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Security/Authentication/Token/JWTUserToken.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\Authentication\\Token\\PreAuthenticationJWTUserToken' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Security/Authentication/Token/PreAuthenticationJWTUserToken.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\Authentication\\Token\\PreAuthenticationJWTUserTokenInterface' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Security/Authentication/Token/PreAuthenticationJWTUserTokenInterface.php',
+        'Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\Authenticator\\JWTAuthenticator' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Security/Authenticator/JWTAuthenticator.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\Firewall\\JWTListener' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Security/Firewall/JWTListener.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\Guard\\JWTTokenAuthenticator' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Security/Guard/JWTTokenAuthenticator.php',
         'Lexik\\Bundle\\JWTAuthenticationBundle\\Security\\Http\\Authentication\\AuthenticationFailureHandler' => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle/Security/Http/Authentication/AuthenticationFailureHandler.php',
@@ -4872,6 +4894,20 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'Metadata\\MethodMetadata' => __DIR__ . '/..' . '/jms/metadata/src/MethodMetadata.php',
         'Metadata\\NullMetadata' => __DIR__ . '/..' . '/jms/metadata/src/NullMetadata.php',
         'Metadata\\PropertyMetadata' => __DIR__ . '/..' . '/jms/metadata/src/PropertyMetadata.php',
+        'Misd\\PhoneNumberBundle\\DependencyInjection\\Compiler\\FormTwigTemplateCompilerPass' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/DependencyInjection/Compiler/FormTwigTemplateCompilerPass.php',
+        'Misd\\PhoneNumberBundle\\DependencyInjection\\Configuration' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/DependencyInjection/Configuration.php',
+        'Misd\\PhoneNumberBundle\\DependencyInjection\\MisdPhoneNumberExtension' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/DependencyInjection/MisdPhoneNumberExtension.php',
+        'Misd\\PhoneNumberBundle\\Doctrine\\DBAL\\Types\\PhoneNumberType' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Doctrine/DBAL/Types/PhoneNumberType.php',
+        'Misd\\PhoneNumberBundle\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Exception/InvalidArgumentException.php',
+        'Misd\\PhoneNumberBundle\\Form\\DataTransformer\\PhoneNumberToArrayTransformer' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Form/DataTransformer/PhoneNumberToArrayTransformer.php',
+        'Misd\\PhoneNumberBundle\\Form\\DataTransformer\\PhoneNumberToStringTransformer' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Form/DataTransformer/PhoneNumberToStringTransformer.php',
+        'Misd\\PhoneNumberBundle\\Form\\Type\\PhoneNumberType' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Form/Type/PhoneNumberType.php',
+        'Misd\\PhoneNumberBundle\\MisdPhoneNumberBundle' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/MisdPhoneNumberBundle.php',
+        'Misd\\PhoneNumberBundle\\Serializer\\Normalizer\\PhoneNumberNormalizer' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Serializer/Normalizer/PhoneNumberNormalizer.php',
+        'Misd\\PhoneNumberBundle\\Templating\\Helper\\PhoneNumberHelper' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Templating/Helper/PhoneNumberHelper.php',
+        'Misd\\PhoneNumberBundle\\Twig\\Extension\\PhoneNumberHelperExtension' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Twig/Extension/PhoneNumberHelperExtension.php',
+        'Misd\\PhoneNumberBundle\\Validator\\Constraints\\PhoneNumber' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Validator/Constraints/PhoneNumber.php',
+        'Misd\\PhoneNumberBundle\\Validator\\Constraints\\PhoneNumberValidator' => __DIR__ . '/..' . '/odolbeau/phone-number-bundle/src/Validator/Constraints/PhoneNumberValidator.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',
@@ -9735,6 +9771,47 @@ class ComposerStaticInit30a97f4eeae4c19a6fa8f32fe1978fb9
         'ZipStream\\Option\\Version' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Option/Version.php',
         'ZipStream\\Stream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Stream.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
+        'libphonenumber\\AlternateFormatsCountryCodeSet' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/AlternateFormatsCountryCodeSet.php',
+        'libphonenumber\\AsYouTypeFormatter' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/AsYouTypeFormatter.php',
+        'libphonenumber\\CountryCodeSource' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/CountryCodeSource.php',
+        'libphonenumber\\CountryCodeToRegionCodeMap' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/CountryCodeToRegionCodeMap.php',
+        'libphonenumber\\CountryCodeToRegionCodeMapForTesting' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/CountryCodeToRegionCodeMapForTesting.php',
+        'libphonenumber\\DefaultMetadataLoader' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/DefaultMetadataLoader.php',
+        'libphonenumber\\Leniency' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/Leniency.php',
+        'libphonenumber\\Leniency\\AbstractLeniency' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/Leniency/AbstractLeniency.php',
+        'libphonenumber\\Leniency\\ExactGrouping' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/Leniency/ExactGrouping.php',
+        'libphonenumber\\Leniency\\Possible' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/Leniency/Possible.php',
+        'libphonenumber\\Leniency\\StrictGrouping' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/Leniency/StrictGrouping.php',
+        'libphonenumber\\Leniency\\Valid' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/Leniency/Valid.php',
+        'libphonenumber\\MatchType' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/MatchType.php',
+        'libphonenumber\\Matcher' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/Matcher.php',
+        'libphonenumber\\MatcherAPIInterface' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/MatcherAPIInterface.php',
+        'libphonenumber\\MetadataLoaderInterface' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/MetadataLoaderInterface.php',
+        'libphonenumber\\MetadataSourceInterface' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/MetadataSourceInterface.php',
+        'libphonenumber\\MultiFileMetadataSourceImpl' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/MultiFileMetadataSourceImpl.php',
+        'libphonenumber\\NumberFormat' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/NumberFormat.php',
+        'libphonenumber\\NumberParseException' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/NumberParseException.php',
+        'libphonenumber\\PhoneMetadata' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneMetadata.php',
+        'libphonenumber\\PhoneNumber' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumber.php',
+        'libphonenumber\\PhoneNumberDesc' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberDesc.php',
+        'libphonenumber\\PhoneNumberFormat' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberFormat.php',
+        'libphonenumber\\PhoneNumberMatch' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberMatch.php',
+        'libphonenumber\\PhoneNumberMatcher' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberMatcher.php',
+        'libphonenumber\\PhoneNumberToCarrierMapper' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberToCarrierMapper.php',
+        'libphonenumber\\PhoneNumberToTimeZonesMapper' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberToTimeZonesMapper.php',
+        'libphonenumber\\PhoneNumberType' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberType.php',
+        'libphonenumber\\PhoneNumberUtil' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/PhoneNumberUtil.php',
+        'libphonenumber\\RegexBasedMatcher' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/RegexBasedMatcher.php',
+        'libphonenumber\\RegionCode' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/RegionCode.php',
+        'libphonenumber\\ShortNumberCost' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/ShortNumberCost.php',
+        'libphonenumber\\ShortNumberInfo' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/ShortNumberInfo.php',
+        'libphonenumber\\ShortNumbersRegionCodeSet' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/ShortNumbersRegionCodeSet.php',
+        'libphonenumber\\ValidationResult' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/ValidationResult.php',
+        'libphonenumber\\geocoding\\PhoneNumberOfflineGeocoder' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/geocoding/PhoneNumberOfflineGeocoder.php',
+        'libphonenumber\\prefixmapper\\MappingFileProvider' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/prefixmapper/MappingFileProvider.php',
+        'libphonenumber\\prefixmapper\\PhonePrefixMap' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/prefixmapper/PhonePrefixMap.php',
+        'libphonenumber\\prefixmapper\\PrefixFileReader' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/prefixmapper/PrefixFileReader.php',
+        'libphonenumber\\prefixmapper\\PrefixTimeZonesMap' => __DIR__ . '/..' . '/giggsey/libphonenumber-for-php/src/prefixmapper/PrefixTimeZonesMap.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

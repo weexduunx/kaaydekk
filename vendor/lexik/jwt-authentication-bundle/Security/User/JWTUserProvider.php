@@ -27,8 +27,6 @@ final class JWTUserProvider implements PayloadAwareUserProviderInterface
      * {@inheritdoc}
      *
      * @param array $payload The JWT payload from which to create an instance
-     *
-     * @return JWTUserInterface
      */
     public function loadUserByUsername($username, array $payload = [])
     {
@@ -37,16 +35,37 @@ final class JWTUserProvider implements PayloadAwareUserProviderInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @param array $payload The JWT payload from which to create an instance
      */
-    public function loadUserByUsernameAndPayload($username, array $payload)
+    public function loadUserByIdentifier(string $identifier, array $payload = []): UserInterface
     {
-        $class = $this->class;
+        return $this->loadUserByIdentifierAndPayload($identifier, $payload);
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function loadUserByUsernameAndPayload(string $username, array $payload): UserInterface
+    {
         if (isset($this->cache[$username])) {
             return $this->cache[$username];
         }
+        
+        $class = $this->class;
 
         return $this->cache[$username] = $class::createFromPayload($username, $payload);
+    }
+
+    public function loadUserByIdentifierAndPayload(string $userIdentifier, array $payload): UserInterface
+    {
+        if (isset($this->cache[$userIdentifier])) {
+            return $this->cache[$userIdentifier];
+        }
+        
+        $class = $this->class;
+        
+        return $this->cache[$userIdentifier] = $class::createFromPayload($userIdentifier, $payload);
     }
 
     /**
@@ -57,7 +76,7 @@ final class JWTUserProvider implements PayloadAwareUserProviderInterface
         return $class === $this->class || (new \ReflectionClass($class))->implementsInterface(JWTUserInterface::class);
     }
 
-    public function refreshUser(UserInterface $user)
+    public function refreshUser(UserInterface $user): UserInterface
     {
         return $user; // noop
     }

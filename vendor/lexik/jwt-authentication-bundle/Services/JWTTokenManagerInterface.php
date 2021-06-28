@@ -2,6 +2,7 @@
 
 namespace Lexik\Bundle\JWTAuthenticationBundle\Services;
 
+use Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTDecodeFailureException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -12,7 +13,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @author Robin Chalas <robin.chalas@gmail.com>
  * @author Eric Lannez <eric.lannez@gmail.com>
  *
- * @method createFromPayload(UserInterface $user, array $payload = []);
+ * @method string createFromPayload(UserInterface $user, array $payload = []);
+ * @method array parse(string $token) Parses a raw JWT token and returns its payload
  */
 interface JWTTokenManagerInterface
 {
@@ -23,6 +25,7 @@ interface JWTTokenManagerInterface
 
     /**
      * @return array|false The JWT token payload or false if an error occurs
+     * @throws JWTDecodeFailureException
      */
     public function decode(TokenInterface $token);
 
