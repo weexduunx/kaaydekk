@@ -66,10 +66,10 @@ class Details4 extends \App\Entity\Details4 implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'details3s', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'contrat'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'details3s', '' . "\0" . 'App\\Entity\\Details4' . "\0" . 'contrat'];
     }
 
     /**
@@ -255,6 +255,61 @@ class Details4 extends \App\Entity\Details4 implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDetails3s(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDetails3s', []);
+
+        return parent::getDetails3s();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addDetails3(\App\Entity\Details3 $details3): \App\Entity\Details4
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addDetails3', [$details3]);
+
+        return parent::addDetails3($details3);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeDetails3(\App\Entity\Details3 $details3): \App\Entity\Details4
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeDetails3', [$details3]);
+
+        return parent::removeDetails3($details3);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getContrat(): ?\App\Entity\Details5
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContrat', []);
+
+        return parent::getContrat();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContrat(?\App\Entity\Details5 $contrat): \App\Entity\Details4
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContrat', [$contrat]);
+
+        return parent::setContrat($contrat);
     }
 
 }

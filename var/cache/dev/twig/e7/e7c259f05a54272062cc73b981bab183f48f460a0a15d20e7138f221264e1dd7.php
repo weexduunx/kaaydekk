@@ -27,7 +27,6 @@ class __TwigTemplate_01286ebd61e6bebefe3a8af062c133c1f20878b9357f3b40d020402141b
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
-            'javascripts' => [$this, 'block_javascripts'],
         ];
     }
 
@@ -274,53 +273,6 @@ class __TwigTemplate_01286ebd61e6bebefe3a8af062c133c1f20878b9357f3b40d020402141b
 
     }
 
-    // line 106
-    public function block_javascripts($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 107
-        echo " <script>
-    window.onload = () => {
-        let situation = document.querySelector(\"#candidature_form_situation\");
-
-        situation.addEventListener(\"change\", function(){
-            let form = this.closest(\"form\");
-            let data = this.name + \"=\" + this.value;
-
-            fetch(form.action, {
-                method: form.getAttribute(\"method\"),
-                body: data,
-                headers: {
-                    \"Content-Type\" : \"application/x-www-form-urlencoded;
-                    charset:utf-8\"
-                }
-            })
-            .then(response => response.text())
-            .then(html =>{
-                let content = document.createElement(\"html\");
-                content.innerHTML = html;
-                let nouveauSelect = content.querySelector(\"#candidature_form_secteur\");
-                document.querySelector(\"#candidature_form_secteur\").replaceWith
-                (nouveauSelect);
-            })
-        });
-    }
- </script>
- ";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
     public function getTemplateName()
     {
         return "form_candidat/form1.html.twig";
@@ -333,7 +285,7 @@ class __TwigTemplate_01286ebd61e6bebefe3a8af062c133c1f20878b9357f3b40d020402141b
 
     public function getDebugInfo()
     {
-        return array (  288 => 107,  278 => 106,  259 => 96,  252 => 92,  240 => 83,  226 => 72,  222 => 71,  218 => 70,  214 => 69,  199 => 57,  195 => 56,  191 => 55,  186 => 53,  182 => 52,  178 => 51,  173 => 49,  169 => 48,  165 => 47,  150 => 35,  146 => 34,  142 => 33,  137 => 31,  133 => 30,  129 => 29,  125 => 28,  121 => 27,  117 => 26,  113 => 25,  105 => 20,  92 => 9,  82 => 8,  63 => 3,  52 => 1,  50 => 5,  37 => 1,);
+        return array (  258 => 96,  251 => 92,  239 => 83,  225 => 72,  221 => 71,  217 => 70,  213 => 69,  198 => 57,  194 => 56,  190 => 55,  185 => 53,  181 => 52,  177 => 51,  172 => 49,  168 => 48,  164 => 47,  149 => 35,  145 => 34,  141 => 33,  136 => 31,  132 => 30,  128 => 29,  124 => 28,  120 => 27,  116 => 26,  112 => 25,  104 => 20,  91 => 9,  81 => 8,  62 => 3,  51 => 1,  49 => 5,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -442,36 +394,6 @@ class __TwigTemplate_01286ebd61e6bebefe3a8af062c133c1f20878b9357f3b40d020402141b
         </section>
     </main>
 {% endblock %}
-
- {% block javascripts %}
- <script>
-    window.onload = () => {
-        let situation = document.querySelector(\"#candidature_form_situation\");
-
-        situation.addEventListener(\"change\", function(){
-            let form = this.closest(\"form\");
-            let data = this.name + \"=\" + this.value;
-
-            fetch(form.action, {
-                method: form.getAttribute(\"method\"),
-                body: data,
-                headers: {
-                    \"Content-Type\" : \"application/x-www-form-urlencoded;
-                    charset:utf-8\"
-                }
-            })
-            .then(response => response.text())
-            .then(html =>{
-                let content = document.createElement(\"html\");
-                content.innerHTML = html;
-                let nouveauSelect = content.querySelector(\"#candidature_form_secteur\");
-                document.querySelector(\"#candidature_form_secteur\").replaceWith
-                (nouveauSelect);
-            })
-        });
-    }
- </script>
- {% endblock %}
 ", "form_candidat/form1.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/form_candidat/form1.html.twig");
     }
 }

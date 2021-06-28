@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -64,6 +65,12 @@ class Client
     private $status;
 
     /**
+     *  @Assert\Count(
+     *      min = 1,
+     *      max = 5,
+     *      minMessage = "You must specify at least one email",
+     *      maxMessage = "You cannot specify more than {{ limit }} emails"
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $email;

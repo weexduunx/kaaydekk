@@ -71,7 +71,7 @@ class DetailsCandidature
      * @ORM\JoinColumn(name="situation_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")
      */
     private $situation;
-
+ 
     /**
      * @ORM\ManyToOne(targetEntity=Details4::class, inversedBy="detailsCandidatures")
      * @ORM\JoinColumn(name="secteur_id", nullable=true, referencedColumnName="id", onDelete="CASCADE")

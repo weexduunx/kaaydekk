@@ -29,9 +29,12 @@ class Details5
      */
     private $detailsCandidatures;
 
+
+
     public function __construct()
     {
         $this->detailsCandidatures = new ArrayCollection();
+        
     }
 
     public function getId(): ?int

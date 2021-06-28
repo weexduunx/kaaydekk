@@ -270,12 +270,12 @@ let biens = document.querySelector("#pie")
 let pieGraph = new Chart(biens, {
 type: "polarArea",
 data: {
-labels: {{ nom|raw }},
+labels: {{ prenom|raw }},
 datasets: [
 {
 label: "Revenu Mensuel",
 data: {{ revenu|raw }},
-backgroundColor: {{ color|raw }}
+backgroundColor: {{ color1|raw }}
 }
 ]
 }
@@ -284,15 +284,14 @@ let bienx = document.querySelector("#pie1")
 let pieGraph1 = new Chart(bienx, {
 type: "polarArea",
 data: {
-labels: {{ prenom|raw }},
+labels: {{ nom|raw }},
 datasets: [
 {
 label: "Salaire Mensuel",
 data: {{ salaire|raw }},
-backgroundColor: {{ color1|raw }}
-}
-]
-}
+backgroundColor: {{ color|raw }}
+}]
+    }
 })
 
 

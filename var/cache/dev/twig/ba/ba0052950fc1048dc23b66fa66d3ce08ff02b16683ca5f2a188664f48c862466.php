@@ -530,7 +530,7 @@ type: \"polarArea\",
 data: {
 labels: ";
         // line 273
-        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 273, $this->source); })());
+        echo (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 273, $this->source); })());
         echo ",
 datasets: [
 {
@@ -541,7 +541,7 @@ data: ";
         echo ",
 backgroundColor: ";
         // line 278
-        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 278, $this->source); })());
+        echo (isset($context["color1"]) || array_key_exists("color1", $context) ? $context["color1"] : (function () { throw new RuntimeError('Variable "color1" does not exist.', 278, $this->source); })());
         echo "
 }
 ]
@@ -553,7 +553,7 @@ type: \"polarArea\",
 data: {
 labels: ";
         // line 287
-        echo (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 287, $this->source); })());
+        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 287, $this->source); })());
         echo ",
 datasets: [
 {
@@ -564,11 +564,10 @@ data: ";
         echo ",
 backgroundColor: ";
         // line 292
-        echo (isset($context["color1"]) || array_key_exists("color1", $context) ? $context["color1"] : (function () { throw new RuntimeError('Variable "color1" does not exist.', 292, $this->source); })());
+        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 292, $this->source); })());
         echo "
-}
-]
-}
+}]
+    }
 })
 
 
@@ -577,19 +576,19 @@ let clientGraph = new Chart(clients, {
 type: \"bar\",
 data: {
 labels: ";
-        // line 303
-        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 303, $this->source); })());
+        // line 302
+        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 302, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Nombre de Clients\",
 data: ";
-        // line 307
-        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 307, $this->source); })());
+        // line 306
+        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 306, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 308
-        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 308, $this->source); })());
+        // line 307
+        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 307, $this->source); })());
         echo "
 }
 ]
@@ -603,19 +602,19 @@ let priceGraph = new Chart(prices, {
 type: \"doughnut\",
 data: {
 labels: ";
-        // line 320
-        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 320, $this->source); })());
+        // line 319
+        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 319, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Nombre de Clients\",
 data: ";
-        // line 324
-        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 324, $this->source); })());
+        // line 323
+        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 323, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 325
-        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 325, $this->source); })());
+        // line 324
+        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 324, $this->source); })());
         echo "
 
 }
@@ -645,7 +644,7 @@ backgroundColor: ";
 
     public function getDebugInfo()
     {
-        return array (  618 => 325,  614 => 324,  607 => 320,  592 => 308,  588 => 307,  581 => 303,  567 => 292,  563 => 291,  556 => 287,  544 => 278,  540 => 277,  533 => 273,  523 => 265,  513 => 264,  500 => 13,  490 => 12,  480 => 264,  471 => 257,  460 => 252,  456 => 251,  452 => 250,  448 => 248,  444 => 247,  393 => 198,  384 => 196,  380 => 195,  364 => 181,  357 => 176,  352 => 173,  343 => 171,  339 => 170,  327 => 160,  318 => 158,  314 => 157,  303 => 148,  301 => 147,  297 => 145,  288 => 142,  283 => 140,  278 => 139,  274 => 138,  259 => 125,  257 => 124,  225 => 95,  205 => 78,  200 => 76,  179 => 58,  173 => 55,  152 => 37,  147 => 35,  132 => 23,  124 => 18,  119 => 15,  117 => 12,  114 => 11,  104 => 10,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
+        return array (  617 => 324,  613 => 323,  606 => 319,  591 => 307,  587 => 306,  580 => 302,  567 => 292,  563 => 291,  556 => 287,  544 => 278,  540 => 277,  533 => 273,  523 => 265,  513 => 264,  500 => 13,  490 => 12,  480 => 264,  471 => 257,  460 => 252,  456 => 251,  452 => 250,  448 => 248,  444 => 247,  393 => 198,  384 => 196,  380 => 195,  364 => 181,  357 => 176,  352 => 173,  343 => 171,  339 => 170,  327 => 160,  318 => 158,  314 => 157,  303 => 148,  301 => 147,  297 => 145,  288 => 142,  283 => 140,  278 => 139,  274 => 138,  259 => 125,  257 => 124,  225 => 95,  205 => 78,  200 => 76,  179 => 58,  173 => 55,  152 => 37,  147 => 35,  132 => 23,  124 => 18,  119 => 15,  117 => 12,  114 => 11,  104 => 10,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
     }
 
     public function getSourceContext()
@@ -922,12 +921,12 @@ let biens = document.querySelector(\"#pie\")
 let pieGraph = new Chart(biens, {
 type: \"polarArea\",
 data: {
-labels: {{ nom|raw }},
+labels: {{ prenom|raw }},
 datasets: [
 {
 label: \"Revenu Mensuel\",
 data: {{ revenu|raw }},
-backgroundColor: {{ color|raw }}
+backgroundColor: {{ color1|raw }}
 }
 ]
 }
@@ -936,15 +935,14 @@ let bienx = document.querySelector(\"#pie1\")
 let pieGraph1 = new Chart(bienx, {
 type: \"polarArea\",
 data: {
-labels: {{ prenom|raw }},
+labels: {{ nom|raw }},
 datasets: [
 {
 label: \"Salaire Mensuel\",
 data: {{ salaire|raw }},
-backgroundColor: {{ color1|raw }}
-}
-]
-}
+backgroundColor: {{ color|raw }}
+}]
+    }
 })
 
 

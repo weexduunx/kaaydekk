@@ -33,7 +33,6 @@ class Details3
     public function __construct()
     {
         $this->detailsCandidatures = new ArrayCollection();
-        $this->secteur = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,5 +85,6 @@ class Details3
     {
         return $this->label;
     }
+
 
 }

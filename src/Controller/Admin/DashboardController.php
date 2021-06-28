@@ -71,34 +71,34 @@ class DashboardController extends AbstractDashboardController
         //on va chercher les détails des candidatures clients
         $candidats = $this->detailsCandidatureRepository->findAll();
 
-        $nom = [];
-        $color = [];
-        $count = [];
+        $prenom = [];
+        $color1 = [];
+        $count1 = [];
         $revenu = [];
 
         // J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
         foreach ($candidats as $candidat){
-            $nom[] = $candidat->getPrenomEtNom();
-            $color[] = $candidat->getColor();
+            $prenom[] = $candidat->getPrenomEtNom();
+            $color1[] = $candidat->getColor();
             $revenu[] = $candidat->getRevenuMensuelle();
-            $count[] = count($candidat->getNom());
+            $count1[] = count($candidat->getNom());
 
         }
 
          //on va chercher les détails des candidatures clients
          $candidatx = $this->detailsCandidatureRepository->findAll();
 
-         $prenom = [];
-         $color1 = [];
-         $count1 = [];
+         $nom = [];
+         $color = [];
+         $count = [];
          $salaire = [];
  
          // J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
          foreach ($candidatx as $salarie){
-             $prenom[] = $salarie->getPrenomEtNom();
-             $color1[] = $salarie->getColor();
+             $nom[] = $salarie->getClient()->getPrenom();
+             $color[] = $salarie->getColor();
              $salaire[] = $salarie->getSalaireMensuelle();
-             $count1[] = count($salarie->getNom());
+             $count[] = count($salarie->getNom());
  
          }
 
@@ -183,13 +183,13 @@ class DashboardController extends AbstractDashboardController
                 'nom' =>json_encode($nom),
                 'color' =>json_encode($color),
                 'count' =>json_encode($count),
-                'revenu'=>json_encode($revenu),
+                'salaire'=>json_encode($salaire),
 
 
                 'prenom' =>json_encode($prenom),
                 'color1' =>json_encode($color1),
                 'count1' =>json_encode($count1),
-                'salaire'=>json_encode($salaire),
+                'revenu'=>json_encode($revenu),
 
                 'dates'=>json_encode($dates),
                 'compte'=>json_encode($compte),

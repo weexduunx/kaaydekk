@@ -6,7 +6,7 @@ return array (
   'APP_ENV' => 'dev',
   'APP_SECRET' => 'e987b6ab7f8c82ccd87d8fb70b6710bb',
   'MAILER_DSN' => 'sendgrid://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@default',
-  'DATABASE_URL' => 'mysql://idy:weexduunx@127.0.0.1:3306/db_kadiOfficial?serverVersion=5.7',
+  'DATABASE_URL' => 'mysql://idy_admin:weex@127.0.0.1:3306/db_kadiOfficial?serverVersion=5.7',
   'CORS_ALLOW_ORIGIN' => '^https?://(localhost|127\\.0\\.0\\.1)(:[0-9]+)?$',
   'JWT_SECRET_KEY' => '%kernel.project_dir%/config/jwt/private.pem',
   'JWT_PUBLIC_KEY' => '%kernel.project_dir%/config/jwt/public.pem',
