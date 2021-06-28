@@ -95,7 +95,7 @@ class DashboardController extends AbstractDashboardController
  
          // J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
          foreach ($candidatx as $salarie){
-             $nom[] = $salarie->getClient()->getPrenom();
+             $nom[] = $salarie->getPrenomEtNom();
              $color[] = $salarie->getColor();
              $salaire[] = $salarie->getSalaireMensuelle();
              $count[] = count($salarie->getNom());
