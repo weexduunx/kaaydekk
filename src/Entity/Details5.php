@@ -29,11 +29,17 @@ class Details5
      */
     private $detailsCandidatures;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="typeDeContrat")
+     */
+    private $inscriptions;
+
 
 
     public function __construct()
     {
         $this->detailsCandidatures = new ArrayCollection();
+        $this->inscriptions = new ArrayCollection();
         
     }
 
@@ -86,5 +92,35 @@ class Details5
     public function __toString()
     {
         return $this->label;
+    }
+
+    /**
+     * @return Collection|Inscription[]
+     */
+    public function getInscriptions(): Collection
+    {
+        return $this->inscriptions;
+    }
+
+    public function addInscription(Inscription $inscription): self
+    {
+        if (!$this->inscriptions->contains($inscription)) {
+            $this->inscriptions[] = $inscription;
+            $inscription->setTypeDeContrat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): self
+    {
+        if ($this->inscriptions->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getTypeDeContrat() === $this) {
+                $inscription->setTypeDeContrat(null);
+            }
+        }
+
+        return $this;
     }
 }

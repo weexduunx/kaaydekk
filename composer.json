@@ -21,6 +21,7 @@
         "kevinpapst/adminlte-bundle": "^3.0",
         "knplabs/knp-paginator-bundle": "^5.4",
         "knpuniversity/oauth2-client-bundle": "^2.8",
+        "league/csv": "^8.0",
         "league/oauth2-google": "^4.0",
         "lexik/jwt-authentication-bundle": "^2.11",
         "liip/imagine-bundle": "^2.6",

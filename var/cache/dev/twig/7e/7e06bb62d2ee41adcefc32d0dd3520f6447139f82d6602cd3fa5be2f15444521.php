@@ -109,7 +109,7 @@ class __TwigTemplate_bf9c2ab3c72464cd286495ae39570e5dd2ae5acfd6b0dd38443dc5c0422
         echo "                        <div class=\"col-12\">
                             <h4 class=\"text-center\">Merci!!!</h4>
                                 <div class=\"text-center\">
-                                 <p>Merci d'avoir pris tout ce temps pour remplir ce formulaire, l'agence <strong>Kaay Dëkk</strong> et ses partenaires vous remercie</p>
+                                 <p>Merci d'avoir pris tout ce temps pour remplir ce formulaire, l'agence <strong>Kaay Dëkk</strong> et ses partenaires vous remercient</p>
                                  <p>Votre demande sera traitée et nous vous reviendrons dans les plus brefs délais.</p>
                                 <img src=\"";
         // line 18
@@ -163,7 +163,7 @@ class __TwigTemplate_bf9c2ab3c72464cd286495ae39570e5dd2ae5acfd6b0dd38443dc5c0422
                         <div class=\"col-12\">
                             <h4 class=\"text-center\">Merci!!!</h4>
                                 <div class=\"text-center\">
-                                 <p>Merci d'avoir pris tout ce temps pour remplir ce formulaire, l'agence <strong>Kaay Dëkk</strong> et ses partenaires vous remercie</p>
+                                 <p>Merci d'avoir pris tout ce temps pour remplir ce formulaire, l'agence <strong>Kaay Dëkk</strong> et ses partenaires vous remercient</p>
                                  <p>Votre demande sera traitée et nous vous reviendrons dans les plus brefs délais.</p>
                                 <img src=\"{{asset('assets/images/logo-kdi.png') }}\" class=\"rounded float-left\"  alt=\"...\">
                                </div>

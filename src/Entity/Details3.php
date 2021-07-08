@@ -29,10 +29,16 @@ class Details3
      */
     private $detailsCandidatures;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="situationProfessionelle")
+     */
+    private $inscriptions;
+
 
     public function __construct()
     {
         $this->detailsCandidatures = new ArrayCollection();
+        $this->inscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -84,6 +90,36 @@ class Details3
     public function __toString()
     {
         return $this->label;
+    }
+
+    /**
+     * @return Collection|Inscription[]
+     */
+    public function getInscriptions(): Collection
+    {
+        return $this->inscriptions;
+    }
+
+    public function addInscription(Inscription $inscription): self
+    {
+        if (!$this->inscriptions->contains($inscription)) {
+            $this->inscriptions[] = $inscription;
+            $inscription->setSituationProfessionelle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): self
+    {
+        if ($this->inscriptions->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getSituationProfessionelle() === $this) {
+                $inscription->setSituationProfessionelle(null);
+            }
+        }
+
+        return $this;
     }
 
 

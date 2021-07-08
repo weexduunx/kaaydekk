@@ -62,7 +62,7 @@ class ClientFormType extends AbstractType
             ])
             ->add('tel', TelType::class, [
                 'required' => true,
-              'constraints' => [new Length(['min' => 9])], 
+              'constraints' => [new Length(['min' => 9])],
             ])
             ->add('email', EmailType::class)
             ->add('date_de_naissance', DateType::class, [

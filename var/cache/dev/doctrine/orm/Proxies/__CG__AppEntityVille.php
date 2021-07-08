@@ -66,10 +66,10 @@ class Ville extends \App\Entity\Ville implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'clients', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'site', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lat', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lon'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'clients', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'site', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lat', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lon', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'inscriptions'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'clients', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'site', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lat', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lon'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'clients', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'site', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lat', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'lon', '' . "\0" . 'App\\Entity\\Ville' . "\0" . 'inscriptions'];
     }
 
     /**
@@ -387,6 +387,39 @@ class Ville extends \App\Entity\Ville implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLon', [$lon]);
 
         return parent::setLon($lon);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getInscriptions(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInscriptions', []);
+
+        return parent::getInscriptions();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addInscription(\App\Entity\Inscription $inscription): \App\Entity\Ville
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addInscription', [$inscription]);
+
+        return parent::addInscription($inscription);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeInscription(\App\Entity\Inscription $inscription): \App\Entity\Ville
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeInscription', [$inscription]);
+
+        return parent::removeInscription($inscription);
     }
 
 }

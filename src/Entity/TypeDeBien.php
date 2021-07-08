@@ -44,10 +44,17 @@ class TypeDeBien
      */
     private $detailsCandidatures;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="typeDeLogement")
+     *  @ORM\JoinColumn( onDelete="CASCADE")
+     */
+    private $inscriptions;
+
     public function __construct()
     {
         $this->bien = new ArrayCollection();
         $this->detailsCandidatures = new ArrayCollection();
+        $this->inscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -138,6 +145,36 @@ class TypeDeBien
             // set the owning side to null (unless already changed)
             if ($detailsCandidature->getTypeDeLogement() === $this) {
                 $detailsCandidature->setTypeDeLogement(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Inscription[]
+     */
+    public function getInscriptions(): Collection
+    {
+        return $this->inscriptions;
+    }
+
+    public function addInscription(Inscription $inscription): self
+    {
+        if (!$this->inscriptions->contains($inscription)) {
+            $this->inscriptions[] = $inscription;
+            $inscription->setTypeDeLogement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): self
+    {
+        if ($this->inscriptions->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getTypeDeLogement() === $this) {
+                $inscription->setTypeDeLogement(null);
             }
         }
 

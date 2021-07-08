@@ -38,3 +38,9 @@ services:
         decorates: 'api_platform.swagger.normalizer.documentation'
         arguments: [ '@App\Swagger\SwaggerDecorator.inner' ]
         autoconfigure: false
+
+    console_command.csv_import:
+        class: App\Command\CsvImportComand
+        arguments: [' @doctrine.orm.entity_manager']
+        tags:
+        - { name: console_command}

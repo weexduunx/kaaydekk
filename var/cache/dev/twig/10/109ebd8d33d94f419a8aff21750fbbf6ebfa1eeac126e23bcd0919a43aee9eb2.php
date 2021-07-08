@@ -69,7 +69,7 @@ class __TwigTemplate_970ae1ad29f925f64c0e19fd303e0e2f321d2c39b166773f4c113bf387c
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/layout.html.twig"));
 
         // line 2
-        $context["__internal_8607b8902f3c85bf14c559c8a65e687df4e965068055da1a05850cb05352e75b"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 2, $this->source); })()), "i18n", [], "any", false, false, false, 2), "translationDomain", [], "any", false, false, false, 2);
+        $context["__internal_d830c397e75882a8e6aab05c2f6acb4752bb15f6ac9b59b59093b6c5c9602ece"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 2, $this->source); })()), "i18n", [], "any", false, false, false, 2), "translationDomain", [], "any", false, false, false, 2);
         // line 3
         echo "
 <!DOCTYPE html>
@@ -137,7 +137,7 @@ class __TwigTemplate_970ae1ad29f925f64c0e19fd303e0e2f321d2c39b166773f4c113bf387c
 \t";
         // line 69
         $this->displayBlock('body', $context, $blocks);
-        // line 296
+        // line 294
         echo "</html>
 
 ";
@@ -387,17 +387,17 @@ class __TwigTemplate_970ae1ad29f925f64c0e19fd303e0e2f321d2c39b166773f4c113bf387c
 \t\t\t";
         // line 84
         $this->displayBlock('wrapper_wrapper', $context, $blocks);
+        // line 267
+        echo "
+\t\t\t";
+        // line 268
+        $this->displayBlock('body_javascript', $context, $blocks);
         // line 269
         echo "
 \t\t\t";
         // line 270
-        $this->displayBlock('body_javascript', $context, $blocks);
-        // line 271
-        echo "
-\t\t\t";
-        // line 272
         $this->displayBlock('configured_javascripts', $context, $blocks);
-        // line 277
+        // line 275
         echo "\t\t\t<!-- All Jquery -->
 \t\t\t<!-- ============================================================== -->
 \t\t\t<script src=\"../assets/js/popper.js\"></script>
@@ -410,9 +410,9 @@ class __TwigTemplate_970ae1ad29f925f64c0e19fd303e0e2f321d2c39b166773f4c113bf387c
 \t\t\t<script src=\"../assets/smart-wizard/js/jquery.smartWizard.js\"></script>
 
 \t\t\t";
-        // line 288
+        // line 286
         $this->displayBlock('configured_body_contents', $context, $blocks);
-        // line 293
+        // line 291
         echo "
 \t\t</body>
 \t";
@@ -509,7 +509,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 \t\t\t\t\t";
         // line 86
         $this->displayBlock('wrapper', $context, $blocks);
-        // line 261
+        // line 259
         echo "\t\t\t\t\t<footer class=\"footer text-center text-muted\">\"
 \t\t\t\t\t\t                All Rights Reserved by NGTS INFORMATIQUE. Designed and Developed by\"
 \t\t\t\t\t\t<a class=\"text-muted\" href=\"http://idy-portfolio.byethost24.com/\">
@@ -547,32 +547,30 @@ localStorage.getItem('ea/sidebar/width') || '";
 \t\t\t\t\t\t<aside class=\"left-sidebar\" data-sidebarbg=\"skin6\">
 \t\t\t\t\t\t\t<div class=\"scroll-sidebar ps-container ps-theme-default ps-active-y\" 
 \t\t\t\t\t\t\tdata-sidebarbg=\"skin6\" data-ps-id=\"331a301f-eec9-5c91-2c14-0a94a8ae5440\">
-\t\t\t\t\t\t\t\t<nav class=\"sidebar-nav\">
+\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t";
         // line 179
         $this->displayBlock('sidebar', $context, $blocks);
         // line 185
-        echo "\t\t\t\t\t\t\t\t</nav>
+        echo "\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-x-rail\" style=\"left: 0; bottom: 0;\">
 \t\t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-x\" tabindex=\"0\" style=\"left: 0; width: 0;\"></div>
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-y-rail\" style=\"top: 0; height: 771px; right: 3px;\">
-\t\t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-y\" tabindex=\"0\" style=\"top: 0; height: 486px;\"></div>
-\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</aside>
 
 \t\t\t\t\t\t<div class=\"page-wrapper\" style=\"display: block;\">
 \t\t\t\t\t\t\t<div id=\"sidebar-resizer-handler\" class=\"resizer-handler resizer-handler-left\"></div>
 \t\t\t\t\t\t\t";
-        // line 197
+        // line 195
         $this->displayBlock('content_header_wrapper', $context, $blocks);
-        // line 233
+        // line 231
         echo "
 \t\t\t\t\t\t\t";
-        // line 234
+        // line 232
         $this->displayBlock('content', $context, $blocks);
-        // line 258
+        // line 256
         echo "\t\t\t\t\t\t\t<div id=\"content-resizer-handler\" class=\"resizer-handler resizer-handler-right\"></div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t";
@@ -854,7 +852,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 197
+    // line 195
     public function block_content_header_wrapper($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -864,39 +862,39 @@ localStorage.getItem('ea/sidebar/width') || '";
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content_header_wrapper"));
 
-        // line 198
+        // line 196
         echo "\t\t\t\t\t\t\t\t";
-        $context["has_help_message"] =  !twig_test_empty((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "crud", [], "any", false, true, false, 198), "helpMessage", [], "any", true, true, false, 198) &&  !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "crud", [], "any", false, true, false, 198), "helpMessage", [], "any", false, false, false, 198)))) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "crud", [], "any", false, true, false, 198), "helpMessage", [], "any", false, false, false, 198)) : ("")));
-        // line 199
+        $context["has_help_message"] =  !twig_test_empty((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "crud", [], "any", false, true, false, 196), "helpMessage", [], "any", true, true, false, 196) &&  !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "crud", [], "any", false, true, false, 196), "helpMessage", [], "any", false, false, false, 196)))) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "crud", [], "any", false, true, false, 196), "helpMessage", [], "any", false, false, false, 196)) : ("")));
+        // line 197
         echo "\t\t\t\t\t\t\t\t<div class=\"page-breadcrumb\">
 \t\t\t\t\t\t\t\t\t<div class=\"row\">
 
 \t\t\t\t\t\t\t\t\t\t<div class=\"col-7 align-self-center\">
 \t\t\t\t\t\t\t\t\t\t\t<h3 class=\"page-title text-truncate text-dark font-weight-medium mb-1\">
 \t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 204
+        // line 202
         $this->displayBlock('content_title', $context, $blocks);
-        // line 205
+        // line 203
         echo "\t\t\t\t\t\t\t\t\t\t\t</h3>
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center\">
 \t\t\t\t\t\t\t\t\t\t\t\t<nav aria-label=\"breadcrumb\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t<ol class=\"breadcrumb m-0 p-0\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 209
-        if ((isset($context["has_help_message"]) || array_key_exists("has_help_message", $context) ? $context["has_help_message"] : (function () { throw new RuntimeError('Variable "has_help_message" does not exist.', 209, $this->source); })())) {
-            // line 210
+        // line 207
+        if ((isset($context["has_help_message"]) || array_key_exists("has_help_message", $context) ? $context["has_help_message"] : (function () { throw new RuntimeError('Variable "has_help_message" does not exist.', 207, $this->source); })())) {
+            // line 208
             echo "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"breadcrumb-item\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class=\"far fa-question-circle\" data-toggle=\"tooltip\" 
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\ttitle=\"";
-            // line 213
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 213, $this->source); })()), "crud", [], "any", false, false, false, 213), "helpMessage", [], "any", false, false, false, 213), "html_attr");
+            // line 211
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 211, $this->source); })()), "crud", [], "any", false, false, false, 211), "helpMessage", [], "any", false, false, false, 211), "html_attr");
             echo "\"></i>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t";
         }
-        // line 217
+        // line 215
         echo "\t\t\t\t\t\t\t\t\t\t\t\t\t</ol>
 \t\t\t\t\t\t\t\t\t\t\t\t</nav>
 \t\t\t\t\t\t\t\t\t\t\t</div>
@@ -904,9 +902,9 @@ localStorage.getItem('ea/sidebar/width') || '";
 \t\t\t\t\t\t\t\t\t\t<div class=\"col-5 align-self-center\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"customize-input float-right\">
 \t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 223
+        // line 221
         $this->displayBlock('page_actions_wrapper', $context, $blocks);
-        // line 228
+        // line 226
         echo "\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
@@ -920,7 +918,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 204
+    // line 202
     public function block_content_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -938,7 +936,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 223
+    // line 221
     public function block_page_actions_wrapper($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -948,12 +946,12 @@ localStorage.getItem('ea/sidebar/width') || '";
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "page_actions_wrapper"));
 
-        // line 224
+        // line 222
         echo "\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"page-actions\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 225
+        // line 223
         $this->displayBlock('page_actions', $context, $blocks);
-        // line 226
+        // line 224
         echo "\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t\t";
         
@@ -964,7 +962,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 225
+    // line 223
     public function block_page_actions($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -982,7 +980,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 234
+    // line 232
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -992,25 +990,25 @@ localStorage.getItem('ea/sidebar/width') || '";
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content"));
 
-        // line 235
+        // line 233
         echo "\t\t\t\t\t\t\t\t<div class=\"container-fluid\">
 \t\t\t\t\t\t\t\t\t";
-        // line 236
+        // line 234
         $this->displayBlock('flash_messages', $context, $blocks);
-        // line 239
+        // line 237
         echo "\t\t\t\t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"col-12\">
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"card \">
 \t\t\t\t\t\t\t\t\t\t\t\t<div class=\"card-body \">
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 243
+        // line 241
         $this->displayBlock('main', $context, $blocks);
-        // line 244
+        // line 242
         echo "\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t\t";
-        // line 245
+        // line 243
         $this->displayBlock('content_footer_wrapper', $context, $blocks);
-        // line 253
+        // line 251
         echo "\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
@@ -1024,7 +1022,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 236
+    // line 234
     public function block_flash_messages($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -1034,9 +1032,9 @@ localStorage.getItem('ea/sidebar/width') || '";
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "flash_messages"));
 
-        // line 237
+        // line 235
         echo "\t\t\t\t\t\t\t\t\t\t";
-        echo twig_include($this->env, $context, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 237, $this->source); })()), "templatePath", [0 => "flash_messages"], "method", false, false, false, 237));
+        echo twig_include($this->env, $context, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 235, $this->source); })()), "templatePath", [0 => "flash_messages"], "method", false, false, false, 235));
         echo "
 \t\t\t\t\t\t\t\t\t";
         
@@ -1047,7 +1045,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 243
+    // line 241
     public function block_main($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -1065,7 +1063,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 245
+    // line 243
     public function block_content_footer_wrapper($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -1075,22 +1073,22 @@ localStorage.getItem('ea/sidebar/width') || '";
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "content_footer_wrapper"));
 
-        // line 246
+        // line 244
         echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
         $context["content_footer"] = ((        $this->hasBlock("content_footer", $context, $blocks)) ? (        $this->renderBlock("content_footer", $context, $blocks)) : (""));
-        // line 247
+        // line 245
         echo "\t\t\t\t\t\t\t\t\t\t\t\t\t";
-        if ( !twig_test_empty((isset($context["content_footer"]) || array_key_exists("content_footer", $context) ? $context["content_footer"] : (function () { throw new RuntimeError('Variable "content_footer" does not exist.', 247, $this->source); })()))) {
-            // line 248
+        if ( !twig_test_empty((isset($context["content_footer"]) || array_key_exists("content_footer", $context) ? $context["content_footer"] : (function () { throw new RuntimeError('Variable "content_footer" does not exist.', 245, $this->source); })()))) {
+            // line 246
             echo "\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"card-footer\">
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
-            // line 249
-            echo twig_escape_filter($this->env, (isset($context["content_footer"]) || array_key_exists("content_footer", $context) ? $context["content_footer"] : (function () { throw new RuntimeError('Variable "content_footer" does not exist.', 249, $this->source); })()), "html", null, true);
+            // line 247
+            echo twig_escape_filter($this->env, (isset($context["content_footer"]) || array_key_exists("content_footer", $context) ? $context["content_footer"] : (function () { throw new RuntimeError('Variable "content_footer" does not exist.', 247, $this->source); })()), "html", null, true);
             echo "
 \t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t\t\t\t";
         }
-        // line 252
+        // line 250
         echo "\t\t\t\t\t\t\t\t\t\t\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -1100,7 +1098,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 270
+    // line 268
     public function block_body_javascript($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -1118,7 +1116,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 272
+    // line 270
     public function block_configured_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -1128,12 +1126,12 @@ localStorage.getItem('ea/sidebar/width') || '";
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "configured_javascripts"));
 
-        // line 273
+        // line 271
         echo "\t\t\t\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 273), "jsFiles", [], "any", true, true, false, 273) &&  !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 273), "jsFiles", [], "any", false, false, false, 273)))) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 273), "jsFiles", [], "any", false, false, false, 273)) : ([])));
+        $context['_seq'] = twig_ensure_traversable((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 271), "jsFiles", [], "any", true, true, false, 271) &&  !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 271), "jsFiles", [], "any", false, false, false, 271)))) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 271), "jsFiles", [], "any", false, false, false, 271)) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["js_asset"]) {
-            // line 274
+            // line 272
             echo "\t\t\t\t\t<script src=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl($context["js_asset"]), "html", null, true);
             echo "\"></script>
@@ -1142,7 +1140,7 @@ localStorage.getItem('ea/sidebar/width') || '";
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['js_asset'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 276
+        // line 274
         echo "\t\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -1152,7 +1150,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     }
 
-    // line 288
+    // line 286
     public function block_configured_body_contents($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -1162,12 +1160,12 @@ localStorage.getItem('ea/sidebar/width') || '";
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "configured_body_contents"));
 
-        // line 289
+        // line 287
         echo "\t\t\t\t";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 289), "bodyContents", [], "any", true, true, false, 289) &&  !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 289), "bodyContents", [], "any", false, false, false, 289)))) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 289), "bodyContents", [], "any", false, false, false, 289)) : ([])));
+        $context['_seq'] = twig_ensure_traversable((((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 287), "bodyContents", [], "any", true, true, false, 287) &&  !(null === twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 287), "bodyContents", [], "any", false, false, false, 287)))) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["ea"] ?? null), "assets", [], "any", false, true, false, 287), "bodyContents", [], "any", false, false, false, 287)) : ([])));
         foreach ($context['_seq'] as $context["_key"] => $context["htmlContent"]) {
-            // line 290
+            // line 288
             echo "\t\t\t\t\t";
             echo $context["htmlContent"];
             echo "
@@ -1176,7 +1174,7 @@ localStorage.getItem('ea/sidebar/width') || '";
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['htmlContent'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 292
+        // line 290
         echo "\t\t\t";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -1198,7 +1196,7 @@ localStorage.getItem('ea/sidebar/width') || '";
 
     public function getDebugInfo()
     {
-        return array (  1180 => 292,  1171 => 290,  1166 => 289,  1156 => 288,  1146 => 276,  1137 => 274,  1132 => 273,  1122 => 272,  1104 => 270,  1094 => 252,  1088 => 249,  1085 => 248,  1082 => 247,  1079 => 246,  1069 => 245,  1051 => 243,  1038 => 237,  1028 => 236,  1014 => 253,  1012 => 245,  1009 => 244,  1007 => 243,  1001 => 239,  999 => 236,  996 => 235,  986 => 234,  968 => 225,  957 => 226,  955 => 225,  952 => 224,  942 => 223,  924 => 204,  910 => 228,  908 => 223,  900 => 217,  893 => 213,  888 => 210,  886 => 209,  880 => 205,  878 => 204,  871 => 199,  868 => 198,  858 => 197,  845 => 181,  835 => 180,  824 => 183,  821 => 180,  811 => 179,  801 => 164,  797 => 162,  791 => 161,  785 => 158,  775 => 156,  768 => 152,  763 => 151,  760 => 150,  756 => 149,  753 => 148,  750 => 147,  740 => 146,  724 => 166,  721 => 165,  718 => 146,  716 => 145,  708 => 139,  702 => 137,  700 => 136,  695 => 133,  692 => 132,  686 => 130,  680 => 128,  677 => 127,  675 => 126,  667 => 120,  664 => 119,  661 => 118,  658 => 117,  655 => 116,  652 => 115,  642 => 114,  631 => 171,  629 => 114,  618 => 105,  611 => 99,  602 => 92,  598 => 89,  588 => 88,  576 => 258,  574 => 234,  571 => 233,  569 => 197,  555 => 185,  553 => 179,  545 => 173,  543 => 88,  540 => 87,  530 => 86,  513 => 261,  511 => 86,  508 => 85,  498 => 84,  483 => 78,  478 => 76,  473 => 73,  463 => 72,  428 => 70,  416 => 293,  414 => 288,  401 => 277,  399 => 272,  396 => 271,  394 => 270,  391 => 269,  389 => 84,  386 => 83,  384 => 72,  376 => 70,  366 => 69,  356 => 66,  347 => 64,  342 => 63,  332 => 62,  320 => 54,  317 => 53,  307 => 52,  294 => 48,  284 => 47,  273 => 44,  264 => 42,  259 => 41,  249 => 40,  230 => 30,  223 => 26,  218 => 24,  214 => 23,  211 => 22,  201 => 21,  188 => 17,  178 => 16,  163 => 8,  153 => 7,  141 => 296,  139 => 69,  135 => 67,  133 => 62,  130 => 61,  125 => 59,  120 => 58,  118 => 57,  115 => 56,  113 => 52,  109 => 50,  107 => 47,  104 => 46,  102 => 40,  99 => 39,  97 => 21,  93 => 19,  91 => 16,  87 => 14,  85 => 7,  78 => 5,  74 => 3,  72 => 2,);
+        return array (  1178 => 290,  1169 => 288,  1164 => 287,  1154 => 286,  1144 => 274,  1135 => 272,  1130 => 271,  1120 => 270,  1102 => 268,  1092 => 250,  1086 => 247,  1083 => 246,  1080 => 245,  1077 => 244,  1067 => 243,  1049 => 241,  1036 => 235,  1026 => 234,  1012 => 251,  1010 => 243,  1007 => 242,  1005 => 241,  999 => 237,  997 => 234,  994 => 233,  984 => 232,  966 => 223,  955 => 224,  953 => 223,  950 => 222,  940 => 221,  922 => 202,  908 => 226,  906 => 221,  898 => 215,  891 => 211,  886 => 208,  884 => 207,  878 => 203,  876 => 202,  869 => 197,  866 => 196,  856 => 195,  843 => 181,  833 => 180,  822 => 183,  819 => 180,  809 => 179,  799 => 164,  795 => 162,  789 => 161,  783 => 158,  773 => 156,  766 => 152,  761 => 151,  758 => 150,  754 => 149,  751 => 148,  748 => 147,  738 => 146,  722 => 166,  719 => 165,  716 => 146,  714 => 145,  706 => 139,  700 => 137,  698 => 136,  693 => 133,  690 => 132,  684 => 130,  678 => 128,  675 => 127,  673 => 126,  665 => 120,  662 => 119,  659 => 118,  656 => 117,  653 => 116,  650 => 115,  640 => 114,  629 => 171,  627 => 114,  616 => 105,  609 => 99,  600 => 92,  596 => 89,  586 => 88,  574 => 256,  572 => 232,  569 => 231,  567 => 195,  555 => 185,  553 => 179,  545 => 173,  543 => 88,  540 => 87,  530 => 86,  513 => 259,  511 => 86,  508 => 85,  498 => 84,  483 => 78,  478 => 76,  473 => 73,  463 => 72,  428 => 70,  416 => 291,  414 => 286,  401 => 275,  399 => 270,  396 => 269,  394 => 268,  391 => 267,  389 => 84,  386 => 83,  384 => 72,  376 => 70,  366 => 69,  356 => 66,  347 => 64,  342 => 63,  332 => 62,  320 => 54,  317 => 53,  307 => 52,  294 => 48,  284 => 47,  273 => 44,  264 => 42,  259 => 41,  249 => 40,  230 => 30,  223 => 26,  218 => 24,  214 => 23,  211 => 22,  201 => 21,  188 => 17,  178 => 16,  163 => 8,  153 => 7,  141 => 294,  139 => 69,  135 => 67,  133 => 62,  130 => 61,  125 => 59,  120 => 58,  118 => 57,  115 => 56,  113 => 52,  109 => 50,  107 => 47,  104 => 46,  102 => 40,  99 => 39,  97 => 21,  93 => 19,  91 => 16,  87 => 14,  85 => 7,  78 => 5,  74 => 3,  72 => 2,);
     }
 
     public function getSourceContext()
@@ -1380,20 +1378,18 @@ localStorage.getItem('ea/sidebar/width') || '{{ ea.crud.sidebarWidth ?? ea.dashb
 \t\t\t\t\t\t<aside class=\"left-sidebar\" data-sidebarbg=\"skin6\">
 \t\t\t\t\t\t\t<div class=\"scroll-sidebar ps-container ps-theme-default ps-active-y\" 
 \t\t\t\t\t\t\tdata-sidebarbg=\"skin6\" data-ps-id=\"331a301f-eec9-5c91-2c14-0a94a8ae5440\">
-\t\t\t\t\t\t\t\t<nav class=\"sidebar-nav\">
+\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t{% block sidebar %}
 \t\t\t\t\t\t\t\t\t\t{% block main_menu_wrapper %}
 \t\t\t\t\t\t\t\t\t\t\t{{ include(ea.templatePath('main_menu')) }}
 \t\t\t\t\t\t\t\t\t\t{% endblock main_menu_wrapper %}
 
 \t\t\t\t\t\t\t\t\t{% endblock sidebar %}
-\t\t\t\t\t\t\t\t</nav>
+\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-x-rail\" style=\"left: 0; bottom: 0;\">
 \t\t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-x\" tabindex=\"0\" style=\"left: 0; width: 0;\"></div>
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-y-rail\" style=\"top: 0; height: 771px; right: 3px;\">
-\t\t\t\t\t\t\t\t\t<div class=\"ps-scrollbar-y\" tabindex=\"0\" style=\"top: 0; height: 486px;\"></div>
-\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</aside>
 

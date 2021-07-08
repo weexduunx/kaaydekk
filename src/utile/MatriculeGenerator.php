@@ -3,16 +3,17 @@
 namespace App\utile;
 
 use App\Entity\DetailsCandidature;
-use App\Repository\DetailsCandidatureRepository;
+use App\Entity\Inscription;
+use App\Repository\InscriptionRepository;
 
 class MatriculeGenerator{
 
   private $matricule;
 
-  public function __construct(DetailsCandidatureRepository $DetailsCandidatureRepository)
+  public function __construct(InscriptionRepository $InscriptionRepository)
   {
 
-     $lastCandidat = $DetailsCandidatureRepository->findOneBy([],['id' => 'desc']);
+     $lastCandidat = $InscriptionRepository->findOneBy([],['id' => 'desc']);
 
      if($lastCandidat != null){
 
@@ -25,10 +26,10 @@ class MatriculeGenerator{
          }
   }
 
-  public function generate(DetailsCandidature $detailsCandidature){
+  public function generate(Inscription $inscription){
 
       $index = "CA-";
-      $candidat = $detailsCandidature ->getAgence()->getLabel();
+      $candidat = $inscription ->getSourceOuAgence()->getLabel();
 
       $number_of_word = (str_word_count($candidat,1));
 

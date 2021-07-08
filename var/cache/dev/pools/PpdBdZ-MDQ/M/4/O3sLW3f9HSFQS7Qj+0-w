@@ -8,6 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
     ],
     null,
     [
@@ -19,6 +20,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'clients',
                 'detailsCandidatures',
                 'details',
+                'inscriptions',
             ],
             'attributesMetadata' => [
                 [
@@ -27,6 +29,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'clients' => $o[3],
                     'detailsCandidatures' => $o[4],
                     'details' => $o[5],
+                    'inscriptions' => $o[6],
                 ],
             ],
         ],

@@ -131,7 +131,7 @@ class DetailsCandidature
      */
     private $handicap;
 
-    /**
+    /**   
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nom_employeur;

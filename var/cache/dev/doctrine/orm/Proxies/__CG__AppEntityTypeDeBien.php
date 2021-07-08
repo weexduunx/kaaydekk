@@ -66,10 +66,10 @@ class TypeDeBien extends \App\Entity\TypeDeBien implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'label', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'prix', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'bien', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'detailsCandidatures'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'label', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'prix', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'bien', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'inscriptions'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'label', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'prix', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'bien', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'detailsCandidatures'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'id', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'label', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'prix', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'bien', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\TypeDeBien' . "\0" . 'inscriptions'];
     }
 
     /**
@@ -310,6 +310,39 @@ class TypeDeBien extends \App\Entity\TypeDeBien implements \Doctrine\ORM\Proxy\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeDetailsCandidature', [$detailsCandidature]);
 
         return parent::removeDetailsCandidature($detailsCandidature);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getInscriptions(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInscriptions', []);
+
+        return parent::getInscriptions();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addInscription(\App\Entity\Inscription $inscription): \App\Entity\TypeDeBien
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addInscription', [$inscription]);
+
+        return parent::addInscription($inscription);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeInscription(\App\Entity\Inscription $inscription): \App\Entity\TypeDeBien
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeInscription', [$inscription]);
+
+        return parent::removeInscription($inscription);
     }
 
 }

@@ -5,6 +5,9 @@
     "giggsey/locale": {
         "version": "1.9"
     },
+    "league/csv": {
+        "version": "8.2.3"
+    },
     "odolbeau/phone-number-bundle": {
         "version": "3.0",
         "recipe": {

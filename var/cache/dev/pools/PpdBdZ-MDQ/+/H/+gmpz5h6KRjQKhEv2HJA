@@ -11,6 +11,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
     ],
     null,
     [
@@ -25,6 +26,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'biens',
                 'lat',
                 'lon',
+                'inscriptions',
             ],
             'attributesMetadata' => [
                 [
@@ -36,6 +38,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'biens' => $o[6],
                     'lat' => $o[7],
                     'lon' => $o[8],
+                    'inscriptions' => $o[9],
                 ],
             ],
         ],

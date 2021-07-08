@@ -57,12 +57,18 @@ class Ville
      */
     private $lon;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="ville")
+     */
+    private $inscriptions;
+
 
     public function __construct()
     {
         $this->clients = new ArrayCollection();
         $this->site = new ArrayCollection();
         $this->biens = new ArrayCollection();
+        $this->inscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,6 +214,36 @@ class Ville
     public function setLon(string $lon): self
     {
         $this->lon = $lon;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Inscription[]
+     */
+    public function getInscriptions(): Collection
+    {
+        return $this->inscriptions;
+    }
+
+    public function addInscription(Inscription $inscription): self
+    {
+        if (!$this->inscriptions->contains($inscription)) {
+            $this->inscriptions[] = $inscription;
+            $inscription->setVille($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): self
+    {
+        if ($this->inscriptions->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getVille() === $this) {
+                $inscription->setVille(null);
+            }
+        }
 
         return $this;
     }

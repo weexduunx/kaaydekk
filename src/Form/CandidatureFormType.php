@@ -103,9 +103,29 @@ class CandidatureFormType extends AbstractType
                 'attr' => ['class' => 'form-select text-muted'],
 
             ])
-            ->add('nom_employeur', TextType::class, [
-                'label'=>'Nom de l\'employeur',
+            ->add('salaire_mensuelle', ChoiceType::class,[
+                'label'=>'Salaire Mensuel (en FCFA)*',
                 'required'   => false,
+                'choices'  => $sm = [
+                    '100 000 - 250 000' => '100 000 - 250 000',
+                    '251 000 - 350 000' => '251 000 - 350 000',
+                    '351 000 - 500 000' => '351 000 - 500 000' ,
+                    '501 000 - 700 000' => '501 000 - 700 000' ,
+                    '701 000 +' => '701 000 +',
+                ],
+               'choice_attr' => function ($value, $key, $index) {
+                    return [
+                        'class' => 'form-check-inline',
+                    ];
+                },
+
+                'data' => '100 000 - 250 000',
+                'expanded' => true,
+                'multiple' => false,
+                'constraints' => [
+                    new Assert\Choice(array_keys($sm)),
+                ],
+
             ])
             ->add('activite_non_salarie', TextType::class, [
                 'label'=>'Votre Domaine d\'activité *',
@@ -116,24 +136,36 @@ class CandidatureFormType extends AbstractType
                 'required'   => false,
             ])
             ->add('nom_de_la_societe', TextType::class, [
-                'label'=>'Nom de la société*',
+                'label'=>'Nom de l\'entreprise*',
                 'required'   => false,
             ])
-            ->add('revenu_mensuelle', MoneyType::class, [
-                'label'=>'Revenu Mensuel*',
-                'currency'=>'XOF',
+            ->add('revenu_mensuelle', ChoiceType::class,[
+                'label'=>'Revenu Mensuel (en FCFA)*',
                 'required'   => false,
+                'choices'  => $sm = [
+                    '100 000 - 250 000' => '100 000 - 250 000',
+                    '251 000 - 350 000' => '251 000 - 350 000',
+                    '351 000 - 500 000' => '351 000 - 500 000' ,
+                    '501 000 - 700 000' => '501 000 - 700 000' ,
+                    '701 000 +' => '701 000 +',
+                ],
+               'choice_attr' => function ($value, $key, $index) {
+                    return [
+                        'class' => 'form-check-inline',
+                    ];
+                },
 
-            ])
-            ->add('salaire_mensuelle', MoneyType::class, [
-                'label'=>'Salaire Mensuel*',
-                'currency'=>'XOF',
-                'required'   => false,
+                'data' => '100 000 - 250 000',
+                'expanded' => true,
+                'multiple' => false,
+                'constraints' => [
+                    new Assert\Choice(array_keys($sm)),
+                ],
+
             ])
             ->add('color', ColorType::class, [
                 'label' => 'Indiquer une couleur de votre choix, cliquer à l\'intérieur *',
                 'required'   => true,
-        
             ])
             ->add('type_de_logement', null,[
                 'label'=>'Type de Logement*',
@@ -142,9 +174,9 @@ class CandidatureFormType extends AbstractType
                 'required'   => true,
 
             ])
-        
+
             ->add('prenom_et_nom', TextType::class,[
-                    
+
                     'label'=>'Confirmer votre Nom et Prénom*',
                     'help' => 'Veuillez confirmer votre identité, en entrant votre nom et prénom, sinon votre inscription risque de ne pas être enregistrée.'
             ])
@@ -155,8 +187,8 @@ class CandidatureFormType extends AbstractType
 
             ])
             ->add('status', CheckboxType::class,[
-                'label'    => 'J\'autorise KAAY DËKK IMMO s/c de la NGTS en cas de besoin à partager les données à caractére personnel
-                contenues dans ce formulaire à tous les acteurs de l\'immobilier, les promoteurs et les autres services de l\Etat du Sénégal*',
+                'label'    => 'J\'autorise KAAY DËKK IMMO en cas de besoin à partager les données à caractére personnel
+                contenues dans ce formulaire à tous les acteurs de l\'immobilier, les promoteurs et les autres services de l\'Etat du Sénégal*',
                 'required' => true,
                 'constraints' => [
                     new Assert\NotBlank(),

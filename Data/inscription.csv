@@ -1,0 +1,17 @@
+Client_id,Reference_candidature,Source,Prenom,Nom,Date_de_Naissance,Lieu_de_Naissance,Adresse,NIN_ou_N°_Passeport,N°_Tel,Email,Type_de_logement,Mode_acquisition,Membre_cooperative,Nom_de_la_coopérative,Beneficiaire_appui_ou_subvention,Logement_actuel,Qualité,Handicap,Situation,Nom_Employeur,Domaine_d'activite,Lieu_d'activite,Type_de_Contrat,Compta_bancaire,Nom_de_la_banque,Personne_à_charge,Revenu_Mensuel,Salaire_Mensuel,Date_de_Création
+4,"CA-YA-00001
+","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 09:07"
+5,"CA-YA-00004
+","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 09:07"
+6,"CA-YA-00005
+","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F3,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 09:07"
+7,"CA-YA-00006
+","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F3,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 10:07"
+8,"CA-YA-00007
+","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 10:07"
+9,"CA-YA-00008
+","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 14:07"
+10,"CA-KA-00009
+","Kaay Dëkk Immo",Idrissa,Ndiouck,23.07.2021,Pikine,"Apix Tivaouane Peulh",1234578910,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Hébergé,Décent,Non,Non-Salarié,"Idrissa Ndiouck",,,STAGIAIRE,Non,,5,,"100 000 - 250 000","06.07.2021 12:07"
+11,"CA-KA-00010
+","Kaay Dëkk Immo",Demo,Test,10.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Hébergé,Décent,Non,Non-Salarié,"Idrissa Ndiouck",,,STAGIAIRE,Non,,5,,"251 000 - 350 000","07.07.2021 09:07"

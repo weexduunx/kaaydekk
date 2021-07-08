@@ -1,0 +1,41 @@
+<?php //App%255CEntity%255CInscription%2524nin
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+        clone ($p['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'maxMessage' => [
+                'Votre n° d\'identification nationale doit comporter au moins {{ limit }} caractères',
+            ],
+            'minMessage' => [
+                'Votre n° de passeport doit comporter au moins {{ limit }} caractères',
+            ],
+            'max' => [
+                13,
+            ],
+            'min' => [
+                9,
+            ],
+            'groups' => [
+                [
+                    'Default',
+                ],
+            ],
+            'type' => [
+                1 => 'decimal',
+            ],
+            'precision' => [
+                1 => 15,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+); }];

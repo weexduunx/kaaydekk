@@ -75,6 +75,7 @@ final class Versions
   'laminas/laminas-code' => '4.4.0@2b0bb59ade31a045fd3ff0097dc558bb896f6596',
   'lcobucci/clock' => '2.0.0@353d83fe2e6ae95745b16b3d911813df6a05bfb3',
   'lcobucci/jwt' => '4.1.4@71cf170102c8371ccd933fa4df6252086d144de6',
+  'league/csv' => '8.2.3@d2aab1e7bde802582c3879acf03d92716577c76d',
   'league/oauth2-client' => '2.6.0@badb01e62383430706433191b82506b6df24ad98',
   'league/oauth2-google' => '4.0.0@db6d8ad67cdd7d014a1e5dd5c204a319a966de86',
   'lexik/jwt-authentication-bundle' => 'v2.12.1@76f74a12fd53cece7d1ee60fa0134d71eb1c8b78',
@@ -234,10 +235,10 @@ final class Versions
   'vich/uploader-bundle' => '1.18.0@c5250c8d6a072960250ce5130e68a5693b3b48dd',
   'webmozart/assert' => '1.10.0@6964c76c7804814a842473e0c8fd15bab0f18e25',
   'willdurand/negotiation' => '3.0.0@04e14f38d4edfcc974114a07d2777d90c98f3d9c',
-  'symfony/polyfill-ctype' => '*@845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
-  'symfony/polyfill-iconv' => '*@845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
-  'symfony/polyfill-php72' => '*@845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
-  '__root__' => 'dev-main@845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
+  'symfony/polyfill-ctype' => '*@9006ed87bae2452a739cfc458626f60701c68a3b',
+  'symfony/polyfill-iconv' => '*@9006ed87bae2452a739cfc458626f60701c68a3b',
+  'symfony/polyfill-php72' => '*@9006ed87bae2452a739cfc458626f60701c68a3b',
+  '__root__' => 'dev-main@9006ed87bae2452a739cfc458626f60701c68a3b',
 );
 
     private function __construct()

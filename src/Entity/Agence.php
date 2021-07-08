@@ -41,10 +41,16 @@ class Agence
      */
     private $details;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="sourceOuAgence")
+     */
+    private $inscriptions;
+
     public function __construct()
     {
         $this->clients = new ArrayCollection();
         $this->detailsCandidatures = new ArrayCollection();
+        $this->inscriptions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -136,6 +142,36 @@ class Agence
     public function setDetails(?DetailsCandidature $details): self
     {
         $this->details = $details;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Inscription[]
+     */
+    public function getInscriptions(): Collection
+    {
+        return $this->inscriptions;
+    }
+
+    public function addInscription(Inscription $inscription): self
+    {
+        if (!$this->inscriptions->contains($inscription)) {
+            $this->inscriptions[] = $inscription;
+            $inscription->setSourceOuAgence($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): self
+    {
+        if ($this->inscriptions->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getSourceOuAgence() === $this) {
+                $inscription->setSourceOuAgence(null);
+            }
+        }
 
         return $this;
     }

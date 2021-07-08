@@ -16,19 +16,20 @@
 {% block main_menu_before %}{% endblock %}
 
 <nav class="sidebar-nav">
-<ul class="in" id="sidebarnav" data-widget="treeview">
+<ul class="in" id="sidebarnav">
     {% block main_menu %}
         {% for menuItem in ea.mainMenu.items %}
             {% block menu_item %}
                 <li class="sidebar-item {{ menuItem.isMenuSection ? 'header' }} {{ menuItem.hasSubItems ? 'treeview' }}
                   {{ ea.mainMenu.isSelected(menuItem) ? 'selected' }} {{ ea.mainMenu.isExpanded(menuItem) ? 'selected submenu-selected' }}">
                     {{ _self.render_menu_item(menuItem) }}
-
+                    <li class="list-divider"></li>
+                    
                     {% if menuItem.hasSubItems %}
-                        <ul class="treeview-menu collapse first-level base-level-line in" >
+                        <ul class="collapse first-level base-level-line in" aria-expanded="false" >
                             {% for menuSubItem in menuItem.subItems %}
                                 {% block menu_subitem %}
-                                    <li class="sidebar-item{{ menuSubItem.isMenuSection ? 'header' }}
+                                    <li class="sidebar-item {{ menuSubItem.isMenuSection ? 'header' }}
                                       {{  ea.mainMenu.isSelected(menuSubItem) ? 'active' }}">
                                         <span >{{ _self.render_menu_item(menuSubItem) }}</span>
                                     </li>

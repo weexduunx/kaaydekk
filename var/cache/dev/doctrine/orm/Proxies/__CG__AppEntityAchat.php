@@ -66,10 +66,10 @@ class Achat extends \App\Entity\Achat implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'client', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'detailsCandidatures'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'client', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'inscriptions'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'client', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'detailsCandidatures'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'label', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'client', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'biens', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'detailsCandidatures', '' . "\0" . 'App\\Entity\\Achat' . "\0" . 'inscriptions'];
     }
 
     /**
@@ -310,6 +310,39 @@ class Achat extends \App\Entity\Achat implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeDetailsCandidature', [$detailsCandidature]);
 
         return parent::removeDetailsCandidature($detailsCandidature);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getInscriptions(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInscriptions', []);
+
+        return parent::getInscriptions();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addInscription(\App\Entity\Inscription $inscription): \App\Entity\Achat
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addInscription', [$inscription]);
+
+        return parent::addInscription($inscription);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeInscription(\App\Entity\Inscription $inscription): \App\Entity\Achat
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeInscription', [$inscription]);
+
+        return parent::removeInscription($inscription);
     }
 
 }

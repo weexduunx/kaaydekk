@@ -50,4 +50,16 @@ class DetailsCandidatureRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
+    public function countByLogement()
+    {
+        $query = $this->createQueryBuilder('d')
+            ->select('COUNT(d.id) as id , (d.type_de_logement) as type')
+            ->where('d.type_de_logement'<>'F4')
+            ->groupBy('type')
+            ->having('COUNT(id)'>= 9)
+            ->orderBy('COUNT(id)');
+
+        return $query->getQuery()->getResult();
+    }
+
 }

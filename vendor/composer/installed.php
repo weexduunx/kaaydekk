@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
+        'reference' => '9006ed87bae2452a739cfc458626f60701c68a3b',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '845c62b345afadb4bcbbade58d7fd9ca3939bf9d',
+            'reference' => '9006ed87bae2452a739cfc458626f60701c68a3b',
             'dev_requirement' => false,
         ),
         'api-platform/core' => array(
@@ -397,6 +397,15 @@
             'install_path' => __DIR__ . '/../lcobucci/jwt',
             'aliases' => array(),
             'reference' => '71cf170102c8371ccd933fa4df6252086d144de6',
+            'dev_requirement' => false,
+        ),
+        'league/csv' => array(
+            'pretty_version' => '8.2.3',
+            'version' => '8.2.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../league/csv',
+            'aliases' => array(),
+            'reference' => 'd2aab1e7bde802582c3879acf03d92716577c76d',
             'dev_requirement' => false,
         ),
         'league/oauth2-client' => array(

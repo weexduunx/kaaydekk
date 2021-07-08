@@ -153,7 +153,7 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
         echo "
 \t\t\t\t\t\t\t\t\t%</span>
 \t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<h6 class=\"text-muted font-weight-normal mb-0 w-100 text-truncate\">Total des Clients</h6>
+\t\t\t\t\t\t\t<h6 class=\"text-muted font-weight-normal mb-0 w-100 text-truncate\">Total des inscrit(e)s</h6>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"ml-auto mt-md-3 mt-lg-0\">
 \t\t\t\t\t\t\t<span class=\"opacity-7 text-muted\">
@@ -190,39 +190,14 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t<div class=\"card border-right\">
-\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t<div class=\"d-flex d-lg-flex d-md-block align-items-center\">
-\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t<div class=\"d-inline-flex align-items-center\">
-\t\t\t\t\t\t\t\t<h2 class=\"text-dark mb-1 font-weight-medium\">";
-        // line 76
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["countAllCandidature"]) || array_key_exists("countAllCandidature", $context) ? $context["countAllCandidature"] : (function () { throw new RuntimeError('Variable "countAllCandidature" does not exist.', 76, $this->source); })()), "value", [], "array", false, false, false, 76), "html", null, true);
-        echo "</h2>
-\t\t\t\t\t\t\t\t<span class=\"badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block\">
-\t\t\t\t\t\t\t\t\t+";
-        // line 78
-        echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, (isset($context["countAllCandidature"]) || array_key_exists("countAllCandidature", $context) ? $context["countAllCandidature"] : (function () { throw new RuntimeError('Variable "countAllCandidature" does not exist.', 78, $this->source); })()), "value", [], "array", false, false, false, 78)), "html", null, true);
-        echo "
-\t\t\t\t\t\t\t\t\t%</span>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<h6 class=\"text-muted font-weight-normal mb-0 w-100 text-truncate\">Total des Candidatures</h6>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"ml-auto mt-md-3 mt-lg-0\">
-\t\t\t\t\t\t\t<span class=\"opacity-7 text-muted\">
-\t\t\t\t\t\t\t\t<i data-feather=\"list\"></i>
-\t\t\t\t\t\t\t</span>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
+\t\t\t
 \t\t\t<div class=\"card\">
 \t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t<div class=\"d-flex d-lg-flex d-md-block align-items-center\">
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<h2 class=\"text-dark mb-1 font-weight-medium\">";
-        // line 95
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["countAllProjet"]) || array_key_exists("countAllProjet", $context) ? $context["countAllProjet"] : (function () { throw new RuntimeError('Variable "countAllProjet" does not exist.', 95, $this->source); })()), "value", [], "array", false, false, false, 95), "html", null, true);
+        // line 76
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["countAllProjet"]) || array_key_exists("countAllProjet", $context) ? $context["countAllProjet"] : (function () { throw new RuntimeError('Variable "countAllProjet" does not exist.', 76, $this->source); })()), "value", [], "array", false, false, false, 76), "html", null, true);
         echo "</h2>
 
 \t\t\t\t\t\t\t<h6 class=\"text-muted font-weight-normal mb-0 w-100 text-truncate\">Total des Projets</h6>
@@ -236,10 +211,10 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
-\t\t<div
-\t\t\tclass=\"row\">
+
+\t\t<div class=\"row\">
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-6\">
+\t\t\t<div class=\"col-lg-8 col-md-12\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title\">Client Par Date</h4>
@@ -252,11 +227,47 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<!-- column -->
+\t\t\t\t<div class=\"col-lg-4 col-md-12\">
+\t\t\t\t\t<div class=\"card\">
+\t\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t\t<h4 class=\"card-title text-center\">Nombre d'inscrit(e)s par Type de Bien</h4>
+\t\t\t\t\t\t\t<div class=\"table-responsive\">
+\t\t\t\t\t\t\t<table class=\"table\">
+\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
+\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Type de Bien</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nbre d'inscrits</th>
+\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t</thead>
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t<tbody>
+\t\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\"></th>
+\t\t\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t\t</tbody>
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t</table>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t
+
+\t\t\t
+\t\t<div class=\"row\">
+\t\t<!-- column -->
+\t\t<!-- column -->
 \t\t\t";
-        // line 124
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 124, $this->source); })()), "user", [], "any", false, false, false, 124)) {
-            // line 125
-            echo "\t\t\t\t<div class=\"col-md-6 col-lg-3 \">
+        // line 141
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 141, $this->source); })()), "user", [], "any", false, false, false, 141)) {
+            // line 142
+            echo "\t\t\t\t<div class=\"col-md-6 col-lg-4\">
 \t\t\t\t\t<div class=\"card\">
 \t\t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t\t<h4 class=\"card-title\">Les activités récentes</h4>
@@ -268,24 +279,24 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
-\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les clients non-actifs !</h5>
+\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les inscriptions non-activés !</h5>
 \t\t\t\t\t\t\t\t\t\t";
-            // line 138
+            // line 155
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["creation"]) || array_key_exists("creation", $context) ? $context["creation"] : (function () { throw new RuntimeError('Variable "creation" does not exist.', 138, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["creation"]) || array_key_exists("creation", $context) ? $context["creation"] : (function () { throw new RuntimeError('Variable "creation" does not exist.', 155, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["client"]) {
-                // line 139
+                // line 156
                 echo "\t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 139), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 156), "html", null, true);
                 echo "
 \t\t\t\t\t\t\t\t\t\t\t\t";
-                // line 140
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 140), "html", null, true);
+                // line 157
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 157), "html", null, true);
                 echo "
 \t\t\t\t\t\t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"font-weight-light font-14 text-muted\">";
-                // line 142
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "tel", [], "any", false, false, false, 142), "html", null, true);
+                // line 159
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "tel", [], "any", false, false, false, 159), "html", null, true);
                 echo "</span>
 \t\t\t\t\t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t\t\t\t\t";
@@ -293,13 +304,13 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['client'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 145
+            // line 162
             echo "\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t";
-            // line 147
-            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SUPER_USER")) {
-                // line 148
+            // line 164
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+                // line 165
                 echo "\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-start border-left-line pb-3\">
 \t\t\t\t\t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn btn-danger btn-circle mb-2 btn-item\">
@@ -310,20 +321,20 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs non vérifié !<br>
 \t\t\t\t\t\t\t\t\t\t\t\tdu système</h5>
 \t\t\t\t\t\t\t\t\t\t\t";
-                // line 157
+                // line 174
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 157, $this->source); })()));
+                $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 174, $this->source); })()));
                 foreach ($context['_seq'] as $context["_key"] => $context["utilisateur"]) {
-                    // line 158
+                    // line 175
                     echo "\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["utilisateur"], "email", [], "any", false, false, false, 158), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["utilisateur"], "email", [], "any", false, false, false, 175), "html", null, true);
                     echo "</p>
 \t\t\t\t\t\t\t\t\t\t\t";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['utilisateur'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 160
+                // line 177
                 echo "\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-start border-left-line\">
@@ -335,82 +346,35 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs vérifiés!</h5>
 \t\t\t\t\t\t\t\t\t\t\t";
-                // line 170
+                // line 187
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable((isset($context["userVerified"]) || array_key_exists("userVerified", $context) ? $context["userVerified"] : (function () { throw new RuntimeError('Variable "userVerified" does not exist.', 170, $this->source); })()));
+                $context['_seq'] = twig_ensure_traversable((isset($context["userVerified"]) || array_key_exists("userVerified", $context) ? $context["userVerified"] : (function () { throw new RuntimeError('Variable "userVerified" does not exist.', 187, $this->source); })()));
                 foreach ($context['_seq'] as $context["_key"] => $context["verified"]) {
-                    // line 171
+                    // line 188
                     echo "\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["verified"], "email", [], "any", false, false, false, 171), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["verified"], "email", [], "any", false, false, false, 188), "html", null, true);
                     echo "</p>
 \t\t\t\t\t\t\t\t\t\t\t";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['verified'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 173
+                // line 190
                 echo "\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t";
             }
-            // line 176
+            // line 193
             echo "\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t";
         }
-        // line 181
+        // line 198
         echo "\t\t\t<!-- column -->
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-3 table-responsive\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
-\t\t\t\t\t\t\t<br></p>
-\t\t\t\t\t\t<div >
-\t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
-\t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
-\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t<i class=\"fas fa-circle text-primary font-10 mr-2\"></i>
-\t\t\t\t\t\t\t\t\t<span class=\"text-muted\">Les ventes directes</span>
-\t\t\t\t\t\t\t\t\t";
-        // line 195
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["somme"]) || array_key_exists("somme", $context) ? $context["somme"] : (function () { throw new RuntimeError('Variable "somme" does not exist.', 195, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["sommes"]) {
-            // line 196
-            echo "\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">";
-            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["sommes"], "prix_global", [], "any", false, false, false, 196)), "html", null, true);
-            echo "</span>
-\t\t\t\t\t\t\t\t\t";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sommes'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 198
-        echo "\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-6\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Revenus Mensuels</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs revenus mensuels<br></p>
-\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t<canvas id=\"pie\" height=\"150\"></canvas>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
-\t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-6\">
+\t\t\t<div class=\"col-md-6 col-lg-8\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title\">Salaire Mensuels</h4>
@@ -421,12 +385,10 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t<!-- column -->
-
-\t\t</div>
-\t\t<div class=\"row\">
-
-\t\t\t<div class=\"col-md-6 col-lg-3\">
+\t\t\t</div>
+\t\t\t
+\t\t\t<div class=\"row\">
+\t\t\t<div class=\"col-8\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title text-center\">Prix des Biens</h4>
@@ -440,26 +402,25 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t\t\t\t\t</tr>
 \t\t\t\t\t\t\t\t</thead>
 \t\t\t\t\t\t\t\t";
-        // line 247
+        // line 227
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["price"]) || array_key_exists("price", $context) ? $context["price"] : (function () { throw new RuntimeError('Variable "price" does not exist.', 247, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["price"]) || array_key_exists("price", $context) ? $context["price"] : (function () { throw new RuntimeError('Variable "price" does not exist.', 227, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["bien"]) {
-            // line 248
+            // line 228
             echo "\t\t\t\t\t\t\t\t\t<tbody>
 \t\t\t\t\t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\">";
-            // line 250
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "id", [], "any", false, false, false, 250), "html", null, true);
+            // line 230
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "id", [], "any", false, false, false, 230), "html", null, true);
             echo "</th>
 \t\t\t\t\t\t\t\t\t\t\t<td>";
-            // line 251
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "label", [], "any", false, false, false, 251), "html", null, true);
+            // line 231
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "label", [], "any", false, false, false, 231), "html", null, true);
             echo "</td>
 \t\t\t\t\t\t\t\t\t\t\t<td>";
-            // line 252
-            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["bien"], "price", [], "any", false, false, false, 252)), "html", null, true);
-            echo "
-\t\t\t\t\t\t\t\t\t\t\t\tF CFA</td>
+            // line 232
+            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["bien"], "price", [], "any", false, false, false, 232)), "html", null, true);
+            echo " F CFA</td>
 \t\t\t\t\t\t\t\t\t\t</tr>
 \t\t\t\t\t\t\t\t\t</tbody>
 \t\t\t\t\t\t\t\t";
@@ -467,16 +428,52 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['bien'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 257
+        // line 236
         echo "\t\t\t\t\t\t\t</table>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
+\t\t\t<!-- column -->
+\t\t\t<div class=\"col-4 table-responsive\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
+\t\t\t\t\t\t\t<br></p>
+\t\t\t\t\t\t<div >
+\t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
+\t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
+\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t<i class=\"fas fa-circle text-primary font-10 mr-2\"></i>
+\t\t\t\t\t\t\t\t\t<span class=\"text-muted\">Les ventes directes</span>
+\t\t\t\t\t\t\t\t\t";
+        // line 254
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["somme"]) || array_key_exists("somme", $context) ? $context["somme"] : (function () { throw new RuntimeError('Variable "somme" does not exist.', 254, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["sommes"]) {
+            // line 255
+            echo "\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">";
+            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["sommes"], "prix_global", [], "any", false, false, false, 255)), "html", null, true);
+            echo "</span>
+\t\t\t\t\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sommes'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 257
+        echo "\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!-- column -->
 \t\t</div>
-\t</div>
+\t\t
+\t
 \t";
-        // line 264
+        // line 267
         $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -509,7 +506,7 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 
     }
 
-    // line 264
+    // line 267
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -519,52 +516,26 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 265
+        // line 268
         echo "\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" 
-\t\tintegrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
+\t\tintegrity=\"sha512-s+xg36jbIujB2S2VK</div>fpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
 
 \t\t<script>
-let biens = document.querySelector(\"#pie\")
-let pieGraph = new Chart(biens, {
-type: \"polarArea\",
-data: {
-labels: ";
-        // line 273
-        echo (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 273, $this->source); })());
-        echo ",
-datasets: [
-{
-label: \"Revenu Mensuel\",
-data: ";
-        // line 277
-        echo (isset($context["revenu"]) || array_key_exists("revenu", $context) ? $context["revenu"] : (function () { throw new RuntimeError('Variable "revenu" does not exist.', 277, $this->source); })());
-        echo ",
-backgroundColor: ";
-        // line 278
-        echo (isset($context["color1"]) || array_key_exists("color1", $context) ? $context["color1"] : (function () { throw new RuntimeError('Variable "color1" does not exist.', 278, $this->source); })());
-        echo "
-}
-]
-}
-})
+
 let bienx = document.querySelector(\"#pie1\")
 let pieGraph1 = new Chart(bienx, {
 type: \"polarArea\",
 data: {
 labels: ";
-        // line 287
-        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 287, $this->source); })());
+        // line 277
+        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 277, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Salaire Mensuel\",
-data: ";
-        // line 291
-        echo (isset($context["salaire"]) || array_key_exists("salaire", $context) ? $context["salaire"] : (function () { throw new RuntimeError('Variable "salaire" does not exist.', 291, $this->source); })());
-        echo ",
 backgroundColor: ";
-        // line 292
-        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 292, $this->source); })());
+        // line 281
+        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 281, $this->source); })());
         echo "
 }]
     }
@@ -576,19 +547,19 @@ let clientGraph = new Chart(clients, {
 type: \"bar\",
 data: {
 labels: ";
-        // line 302
-        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 302, $this->source); })());
+        // line 291
+        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 291, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Nombre de Clients\",
 data: ";
-        // line 306
-        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 306, $this->source); })());
+        // line 295
+        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 295, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 307
-        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 307, $this->source); })());
+        // line 296
+        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 296, $this->source); })());
         echo "
 }
 ]
@@ -602,19 +573,19 @@ let priceGraph = new Chart(prices, {
 type: \"doughnut\",
 data: {
 labels: ";
-        // line 319
-        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 319, $this->source); })());
+        // line 308
+        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 308, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Nombre de Clients\",
 data: ";
-        // line 323
-        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 323, $this->source); })());
+        // line 312
+        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 312, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 324
-        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 324, $this->source); })());
+        // line 313
+        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 313, $this->source); })());
         echo "
 
 }
@@ -644,7 +615,7 @@ backgroundColor: ";
 
     public function getDebugInfo()
     {
-        return array (  617 => 324,  613 => 323,  606 => 319,  591 => 307,  587 => 306,  580 => 302,  567 => 292,  563 => 291,  556 => 287,  544 => 278,  540 => 277,  533 => 273,  523 => 265,  513 => 264,  500 => 13,  490 => 12,  480 => 264,  471 => 257,  460 => 252,  456 => 251,  452 => 250,  448 => 248,  444 => 247,  393 => 198,  384 => 196,  380 => 195,  364 => 181,  357 => 176,  352 => 173,  343 => 171,  339 => 170,  327 => 160,  318 => 158,  314 => 157,  303 => 148,  301 => 147,  297 => 145,  288 => 142,  283 => 140,  278 => 139,  274 => 138,  259 => 125,  257 => 124,  225 => 95,  205 => 78,  200 => 76,  179 => 58,  173 => 55,  152 => 37,  147 => 35,  132 => 23,  124 => 18,  119 => 15,  117 => 12,  114 => 11,  104 => 10,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
+        return array (  588 => 313,  584 => 312,  577 => 308,  562 => 296,  558 => 295,  551 => 291,  538 => 281,  531 => 277,  520 => 268,  510 => 267,  497 => 13,  487 => 12,  477 => 267,  465 => 257,  456 => 255,  452 => 254,  432 => 236,  422 => 232,  418 => 231,  414 => 230,  410 => 228,  406 => 227,  375 => 198,  368 => 193,  363 => 190,  354 => 188,  350 => 187,  338 => 177,  329 => 175,  325 => 174,  314 => 165,  312 => 164,  308 => 162,  299 => 159,  294 => 157,  289 => 156,  285 => 155,  270 => 142,  268 => 141,  200 => 76,  179 => 58,  173 => 55,  152 => 37,  147 => 35,  132 => 23,  124 => 18,  119 => 15,  117 => 12,  114 => 11,  104 => 10,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
     }
 
     public function getSourceContext()
@@ -688,7 +659,7 @@ backgroundColor: ";
 \t\t\t\t\t\t\t\t\t+{{ (countAllClient ['value'] |format_number) }}
 \t\t\t\t\t\t\t\t\t%</span>
 \t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<h6 class=\"text-muted font-weight-normal mb-0 w-100 text-truncate\">Total des Clients</h6>
+\t\t\t\t\t\t\t<h6 class=\"text-muted font-weight-normal mb-0 w-100 text-truncate\">Total des inscrit(e)s</h6>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t\t<div class=\"ml-auto mt-md-3 mt-lg-0\">
 \t\t\t\t\t\t\t<span class=\"opacity-7 text-muted\">
@@ -719,26 +690,7 @@ backgroundColor: ";
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t<div class=\"card border-right\">
-\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t<div class=\"d-flex d-lg-flex d-md-block align-items-center\">
-\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t<div class=\"d-inline-flex align-items-center\">
-\t\t\t\t\t\t\t\t<h2 class=\"text-dark mb-1 font-weight-medium\">{{ (countAllCandidature['value']) }}</h2>
-\t\t\t\t\t\t\t\t<span class=\"badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block\">
-\t\t\t\t\t\t\t\t\t+{{ (countAllCandidature['value'] |format_number) }}
-\t\t\t\t\t\t\t\t\t%</span>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t<h6 class=\"text-muted font-weight-normal mb-0 w-100 text-truncate\">Total des Candidatures</h6>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t\t<div class=\"ml-auto mt-md-3 mt-lg-0\">
-\t\t\t\t\t\t\t<span class=\"opacity-7 text-muted\">
-\t\t\t\t\t\t\t\t<i data-feather=\"list\"></i>
-\t\t\t\t\t\t\t</span>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
+\t\t\t
 \t\t\t<div class=\"card\">
 \t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t<div class=\"d-flex d-lg-flex d-md-block align-items-center\">
@@ -756,10 +708,10 @@ backgroundColor: ";
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
-\t\t<div
-\t\t\tclass=\"row\">
+
+\t\t<div class=\"row\">
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-6\">
+\t\t\t<div class=\"col-lg-8 col-md-12\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title\">Client Par Date</h4>
@@ -772,8 +724,44 @@ backgroundColor: ";
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<!-- column -->
+\t\t\t\t<div class=\"col-lg-4 col-md-12\">
+\t\t\t\t\t<div class=\"card\">
+\t\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t\t<h4 class=\"card-title text-center\">Nombre d'inscrit(e)s par Type de Bien</h4>
+\t\t\t\t\t\t\t<div class=\"table-responsive\">
+\t\t\t\t\t\t\t<table class=\"table\">
+\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
+\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Type de Bien</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nbre d'inscrits</th>
+\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t</thead>
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t\t<tbody>
+\t\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\"></th>
+\t\t\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t\t</tbody>
+\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t</table>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t\t
+
+\t\t\t
+\t\t<div class=\"row\">
+\t\t<!-- column -->
+\t\t<!-- column -->
 \t\t\t{% if app.user %}
-\t\t\t\t<div class=\"col-md-6 col-lg-3 \">
+\t\t\t\t<div class=\"col-md-6 col-lg-4\">
 \t\t\t\t\t<div class=\"card\">
 \t\t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t\t<h4 class=\"card-title\">Les activités récentes</h4>
@@ -785,7 +773,7 @@ backgroundColor: ";
 \t\t\t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
-\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les clients non-actifs !</h5>
+\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les inscriptions non-activés !</h5>
 \t\t\t\t\t\t\t\t\t\t{% for client in creation %}
 \t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">{{client.prenom}}
 \t\t\t\t\t\t\t\t\t\t\t\t{{ client.nom }}
@@ -795,7 +783,7 @@ backgroundColor: ";
 \t\t\t\t\t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t{% if is_granted('ROLE_SUPER_USER') %}
+\t\t\t\t\t\t\t\t{% if is_granted('ROLE_ADMIN') %}
 \t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-start border-left-line pb-3\">
 \t\t\t\t\t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn btn-danger btn-circle mb-2 btn-item\">
@@ -831,7 +819,49 @@ backgroundColor: ";
 \t\t\t{% endif %}
 \t\t\t<!-- column -->
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-3 table-responsive\">
+\t\t\t<div class=\"col-md-6 col-lg-8\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title\">Salaire Mensuels</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
+\t\t\t\t\t\t<div>
+\t\t\t\t\t\t\t<canvas id=\"pie1\" height=\"150\"></canvas>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t</div>
+\t\t\t
+\t\t\t<div class=\"row\">
+\t\t\t<div class=\"col-8\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title text-center\">Prix des Biens</h4>
+\t\t\t\t\t\t<div class=\"table-responsive\">
+\t\t\t\t\t\t\t<table class=\"table\">
+\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
+\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nature du Bien</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Prix</th>
+\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t</thead>
+\t\t\t\t\t\t\t\t{% for bien in price %}
+\t\t\t\t\t\t\t\t\t<tbody>
+\t\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\">{{ bien.id }}</th>
+\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.label }}</td>
+\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.price | format_number}} F CFA</td>
+\t\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t\t</tbody>
+\t\t\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t\t\t</table>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!-- column -->
+\t\t\t<div class=\"col-4 table-responsive\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
@@ -853,84 +883,15 @@ backgroundColor: ";
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-6\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Revenus Mensuels</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs revenus mensuels<br></p>
-\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t<canvas id=\"pie\" height=\"150\"></canvas>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
-\t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-6\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Salaire Mensuels</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
-\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t<canvas id=\"pie1\" height=\"150\"></canvas>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
-
 \t\t</div>
-\t\t<div class=\"row\">
-
-\t\t\t<div class=\"col-md-6 col-lg-3\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title text-center\">Prix des Biens</h4>
-\t\t\t\t\t\t<div class=\"table-responsive\">
-\t\t\t\t\t\t\t<table class=\"table\">
-\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
-\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nature du Bien</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Prix</th>
-\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t</thead>
-\t\t\t\t\t\t\t\t{% for bien in price %}
-\t\t\t\t\t\t\t\t\t<tbody>
-\t\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\">{{ bien.id }}</th>
-\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.label }}</td>
-\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.price | format_number}}
-\t\t\t\t\t\t\t\t\t\t\t\tF CFA</td>
-\t\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t\t</tbody>
-\t\t\t\t\t\t\t\t{% endfor %}
-\t\t\t\t\t\t\t</table>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</div>
-\t</div>
+\t\t
+\t
 \t{% block javascripts %}
 \t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" 
-\t\tintegrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
+\t\tintegrity=\"sha512-s+xg36jbIujB2S2VK</div>fpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
 
 \t\t<script>
-let biens = document.querySelector(\"#pie\")
-let pieGraph = new Chart(biens, {
-type: \"polarArea\",
-data: {
-labels: {{ prenom|raw }},
-datasets: [
-{
-label: \"Revenu Mensuel\",
-data: {{ revenu|raw }},
-backgroundColor: {{ color1|raw }}
-}
-]
-}
-})
+
 let bienx = document.querySelector(\"#pie1\")
 let pieGraph1 = new Chart(bienx, {
 type: \"polarArea\",
@@ -939,7 +900,6 @@ labels: {{ nom|raw }},
 datasets: [
 {
 label: \"Salaire Mensuel\",
-data: {{ salaire|raw }},
 backgroundColor: {{ color|raw }}
 }]
     }

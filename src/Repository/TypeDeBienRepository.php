@@ -41,9 +41,23 @@ class TypeDeBienRepository extends ServiceEntityRepository
         return $queryBuilder->getQuery()->getResult();
     }
 
+     /*
+    public function countByLogement()
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.label as label, COUNT(t.inscriptions) as candidat')
+            ->orderBy('t.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+ */
+    
+
     // /**
-    //  * @return TypeDeBien[] Returns an array of TypeDeBien objects
-    //  */
+    //   @return TypeDeBien[] Returns an array of TypeDeBien objects
+    //  
     /*
     public function findByExampleField($value)
     {

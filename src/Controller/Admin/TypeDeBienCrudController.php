@@ -24,7 +24,7 @@ class TypeDeBienCrudController extends AbstractCrudController
         return [
             TextField::new('label','Type de Bien'),
             IntegerField::new('prix','Prix (CFA)'),
-            AssociationField::new('detailsCandidatures','Nombre de Candidats')->hideOnForm()
+            AssociationField::new('inscriptions','Nombre de Candidats inscrits')->hideOnForm()
 
         ];
     }

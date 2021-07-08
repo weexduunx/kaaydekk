@@ -20,6 +20,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 
@@ -36,6 +37,16 @@ class DetailsCandidatureCrudController extends AbstractCrudController
     {
         return DetailsCandidature::class;
     }
+
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add('type_de_logement')
+            ->add('mode_acquisition')
+            ->add('situation')
+            ;
+    }
+
 
 
     public function configureFields(string $pageName): iterable
@@ -61,8 +72,6 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             AssociationField::new('qualite','Qualité')->hideOnIndex(),
             AssociationField::new('handicap','Handicape du demandeur ou d\'une personne à sa charge')->hideOnIndex(),
             AssociationField::new('situation')->hideOnIndex(),
-            TextField::new('nom_employeur','Nom de l\'employeur')->hideOnIndex()
-            ->setHelp('à remplir, si le candidat est salarié'),
             TextField::new('activite_non_salarie','Domaine d\'Activité')->hideOnIndex()
             ->setHelp('à remplir, si le candidat est non-salarié'),
             TextField::new('lieu_activite_non_salarie','Lieu d\'Activité')->hideOnIndex()
@@ -74,9 +83,9 @@ class DetailsCandidatureCrudController extends AbstractCrudController
             TextField::new('nom_de_la_banque')->hideOnIndex(),
             IntegerField::new('nombre_de_personne_en_charge','Nbre de personne à charge')->hideOnIndex(),
             TextField::new('nom_de_la_societe','Nom de la société')->hideOnIndex(),
-            IntegerField::new('revenu_mensuelle','Revenu Mensuel (CFA)')->hideOnIndex()
+            TextField::new('revenu_mensuelle','Revenu Mensuel (CFA)')->hideOnIndex()
             ->setHelp('Veuillez indiquer, le revenu si c\'est un non-salarié'),
-            IntegerField::new('salaire_mensuelle','Salaire Mensuel (CFA)')->hideOnIndex()
+            TextField::new('salaire_mensuelle','Salaire Mensuel (CFA)')->hideOnIndex()
             ->setHelp('Veuillez indiquer, le salaire si c\'est un salarié'),
             BooleanField::new('status','Statut')->setHelp('Veuillez cocher la case, pour activer l\'statut actuel du client'),
 

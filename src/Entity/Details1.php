@@ -29,9 +29,15 @@ class Details1
      */
     private $detailsCandidatures;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Inscription::class, mappedBy="membreCooperative")
+     */
+    private $inscriptions;
+
     public function __construct()
     {
         $this->detailsCandidatures = new ArrayCollection();
+        $this->inscriptions = new ArrayCollection();
     }
 
 
@@ -85,6 +91,36 @@ class Details1
     public function __toString()
     {
         return $this->label;
+    }
+
+    /**
+     * @return Collection|Inscription[]
+     */
+    public function getInscriptions(): Collection
+    {
+        return $this->inscriptions;
+    }
+
+    public function addInscription(Inscription $inscription): self
+    {
+        if (!$this->inscriptions->contains($inscription)) {
+            $this->inscriptions[] = $inscription;
+            $inscription->setMembreCooperative($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscription(Inscription $inscription): self
+    {
+        if ($this->inscriptions->removeElement($inscription)) {
+            // set the owning side to null (unless already changed)
+            if ($inscription->getMembreCooperative() === $this) {
+                $inscription->setMembreCooperative(null);
+            }
+        }
+
+        return $this;
     }
 
 }

@@ -6,6 +6,7 @@ use App\Entity\Achat;
 use App\Entity\Bien;
 use App\Entity\Client;
 use App\Entity\DetailsCandidature;
+use App\Entity\Inscription;
 use App\Entity\Projet;
 use App\Entity\Site;
 use App\Entity\TypeDeBien;
@@ -14,6 +15,7 @@ use App\Entity\Ville;
 use App\Repository\BienRepository;
 use App\Repository\ClientRepository;
 use App\Repository\DetailsCandidatureRepository;
+use App\Repository\InscriptionRepository;
 use App\Repository\ProjetRepository;
 use App\Repository\UserRepository;
 use App\Repository\TypeDeBienRepository;
@@ -40,6 +42,7 @@ class DashboardController extends AbstractDashboardController
     protected $projetRepository;
     protected $userRepository;
     protected $typeDeBienRepository;
+    protected $inscriptionRepository;
 
     public function __construct(
         DetailsCandidatureRepository $detailsCandidatureRepository,
@@ -47,7 +50,8 @@ class DashboardController extends AbstractDashboardController
         BienRepository $bienRepository,
         ProjetRepository $projetRepository,
         UserRepository $userRepository,
-        TypeDeBienRepository $typeDeBienRepository
+        TypeDeBienRepository $typeDeBienRepository,
+        InscriptionRepository $inscriptionRepository
     )
         {
            $this->detailsCandidatureRepository = $detailsCandidatureRepository;
@@ -56,6 +60,7 @@ class DashboardController extends AbstractDashboardController
             $this->projetRepository = $projetRepository;
             $this->userRepository = $userRepository;
             $this->typeDeBienRepository = $typeDeBienRepository;
+            $this->inscriptionRepository = $inscriptionRepository;
 
         }
 
@@ -103,14 +108,14 @@ class DashboardController extends AbstractDashboardController
          }
 
         //couleur des client par date
-        $colorClients = $this->clientRepository->findAll();
+        $colorClients = $this->inscriptionRepository->findAll();
 
         $colorClient = [];
         foreach ($colorClients as $colorclient){
             $colorClient[] = $colorclient->getColor();
         }
         // Je cherche le nombre de client publié par date
-        $clients = $this->clientRepository->countByDate();
+        $clients = $this->inscriptionRepository->countByDate();
 
         $dates = [];
         $compte = [];
@@ -145,13 +150,26 @@ class DashboardController extends AbstractDashboardController
 
         }
 
+        //je calcule par groupe les F4 et F3 demandés
+        $inscrits = $this->inscriptionRepository->countByLogement();
+
+        $i = [];
+        $l = [];
+
+
+        foreach ($inscrits as  $inscrit) {
+            $i[] = $inscrit['inscrits'];
+            $l[] = $inscrit['label'];
+
+        }
+
 
         //je calcule le prix total des biens vendus
         $somme = $this->bienRepository->calculTotal();
 
 
         // je cherche les deux derniers utilisateurs ajoutés
-        $latestClient = $this->clientRepository->findLatestClient();
+        $latestClient = $this->inscriptionRepository->findLatestClient();
 
         //F3 ou F4 par Agence
 
@@ -171,19 +189,21 @@ class DashboardController extends AbstractDashboardController
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig',
             [
 
-                'countAllClient' =>$this->clientRepository->countAllClient(),
+                'countAllClient' =>$this->inscriptionRepository->countAllClient(),
                 'countAllCandidature' =>$this->detailsCandidatureRepository->countAllCandidature(),
                 'countAllBien' =>$this->bienRepository->countAllBien(),
                 'price' =>$this->bienRepository->findAll(),
+                
                 'clients'=>$this->clientRepository->findAll(),
                 'countAllProjet'=>$this->projetRepository->countAllProjet(),
                 'logement'=>$this->typeDeBienRepository->findAll(),
 
-
+                'i' =>json_encode($i),
+                'l'=>json_encode($l),
                 'nom' =>json_encode($nom),
                 'color' =>json_encode($color),
                 'count' =>json_encode($count),
-                'salaire'=>json_encode($salaire),
+                'salaire'=>$salaire,
 
 
                 'prenom' =>json_encode($prenom),
@@ -213,13 +233,12 @@ class DashboardController extends AbstractDashboardController
     {
         return parent::configureUserMenu($user)
             // use the given $user object to get the user name
-            ->setName($user->getUsername())
+            ->setName($user->getEmail())
             // use this method if you don't want to display the name of the user
             ->displayUserName(true)
             ->setGravatarEmail($user->getUsername())
             ->addMenuItems([
-                MenuItem::linkToRoute('Admin', 'fas fa-user', '...', ['...' => '...']),
-                MenuItem::linkToRoute('Paramétres', 'fas fa-user-cog', '...', ['...' => '...']),
+               
                 MenuItem::section(),
             ]);
     }
@@ -242,50 +261,35 @@ class DashboardController extends AbstractDashboardController
 
                   MenuItem::linkToDashboard('Tableau de Bord','fa fa-dashboard'),
 
-                  MenuItem::section('Gestion Mode Achat','fa fa-money'),
-                      MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class),
-                      MenuItem::linkToCrud('Ajouter un mode','fas fa-plus', Achat::class)
-                          ->setAction('new'),
-
-
+                  MenuItem::section('Gestion Mode Acquisition','fa fa-money')->setPermission('ROLE_SUPER_USER'),
+                      MenuItem::linkToCrud('Liste des Modes', 'fas fa-list', Achat::class)->setPermission('ROLE_SUPER_USER'),
+                      
                       MenuItem::section('Gestion des Biens','fa fa-building'),
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
-                      MenuItem::linkToCrud('Ajouter un bien', 'fas fa-plus', Bien::class)
-                          ->setAction('new'),
-                      MenuItem::linkToCrud('Créer un type de bien', 'fas fa-plus', TypeDeBien::class)
-                          ->setAction('new'),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
-
-                      MenuItem::section('Gestion Client et Candidat','fa fa-user-plus'),
-                      MenuItem::linkToCrud('liste des clients', 'fas fa-list', Client::class),
-                      MenuItem::linkToCrud('Ajouter un client', 'fas fa-plus', Client::class)
-                          ->setAction('new')->setPermission('ROLE_RESPONSABLE'),
-                      MenuItem::linkToCrud('Liste des candidats','fa fa-list',DetailsCandidature::class),
-                      MenuItem::linkToCrud('Ajouter les détails', 'fas fa-plus', DetailsCandidature::class)
+                      MenuItem::section('Gestion des Inscriptions','fa fa-user-plus'),
+                      MenuItem::linkToCrud('liste des inscrits', 'fas fa-list', Inscription::class),
+                      MenuItem::linkToCrud('Ajouter une inscription', 'fas fa-plus', Inscription::class)
                           ->setAction('new'),
-
-                          MenuItem::section('Gestion Projet','fa fa-folder'),
-                          MenuItem::linkToCrud('Liste des projets', 'fas fa-list', Projet::class),
-                          MenuItem::linkToCrud('Ajouter un projet','fas fa-plus', Projet::class)
-                              ->setAction('new'),
                     
+                          MenuItem::section('Gestion des Projets','fa fa-folder')->setPermission('ROLE_SUPER_USER'),
+                          MenuItem::linkToCrud('Liste des projets', 'fas fa-list', Projet::class)->setPermission('ROLE_SUPER_USER'),                    
 
-                              MenuItem::section('Gestion Site','fa fa-map'),
-                          MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class),
+                              MenuItem::section('Gestion des Sites','fa fa-map')->setPermission('ROLE_SUPER_USER'),
+                          MenuItem::linkToCrud('Liste des sites', 'fas fa-list', Site::class)->setPermission('ROLE_SUPER_USER'),
                           MenuItem::linkToCrud('Ajouter un site','fas fa-plus', Site::class)
-                              ->setAction('new'),
+                              ->setAction('new')->setPermission('ROLE_SUPER_USER'),
                     
 
-                              MenuItem::section('Gestion Ville','fa fa-city'),
-                          MenuItem::linkToCrud('Liste des villes', 'fas fa-list', Ville::class),
+                              MenuItem::section('Gestion des Villes','fa fa-city')->setPermission('ROLE_SUPER_USER'),
+                          MenuItem::linkToCrud('Liste des villes', 'fas fa-list', Ville::class)->setPermission('ROLE_SUPER_USER'),
                           MenuItem::linkToCrud('Ajouter une ville','fas fa-plus', Ville::class)
-                              ->setAction('new'),
+                              ->setAction('new')->setPermission('ROLE_SUPER_USER'),
                     
 
                               MenuItem::section('Gestion Utilisateur','fa fa-user'),
                           MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
-                          MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus', User::class)
-                              ->setAction('new'),
+                         
                     
               ];
     }
