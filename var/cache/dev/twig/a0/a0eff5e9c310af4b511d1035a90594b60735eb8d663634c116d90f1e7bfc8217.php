@@ -162,7 +162,7 @@ class __TwigTemplate_da7686e5b7f1fbae6ee16a0c9cc222fc8586c59c0bb99957c1b22a05715
             echo "                            <div>
                                 <a class=\"btn btn-sm btn-primary\" href=\"";
             // line 63
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("form_client");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("inscription");
             echo "\">S'inscrire au programme</a>
 
                             </div>
@@ -653,7 +653,7 @@ class __TwigTemplate_da7686e5b7f1fbae6ee16a0c9cc222fc8586c59c0bb99957c1b22a05715
 
                         {% else %}
                             <div>
-                                <a class=\"btn btn-sm btn-primary\" href=\"{{ path('form_client') }}\">S'inscrire au programme</a>
+                                <a class=\"btn btn-sm btn-primary\" href=\"{{ path('inscription') }}\">S'inscrire au programme</a>
 
                             </div>
                         {% endif %}

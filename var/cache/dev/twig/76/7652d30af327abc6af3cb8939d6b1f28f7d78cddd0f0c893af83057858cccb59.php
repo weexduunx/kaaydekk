@@ -47,7 +47,7 @@ class __TwigTemplate_3dc30adbd93c7811d4885c10bdc2cac618ec57d98e9bcb45af5053012dd
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/page/login.html.twig"));
 
         // line 6
-        $context["__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50"] = ((array_key_exists("ea", $context)) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 6, $this->source); })()), "i18n", [], "any", false, false, false, 6), "translationDomain", [], "any", false, false, false, 6)) : (((array_key_exists("translation_domain", $context)) ? ((($context["translation_domain"]) ?? ("messages"))) : (""))));
+        $context["__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356"] = ((array_key_exists("ea", $context)) ? (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["ea"]) || array_key_exists("ea", $context) ? $context["ea"] : (function () { throw new RuntimeError('Variable "ea" does not exist.', 6, $this->source); })()), "i18n", [], "any", false, false, false, 6), "translationDomain", [], "any", false, false, false, 6)) : (((array_key_exists("translation_domain", $context)) ? ((($context["translation_domain"]) ?? ("messages"))) : (""))));
         // line 5
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
         
@@ -112,15 +112,15 @@ class __TwigTemplate_3dc30adbd93c7811d4885c10bdc2cac618ec57d98e9bcb45af5053012dd
         // line 14
         echo "    ";
         $context["_username_label"] = ((array_key_exists("username_label", $context)) ? ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["username_label"]) || array_key_exists("username_label", $context) ? $context["username_label"] : (function () { throw new RuntimeError('Variable "username_label" does not exist.', 14, $this->source); })()), [],         // line 6
-(isset($context["__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50"]) || array_key_exists("__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50", $context) ? $context["__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50"] : (function () { throw new RuntimeError('Variable "__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50" does not exist.', 6, $this->source); })()))) : ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("login_page.username", [], "EasyAdminBundle")));
+(isset($context["__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356"]) || array_key_exists("__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356", $context) ? $context["__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356"] : (function () { throw new RuntimeError('Variable "__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356" does not exist.', 6, $this->source); })()))) : ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("login_page.username", [], "EasyAdminBundle")));
         // line 15
         echo "    ";
         $context["_password_label"] = ((array_key_exists("password_label", $context)) ? ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["password_label"]) || array_key_exists("password_label", $context) ? $context["password_label"] : (function () { throw new RuntimeError('Variable "password_label" does not exist.', 15, $this->source); })()), [],         // line 6
-(isset($context["__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50"]) || array_key_exists("__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50", $context) ? $context["__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50"] : (function () { throw new RuntimeError('Variable "__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50" does not exist.', 6, $this->source); })()))) : ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("login_page.password", [], "EasyAdminBundle")));
+(isset($context["__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356"]) || array_key_exists("__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356", $context) ? $context["__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356"] : (function () { throw new RuntimeError('Variable "__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356" does not exist.', 6, $this->source); })()))) : ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("login_page.password", [], "EasyAdminBundle")));
         // line 16
         echo "    ";
         $context["_sign_in_label"] = ((array_key_exists("sign_in_label", $context)) ? ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans((isset($context["sign_in_label"]) || array_key_exists("sign_in_label", $context) ? $context["sign_in_label"] : (function () { throw new RuntimeError('Variable "sign_in_label" does not exist.', 16, $this->source); })()), [],         // line 6
-(isset($context["__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50"]) || array_key_exists("__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50", $context) ? $context["__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50"] : (function () { throw new RuntimeError('Variable "__internal_e1af848d59f2de87b00c7a624892495815b89a458ff2046cae6fed2c8ffdcd50" does not exist.', 6, $this->source); })()))) : ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("login_page.sign_in", [], "EasyAdminBundle")));
+(isset($context["__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356"]) || array_key_exists("__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356", $context) ? $context["__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356"] : (function () { throw new RuntimeError('Variable "__internal_fa1cd1bb1a2f18e9ef213df3dd5fd542782ec62e28cf9417ef6a7cd66125d356" does not exist.', 6, $this->source); })()))) : ($this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("login_page.sign_in", [], "EasyAdminBundle")));
         // line 17
         echo "
     <div class=\"main-wrapper\">
@@ -133,11 +133,11 @@ class __TwigTemplate_3dc30adbd93c7811d4885c10bdc2cac618ec57d98e9bcb45af5053012dd
       <div class=\"auth-wrapper d-flex no-block justify-content-center align-items-center position-relative\"
              style=\"background:url(../assets/images/big/auth-bg.png) no-repeat center center;\" >
             <div class=\"auth-box row\">
-                <div class=\"col-lg-7 col-md-5 modal-bg-img\" style=\"background-image: url(../assets/images/big/kadi.jpg);\"></div>
+                <div class=\"col-lg-7 col-md-5 modal-bg-img img-fluid\" style=\"background-image: url(../assets/images/big/kadi.jpg);\"></div>
                 <div class=\"col-lg-5 col-md-7 bg-white\">
                     <div class=\"p-3\">
                         <div class=\"text-center\">
-                            <img src=\"../assets/images/big/logo-kdi.png\" width=\"100\" alt=\"Kaay dëkk immo\">
+                            <img src=\"../assets/images/big/logo-kdi.png\" width=\"100\" class=\"img-fluid\" alt=\"Kaay Dëkk Immo\">
                         </div>
                         ";
         // line 34
@@ -291,11 +291,11 @@ class __TwigTemplate_3dc30adbd93c7811d4885c10bdc2cac618ec57d98e9bcb45af5053012dd
       <div class=\"auth-wrapper d-flex no-block justify-content-center align-items-center position-relative\"
              style=\"background:url(../assets/images/big/auth-bg.png) no-repeat center center;\" >
             <div class=\"auth-box row\">
-                <div class=\"col-lg-7 col-md-5 modal-bg-img\" style=\"background-image: url(../assets/images/big/kadi.jpg);\"></div>
+                <div class=\"col-lg-7 col-md-5 modal-bg-img img-fluid\" style=\"background-image: url(../assets/images/big/kadi.jpg);\"></div>
                 <div class=\"col-lg-5 col-md-7 bg-white\">
                     <div class=\"p-3\">
                         <div class=\"text-center\">
-                            <img src=\"../assets/images/big/logo-kdi.png\" width=\"100\" alt=\"Kaay dëkk immo\">
+                            <img src=\"../assets/images/big/logo-kdi.png\" width=\"100\" class=\"img-fluid\" alt=\"Kaay Dëkk Immo\">
                         </div>
                         {% if error|default(false) %}
                             <div class=\"w-100 alert alert-danger\">
