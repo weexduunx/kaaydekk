@@ -418,9 +418,17 @@ class Client
             'Nom' => $this->nom,
             'Prenom' => $this->prenom,
             'Adresse' => $this->adresse,
+            'Date_de_Naissance' => $this->date_de_naissance,
+            'Lieu_de_naissance' => $this->lieu_de_naissance,
             'CIN_ou_Passeport' => $this->numero_cin_ou_passeport,
             'Tel' => $this->tel,
             'Email' => $this->email,
+            'Nationalité' => $this->nationalite,
+            'Situation_Matrimoniale' => $this->situation_matrimoniale,
+            'profession' => $this->profession,
+            'Ville' => $this->ville,
+            'Mode_acquisition' => $this->achat,
+            'Agence' => $this->agence,
             'Date' => $this->createdAt->format('d.m.Y H:m'),
         ],);
 
