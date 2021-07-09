@@ -267,6 +267,7 @@ class DashboardController extends AbstractDashboardController
                       MenuItem::section('Gestion des Biens','fa fa-building'),
                       MenuItem::linkToCrud('Liste des biens', 'fas fa-list', Bien::class),
                       MenuItem::linkToCrud('Liste des types de biens', 'fas fa-list', TypeDeBien::class),
+
                       MenuItem::section('Gestion des Inscriptions','fa fa-user-plus'),
                       MenuItem::linkToCrud('liste des inscrits', 'fas fa-list', Inscription::class),
                       MenuItem::linkToCrud('Ajouter une inscription', 'fas fa-plus', Inscription::class)
@@ -287,8 +288,8 @@ class DashboardController extends AbstractDashboardController
                               ->setAction('new')->setPermission('ROLE_SUPER_USER'),
                     
 
-                              MenuItem::section('Gestion Utilisateur','fa fa-user'),
-                          MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class)->setPermission('ROLE_SUPER_USER'),
+                              MenuItem::section('Gestion Utilisateur','fa fa-user')->setPermission('ROLE_SUPER_USER'),
+                          MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
                          
                     
               ];
