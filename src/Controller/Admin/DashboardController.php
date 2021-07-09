@@ -288,7 +288,7 @@ class DashboardController extends AbstractDashboardController
                     
 
                               MenuItem::section('Gestion Utilisateur','fa fa-user'),
-                          MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class),
+                          MenuItem::linkToCrud('liste des utilisateurs', 'fas fa-list', User::class)->setPermission('ROLE_SUPER_USER'),
                          
                     
               ];
