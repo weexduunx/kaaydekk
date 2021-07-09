@@ -270,6 +270,8 @@ class DashboardController extends AbstractDashboardController
 
                       MenuItem::section('Gestion des Inscriptions','fa fa-user-plus'),
                       MenuItem::linkToCrud('liste des inscrits', 'fas fa-list', Inscription::class),
+                      MenuItem::linkToCrud('liste des candidats', 'fas fa-list', DetailsCandidature::class)->setPermission('ROLE_SUPER_USER'),
+                      MenuItem::linkToCrud('liste des Clients', 'fas fa-list', Client::class)->setPermission('ROLE_SUPER_USER'),
                       MenuItem::linkToCrud('Ajouter une inscription', 'fas fa-plus', Inscription::class)
                           ->setAction('new'),
                     
