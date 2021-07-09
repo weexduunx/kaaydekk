@@ -561,6 +561,7 @@ class DetailsCandidature
         return \array_merge([
             'Reference_candidature' => $this->label,
             'Source' => $this->agence,
+            'identité_Confirmée'=> $this->prenom_et_nom,
             'Prenom_&_Nom' => $this->client,
             'Type de logement' => $this->type_de_logement,
             'Mode acquisition' => $this->mode_acquisition,
