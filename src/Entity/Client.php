@@ -418,7 +418,7 @@ class Client
             'Nom' => $this->nom,
             'Prenom' => $this->prenom,
             'Adresse' => $this->adresse,
-            'Date_de_Naissance' => $this->date_de_naissance,
+            'Date_de_Naissance' => $this->date_de_naissance->format('d.m.Y'),
             'Lieu_de_naissance' => $this->lieu_de_naissance,
             'CIN_ou_Passeport' => $this->numero_cin_ou_passeport,
             'Tel' => $this->tel,
