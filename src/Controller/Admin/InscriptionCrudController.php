@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Inscription;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use App\Service\CsvService;
+use DateTime;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -107,6 +108,7 @@ class InscriptionCrudController extends AbstractCrudController
             TextField::new('salaireMensuel','Salaire Mensuel (CFA)')->hideOnIndex()
             ->setHelp('Veuillez indiquer, le salaire si c\'est un salarié'),
             BooleanField::new('status','Statut')->setHelp('Veuillez cocher la case, pour activer l\'statut actuel du client'),
+            DateField::new('createdAt','Date de la création')
 
         ];
     }
