@@ -260,6 +260,7 @@ class InscriptionType extends AbstractType
 
             ])
             ->add('sourceOuAgence', null,[
+                'required'   => true,
                 'label'=>'De quelle agence avez-vous entendu ce projet ? *',
                 'placeholder'=>'cliquer ici',
                 'attr' => ['class' => 'form-select text-muted'],

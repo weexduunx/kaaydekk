@@ -1,17 +1,63 @@
-Client_id,Reference_candidature,Source,Prenom,Nom,Date_de_Naissance,Lieu_de_Naissance,Adresse,NIN_ou_N°_Passeport,N°_Tel,Email,Type_de_logement,Mode_acquisition,Membre_cooperative,Nom_de_la_coopérative,Beneficiaire_appui_ou_subvention,Logement_actuel,Qualité,Handicap,Situation,Nom_Employeur,Domaine_d'activite,Lieu_d'activite,Type_de_Contrat,Compta_bancaire,Nom_de_la_banque,Personne_à_charge,Revenu_Mensuel,Salaire_Mensuel,Date_de_Création
-4,"CA-YA-00001
-","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 09:07"
-5,"CA-YA-00004
-","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 09:07"
-6,"CA-YA-00005
-","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F3,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 09:07"
-7,"CA-YA-00006
-","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F3,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 10:07"
-8,"CA-YA-00007
-","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 10:07"
-9,"CA-YA-00008
-","Yacine Immo",Idrissa,Ndiouck,16.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Propriétaire,Décent,Non,Salarié,"Idrissa Ndiouck",,,CDD,Non,,5,,"351 000 - 500 000","02.07.2021 14:07"
-10,"CA-KA-00009
-","Kaay Dëkk Immo",Idrissa,Ndiouck,23.07.2021,Pikine,"Apix Tivaouane Peulh",1234578910,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Hébergé,Décent,Non,Non-Salarié,"Idrissa Ndiouck",,,STAGIAIRE,Non,,5,,"100 000 - 250 000","06.07.2021 12:07"
-11,"CA-KA-00010
-","Kaay Dëkk Immo",Demo,Test,10.07.2021,Pikine,"Apix Tivaouane Peulh",1234567890123,784673070,indiouck04@yahoo.fr,F4,"Location Vente",Non,,Non,Hébergé,Décent,Non,Non-Salarié,"Idrissa Ndiouck",,,STAGIAIRE,Non,,5,,"251 000 - 350 000","07.07.2021 09:07"
+Client_id,Reference_candidature,Source,Prenom,Nom,Date_de_Naissance,Lieu_de_Naissance,Nationalité,Adresse,Ville,NIN_ou_N°_Passeport,Situation_Matrimoniale,profession,N°_Tel,Email,Type_de_logement,Mode_acquisition,Membre_cooperative,Nom_de_la_coopérative,Beneficiaire_appui_ou_subvention,Logement_actuel,Qualité,Handicap,Situation,Secteur,Nom_Employeur,Domaine_d'activite,Lieu_d'activite,Type_de_Contrat,Compta_bancaire,Nom_de_la_banque,Personne_à_charge,Revenu_Mensuel,Salaire_Mensuel,Date_de_Création
+26,,,FAMA,SY,02.01.1990,DIAWAR,SN,KEUR MASSAR,71,2843199000067,MARIEE,Commerçante,776890684,fatimatazahra@hotmail.com,,,,,,,,,,,,,,,,,,,,18.05.2021 11:05
+48,,,Amadou,Sow,25.04.1994,Yeumbeul,SN,Cité DAROU SALAM2,57,1777199401015,Marié(e),Chef d'entreprise,778767060,babasow2594@gmail.com,2,8,1,NGTS,2,3,1,2,2,,ETS Amadou sow,Prestataire de services,Dakar,,1,BOA,,200,350,21.05.2021 11:05
+49,CAN-F-00044,4,Pape Babacar,Diop,24.08.1994,Keur massar,SN,Keur massar,57,192920073218,Célibataire,Mécanicien,784194344,leukdaourdiop@gmail.com,3,8,2,Pas de cooperative,2,2,1,,2,,Non salarie,Consultance - formation,Cesag- iface- Iam -hampathe Ba-afi et animateur de beaucoup de seminaires en entreprise,2,1,BNDE,5,1200000,0,21.05.2021 11:05
+50,,,Serigne Mbacke,MBOW,04.08.1988,Pikine,SN,Keur massar cité sacfo,58,1765198804191,Célibataire,Maintenance informatique,774902717,serignembow96@gmail.com,,,,,,,,,,,,,,,,,,,,21.05.2021 12:05
+51,,,Sokhna Astou,Mare,22.09.1994,Ndiaffate escale,SN,Tivaouane Peulh,57,2557199400352,Marié(e),Secrétaire,781695198,freeastou@gmail.com,,,,,,,,,,,,,,,,,,,,21.05.2021 12:05
+53,,,Silanko Sidy Janvier,DIAGNE,01.01.1993,Oussouye,SN,Dakar keur massar,57,1116199300005,Célibataire,Agent commercial,781879012,diagnesilankosidyjanvier@gmail.com,,,,,,,,,,,,,,,,,,,,21.05.2021 14:05
+54,,,Diane agueratou,Diop,26.10.1984,Ouagadougou,SN,HLM grand medine,57,99999999999999,Marié(e),Commercial,773545997,adja.diop.diane@gmail.com,,,,,,,,,,,,,,,,,,,,21.05.2021 17:05
+55,,,Fama,Ndiouck,10.12.1991,Keur sanghoné,SN,Silmang,61,2673199207319,Marié(e),Étudiante,782265814,91fama@gmail.com,,,,,,,,,,,,,,,,,,,,22.05.2021 07:05
+57,,,Mamadou,Seck,01.08.1982,Dakar,SN,Rufisque cite Gabon villa 221,65,1751198202495,Marié(e),Secrétaire d’Administration,775783738,seckmamadouseck@gmail.com,,,,,,,,,,,,,,,,,,,,24.05.2021 21:05
+59,,,Madické,Ndiaye,19.09.1986,Thies,SN,Paris,,1619198603467,Marié(e),Agent administratif,662168596,madickem5577@gmail.com,,,,,,,,,,,,,,,,,,,,26.05.2021 15:05
+62,CAN-F-00030,,Moustapha,Ndiaye,24.10.1975,Thiès,SN,"Liberté 6 Extension, près Camp Leclerc. Dakar",57,1619197505892,Divorcé(e),Enseignant chercheur,771528200,moustaphandiay@gmail.com,3,8,2,,2,2,1,2,1,,UVS,,,3,1,CBAO,3,,1200000,26/05/21 18:05
+65,,,Ndeye sokhna,Ndiaye,30.12.1988,Thies,SN,Pikine icotaf,57,2619198900317,Marié(e),Sage femme,774515084,ndiayendesokhna2@gmail.com,,,,,,,,,,,,,,,,,,,,26.05.2021 18:05
+71,CAN-F-00035,,Matou,Sy,11.09.1997,Dakar,SN,Parcelles Assainies,57,27511990006573,Célibataire,Secretaire,779124356,cathia100@gmail.com,3,8,2,,2,2,1,2,1,,TTE,,,1,2,,3,,200000,27.05.2021 15:05
+72,CAN-F-00037,1,Ibrahima Samb,Diouf,13.06.1987,Touba,SN,Guediawaye Cite Adama Diop,57,1232199203276,Marié(e),Directeur Des Ventes MSD,772270784,idiouf@msdprestige.com,3,1,1,Yacine immo,2,2,1,1,1,,MSDPRESTIGE,,,1,1,BOA,3,,750000,27.05.2021 18:05
+73,,,Yougo,Cisse,19.02.1975,Pikine,SN,383 pikine macka colobane 1,58,1765197501440,Marié(e),Opérateurs,775593852,Sandradakar8@gmail.com,,,,,,,,,,,,,,,,,,,,28.05.2021 14:05
+75,,,Serigne Saliou mbacké,Diouf,07.10.1992,Guediawaye,SN,72 cité Adama Diop,60,99999999999999,Marié(e),Commerçant,775965751,ssmdiouf@gmail.com,,,,,,,,,,,,,,,,,,,,30.05.2021 22:05
+77,,,Ndeye khady,Ndiaye,17.01.1995,Dakar,SN,Rufisque,57,2751199500375,Marié(e),Pharmacien,776695749,ndiayndeykhady@gmail.com,,,,,,,,,,,,,,,,,,,,01.06.2021 20:06
+79,CAN-F-00042,,MARYAME,TOURE,12.11.1971,KAOLACK,SN,HLM 6,57,2548197103920,Divorcé(e),commerçante,773731524,mariametoure1971@gmail.com,3,8,2,,2,2,1,2,2,,COMMERCANTE,commerce,MACRHE HLM,,,,6,250000,250000,03.06.2021 13:06
+81,,,Babacar,DIOP,20.06.1970,Missirah,SN,Hlm 6 villa n 2813,57,1569198100317,Marié(e),Consultant formateur,774667214,almbatt@yahoo.fr,,,,,,,,,,,,,,,,,,,,03.06.2021 22:06
+82,CAN-F-00045,1,Lo,Mamadou,02.06.1986,Keur Mamour Lo,SN,Zak mbao,82,1560199700836,Marié(e),Commercial,776092878,mamadoulo2878@gmail.com,2,8,2,,1,2,2,2,1,,Mbodji sylla,Commerce,Zak mbao,1,1,Baobab,5,,175000,04.06.2021 08:06
+83,CAN-F-00046,,Aminata Mamadou,TOURÉ,09.09.1980,Dakar,SN,Hlm 6 villa n 2813,57,99999999999999,Marié(e),Traiteur,777820753,serignesalioumbackediop1@gmail.com,3,8,2,Non,2,2,1,2,,,,Restauration,Hlm 6 villa n 2813,,2,,5,400000,,06.06.2021 10:06
+85,CAN-F-00047,,Mbar,FAYE,24.09.1976,Niakhar,SN,Keur Massar,65,1588197600521,Célibataire,Professeur,779072096,mbarrfaye1@gmail.com,2,8,2,,,2,1,2,1,,Éducation nationale,,,2,,,4,,355000,06.06.2021 15:06
+86,,,Amadou Bailo,Diallo,08.11.1994,Dakar,SN,Keur massar jaxaay unité 10 villa n 44,58,1752199401202,Célibataire,Commerçant,771100798,amadoubinbazdiallo@gmail.com,,,,,,,,,,,,,,,,,,,,08.06.2021 16:06
+87,CAN-F-00048,,Ndéye Fatou,Toure,23.09.1969,Kaolack,SN,Arafat3b,65,2548196902914,Veuf(ve),Agent municipal,774297871,tourendeyefatou82@gmail.com,3,8,2,,2,2,2,2,1,,Mairie,,,1,1,Pamecas,6,,200000,08.06.2021 16:06
+91,,,Djiby,Ndiaye,30.12.1995,Dakar,SN,Zac mbao cité sattar,57,1990199604762,Marié(e),Machiniste,772817374,djiby0939@gmail.com,,,,,,,,,,,,,,,,,,,,10.06.2021 16:06
+92,CAN-F-00049,,Serigne mouhamed,Mbacke toure,08.09.1988,Pikine,SN,Guediawaye d'amour salam 1,60,1765198804940,Marié(e),Chauffeur,779470005,toureserigne185@gmail.com,2,8,2,,2,3,2,2,1,,Ucad esp,,,1,1,Ecobank,3,,320000,12.06.2021 22:06
+93,CAN-F-00064,,Papa alioune,Badiane,14.12.1986,Dakar,SN,Dakar,57,1751198700713,Marié(e),Commercent,704517013,alioubadiane2020@gmail.com,3,8,,Kaay dekk,,1,1,2,2,,Badiane et frere,Commerce,Parcelle,,2,,3,150000,15000,13.06.2021 15:06
+95,,,Youssoupha,Thior,27.11.1977,Sokone,SN,P.A(Soprim)89,57,1455197700848,Marié(e),Chauffeur,775421897,youssouphat85@gmail.com,,,,,,,,,,,,,,,,,,,,14.06.2021 12:06
+98,,,OUSMANE,CAMARA,28.06.1972,MECKHE,SN,Guédiawaye,60,1647197200821,Marié(e),MENUISIER,776777541,oc68589@gmail.com,,,,,,,,,,,,,,,,,,,,15.06.2021 15:06
+101,,,Fall,Cheikh ibra,29.06.1979,Bignona,SN,Keur mbaye fall,57,1001197900810,Marié(e),Taximan,770734438,cheikhibrafall748@gmail.com,,,,,,,,,,,,,,,,,,,,15.06.2021 22:06
+103,CA-YA-00067,3,Pape Momar Ndioum,Mboup,04.10.1978,Rufisque,SN,Arafat 3,65,1770197801266,Divorcé(e),Agent administratif,777155363,mboupbadar@yahoo.fr,3,8,2,,2,2,1,2,1,,Ville de Rufisque,,,1,1,Bhs,4,,210000,17.06.2021 01:06
+104,CA-YA-00068,3,Mamadou,Faye,13.03.1982,Pikine,SN,Keur massar cite safco,58,1765198203375,Marié(e),Commerçant,775223288,daminatou510@gmail.com,3,8,2,,2,2,,2,2,,,Courtage,Région dakar,,1,Boa,5,,,17.06.2021 08:06
+107,CA-RE-00070,2,JULIE AGNILAWE,DIATTA,15.05.1992,DAKAR,SN,KEUR MASSAR DAROU SALAM,57,2757199200994,Célibataire,INCONNU,773198686,eniladt@gmail.com,3,8,2,,2,2,1,2,1,,VFS GLOBAL,INCONNU,INCONNU,1,1,BICIS,2,250000,250000,17.06.2021 13:06
+108,CA-RE-00071,2,KODZOVI,BLEWUSSI,02.03.1987,LOME,TG,OUAKAM,57,1234567890,Marié(e),INCONNU,782479355,jonhson420@live.fr,3,8,2,,2,2,1,2,1,,USAID SENEGAL,INCONNU,INCONNU,1,1,INCONNUE,1,500000,500000,17.06.2021 13:06
+109,CA-RE-00072,2,YAO GBESOR,FIADONOU,30.03.1989,AFLAO (TOGO),TG,HLM GRAND MEDINE,57,1300198900585,Marié(e),INCONNU,773673213,fiadonoub@yahoo.com,3,8,2,,2,2,1,2,1,,IBS,INCONNU,INCONNU,1,1,INCONNUE,2,873600,873600,17.06.2021 14:06
+110,CA-AU-00073,5,OMAR,NDIAYE,06.01.1990,FATICK,SN,BAMBILOR,61,1425199000057,Célibataire,TECHNICIEN SUPERIEUR GENIE CIVIL,775400335,omarndiaye90@gmail.com,2,8,2,,2,2,1,2,1,,TEYLIOM,,,2,1,ORABANK,6,,250000,17.06.2021 14:06
+112,CA-RE-00075,2,KHADIM,POUYE,27.09.1989,PARCELLES ASSAINIES,SN,KEUR MASSAR,57,1758198902320,Marié(e),INCONNU,768773372,abou27amina@gmail.com,3,8,2,,2,2,1,2,2,,MENUISIER ALUMINIUM,INCONNU,INCONNU,1,2,,6,500000,500000,17.06.2021 14:06
+116,CA-RE-00078,2,Habib Ampa Florentin,DIENG,29.09.1974,Oussouye,SN,Cité du Golf villa 396,57,1116197400227,Marié(e),Fonctionnaire,776515834,ampadieng@gmail.com,3,8,1,Mutuelle des Douanes,2,1,1,2,1,,État du Sénégal,,,1,1,BOA,2,,650000,20.06.2021 06:06
+117,,,Diarry,Dia,29.04.1992,Waly,MR,10 bd du général ferrié 94100 saint maur des fossés,,4466661045,Marié(e),RH,642649561,diarra29@live.fr,,,,,,,,,,,,,,,,,,,,21.06.2021 13:06
+121,,,Saloum,Diouf,25.01.1982,Kaolack,SN,Hlm6,57,1548198202596,Marié(e),Délégué médical,221775574207,saloumdiouf@gmail.com,,,,,,,,,,,,,,,,,,,,21.06.2021 18:06
+123,,,elimane,niang,21.03.1972,dakar yoff,SN,3418 pikine ikotaf 1,57,1759197200232,Marié(e),menuisier,00221 77 547 02 32,elimaneniang72@gmail.com,,,,,,,,,,,,,,,,,,,,22.06.2021 18:06
+127,,,El hadji Alioune,Diagne,27.02.1980,Dakar,SN,Rue27x24 medina Dakar,57,1755198001232,Célibataire,Agent d'état,775128280,aliounediagne20.3@gmail.com,,,,,,,,,,,,,,,,,,,,25.06.2021 10:06
+128,CA-RE-00081,2,ALY BADARA,SINAYOKO,27.05.1972,CONAKRY,GN,HLM GRAND YOFF,57,293850000000,Marié(e),INCONNU,705699828,alybadara72.lsb@gmail.com,3,8,2,,2,2,1,2,1,,LBS SENEGALAISE DES BOISSONS,INCONNU,DAKAR,1,1,ECOBANK,3,300000,300000,26.06.2021 13:06
+129,CA-RE-00082,2,KOMUNA MARTIN,NAKUA,31.12.1983,TOGO,TG,MBAO,57,1218200300123,Marié(e),INCONNU,772570173,martinnakua@gmail.com,3,8,2,,2,2,1,2,2,,INCONNU,INCONNU,,,1,,2,500000,500000,26.06.2021 13:06
+130,CA-RE-00083,2,KOSSIWA AIMEE,HOLONOU,27.12.1984,TOGO,TG,DIEUPPEUL DERKLE,57,123456789,Marié(e),INCONNU,776260685,godwinmokpara@gmail.com,3,8,2,,2,2,1,2,2,,INCONNU,INCONNU,INCONNU,,2,,4,300000,300000,26.06.2021 13:06
+131,CA-RE-00084,2,AKOSSIWA,SEKAYA,31.12.1973,TOGO,TG,NIARY TALLY BISCUITERIE,57,6923954062,Marié(e),INCONNU,766444916,philomenesekaya@gmail.com,3,8,2,,2,2,1,2,1,,INCONNU,INCONNU,INCONNU,1,1,,1,,,26.06.2021 13:06
+132,CA-KA-00085,1,SOULEYMANE,MBOW,10.03.1989,BOINGHEUL,SN,OUAKAM CITE AVION,57,1342199700417,Célibataire,INCONNU,773705895,souleymanembow60@gmail.com,,,2,,2,2,1,2,1,,CH,,,,2,,4,,,26.06.2021 14:06
+133,CA-KA-00086,1,Abdoulaye,Fall,13.10.1993,Rufisque,SN,Arafat 2 Rufisque,65,1770199302687,Marié(e),Commerçant,773530769,layeziko1993@gmail.com,2,8,2,,2,3,,2,2,,,Commerce,Rufisque,3,1,CBAO,3,500000,,26.06.2021 20:06
+134,CA-KA-00087,1,Marcel,Diouf,12.12.1991,Gadiack,SN,Falokh,63,1449200300084,Marié(e),Policier,772932997,buildingprophert@gmai.com,2,8,2,,2,1,1,1,1,,Police,,,1,1,BHS,1,,,27.06.2021 15:06
+138,CA-AU-00088,5,ASSANE,DIOP,17.03.1993,DAKAR,SN,HLM1 VILLA 350,57,1990200500714,Célibataire,AGENT COMMERCIAL,+221 773808250/ 778377449,djadji380@gmail.com,2,8,2,,1,2,2,2,1,,OLA-ENERGIE SENEGAL,,,1,1,BIS,4,,212000,02.07.2021 13:07
+139,CA-PA-00091,4,CHEIKH TIDIANE,THIAM,07.02.1982,BATTARA WOLOF,SN,HLM GRAND MEDINE,57,1556198200022,Marié(e),DIRECTEUR GENERAL,+221 77 507 96 91,cesndakarsenegal@gmail.com,3,8,2,,2,2,1,2,,,,DIRECTEUR GENERAL,CASTOR,,1,,12,600000,,02.07.2021 13:07
+140,CA-PA-00092,4,CHEIKH SAMBA,FALL,22.11.1985,SAINT LOUIS,SN,839 HLM GRAND MEDINE-PARCELLES,57,1251198504138,Marié(e),DIRECTEUR DES RELATIONS EXTERIEURS DE OSHUN S.N,+221 77 509 53 72,fallassistant@gmail.com,3,8,2,,,2,1,2,1,,OSHUN S.N,,,1,1,,6,,600000,02.07.2021 14:07
+141,CA-KA-00093,1,IBRAHIMA,LO,11.01.1971,DAKAR,SN,FITH MITH PLLES N°280,60,1751197100834,Marié(e),COMPTABLE,775557082,ndamelo.touba@yahoo.fr,3,8,1,KAAY DEKK,,2,,2,1,,ONG AJD PASTEEF,,,2,1,,9,,390295,02.07.2021 14:07
+142,CA-AU-00094,5,NDEYE BETY,SOW,14.09.1980,PIKINE,SN,CITE DES ENSEIGNANTS RUFISQUE,57,2765198005650,Marié(e),ENSEIGNANTE,+221 77 266 63 40,betysow@gmail.com,2,8,2,,,3,,2,1,,MEN,,,1,1,,6,,243329,02.07.2021 14:07
+143,CA-KA-00095,1,MARIEMA,LO,24.10.1953,DAKAR,SN,FITH MITH PLLES N°280,60,2751195300535,Veuf(ve),COMMERCANTE,77 726 28 59,yadeaicha2009@gmail.com,3,8,1,KAAY DEKK,,2,1,2,2,,,COMMERCE,DOMICILE,,1,,8,370000,,02.07.2021 15:07
+144,CA-AU-00097,5,NDEYE FATOU GNINGUE,NDIAYE,25.11.1978,KAOLACK,SN,RUFISQUE OUEST CITE 5 BARA LOT 95,65,2548197807970,Divorcé(e),COMMERCANTE,+221 77 694 87 28 - +212 679 598 022,elhadjindiaye@olaenergy.com,2,8,2,,,3,,2,,,,COMMERCE,MAROC,,1,,1,300000,,02.07.2021 15:07
+145,CA-AU-00098,5,ELHADJI ADAMA,NDIAYE,25.09.1976,BAMBEY,SN,RUFISQUE OUEST CITE SERIGNE BARA LOT 95(ALMADIES 2),57,1191197601377,Marié(e),OLA ENERGIE,+221 77 639 71 10,elhadji.ndiaye@olaenergie.com,2,8,1,EMPLOYE DE OLA ENERGY SENEGAL,,1,2,2,1,,OLA ENERGY,,,1,1,,6,,,02.07.2021 15:07
+146,CA-AU-00099,5,SALIOU,NDIAYE,21.09.1981,THIES,SN,20 MOSELLE HOUSE N17 8DD,,101308405,Marié(e),EMBAUCHE,447305142254,zqlendiaye2007@hotmail.com,3,8,2,,,2,,2,1,,STRAIGHT ACE S&M,,,1,1,,2,,2000000000,02.07.2021 16:07
+147,CA-AU-00100,5,MAME DIARRA,NIANE,19.07.1992,KAOLACK,SN,SICAP FOIRE,57,2913200002350,Célibataire,COMMERCANTE,+221 77 326 33 64,mamediarryatou@gmail.com,3,8,2,,,2,,2,1,,,COMMERCE,DAKAR,,1,,2,500000,,02.07.2021 17:07
+149,CA-KA-00101,1,Adia Fatou,Niang,05.08.1996,Dakar,SN,"Ouakam, Cite El Hadj Malick SY",57,2990201502129,Célibataire,Entrepreneur,774434839,adia.fng8@gmail.com,3,8,2,,2,2,1,2,1,,,Entrepreneur dans le e-commerce,Dakar,1,1,,2,200,,05.07.2021 20:07
+150,CA-KA-00102,1,Ibrahima,Lo,11.01.1971,Dakar,SN,Fith Mith pelle N158,60,1751197100834,Marié(e),Comptable,775557082,lo-ibrahima@hotmail.com,3,8,1,Kaay Dêkk,2,1,1,2,1,,ONG AJD PASTEEF,,,2,1,BOA,11,,390295,06.07.2021 20:07
+152,,,Mame Awa,Ndiaye,16.04.1976,Dakar,SN,Golf nord 2 n 17,60,2756197603078,Marié(e),Gestionnaire,776520756,ndiayemameawa27@gmail.com,,,,,,,,,,,,,,,,,,,,09.07.2021 13:07
