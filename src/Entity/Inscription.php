@@ -738,6 +738,7 @@ class Inscription
             'Ville' => $this->ville,
             'NIN_ou_N°_Passeport' => $this->nin,
             'Situation_Matrimoniale' => $this->situationMatrimoniale,
+            'profession' => $this->profession,
             'N°_Tel' => $this->tel,
             'Email' => $this->email,
             'Type_de_logement' => $this->typeDeLogement,
