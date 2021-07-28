@@ -23,8 +23,7 @@ class TypeDeBienCrudController extends AbstractCrudController
     {
         return [
             TextField::new('label','Type de Bien'),
-            IntegerField::new('prix','Prix (CFA)'),
-            AssociationField::new('inscriptions','Nombre de Candidats inscrits')->hideOnForm()
+            AssociationField::new('inscriptions','Nombre d\'inscrits')->hideOnForm()
 
         ];
     }
@@ -36,7 +35,7 @@ class TypeDeBienCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle('index','Type de bien')
+            ->setPageTitle('index','Nombre d\'inscit(e)s par Type de Bien')
             ->setPageTitle('new','Créer un type de bien')
             ->setPageTitle('edit','Page d\'édition');
     }

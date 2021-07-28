@@ -25,7 +25,7 @@ class Inscription
     private $id;
 
     /**
-     * @Assert\NotBlank
+     * 
      * @Assert\Type (type="array")
      * @var array|string[]
      * @ORM\Column(type="array", nullable=true)

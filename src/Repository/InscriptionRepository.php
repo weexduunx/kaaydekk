@@ -55,7 +55,7 @@ class InscriptionRepository extends ServiceEntityRepository
     public function countByLogement()
     {
         $query = $this->createQueryBuilder('i')
-        ->select('t.id as label, COUNT(i.typeDeLogement) AS inscrits')
+        ->select('SUBSTRING(i.id, 1, 10) as label, COUNT(i.typeDeLogement) as inscrits')
         ->from('App\Entity\TypeDeBien', 't')
         ->groupBy('label');
 

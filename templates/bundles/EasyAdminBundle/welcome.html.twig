@@ -68,7 +68,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="card">
 				<div class="card-body">
 					<div class="d-flex d-lg-flex d-md-block align-items-center">
@@ -89,11 +89,11 @@
 
 		<div class="row">
 			<!-- column -->
-			<div class="col-lg-8 col-md-12">
+			<div class="col-lg-12 col-md-12">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Client Par Date</h4>
-						<p class="font-14 mb-2 text-muted">- Statistique des nombres de clients enregistrés par date
+						<h4 class="card-title">Inscrit(e) par date</h4>
+						<p class="font-14 mb-2 text-muted">- Statistique des inscriptions enregistrées par date
 							<br></p>
 						<div>
 							<canvas id="client" height="150"></canvas>
@@ -102,43 +102,80 @@
 				</div>
 			</div>
 			<!-- column -->
-				<div class="col-lg-4 col-md-12">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title text-center">Nombre d'inscrit(e)s par Type de Bien</h4>
-							<div class="table-responsive">
+		</div>
+
+		<div class="row">
+		<!-- column -->
+
+			<div class="col-md-6 col-lg-4 table-responsive">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Propriétés vendues</h4>
+						<p class="font-14 mb-2 text-muted">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
+							<br></p>
+						<div >
+							<canvas id="price" height="150"></canvas>
+							<ul class="list-style-none mb-0">
+								<li>
+									<i class="fas fa-circle text-primary font-10 mr-2"></i>
+									<span class="text-muted">Les ventes directes</span>
+									{% for sommes in somme %}
+										<span class="responsive text-dark float-right font-weight-medium" style="font-weight: bold; font-size: 18px;">{{sommes.prix_global | format_number}}</span>
+									{% endfor %}
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- column -->
+
+			<!-- column -->
+			<div class="col-md-12 col-lg-8">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Salaire Mensuels</h4>
+						<p class="font-14 mb-2 text-muted">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
+						<div>
+							<canvas id="pie1" height="150"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- column -->
+		</div>
+
+			<div class="row">
+			<div class="col-lg-8">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title text-center">Prix des Biens</h4>
+						<div class="table-responsive">
 							<table class="table">
 								<thead class="bg-primary text-white">
 									<tr>
 										<th scope="col">#</th>
-										<th scope="col">Type de Bien</th>
-										<th scope="col">Nbre d'inscrits</th>
+										<th scope="col">Nature du Bien</th>
+										<th scope="col">Prix</th>
 									</tr>
 								</thead>
-							
-									
+								{% for bien in price %}
 									<tbody>
 										<tr>
-											<th scope="row"></th>
-											<td></td>
-											<td></td>
+											<th scope="row">{{ bien.id }}</th>
+											<td>{{ bien.label }}</td>
+											<td>{{ bien.price | format_number}} F CFA</td>
 										</tr>
 									</tbody>
-							
-								
+								{% endfor %}
 							</table>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		
-
-			
-		<div class="row">
-		<!-- column -->
-		<!-- column -->
-			{% if app.user %}
+			<!-- column -->
+		{% if app.user %}
 				<div class="col-md-6 col-lg-4">
 					<div class="card">
 						<div class="card-body">
@@ -196,71 +233,6 @@
 				</div>
 			{% endif %}
 			<!-- column -->
-			<!-- column -->
-			<div class="col-md-6 col-lg-8">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Salaire Mensuels</h4>
-						<p class="font-14 mb-2 text-muted">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
-						<div>
-							<canvas id="pie1" height="150"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-			</div>
-			
-			<div class="row">
-			<div class="col-8">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title text-center">Prix des Biens</h4>
-						<div class="table-responsive">
-							<table class="table">
-								<thead class="bg-primary text-white">
-									<tr>
-										<th scope="col">#</th>
-										<th scope="col">Nature du Bien</th>
-										<th scope="col">Prix</th>
-									</tr>
-								</thead>
-								{% for bien in price %}
-									<tbody>
-										<tr>
-											<th scope="row">{{ bien.id }}</th>
-											<td>{{ bien.label }}</td>
-											<td>{{ bien.price | format_number}} F CFA</td>
-										</tr>
-									</tbody>
-								{% endfor %}
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- column -->
-			<div class="col-4 table-responsive">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Propriétés vendues</h4>
-						<p class="font-14 mb-2 text-muted">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
-							<br></p>
-						<div >
-							<canvas id="price" height="150"></canvas>
-							<ul class="list-style-none mb-0">
-								<li>
-									<i class="fas fa-circle text-primary font-10 mr-2"></i>
-									<span class="text-muted">Les ventes directes</span>
-									{% for sommes in somme %}
-										<span class="responsive text-dark float-right font-weight-medium" style="font-weight: bold; font-size: 18px;">{{sommes.prix_global | format_number}}</span>
-									{% endfor %}
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- column -->
 		</div>
 		
 	
@@ -271,16 +243,18 @@
 		<script>
 
 let bienx = document.querySelector("#pie1")
-let pieGraph1 = new Chart(bienx, {
+let bienGraph = new Chart(bienx, {
 type: "polarArea",
 data: {
 labels: {{ nom|raw }},
 datasets: [
 {
-label: "Salaire Mensuel",
-backgroundColor: {{ color|raw }}
+	label: "Salaire Mensuel",
+	data: {{ salaire|raw }},
+	backgroundColor: {{ color|raw }}
 }]
-    }
+    
+	  }
 })
 
 
@@ -291,7 +265,7 @@ data: {
 labels: {{ dates|raw }},
 datasets: [
 {
-label: "Nombre de Clients",
+label: "Nombre d'inscrit(e)s",
 data: {{ compte|raw }},
 backgroundColor: {{ colorClient|raw }}
 }

@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* @EasyAdmin/welcome.html.twig */
+/* bundles/EasyAdminBundle/welcome.html.twig */
 class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a4bf3f extends Template
 {
     private $source;
@@ -43,12 +43,12 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/welcome.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "bundles/EasyAdminBundle/welcome.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@EasyAdmin/welcome.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "bundles/EasyAdminBundle/welcome.html.twig"));
 
-        $this->parent = $this->loadTemplate("bundles/EasyAdminBundle/layout.html.twig", "@EasyAdmin/welcome.html.twig", 2);
+        $this->parent = $this->loadTemplate("bundles/EasyAdminBundle/layout.html.twig", "bundles/EasyAdminBundle/welcome.html.twig", 2);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -190,7 +190,7 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t
+
 \t\t\t<div class=\"card\">
 \t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t<div class=\"d-flex d-lg-flex d-md-block align-items-center\">
@@ -214,11 +214,11 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 
 \t\t<div class=\"row\">
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-8 col-md-12\">
+\t\t\t<div class=\"col-lg-12 col-md-12\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Client Par Date</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistique des nombres de clients enregistrés par date
+\t\t\t\t\t\t<h4 class=\"card-title\">Inscrit(e) par date</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistique des inscriptions enregistrées par date
 \t\t\t\t\t\t\t<br></p>
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<canvas id=\"client\" height=\"150\"></canvas>
@@ -227,46 +227,114 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<!-- column -->
-\t\t\t\t<div class=\"col-lg-4 col-md-12\">
-\t\t\t\t\t<div class=\"card\">
-\t\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t\t<h4 class=\"card-title text-center\">Nombre d'inscrit(e)s par Type de Bien</h4>
-\t\t\t\t\t\t\t<div class=\"table-responsive\">
-\t\t\t\t\t\t\t<table class=\"table\">
-\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
-\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Type de Bien</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nbre d'inscrits</th>
-\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t</thead>
-\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t<tbody>
-\t\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\"></th>
-\t\t\t\t\t\t\t\t\t\t\t<td></td>
-\t\t\t\t\t\t\t\t\t\t\t<td></td>
-\t\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t\t</tbody>
-\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t</table>
+\t\t</div>
+
+\t\t<div class=\"row\">
+\t\t<!-- column -->
+
+\t\t\t<div class=\"col-md-6 col-lg-4 table-responsive\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
+\t\t\t\t\t\t\t<br></p>
+\t\t\t\t\t\t<div >
+\t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
+\t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
+\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t<i class=\"fas fa-circle text-primary font-10 mr-2\"></i>
+\t\t\t\t\t\t\t\t\t<span class=\"text-muted\">Les ventes directes</span>
+\t\t\t\t\t\t\t\t\t";
+        // line 122
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["somme"]) || array_key_exists("somme", $context) ? $context["somme"] : (function () { throw new RuntimeError('Variable "somme" does not exist.', 122, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["sommes"]) {
+            // line 123
+            echo "\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">";
+            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["sommes"], "prix_global", [], "any", false, false, false, 123)), "html", null, true);
+            echo "</span>
+\t\t\t\t\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sommes'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 125
+        echo "\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t</div>
-\t\t
-
 \t\t\t
-\t\t<div class=\"row\">
-\t\t<!-- column -->
-\t\t<!-- column -->
-\t\t\t";
-        // line 141
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 141, $this->source); })()), "user", [], "any", false, false, false, 141)) {
-            // line 142
+\t\t\t<!-- column -->
+
+\t\t\t<!-- column -->
+\t\t\t<div class=\"col-md-12 col-lg-8\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title\">Salaire Mensuels</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
+\t\t\t\t\t\t<div>
+\t\t\t\t\t\t\t<canvas id=\"pie1\" height=\"150\"></canvas>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!-- column -->
+\t\t</div>
+
+\t\t\t<div class=\"row\">
+\t\t\t<div class=\"col-lg-8\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title text-center\">Prix des Biens</h4>
+\t\t\t\t\t\t<div class=\"table-responsive\">
+\t\t\t\t\t\t\t<table class=\"table\">
+\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
+\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nature du Bien</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Prix</th>
+\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t</thead>
+\t\t\t\t\t\t\t\t";
+        // line 163
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["price"]) || array_key_exists("price", $context) ? $context["price"] : (function () { throw new RuntimeError('Variable "price" does not exist.', 163, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["bien"]) {
+            // line 164
+            echo "\t\t\t\t\t\t\t\t\t<tbody>
+\t\t\t\t\t\t\t\t\t\t<tr>
+\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\">";
+            // line 166
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "id", [], "any", false, false, false, 166), "html", null, true);
+            echo "</th>
+\t\t\t\t\t\t\t\t\t\t\t<td>";
+            // line 167
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "label", [], "any", false, false, false, 167), "html", null, true);
+            echo "</td>
+\t\t\t\t\t\t\t\t\t\t\t<td>";
+            // line 168
+            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["bien"], "price", [], "any", false, false, false, 168)), "html", null, true);
+            echo " F CFA</td>
+\t\t\t\t\t\t\t\t\t\t</tr>
+\t\t\t\t\t\t\t\t\t</tbody>
+\t\t\t\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['bien'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 172
+        echo "\t\t\t\t\t\t\t</table>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!-- column -->
+\t\t";
+        // line 178
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 178, $this->source); })()), "user", [], "any", false, false, false, 178)) {
+            // line 179
             echo "\t\t\t\t<div class=\"col-md-6 col-lg-4\">
 \t\t\t\t\t<div class=\"card\">
 \t\t\t\t\t\t<div class=\"card-body\">
@@ -281,22 +349,22 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les inscriptions non-activés !</h5>
 \t\t\t\t\t\t\t\t\t\t";
-            // line 155
+            // line 192
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["creation"]) || array_key_exists("creation", $context) ? $context["creation"] : (function () { throw new RuntimeError('Variable "creation" does not exist.', 155, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["creation"]) || array_key_exists("creation", $context) ? $context["creation"] : (function () { throw new RuntimeError('Variable "creation" does not exist.', 192, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["client"]) {
-                // line 156
+                // line 193
                 echo "\t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 156), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "prenom", [], "any", false, false, false, 193), "html", null, true);
                 echo "
 \t\t\t\t\t\t\t\t\t\t\t\t";
-                // line 157
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 157), "html", null, true);
+                // line 194
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "nom", [], "any", false, false, false, 194), "html", null, true);
                 echo "
 \t\t\t\t\t\t\t\t\t\t\t\t<br>
 \t\t\t\t\t\t\t\t\t\t\t\t<span class=\"font-weight-light font-14 text-muted\">";
-                // line 159
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "tel", [], "any", false, false, false, 159), "html", null, true);
+                // line 196
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["client"], "tel", [], "any", false, false, false, 196), "html", null, true);
                 echo "</span>
 \t\t\t\t\t\t\t\t\t\t\t</p>
 \t\t\t\t\t\t\t\t\t\t";
@@ -304,13 +372,13 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['client'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 162
+            // line 199
             echo "\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t";
-            // line 164
+            // line 201
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 165
+                // line 202
                 echo "\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-start border-left-line pb-3\">
 \t\t\t\t\t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn btn-danger btn-circle mb-2 btn-item\">
@@ -321,20 +389,20 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs non vérifié !<br>
 \t\t\t\t\t\t\t\t\t\t\t\tdu système</h5>
 \t\t\t\t\t\t\t\t\t\t\t";
-                // line 174
+                // line 211
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 174, $this->source); })()));
+                $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 211, $this->source); })()));
                 foreach ($context['_seq'] as $context["_key"] => $context["utilisateur"]) {
-                    // line 175
+                    // line 212
                     echo "\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["utilisateur"], "email", [], "any", false, false, false, 175), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["utilisateur"], "email", [], "any", false, false, false, 212), "html", null, true);
                     echo "</p>
 \t\t\t\t\t\t\t\t\t\t\t";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['utilisateur'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 177
+                // line 214
                 echo "\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-start border-left-line\">
@@ -346,134 +414,38 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 \t\t\t\t\t\t\t\t\t\t<div class=\"ml-3 mt-2 table-responsive\">
 \t\t\t\t\t\t\t\t\t\t\t<h5 class=\"text-dark font-weight-medium mb-2\">Les utilisateurs vérifiés!</h5>
 \t\t\t\t\t\t\t\t\t\t\t";
-                // line 187
+                // line 224
                 $context['_parent'] = $context;
-                $context['_seq'] = twig_ensure_traversable((isset($context["userVerified"]) || array_key_exists("userVerified", $context) ? $context["userVerified"] : (function () { throw new RuntimeError('Variable "userVerified" does not exist.', 187, $this->source); })()));
+                $context['_seq'] = twig_ensure_traversable((isset($context["userVerified"]) || array_key_exists("userVerified", $context) ? $context["userVerified"] : (function () { throw new RuntimeError('Variable "userVerified" does not exist.', 224, $this->source); })()));
                 foreach ($context['_seq'] as $context["_key"] => $context["verified"]) {
-                    // line 188
+                    // line 225
                     echo "\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["verified"], "email", [], "any", false, false, false, 188), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["verified"], "email", [], "any", false, false, false, 225), "html", null, true);
                     echo "</p>
 \t\t\t\t\t\t\t\t\t\t\t";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['verified'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 190
+                // line 227
                 echo "\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t";
             }
-            // line 193
+            // line 230
             echo "\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t";
         }
-        // line 198
+        // line 235
         echo "\t\t\t<!-- column -->
-\t\t\t<!-- column -->
-\t\t\t<div class=\"col-md-6 col-lg-8\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Salaire Mensuels</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
-\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t<canvas id=\"pie1\" height=\"150\"></canvas>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t</div>
-\t\t\t
-\t\t\t<div class=\"row\">
-\t\t\t<div class=\"col-8\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title text-center\">Prix des Biens</h4>
-\t\t\t\t\t\t<div class=\"table-responsive\">
-\t\t\t\t\t\t\t<table class=\"table\">
-\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
-\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nature du Bien</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Prix</th>
-\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t</thead>
-\t\t\t\t\t\t\t\t";
-        // line 227
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["price"]) || array_key_exists("price", $context) ? $context["price"] : (function () { throw new RuntimeError('Variable "price" does not exist.', 227, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["bien"]) {
-            // line 228
-            echo "\t\t\t\t\t\t\t\t\t<tbody>
-\t\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\">";
-            // line 230
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "id", [], "any", false, false, false, 230), "html", null, true);
-            echo "</th>
-\t\t\t\t\t\t\t\t\t\t\t<td>";
-            // line 231
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["bien"], "label", [], "any", false, false, false, 231), "html", null, true);
-            echo "</td>
-\t\t\t\t\t\t\t\t\t\t\t<td>";
-            // line 232
-            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["bien"], "price", [], "any", false, false, false, 232)), "html", null, true);
-            echo " F CFA</td>
-\t\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t\t</tbody>
-\t\t\t\t\t\t\t\t";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['bien'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 236
-        echo "\t\t\t\t\t\t\t</table>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
-\t\t\t<div class=\"col-4 table-responsive\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
-\t\t\t\t\t\t\t<br></p>
-\t\t\t\t\t\t<div >
-\t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
-\t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
-\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t<i class=\"fas fa-circle text-primary font-10 mr-2\"></i>
-\t\t\t\t\t\t\t\t\t<span class=\"text-muted\">Les ventes directes</span>
-\t\t\t\t\t\t\t\t\t";
-        // line 254
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["somme"]) || array_key_exists("somme", $context) ? $context["somme"] : (function () { throw new RuntimeError('Variable "somme" does not exist.', 254, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["sommes"]) {
-            // line 255
-            echo "\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">";
-            echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatNumber(twig_get_attribute($this->env, $this->source, $context["sommes"], "prix_global", [], "any", false, false, false, 255)), "html", null, true);
-            echo "</span>
-\t\t\t\t\t\t\t\t\t";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['sommes'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 257
-        echo "\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
 \t\t</div>
 \t\t
 \t
 \t";
-        // line 267
+        // line 239
         $this->displayBlock('javascripts', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -506,7 +478,7 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
 
     }
 
-    // line 267
+    // line 239
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -516,29 +488,34 @@ class __TwigTemplate_13f04fdcb07d03d761eff47e05c6a6ef5c45339fe34155eb1b3ccc7a52a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 268
+        // line 240
         echo "\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js\" 
 \t\tintegrity=\"sha512-s+xg36jbIujB2S2VK</div>fpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
 
 \t\t<script>
 
 let bienx = document.querySelector(\"#pie1\")
-let pieGraph1 = new Chart(bienx, {
+let bienGraph = new Chart(bienx, {
 type: \"polarArea\",
 data: {
 labels: ";
-        // line 277
-        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 277, $this->source); })());
+        // line 249
+        echo (isset($context["nom"]) || array_key_exists("nom", $context) ? $context["nom"] : (function () { throw new RuntimeError('Variable "nom" does not exist.', 249, $this->source); })());
         echo ",
 datasets: [
 {
-label: \"Salaire Mensuel\",
-backgroundColor: ";
-        // line 281
-        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 281, $this->source); })());
+\tlabel: \"Salaire Mensuel\",
+\tdata: ";
+        // line 253
+        echo (isset($context["salaire"]) || array_key_exists("salaire", $context) ? $context["salaire"] : (function () { throw new RuntimeError('Variable "salaire" does not exist.', 253, $this->source); })());
+        echo ",
+\tbackgroundColor: ";
+        // line 254
+        echo (isset($context["color"]) || array_key_exists("color", $context) ? $context["color"] : (function () { throw new RuntimeError('Variable "color" does not exist.', 254, $this->source); })());
         echo "
 }]
-    }
+    
+\t  }
 })
 
 
@@ -547,19 +524,19 @@ let clientGraph = new Chart(clients, {
 type: \"bar\",
 data: {
 labels: ";
-        // line 291
-        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 291, $this->source); })());
+        // line 265
+        echo (isset($context["dates"]) || array_key_exists("dates", $context) ? $context["dates"] : (function () { throw new RuntimeError('Variable "dates" does not exist.', 265, $this->source); })());
         echo ",
 datasets: [
 {
-label: \"Nombre de Clients\",
+label: \"Nombre d'inscrit(e)s\",
 data: ";
-        // line 295
-        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 295, $this->source); })());
+        // line 269
+        echo (isset($context["compte"]) || array_key_exists("compte", $context) ? $context["compte"] : (function () { throw new RuntimeError('Variable "compte" does not exist.', 269, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 296
-        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 296, $this->source); })());
+        // line 270
+        echo (isset($context["colorClient"]) || array_key_exists("colorClient", $context) ? $context["colorClient"] : (function () { throw new RuntimeError('Variable "colorClient" does not exist.', 270, $this->source); })());
         echo "
 }
 ]
@@ -573,19 +550,19 @@ let priceGraph = new Chart(prices, {
 type: \"doughnut\",
 data: {
 labels: ";
-        // line 308
-        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 308, $this->source); })());
+        // line 282
+        echo (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 282, $this->source); })());
         echo ",
 datasets: [
 {
 label: \"Nombre de Clients\",
 data: ";
-        // line 312
-        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 312, $this->source); })());
+        // line 286
+        echo (isset($context["prix_total"]) || array_key_exists("prix_total", $context) ? $context["prix_total"] : (function () { throw new RuntimeError('Variable "prix_total" does not exist.', 286, $this->source); })());
         echo ",
 backgroundColor: ";
-        // line 313
-        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 313, $this->source); })());
+        // line 287
+        echo (isset($context["colorx"]) || array_key_exists("colorx", $context) ? $context["colorx"] : (function () { throw new RuntimeError('Variable "colorx" does not exist.', 287, $this->source); })());
         echo "
 
 }
@@ -605,7 +582,7 @@ backgroundColor: ";
 
     public function getTemplateName()
     {
-        return "@EasyAdmin/welcome.html.twig";
+        return "bundles/EasyAdminBundle/welcome.html.twig";
     }
 
     public function isTraitable()
@@ -615,7 +592,7 @@ backgroundColor: ";
 
     public function getDebugInfo()
     {
-        return array (  588 => 313,  584 => 312,  577 => 308,  562 => 296,  558 => 295,  551 => 291,  538 => 281,  531 => 277,  520 => 268,  510 => 267,  497 => 13,  487 => 12,  477 => 267,  465 => 257,  456 => 255,  452 => 254,  432 => 236,  422 => 232,  418 => 231,  414 => 230,  410 => 228,  406 => 227,  375 => 198,  368 => 193,  363 => 190,  354 => 188,  350 => 187,  338 => 177,  329 => 175,  325 => 174,  314 => 165,  312 => 164,  308 => 162,  299 => 159,  294 => 157,  289 => 156,  285 => 155,  270 => 142,  268 => 141,  200 => 76,  179 => 58,  173 => 55,  152 => 37,  147 => 35,  132 => 23,  124 => 18,  119 => 15,  117 => 12,  114 => 11,  104 => 10,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
+        return array (  565 => 287,  561 => 286,  554 => 282,  539 => 270,  535 => 269,  528 => 265,  514 => 254,  510 => 253,  503 => 249,  492 => 240,  482 => 239,  469 => 13,  459 => 12,  449 => 239,  443 => 235,  436 => 230,  431 => 227,  422 => 225,  418 => 224,  406 => 214,  397 => 212,  393 => 211,  382 => 202,  380 => 201,  376 => 199,  367 => 196,  362 => 194,  357 => 193,  353 => 192,  338 => 179,  336 => 178,  328 => 172,  318 => 168,  314 => 167,  310 => 166,  306 => 164,  302 => 163,  262 => 125,  253 => 123,  249 => 122,  200 => 76,  179 => 58,  173 => 55,  152 => 37,  147 => 35,  132 => 23,  124 => 18,  119 => 15,  117 => 12,  114 => 11,  104 => 10,  91 => 6,  81 => 5,  62 => 4,  39 => 2,);
     }
 
     public function getSourceContext()
@@ -690,7 +667,7 @@ backgroundColor: ";
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t\t
+
 \t\t\t<div class=\"card\">
 \t\t\t\t<div class=\"card-body\">
 \t\t\t\t\t<div class=\"d-flex d-lg-flex d-md-block align-items-center\">
@@ -711,11 +688,11 @@ backgroundColor: ";
 
 \t\t<div class=\"row\">
 \t\t\t<!-- column -->
-\t\t\t<div class=\"col-lg-8 col-md-12\">
+\t\t\t<div class=\"col-lg-12 col-md-12\">
 \t\t\t\t<div class=\"card\">
 \t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Client Par Date</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistique des nombres de clients enregistrés par date
+\t\t\t\t\t\t<h4 class=\"card-title\">Inscrit(e) par date</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistique des inscriptions enregistrées par date
 \t\t\t\t\t\t\t<br></p>
 \t\t\t\t\t\t<div>
 \t\t\t\t\t\t\t<canvas id=\"client\" height=\"150\"></canvas>
@@ -724,43 +701,80 @@ backgroundColor: ";
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t\t<!-- column -->
-\t\t\t\t<div class=\"col-lg-4 col-md-12\">
-\t\t\t\t\t<div class=\"card\">
-\t\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t\t<h4 class=\"card-title text-center\">Nombre d'inscrit(e)s par Type de Bien</h4>
-\t\t\t\t\t\t\t<div class=\"table-responsive\">
+\t\t</div>
+
+\t\t<div class=\"row\">
+\t\t<!-- column -->
+
+\t\t\t<div class=\"col-md-6 col-lg-4 table-responsive\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
+\t\t\t\t\t\t\t<br></p>
+\t\t\t\t\t\t<div >
+\t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
+\t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
+\t\t\t\t\t\t\t\t<li>
+\t\t\t\t\t\t\t\t\t<i class=\"fas fa-circle text-primary font-10 mr-2\"></i>
+\t\t\t\t\t\t\t\t\t<span class=\"text-muted\">Les ventes directes</span>
+\t\t\t\t\t\t\t\t\t{% for sommes in somme %}
+\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">{{sommes.prix_global | format_number}}</span>
+\t\t\t\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t\t\t\t</li>
+\t\t\t\t\t\t\t</ul>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t
+\t\t\t<!-- column -->
+
+\t\t\t<!-- column -->
+\t\t\t<div class=\"col-md-12 col-lg-8\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title\">Salaire Mensuels</h4>
+\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
+\t\t\t\t\t\t<div>
+\t\t\t\t\t\t\t<canvas id=\"pie1\" height=\"150\"></canvas>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t\t<!-- column -->
+\t\t</div>
+
+\t\t\t<div class=\"row\">
+\t\t\t<div class=\"col-lg-8\">
+\t\t\t\t<div class=\"card\">
+\t\t\t\t\t<div class=\"card-body\">
+\t\t\t\t\t\t<h4 class=\"card-title text-center\">Prix des Biens</h4>
+\t\t\t\t\t\t<div class=\"table-responsive\">
 \t\t\t\t\t\t\t<table class=\"table\">
 \t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
 \t\t\t\t\t\t\t\t\t<tr>
 \t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Type de Bien</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nbre d'inscrits</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nature du Bien</th>
+\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Prix</th>
 \t\t\t\t\t\t\t\t\t</tr>
 \t\t\t\t\t\t\t\t</thead>
-\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t{% for bien in price %}
 \t\t\t\t\t\t\t\t\t<tbody>
 \t\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\"></th>
-\t\t\t\t\t\t\t\t\t\t\t<td></td>
-\t\t\t\t\t\t\t\t\t\t\t<td></td>
+\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\">{{ bien.id }}</th>
+\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.label }}</td>
+\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.price | format_number}} F CFA</td>
 \t\t\t\t\t\t\t\t\t\t</tr>
 \t\t\t\t\t\t\t\t\t</tbody>
-\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t\t\t</table>
 \t\t\t\t\t\t</div>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t</div>
-\t\t</div>
-\t\t
-
-\t\t\t
-\t\t<div class=\"row\">
-\t\t<!-- column -->
-\t\t<!-- column -->
-\t\t\t{% if app.user %}
+\t\t\t<!-- column -->
+\t\t{% if app.user %}
 \t\t\t\t<div class=\"col-md-6 col-lg-4\">
 \t\t\t\t\t<div class=\"card\">
 \t\t\t\t\t\t<div class=\"card-body\">
@@ -818,71 +832,6 @@ backgroundColor: ";
 \t\t\t\t</div>
 \t\t\t{% endif %}
 \t\t\t<!-- column -->
-\t\t\t<!-- column -->
-\t\t\t<div class=\"col-md-6 col-lg-8\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Salaire Mensuels</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
-\t\t\t\t\t\t<div>
-\t\t\t\t\t\t\t<canvas id=\"pie1\" height=\"150\"></canvas>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t</div>
-\t\t\t
-\t\t\t<div class=\"row\">
-\t\t\t<div class=\"col-8\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title text-center\">Prix des Biens</h4>
-\t\t\t\t\t\t<div class=\"table-responsive\">
-\t\t\t\t\t\t\t<table class=\"table\">
-\t\t\t\t\t\t\t\t<thead class=\"bg-primary text-white\">
-\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">#</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Nature du Bien</th>
-\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Prix</th>
-\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t</thead>
-\t\t\t\t\t\t\t\t{% for bien in price %}
-\t\t\t\t\t\t\t\t\t<tbody>
-\t\t\t\t\t\t\t\t\t\t<tr>
-\t\t\t\t\t\t\t\t\t\t\t<th scope=\"row\">{{ bien.id }}</th>
-\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.label }}</td>
-\t\t\t\t\t\t\t\t\t\t\t<td>{{ bien.price | format_number}} F CFA</td>
-\t\t\t\t\t\t\t\t\t\t</tr>
-\t\t\t\t\t\t\t\t\t</tbody>
-\t\t\t\t\t\t\t\t{% endfor %}
-\t\t\t\t\t\t\t</table>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
-\t\t\t<div class=\"col-4 table-responsive\">
-\t\t\t\t<div class=\"card\">
-\t\t\t\t\t<div class=\"card-body\">
-\t\t\t\t\t\t<h4 class=\"card-title\">Propriétés vendues</h4>
-\t\t\t\t\t\t<p class=\"font-14 mb-2 text-muted\">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
-\t\t\t\t\t\t\t<br></p>
-\t\t\t\t\t\t<div >
-\t\t\t\t\t\t\t<canvas id=\"price\" height=\"150\"></canvas>
-\t\t\t\t\t\t\t<ul class=\"list-style-none mb-0\">
-\t\t\t\t\t\t\t\t<li>
-\t\t\t\t\t\t\t\t\t<i class=\"fas fa-circle text-primary font-10 mr-2\"></i>
-\t\t\t\t\t\t\t\t\t<span class=\"text-muted\">Les ventes directes</span>
-\t\t\t\t\t\t\t\t\t{% for sommes in somme %}
-\t\t\t\t\t\t\t\t\t\t<span class=\"responsive text-dark float-right font-weight-medium\" style=\"font-weight: bold; font-size: 18px;\">{{sommes.prix_global | format_number}}</span>
-\t\t\t\t\t\t\t\t\t{% endfor %}
-\t\t\t\t\t\t\t\t</li>
-\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t</div>
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t\t<!-- column -->
 \t\t</div>
 \t\t
 \t
@@ -893,16 +842,18 @@ backgroundColor: ";
 \t\t<script>
 
 let bienx = document.querySelector(\"#pie1\")
-let pieGraph1 = new Chart(bienx, {
+let bienGraph = new Chart(bienx, {
 type: \"polarArea\",
 data: {
 labels: {{ nom|raw }},
 datasets: [
 {
-label: \"Salaire Mensuel\",
-backgroundColor: {{ color|raw }}
+\tlabel: \"Salaire Mensuel\",
+\tdata: {{ salaire|raw }},
+\tbackgroundColor: {{ color|raw }}
 }]
-    }
+    
+\t  }
 })
 
 
@@ -913,7 +864,7 @@ data: {
 labels: {{ dates|raw }},
 datasets: [
 {
-label: \"Nombre de Clients\",
+label: \"Nombre d'inscrit(e)s\",
 data: {{ compte|raw }},
 backgroundColor: {{ colorClient|raw }}
 }
@@ -943,6 +894,6 @@ backgroundColor: {{ colorx|raw }}
 \t{% endblock %}
 {% endblock %}
 
-", "@EasyAdmin/welcome.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/welcome.html.twig");
+", "bundles/EasyAdminBundle/welcome.html.twig", "/home/ngts/Kaay-Dekk-Immo/templates/bundles/EasyAdminBundle/welcome.html.twig");
     }
 }
