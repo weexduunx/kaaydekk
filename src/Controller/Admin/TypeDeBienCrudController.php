@@ -35,7 +35,7 @@ class TypeDeBienCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle('index','Nombre d\'inscit(e)s par Type de Bien')
+            ->setPageTitle('index','Nombre d\'inscit(e)s par type de bien')
             ->setPageTitle('new','Créer un type de bien')
             ->setPageTitle('edit','Page d\'édition');
     }
