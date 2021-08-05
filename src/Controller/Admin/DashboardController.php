@@ -127,6 +127,17 @@ class DashboardController extends AbstractDashboardController
 
         }
 
+        $mois = $this->inscriptionRepository->getNb();
+
+        $moisN = [];
+        $nbrInscrit = [];
+
+        //J'ai démaonté les données pour les séparer tel qu'attendu par ChartJS
+        foreach($mois as $month){
+            $moisN[] = $month['mois'];
+            $nbrInscrit[] = $month ['nbr_inscrit'];
+
+        }
       
 
         //Je cherche les données des couleur de statistique et les démontés
@@ -205,6 +216,8 @@ class DashboardController extends AbstractDashboardController
                 'count' =>json_encode($count),
                 'salaire'=>json_encode($salaire),
 
+                'mois' =>json_encode($moisN),
+                'nbrIns' =>json_encode($nbrInscrit),
 
                 'prenom' =>json_encode($prenom),
                 'color1' =>json_encode($color1),

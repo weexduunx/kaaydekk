@@ -92,10 +92,10 @@
 			<div class="col-lg-12 col-md-12">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Inscrit(e) par date</h4>
+						<h4 class="card-title"><i class="fa fa-bar-chart"></i> Inscrit(e) par date</h4>
 						<p class="font-14 mb-2 text-muted">- Statistique des inscriptions enregistrées par date
 							<br></p>
-						<div>
+						<div class="chart-container">
 							<canvas id="client" height="150"></canvas>
 						</div>
 					</div>
@@ -105,7 +105,49 @@
 		</div>
 
 		<div class="row">
-		<!-- column -->
+		
+			<!-- column -->
+
+			<div class="col-md-6 col-lg-4 table-responsive">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Inscrits par Mois</h4>
+						<p class="font-14 mb-2 text-muted">- Statistiques des nombres d'inscrits par mois, groupées par mois
+							<br> - Le mois est représenté en chiffre</p>
+						<div class="chart-container">
+							<canvas id="mois" height="150"></canvas>
+							{# <ul class="list-style-none mb-0">
+								<li>
+									<i class="fas fa-circle text-primary font-10 mr-2"></i>
+									<span class="text-muted">Les ventes directes</span>
+									{% for sommes in somme %}
+										<span class="responsive text-dark float-right font-weight-medium" style="font-weight: bold; font-size: 18px;">{{sommes.prix_global | format_number}}</span>
+									{% endfor %}
+								</li>
+							</ul> #}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- column -->
+			<!-- column -->
+			<div class="col-md-12 col-lg-8 table-responsive">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title"><i class="fa fa-line-chart"></i>Salaire Mensuels</h4>
+						<p class="font-14 mb-2 text-muted">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
+						<div class="chart-container ">
+							<canvas id="pie1" height="150"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- column -->
+		</div>
+
+			<div class="row">
+			<!-- column -->
 
 			<div class="col-md-6 col-lg-4 table-responsive">
 				<div class="card">
@@ -113,7 +155,7 @@
 						<h4 class="card-title">Propriétés vendues</h4>
 						<p class="font-14 mb-2 text-muted">- Statistiques des propriétés vendues, groupées par prix de la  nature du bien
 							<br></p>
-						<div >
+						<div class="chart-container">
 							<canvas id="price" height="150"></canvas>
 							<ul class="list-style-none mb-0">
 								<li>
@@ -130,24 +172,7 @@
 			</div>
 			
 			<!-- column -->
-
-			<!-- column -->
-			<div class="col-md-12 col-lg-8">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-title">Salaire Mensuels</h4>
-						<p class="font-14 mb-2 text-muted">- Statistiques des candidats, selon leurs salaires mensuels<br></p>
-						<div>
-							<canvas id="pie1" height="150"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- column -->
-		</div>
-
-			<div class="row">
-			<div class="col-lg-8">
+			<div class="col-lg-4">
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title text-center">Prix des Biens</h4>
@@ -250,7 +275,7 @@ labels: {{ nom|raw }},
 datasets: [
 {
 	label: "Salaire Mensuel",
-	data: {{ salaire|raw }},
+	data: {{ salaire |raw}},
 	backgroundColor: {{ color|raw }}
 }]
     
@@ -273,6 +298,21 @@ backgroundColor: {{ colorClient|raw }}
 
 }
 })
+
+let mois = document.querySelector("#mois")
+let moisGraph = new Chart(mois, {
+type: "pie",
+data: {
+labels: {{ mois|raw }},
+datasets: [{
+label: "Nombre d'inscrit(e)s",
+data: {{ nbrIns|raw }},
+backgroundColor: {{ colorClient|raw }}
+}]
+
+}
+})
+
 
 
 let prices = document.querySelector("#price")

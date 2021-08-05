@@ -46,6 +46,7 @@ class InscriptionRepository extends ServiceEntityRepository
             ;
     }
 
+    
     private function findVisibleQuery() : \Doctrine\ORM\QueryBuilder
     {
         return $this->createQueryBuilder('i')
@@ -71,6 +72,18 @@ class InscriptionRepository extends ServiceEntityRepository
 
         return $query->getQuery()->getResult();
     }
+
+     public function getNb(){
+ 
+        $qb = $this->createQueryBuilder('i')
+                   ->select('COUNT(i.id) AS nbr_inscrit, SUBSTRING(i.createdAt,6,2) AS mois')
+                   ->groupBy('mois');
+ 
+            return $qb->getQuery()
+                      ->getResult();
+ 
+    }
+    
     // /**
     //  @return Inscription[] Returns an array of Inscription objects
     //
