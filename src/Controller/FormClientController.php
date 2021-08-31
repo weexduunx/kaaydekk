@@ -37,7 +37,7 @@ class FormClientController extends AbstractController
         }
 
 
-        return $this->render('form_client/form.html.twig',
+        return $this->render('inscription/inscription.html.twig',
          array('form' =>$form->createView())
 
         );
