@@ -63,7 +63,7 @@
         "symfony/proxy-manager-bridge": "5.2.*",
         "symfony/psr-http-message-bridge": "^2.1",
         "symfony/requirements-checker": "^2.0",
-        "symfony/security-bundle": "5.2.*",
+        "symfony/security-bundle": "5.4.*",
         "symfony/sendgrid-mailer": "5.2.*",
         "symfony/serializer": "5.2.*",
         "symfony/stopwatch": "^5.2",
